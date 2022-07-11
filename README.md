@@ -1,5 +1,7 @@
 # Home assistant
 
+Intro to Home Assistant: https://www.youtube.com/watch?v=TaIwArlov_4
+
 ## Deploy Home Assistant on Docker
 
 https://www.home-assistant.io/installation/alternative/#docker-compose
