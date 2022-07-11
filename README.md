@@ -134,3 +134,15 @@ Alternative could be https://github.com/scoulomb/misc-notes/blob/master/lab-env/
  ## Store config in git
   
 See also https://community.home-assistant.io/t/sharing-your-configuration-on-github/195144
+
+## Suggestion: define A record pointing to your machine/NAS
+
+Example
+
+````
+$ nslookup local.nas.coulombel.net
+Name:   local.nas.coulombel.net
+Address: 192.168.1.88
+````
+
+<!-- https://github.com/open-denon-heos/remote-control#suggestion-define-a-record-pointing-to-your-machinenas -->
