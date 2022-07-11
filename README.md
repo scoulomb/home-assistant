@@ -8,8 +8,8 @@ https://www.home-assistant.io/installation/alternative/#docker-compose
 
 ### Lab env
 
-Did not use WSL here: https://github.com/scoulomb/misc-notes/blob/master/lab-env/others.md#use-wsl
-Use https://github.com/scoulomb/misc-notes/blob/master/lab-env/README.md
+- Did not use WSL here: https://github.com/scoulomb/misc-notes/blob/master/lab-env/others.md#use-wsl
+- Used https://github.com/scoulomb/misc-notes/blob/master/lab-env/README.md
 
 ### Quick deploy
 
