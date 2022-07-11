@@ -11,4 +11,6 @@ https://lofurol.fr/joomla/electronique/domotique/302-home-assistant-piloter-une-
 netatmo
 nfc
 
-trigger source media player -> hue scene
+trigger
+nfc -> swith to media player then
+source media player -> hue scene
