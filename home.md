@@ -6,3 +6,9 @@ For Phlips relationship: no need to integrate API used Home Assistant directy
 <!-- https://github.com/open-denon-heos/discovery/tree/main/heos_docker_initial_project#improvement -->
 
 Use home assistant for alarm clock via AVR rather than conjob trigger in NAS
+
+https://lofurol.fr/joomla/electronique/domotique/302-home-assistant-piloter-une-climatisation-daikin-avec-l-infrarouge
+netatmo
+nfc
+
+trigger source media player -> hue scene
