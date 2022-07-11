@@ -2,9 +2,16 @@
 
 Intro to Home Assistant: https://www.youtube.com/watch?v=TaIwArlov_4
 
-## Deploy Home Assistant on Docker
+## Deploy Home Assistant via Docker Compose
 
 https://www.home-assistant.io/installation/alternative/#docker-compose
+
+### Lab env
+
+Did not use WSL here: https://github.com/scoulomb/misc-notes/blob/master/lab-env/others.md#use-wsl
+Use https://github.com/scoulomb/misc-notes/blob/master/lab-env/README.md
+
+### Quick deploy
 
 ````
 version: '3'
@@ -28,10 +35,6 @@ docker-compose up -d
 
 Once the Home Assistant Container is running Home Assistant should be accessible using http://<host>:8123 (replace with the hostname or IP of the system).
 
-### Lab env
-
-Did not use WSL here: https://github.com/scoulomb/misc-notes/blob/master/lab-env/others.md#use-wsl
-Use https://github.com/scoulomb/misc-notes/blob/master/lab-env/README.md
 
 
 ## Installing Home Assistant (HA) on QNAP NAS
