@@ -8,7 +8,7 @@ https://www.home-assistant.io/installation/alternative/#docker-compose
 
 ### Lab env
 
-- Did not use WSL here: https://github.com/scoulomb/misc-notes/blob/master/lab-env/others.md#use-wsl
+- Did not use WSL here: https://github.com/scoulomb/misc-notes/blob/master/lab-env/others.md#use-wsl, or others
 - Used https://github.com/scoulomb/misc-notes/blob/master/lab-env/README.md
 
 ### Quick deploy
@@ -126,4 +126,6 @@ device_tracker:
 Same issue as for Denon heos API server
 - https://github.com/open-denon-heos/heos-api-server/blob/main/README.md#using-docker-in-dev-mode
 - https://github.com/open-denon-heos/heos-api-server/blob/main/README.md#with-volume-mapping
-
+  
+Alternative could be https://github.com/scoulomb/misc-notes/blob/master/lab-env/others.md#but-discover-container-station-can-deploy-a-k3s-natively
+<!-- see also https://github.com/scoulomb/misc-notes/blob/master/replicate-k8s-ingress-locally-with-compose/README.md#k3s, not documented in heos, https://github.com/scoulomb/TODO-perso ref clear -->
