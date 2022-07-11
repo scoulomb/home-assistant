@@ -1,4 +1,4 @@
-# Home assistant
+# Home assistant setup
 
 Intro to Home Assistant: https://www.youtube.com/watch?v=TaIwArlov_4
 
@@ -130,4 +130,7 @@ Same issue as for Denon heos API server
 Alternative could be https://github.com/scoulomb/misc-notes/blob/master/lab-env/others.md#but-discover-container-station-can-deploy-a-k3s-natively
 <!-- see also https://github.com/scoulomb/misc-notes/blob/master/replicate-k8s-ingress-locally-with-compose/README.md#k3s, not documented in heos, https://github.com/scoulomb/TODO-perso ref clear -->
 
+  
+ ## Store config in git
+  
 See also https://community.home-assistant.io/t/sharing-your-configuration-on-github/195144
