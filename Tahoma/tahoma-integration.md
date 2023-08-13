@@ -109,12 +109,20 @@ Quand interrupteur filaire: montee moteur L1, descente moteur L2 recupere sur Iz
 
 
 Pour gagner espace boitier 
-- utiliser wago 2 entree au lieu de 3 entree 
-- fil plus fin
-- interrupteur plus fin : https://www.somfypro.fr/produits/-/e-cat/1811272/COMMANDE_GENERALE_SMOOVE_ORIGIN_IB
+- utiliser wago 2 entree au lieu de 3 entree (wago 2 et 5 photo)
+- Interrupteur 
+    - filaire
+        - fil phase plus fin
+        - interrupteur plus fin : https://www.somfypro.fr/produits/-/e-cat/1811272/COMMANDE_GENERALE_SMOOVE_ORIGIN_IB
+    - ou automatique
+        - isoler A/B
+<!-- ok clear re-cf YES OK STOP - plus espace optional de decrire ici-->
 
-<!-- ok clear re-cf YES OK STOP -->
-Le store de la chambre a un setup initial mais un wago isole la descente car moteur automatique. 
+Le store de la chambbre etant nativement automatique la phase installation est directemment connecte au moteur (fil L1).
+D'ou un wago sur l'ancienne descente (L2).
+Et cette phase repart sur le store (qui lui a L1 et L2)
+
+<!-- no need to re-check - could unplug to double check but ok stop -->
 
 ## Software setup 
 
