@@ -156,3 +156,5 @@ It is explained here https://github.com/home-assistant/core/issues/69558#issueco
 
 Tahoma update may disable token.
 We can disable automatic update.
+
+<!-- ok ccl not committed pw ok -->
