@@ -124,27 +124,65 @@ Pair with Tahoma box:
 - Izymo module, volet
 - Eventually Philips hue 
 
+### Network 
+
 See note [on network](../README.md#note-on-network)
+
+### Alexa integration and routines 
+
+Tested OK
 
 ### Use apple homekit integration
 
-Working well but Izymo module is not recognized
+Working well for volert chambre but not in salon ==> Izymo module is not recognized as HomeKit device.
 
 
-### Use OverKiz API
+### Use OverKiz API and HA integration
 
-https://www.home-assistant.io/installation/alternative
+I had an issue as OverKiz stop working, could believe it was a [network issue](#network),
 
-https://github.com/home-assistant/core/issues/69558
-https://community.home-assistant.io/t/overkiz-by-somfy-integration-failed-to-connect-how-to-debug/438011
-https://github.com/home-assistant/core/issues/93511
+But from https://github.com/home-assistant/core/issues/93511, this is due to an issue in HA.
+Need to use last version.
 
+This is the same problem reported here: https://community.home-assistant.io/t/overkiz-by-somfy-integration-failed-to-connect-how-to-debug/438011.
+
+
+So I redeploy the docker image with last version as explained here https://www.home-assistant.io/installation/alternative.
+See also [README](../README.md#installing-home-assistant-ha-on-qnap-nas).
+
+It worked succesfully.
+For store chambre we both have overkiz and HomeKit integration.
+
+
+In dashbaord we can create (it is cover entity)
+- a view with all the cover 
+- Edit living room and bedroom view to add respective cover with overkiz (remove homekit one, the one without stop button)
+
+Thus we could use OverKiz API (via Python client) used by HA: https://github.com/iMicknl/python-overkiz-api/
 
 ### Tahoma local API integration
+
+We have to use OverKiz API which is not local.
+They are thinking to integrate it in the Python client insetead of using OverKiz cloud API: https://github.com/home-assistant/core/issues/69558
+
+
+We can play with this local API anyway: 
+- https://github.com/home-assistant/core/issues/69558#issuecomment-1523101067
+- https://community.jeedom.com/t/commande-somfy-tahoma-avec-l-api-locale/106397/2
+
+We have to activate Tahoma in dev mode
+- https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode
+
+I use the command given in this link https://community.jeedom.com/t/commande-somfy-tahoma-avec-l-api-locale/106397/2 and convert it to curl using chatgpt. 
+
+
+[HERE]
+
+
 
 
 ## Next ideas
 
 - esphomne air sensor
 - https://www.la-maison-electrique.com/somfy/62578-lanceur-de-scenario-tahoma-1824035-3660849517052.html
-- Izymo on-off mais va etre complique car on la phase et retour lampe sur l'interrupteur (comme L -> L1/L2 moteur) mais neutre pas accessible facilement dans mon cas
+- Izymo on-off mais va etre complique car on la phase et retour lampe sur l'interrupteur (comme L -> L1/L2 moteur) mais neutre pas accessible facilement dans mon installation :(. 
