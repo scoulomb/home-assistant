@@ -51,9 +51,9 @@ On observe que c'est 4 cable car on tourne on a un
 , avec moteur neutre vers neutre installation et moteur Terre vers Terre installation. Mais Izymo a besoin de repiquer un neutre en plus.
 
 - L (phase)
-    - Phase intallation -> interrupteur
-    - Interrupteur vers moteur L1 montee,
-    - Interrupteur moteur L2 descente, (cable en plus cr montee descente)
+    - Phase installation -> (vers) interrupteur
+    - Interrupteur -> moteur L1 montee,
+    - Interrupteur -> moteur L2 descente (cable en plus car montee descente)
 - N (Neutre)  moteur -> neutre installation
 - T (terre) moteur -> terre installation
 
@@ -113,11 +113,13 @@ Quand interrupteur filaire: montee moteur L1, descente moteur L2 recupere sur Iz
 
 
 Pour gagner espace boitier 
-- utiliser wago 2 entree au loeu de 3 entree 
+- utiliser wago 2 entree au lieu de 3 entree 
 - fil plus fin
-- interrupteur plus fin 
+- interrupteur plus fin : https://www.somfypro.fr/produits/-/e-cat/1811272/COMMANDE_GENERALE_SMOOVE_ORIGIN_IB
 
-## Softare setup 
+<!-- ok clear -->
+
+## Software setup 
 
 
 ### Pair
@@ -125,3 +127,25 @@ Pour gagner espace boitier
 Pair with Tahoma box:
 - Izymo module, volet
 - Eventually Philips hue 
+
+See note [on network](../README.md#note-on-network)
+
+### Use apple homekit integration
+
+Working well but Izymo module is not recognized
+
+
+### Use OverKiz API
+
+https://github.com/home-assistant/core/issues/69558
+https://community.home-assistant.io/t/overkiz-by-somfy-integration-failed-to-connect-how-to-debug/438011
+https://github.com/home-assistant/core/issues/93511
+
+
+### Tahoma local API integration
+
+
+## Next ideas
+
+- esphomne air sensor
+- https://www.la-maison-electrique.com/somfy/62578-lanceur-de-scenario-tahoma-1824035-3660849517052.html
