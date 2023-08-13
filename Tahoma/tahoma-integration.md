@@ -114,6 +114,7 @@ Pour gagner espace boitier
 - interrupteur plus fin : https://www.somfypro.fr/produits/-/e-cat/1811272/COMMANDE_GENERALE_SMOOVE_ORIGIN_IB
 
 <!-- ok clear re-cf YES OK STOP -->
+Le store de la chambre a un setup initial mais un wago isole la descente car moteur automatique. 
 
 ## Software setup 
 
