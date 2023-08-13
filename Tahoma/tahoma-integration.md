@@ -142,7 +142,7 @@ Working well for volert chambre but not in salon ==> Izymo module is not recogni
 I had an issue as OverKiz stop working, could believe it was a [network issue](#network),
 
 But from https://github.com/home-assistant/core/issues/93511, this is due to an issue in HA.
-Need to use last version.
+Need to use last version (take image from DockerHub not recommend QNAP one).
 
 This is the same problem reported here: https://community.home-assistant.io/t/overkiz-by-somfy-integration-failed-to-connect-how-to-debug/438011.
 
