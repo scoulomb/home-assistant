@@ -158,7 +158,11 @@ In dashbaord we can create (it is cover entity)
 - a view with all the cover 
 - Edit living room and bedroom view to add respective cover with overkiz (remove homekit one, the one without stop button)
 
-Thus we could use OverKiz API (via Python client) used by HA: https://github.com/iMicknl/python-overkiz-api/
+See capture:
+
+![](./media/ha-dashboard.PNG)
+
+Thus we could use OverKiz API directly (via Python client) used by HA: https://github.com/iMicknl/python-overkiz-api/
 
 ### Tahoma local API integration
 
@@ -178,8 +182,7 @@ I use the command given in this link https://community.jeedom.com/t/commande-som
 
 [HERE]
 
-
-
+## No tahoma integration (esphome based)
 
 ## Next ideas
 
