@@ -61,7 +61,7 @@ On peut donc avoir une installation equivalente (sans le repiquage de phase au n
 
 ![](./media/installation-equivalente.PNG)
 
-J'ai utilise un interrupteur Somfy Inis: https://www.amazon.fr/Somfy-1870881-Commande-Interrupteur-Descente/dp/B095CVJCJ1/ref=sr_1_4?keywords=interrupteur+volet+roulant&qid=1691931810&refinements=p_4%3ASomfy&s=hi&sr=1-4
+J'ai utilise un interrupteur Somfy Inis: https://www.amazon.fr/Somfy-1870881-Commande-Interrupteur-Descente/dp/B095CVJCJ1/ref=sr_1_4?keywords=interrupteur+volet+roulant&qid=1691931810&refinements=p_4%3ASomfy&s=hi&sr=1-4 (ancien interrupteur avait une mise en place des fil compliquee "en force").
 
 On notera le `wago` le plus a gauche, prends la phase de l'installation et renvoit vert l'interrupteur
 - Store
