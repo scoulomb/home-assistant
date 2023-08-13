@@ -176,3 +176,7 @@ Normally home assitant in NAS should see those 2 devices.
 
 However for setup simplification I decided to have everything in same network.
 So I plug an ethernet switch on google home wifi external ethernet. In the hub I plugged all ethernet devices
+
+## Tahoma
+
+See [Tahoma integration](./Tahoma/tahoma-integration.md)
