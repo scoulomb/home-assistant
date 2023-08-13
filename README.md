@@ -146,3 +146,33 @@ Address: 192.168.1.88
 ````
 
 <!-- https://github.com/open-denon-heos/remote-control#suggestion-define-a-record-pointing-to-your-machinenas -->
+
+
+Note if using google wifi router, a DNS record is automatically created `scoulombel-nas`.
+IP is visible in google home app (unlike SFR wifi), and accessible from device in google home network (to access from SFR add port fw in google home port management)
+See [note on network below](#note-on-network)
+
+IP in SFR wifi can be seen via `192.168.1.1`.
+
+## Note on network
+
+
+I have 2 network
+    - SFR Box (Wifi + many eth)
+    - Google home (wifi + 1 external eth + 1 eth conneced to SFR box eth)
+
+When NAS on SFR box eth, and Denon devices on Google home wifi
+I did not manage to get it working aGAIN 
+In the past I was able to, SSDP discovery worked similar to https://github.com/open-denon-heos/heospy/blob/main/heospy/__init__.py#L105 (without port 1900 forwarding apparently, 2 denon devices had gateway IP)
+Then had to dnat  port used by heos in Google wifi => Opened port 1223 (1255?) in google home wifi app (port management)
+https://forum.fibaro.com/topic/17590-fibaro-hcl-and-denon-heos/
+Decided to plug nas in ethernet plug  of google router to avoid this
+Drawback: 
+ - Will lose WOW (Wake on Wan) via WOL PROXY CONFIGURED IN THE BOX: https://github.com/scoulomb/misc-notes/blob/master/NAS-setup/Wake-On-LAN.md#setup-2b-wow-with-cloud-server
+ - If NAS is doing upnp for port forwarding it will open it in google home wifi and ned to it in SFR wifi 
+
+Then need to have somfy and hue on same wifi netowrk for integration (upnp discovery). Put both in SFR wifi.
+Normally home assitant in NAS should see those 2 devices.
+
+However for setup simplification I decided to have everything in same network.
+So I plug an ethernet switch on google home wifi external ethernet. In the hub I plugged all ethernet devices
