@@ -47,9 +47,6 @@ Nous sommes donc dans le cas standard, une fois pour le volet et pour le store
 
 On observe que c'est 4 cable car on tourne on a un
 
-
-, avec moteur neutre vers neutre installation et moteur Terre vers Terre installation. Mais Izymo a besoin de repiquer un neutre en plus.
-
 - L (phase)
     - Phase installation -> (vers) interrupteur
     - Interrupteur -> moteur L1 montee,
@@ -111,13 +108,12 @@ On voit donc dans ce cas que le Izymo (voir schema montage Izymo au dessus) pren
 Quand interrupteur filaire: montee moteur L1, descente moteur L2 recupere sur Izymo A/B et interupteur connecte sur phase installation (wago). Equivalent donc interrupteur volet [standard](#standard).
 
 
-
 Pour gagner espace boitier 
 - utiliser wago 2 entree au lieu de 3 entree 
 - fil plus fin
 - interrupteur plus fin : https://www.somfypro.fr/produits/-/e-cat/1811272/COMMANDE_GENERALE_SMOOVE_ORIGIN_IB
 
-<!-- ok clear -->
+<!-- ok clear re-cf YES OK STOP -->
 
 ## Software setup 
 
@@ -137,6 +133,8 @@ Working well but Izymo module is not recognized
 
 ### Use OverKiz API
 
+https://www.home-assistant.io/installation/alternative
+
 https://github.com/home-assistant/core/issues/69558
 https://community.home-assistant.io/t/overkiz-by-somfy-integration-failed-to-connect-how-to-debug/438011
 https://github.com/home-assistant/core/issues/93511
@@ -149,3 +147,4 @@ https://github.com/home-assistant/core/issues/93511
 
 - esphomne air sensor
 - https://www.la-maison-electrique.com/somfy/62578-lanceur-de-scenario-tahoma-1824035-3660849517052.html
+- Izymo on-off mais va etre complique car on la phase et retour lampe sur l'interrupteur (comme L -> L1/L2 moteur) mais neutre pas accessible facilement dans mon cas
