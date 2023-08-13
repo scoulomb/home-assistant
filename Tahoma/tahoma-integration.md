@@ -41,11 +41,13 @@ Use Izymo IO: https://www.automatismes.net/recepteurs-domotique/5140-somfy-18226
 
 ##### Standard
 
-Nous sommes donc dans le cas standard, une fois pour le volet et pour le store
+Nous sommes donc dans le cas standard, applique 2 fois
+- pour le volet
+- et pour le store
 
 ![](./media/schema-install-standard.PNG)
 
-On observe que c'est 4 cable car on tourne on a un
+On observe que c'est 4 cable (car gestion montee et descente, comme si on avait [2 retour lampe](./media/schema-elec-simple-allumage.PNG) : https://www.123elec.com/branchement-interrupteur-va-et-vient)
 
 - L (phase)
     - Phase installation -> (vers) interrupteur
@@ -59,9 +61,9 @@ On peut donc avoir une installation equivalente (sans le repiquage de phase au n
 
 ![](./media/installation-equivalente.PNG)
 
-J'ai utilise un interrupteur somfy inis: https://www.amazon.fr/Somfy-1870881-Commande-Interrupteur-Descente/dp/B095CVJCJ1/ref=sr_1_4?keywords=interrupteur+volet+roulant&qid=1691931810&refinements=p_4%3ASomfy&s=hi&sr=1-4
+J'ai utilise un interrupteur Somfy Inis: https://www.amazon.fr/Somfy-1870881-Commande-Interrupteur-Descente/dp/B095CVJCJ1/ref=sr_1_4?keywords=interrupteur+volet+roulant&qid=1691931810&refinements=p_4%3ASomfy&s=hi&sr=1-4
 
-On notera le `wago` le plus a gauche, qui a prend la phase de l'installation et renvoit vert l'interrupteur
+On notera le `wago` le plus a gauche, prends la phase de l'installation et renvoit vert l'interrupteur
 - Store
 - Et volet (cable noir epais)
 
@@ -84,15 +86,18 @@ Le motage concret est donc le suivant
 
 ![](./media/montage-izymo.PNG)
 
-- wago1 - La terre est inchange (terre installation, volet, store) 
-- wago2 - Connecte montee moteur volet au Izymo (L1)
-- wago5 - Connecte descente moteur volet au Izymo (L2)
-- wago3 - Connecte neutre
+- wago numero 1 - La terre est inchange 
+    - terre: installation
+    - terre store
+    - terre volet 
+- wago numero 2 - Connecte montee moteur volet au Izymo (L1) - fil noir
+- wago numero 5 - Connecte descente moteur volet au Izymo (L2) - fil marron
+- wago numero 3 - Connecte neutre
     - Neutre installation 
     - Neutre moteur store 
     - Neutre moteur volet
     - Neutre Izymo (N)
-- wago 4 - connecte phase 
+- wago numero 4 - connecte phase 
     - Phase installation 
     - Phase interrupteur store
     - **Phase interrupteur volet** (2 fils sur le schema mais un seul phisiquement sur le montage concret)
@@ -101,26 +106,26 @@ Le motage concret est donc le suivant
 
 On voit donc que ce montage concret est coherent avec le schema de montage.
 
-En gras nous avons mis les connexions non necessaire si utilise pas interrupteur filaire
+En gras nous avons mis les connexions non necessaire si utilise pas interrupteur filaire.
 
-On voit donc dans ce cas que le Izymo (voir schema montage Izymo au dessus) prend les meme inputs qu'cas [standard normal](#standard) (L, montee moteur L1, descente moteur L2) mais a besoin de repiquer le neutre.
+On voit donc dans ce cas que le Izymo (voir schema montage Izymo au dessus) prend les meme inputs qu'un cas [standard normal](#standard) (L, montee moteur L1, descente moteur L2) mais a besoin de repiquer le neutre en plus.
 
 Quand interrupteur filaire: montee moteur L1, descente moteur L2 recupere sur Izymo A/B et interupteur connecte sur phase installation (wago). Equivalent donc interrupteur volet [standard](#standard).
 
 
 Pour gagner espace boitier 
-- utiliser wago 2 entree au lieu de 3 entree (wago 2 et 5 photo)
+- utiliser wago 2 entree au lieu de 3 entree (wago 2 et 5 sur la photo). Un wago 4 entre n'existe pas.
 - Interrupteur 
     - filaire
         - fil phase plus fin
         - interrupteur plus fin : https://www.somfypro.fr/produits/-/e-cat/1811272/COMMANDE_GENERALE_SMOOVE_ORIGIN_IB
     - ou automatique
         - isoler A/B
-<!-- ok clear re-cf YES OK STOP - plus espace optional de decrire ici-->
+<!-- ok clear re-cf YES OK STOP - plus espace optional de decrire ici OK-->
 
 Le store de la chambbre etant nativement automatique la phase installation est directemment connecte au moteur (fil L1).
-D'ou un wago sur l'ancienne descente (L2).
-Et cette phase repart sur le store (qui lui a L1 et L2)
+D'ou un wago pour isoler l'ancienne descente (L2).
+Et cette phase repart sur le store (qui lui a L1 et L2 car [interrupteur](#standard))
 
 <!-- no need to re-check - could unplug to double check but ok stop -->
 
@@ -141,12 +146,14 @@ See note [on network](../README.md#note-on-network)
 
 ### Alexa integration and routines 
 
-Tested OK
+Tested OK.
+Can use routine. 
 
 ### Use apple homekit integration
 
-Working well for volert chambre but not in salon ==> Izymo module is not recognized as HomeKit device.
+Working well for "volet natif" but not with Izymo ==> Izymo module is not recognized as HomeKit device.
 
+See https://forum.somfy.fr/questions/2528440-compatibilite-homekit-module-izymo
 
 ### Use OverKiz API and HA integration
 
@@ -177,8 +184,9 @@ Thus we could use OverKiz API directly (via Python client) used by HA: https://g
 
 ### Tahoma local API integration
 
-We have to use OverKiz API which is not local.
-They are thinking to integrate it in the Python client insetead of using OverKiz cloud API: https://github.com/home-assistant/core/issues/69558
+We have to use OverKiz API which is not loca
+l.
+They are thinking to integrate it in the Python client instead of using OverKiz cloud API: https://github.com/home-assistant/core/issues/69558
 
 
 We can play with this local API anyway: 
@@ -188,8 +196,9 @@ We can play with this local API anyway:
 We have to activate Tahoma in dev mode
 - https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode
 
-I use the command given in this link https://community.jeedom.com/t/commande-somfy-tahoma-avec-l-api-locale/106397/2 and convert it to curl using chatgpt. 
+I use `PowerShell` command given in this link https://community.jeedom.com/t/commande-somfy-tahoma-avec-l-api-locale/106397/2 and convert it to `curl` command using Chatgpt. 
 
+<!-- use ubuntu WSL -->
 
 [HERE]
 
@@ -199,5 +208,5 @@ I use the command given in this link https://community.jeedom.com/t/commande-som
 
 - esphomne air sensor
 - https://www.la-maison-electrique.com/somfy/62578-lanceur-de-scenario-tahoma-1824035-3660849517052.html
-- Izymo on-off mais va etre complique car on la phase et retour lampe sur l'interrupteur (comme L -> L1/L2 moteur) mais neutre pas accessible facilement dans mon installation :(. 
-- retry tuya with new version of HA
+- Izymo on-off mais va etre complique car on la phase et retour lampe sur l'interrupteur (comme L -> L1/L2 moteur) mais neutre pas accessible facilement dans mon installation :(: https://www.somfy.fr/produits/1822649/recepteur-on-off-io-izymo (see montage eventuel)
+- retry tuya with new version of HA: https://gist.github.com/scoulomb/8381cac25d5f695a5edf734e7ae47d6e
