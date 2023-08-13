@@ -137,6 +137,8 @@ Pair with Tahoma box:
 
 See note [on network](../README.md#note-on-network)
 
+<!-- stop checking more -->
+
 ### Alexa integration and routines 
 
 Tested OK
@@ -198,3 +200,4 @@ I use the command given in this link https://community.jeedom.com/t/commande-som
 - esphomne air sensor
 - https://www.la-maison-electrique.com/somfy/62578-lanceur-de-scenario-tahoma-1824035-3660849517052.html
 - Izymo on-off mais va etre complique car on la phase et retour lampe sur l'interrupteur (comme L -> L1/L2 moteur) mais neutre pas accessible facilement dans mon installation :(. 
+- retry tuya with new version of HA
