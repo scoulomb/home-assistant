@@ -1,0 +1,6 @@
+
+# Replace with your actual values
+pin=""
+cloud="ha101-1.overkiz.com"
+userId=""
+userPassword=""

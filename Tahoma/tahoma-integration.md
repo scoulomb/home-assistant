@@ -182,25 +182,17 @@ See capture:
 
 Thus we could use OverKiz API directly (via Python client) used by HA: https://github.com/iMicknl/python-overkiz-api/
 
-### Tahoma local API integration
+### Tahoma local integration
 
-We have to use OverKiz API which is not loca
-l.
+We have to use OverKiz API which is not local.
 They are thinking to integrate it in the Python client instead of using OverKiz cloud API: https://github.com/home-assistant/core/issues/69558
 
 
-We can play with this local API anyway: 
-- https://github.com/home-assistant/core/issues/69558#issuecomment-1523101067
-- https://community.jeedom.com/t/commande-somfy-tahoma-avec-l-api-locale/106397/2
+We can play with this local API anyway and call it from HA.
+See [Local Tahoma](./local-tahoma/local-tahoma.md).
 
-We have to activate Tahoma in dev mode
-- https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode
-
-I use `PowerShell` command given in this link https://community.jeedom.com/t/commande-somfy-tahoma-avec-l-api-locale/106397/2 and convert it to `curl` command using Chatgpt. 
-
-<!-- use ubuntu WSL -->
-
-[HERE]
+<!-- done completed - could integrate shell cmd in HA 
+HERE -->
 
 ## No tahoma integration (esphome based)
 

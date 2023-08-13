@@ -1,0 +1,16 @@
+{
+    "label": "test",
+    "actions": [
+      {
+        "commands": [
+          {
+            "name": "setDeployment",
+            "parameters": [
+              "25"
+            ]
+          }
+        ],
+        "deviceURL": "io://[...]"
+      }
+    ]
+  }
