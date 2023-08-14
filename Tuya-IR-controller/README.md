@@ -45,7 +45,7 @@ Then we can integrate this in HA in Dashbaord and Automation
 ![](./media/ac-in-ha.PNG)
 
 
-
+<!-- here -->
 ## Control Tuya devices via API
 
 See [Tuya API](./tuya-api.md)
@@ -58,3 +58,5 @@ As in Somfy we can use [EspHome](./../Tahoma/tahoma-integration.md#next-ideas)
 See https://oliverfalvai.com/notes/posts/how-to-make-infrared-devices-smarter-using-esphome/ (use Arduino Esp32?). Maybe start with SmartButto.
 
 We can see in Wifi list that IR remote I bougth is based on ESP32, why not flash it get ride of it Tuya ;): ttps://tasmota.github.io/docs/Tuya-Convert/
+
+<!-- sufficient link ok -->
