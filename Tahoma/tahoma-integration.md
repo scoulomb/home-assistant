@@ -201,4 +201,3 @@ HERE OK -->
 - esphomne air sensor
 - https://www.la-maison-electrique.com/somfy/62578-lanceur-de-scenario-tahoma-1824035-3660849517052.html
 - Izymo on-off mais va etre complique car on la phase et retour lampe sur l'interrupteur (comme L -> L1/L2 moteur) mais neutre pas accessible facilement dans mon installation :(: https://www.somfy.fr/produits/1822649/recepteur-on-off-io-izymo (see montage eventuel)
-- retry tuya with new version of HA: https://gist.github.com/scoulomb/8381cac25d5f695a5edf734e7ae47d6e
