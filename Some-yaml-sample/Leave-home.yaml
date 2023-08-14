@@ -1,0 +1,61 @@
+alias: LeaveHome
+description: Leave home
+trigger:
+  - platform: tag
+    tag_id: e4420e55-b27a-454f-bd70-ae5748aba9d0
+condition: []
+action:
+  - service: media_player.play_media
+    target:
+      entity_id: media_player.living_room_display
+    data:
+      media_content_id: >-
+        media-source://tts/google_translate?message=Procedure+de+depart+du+domicile+en+cours&language=fr
+      media_content_type: provider
+    metadata:
+      title: Procedure de depart du domicile en cours
+      thumbnail: https://brands.home-assistant.io/_/google_translate/logo.png
+      media_class: app
+      children_media_class: null
+      navigateIds:
+        - {}
+        - media_content_type: app
+          media_content_id: media-source://tts
+        - media_content_type: provider
+          media_content_id: >-
+            media-source://tts/google_translate?message=Procedure+de+depart+du+domicile+en+cours&language=fr
+  - service: scene.turn_on
+    target:
+      entity_id: scene.turn_off_air_conditioner
+    metadata: {}
+  - type: turn_off
+    device_id: 52926e62860ba851f5c3ce8b9468760b
+    entity_id: 6d2c6110f7d75562bb23460ab876d969
+    domain: light
+  - type: turn_off
+    device_id: 55fa4269ac618fbe17426c8231e64c4a
+    entity_id: e8d0c485d2127993240c4155311ff62b
+    domain: light
+  - type: turn_off
+    device_id: 54cf88d741be3aabae99e22d2cf142c6
+    entity_id: 6ea260d2eacff1ee9b921d7a05b37c21
+    domain: light
+  - type: turn_off
+    device_id: 136fc2de9d399015355907cb22da379f
+    entity_id: 8850ad9e8f627824904797f1018428fe
+    domain: light
+  - device_id: 929ca5504652ada204d8aef07455d81b
+    domain: cover
+    entity_id: 9b6d09b26d85624d1c350b0244860397
+    type: set_position
+    position: 70
+  - device_id: b96c7b3dbbc24f053a6159c0afe45371
+    domain: cover
+    entity_id: f79f04ee7ba33d1964bb3d2a33c024b0
+    type: set_position
+    position: 71
+  - service: media_player.turn_off
+    data: {}
+    target:
+      device_id: 4095410adb96412b194ed36b0d29e988
+mode: single
