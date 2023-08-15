@@ -10,7 +10,7 @@
 
 ### Traps
 
-- Use last version of HomeAssistant (last stable **DockerHub** image). Same issue as with [OverKiz](../Tahoma/tahoma-integration.md#use-overkiz-api-and-ha-integration). (was tuck here for a year with tuya issue in HA....)
+- Use last version of HomeAssistant (last stable **DockerHub** image). Same issue as with [OverKiz](../Tahoma/tahoma-integration.md#use-overkiz-api-and-ha-integration). (was tuck here for a year with tuya issue in HA....error 2406)
 - Do not use SmartHome APK it is very bad and prevents from using Tuya Android Store app
     - So do not do  [add smart devices from Tuya console, scan qr code from Tuya app to download SmartHome APK, and scan this same QR to login to project after SmartApp download]
     - It is painful and on top of it Tuya HA will not see the devices 
@@ -19,7 +19,7 @@
     - And add your devices only from Tuya App and check they are present in Tuya console
     - Use Access Id/Access secret from project and  u/p are the one from Tuya account when adding Hub in HA
     - Project SAAS is not required (note it was usable in SamrtHome apk instead of Tuya u/p)
-
+- In doubt select all region when creating project 
 
 The device are recognized by home assistan
 
@@ -51,12 +51,8 @@ Then we can integrate this in HA in Dashbaord and Automation
 See [Tuya API](./tuya-api.md)
 
 
-## Other ideas
+## Bypass Tuya
 
-As in Somfy we can use [EspHome](./../Tahoma/tahoma-integration.md#next-ideas)
-
-See https://oliverfalvai.com/notes/posts/how-to-make-infrared-devices-smarter-using-esphome/ (use Arduino Esp32?). Maybe start with SmartButto.
-
-We can see in Wifi list that IR remote I bougth is based on ESP32, why not flash it get ride of it Tuya ;): ttps://tasmota.github.io/docs/Tuya-Convert/
+We could use [ESPHome](../espHome/README.md).
 
 <!-- sufficient link ok -->
