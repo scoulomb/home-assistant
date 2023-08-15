@@ -45,14 +45,14 @@ Then we can integrate this in HA in Dashbaord and Automation
 ![](./media/ac-in-ha.PNG)
 
 
-<!-- here -->
 ## Control Tuya devices via API
 
 See [Tuya API](./tuya-api.md)
 
-
-## Bypass Tuya
+<!-- here OK as esphome other project-->
+## Bypass
 
 We could use [ESPHome](../espHome/README.md).
 
 <!-- sufficient link ok -->
+

@@ -191,7 +191,7 @@ They are thinking to integrate it in the Python client instead of using OverKiz 
 We can play with this local API anyway and call it from HA.
 See [Local Tahoma](./local-tahoma/local-tahoma.md).
 
-<!-- done completed - could integrate shell cmd in HA 
+<!-- done above completed except montage final - could integrate shell cmd in HA 
 HERE OK -->
 
 ## No tahoma integration (esphome based)
