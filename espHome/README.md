@@ -29,12 +29,17 @@ Equivalent project:
 
 We can start with simple connected button. 
 
+Note I consider [Tahoma local API](../Tahoma/tahoma-integration.md#tahoma-local-integration), not fully local, we to go to Tahoma cloud to get the local token :(.
+
 ## WHcih ESP to buy
 
 This version seems interesting with MicroPython support + Arduino cloud: https://store.arduino.cc/products/nano-esp32-with-headers
 
 
 
-We can see in Wifi list that [Tuya integration and IR remote](../Tuya-IR-controller/README.md) I bougth is based on ESP32, we could flash it get ride of Tuya ! : https://tasmota.github.io/docs/Tuya-Convert/
+We can see in Wifi list that [Tuya integration and IR remote](../Tuya-IR-controller/README.md) I bougth is based on ESP32, we could flash it get ride of Tuya ! 
+- https://tasmota.github.io/docs/Tuya-Convert/
+- https://lofurol.fr/joomla/electronique/domotique/302-home-assistant-piloter-une-climatisation-daikin-avec-l-infrarouge
+
 
 <!--here -->
