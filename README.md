@@ -157,13 +157,15 @@ IP in SFR wifi can be seen via `192.168.1.1`.
 ## Note on network
 
 
-I have 2 network
-    - SFR Box (Wifi + many eth)
-    - Google home (wifi + 1 external eth + 1 eth conneced to SFR box eth)
+I have 2 networks
+- SFR Box (Wifi + many eth)
+- Google home (wifi + 1 external eth + 1 eth conneced to SFR box eth)
 
-When NAS on SFR box eth, and Denon devices on Google home wifi
-I did not manage to get it working aGAIN 
-In the past I was able to, SSDP discovery worked similar to https://github.com/open-denon-heos/heospy/blob/main/heospy/__init__.py#L105 (without port 1900 forwarding apparently, 2 denon devices had gateway IP)
+When NAS on SFR box eth, and Denon devices on Google home wifi.
+
+I did not manage to get it working again. 
+In the past I was able to, SSDP discovery worked similar to https://github.com/open-denon-heos/heospy/blob/main/heospy/__init__.py#L105 (without port 1900 forwarding apparently, 2 denon devices had gateway IP).
+
 Then had to dnat  port used by heos in Google wifi => Opened port 1223 (1255?) in google home wifi app (port management)
 https://forum.fibaro.com/topic/17590-fibaro-hcl-and-denon-heos/
 Decided to plug nas in ethernet plug  of google router to avoid this
