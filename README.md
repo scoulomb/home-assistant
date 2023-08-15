@@ -290,12 +290,15 @@ SSH did not work in ny test (to hp pavillon in google wifi) both with
 - NAT 
 - And DMZ
 
+See potential reasons: https://serverfault.com/questions/404516/ssh-not-working-through-double-nat
+
 Thus either use local IP are connect this machine to SFR wifi when required.
 <!-- See [Tuya API](./Tuya-IR-controller/tuya-api.md) -->
 
 #### What do keep?
 
-Use double NAT rule.
+Use double DNAT rule.
+<!-- ok nw ccl - retested double nat OK -->
 
 ## Projects
 
