@@ -156,6 +156,7 @@ IP in SFR wifi can be seen via `192.168.1.1`.
 
 ## Note on network
 
+### Topo 
 
 I have 2 networks
 - SFR Box (Wifi + many eth)
@@ -163,21 +164,138 @@ I have 2 networks
 
 When NAS on SFR box eth, and Denon devices on Google home wifi.
 
+Schematically
+
+````
+Internet -> SFR Modem -> SFR router [WAN IP - 109.....109] -> Google router [GW IP in SFR LAN] -> Device in Google network [IP in Google LAN] 
+                                                           -> Device in SFR network [IP in SFR LAN]
+````
+
+See WAN IP: https://www.belkin.com/fr/support-article/?articleNum=10796
+
+In my case Bridge mode is not availalble: https://support.google.com/googlenest/answer/6277579?sjid=11569360593923687828-EU.
+Not that even 
+>  `Enable Bridge mode on your Wifi router device` is not possible as WAN IP is public (so not renatting on ISP side, in that case we would have a 3 NAT layer).
+
+I will not consider VPN option: https://networkengineering.stackexchange.com/questions/40773/how-to-make-ipsec-over-double-nat
+
+So I am relying on Double Natting.
+
+
+### Issue and proposed solution
+
+Denon in Google LAN, NAS with HomeAssistant in SFR LAN.
+
+
 I did not manage to get it working again. 
 In the past I was able to, SSDP discovery worked similar to https://github.com/open-denon-heos/heospy/blob/main/heospy/__init__.py#L105 (without port 1900 forwarding apparently, 2 denon devices had gateway IP).
 
 Then had to dnat  port used by heos in Google wifi => Opened port 1223 (1255?) in google home wifi app (port management)
 https://forum.fibaro.com/topic/17590-fibaro-hcl-and-denon-heos/
+
 Decided to plug nas in ethernet plug  of google router to avoid this
-Drawback: 
+
+**Drawbacks** (we will see [below](#eliminate-drawbacks-of-the-solution), how to eliminate them.
+
  - Will lose WOW (Wake on Wan) via WOL PROXY CONFIGURED IN THE BOX: https://github.com/scoulomb/misc-notes/blob/master/NAS-setup/Wake-On-LAN.md#setup-2b-wow-with-cloud-server
  - If NAS is doing upnp for port forwarding it will open it in google home wifi and ned to it in SFR wifi 
+ - Access to NAS inside Google Wifi network (NAS (home assistant UI, QNAP UI), SSH) from outside (Internet) can be complex 
 
 Then need to have somfy and hue on same wifi netowrk for integration (upnp discovery). Put both in SFR wifi.
 Normally home assitant in NAS should see those 2 devices.
 
 However for setup simplification I decided to have everything in same network.
 So I plug an ethernet switch on google home wifi external ethernet. In the hub I plugged all ethernet devices
+
+So that we have
+
+````
+Internet -> SFR Modem -> SFR router [WAN IP - 109.....109] -> Google router [GW IP in SFR LAN] -> Device in Google network [IP in Google LAN] 
+````
+
+### Trying to eLiminate drawbacks of the solution
+
+
+Use-case: I want to access HomeAssistant in NAS with following topology and where bridge mode is available, without a VPN
+
+````
+Internet -> SFR Modem -> SFR router [WAN IP - 109.....109] -> Google router [GW IP in SFR LAN] -> NAS with HA on port 8123 [IP in Google LAN] 
+````
+
+#### Solution 1: Double DNAT
+
+I configured a double port forwarding , for instance in SFR
+
+````
+1 	ha 	TCP 	Port 	8123 	192.168.1.58 	8123 	
+2 	nas TCP 	Port 	9080 	192.168.1.58 	8080 	
+3 	ha 	TCP 	Port 	9123 	192.168.1.58 	8123
+````
+
+And in Google Home APP 
+
+`Network settings > Advanced settings > Port mgmt`, do natting 
+
+````
+8123 -> NAS:8123
+8080 -> NAS:8080
+````
+
+After this I can access from outside home (4g), this is working.
+- to HA using pub WAN IP  (`109....`) and port 8123 or 9123
+- NAS UI using pub WAN IP (`109....`)and port 9080
+
+Note htat when activating UPNP natting rules are not added to SFR box. 
+
+If we disable NAT it stops working
+
+
+#### Solution 2: Use DMZ 
+
+DMZ will forward all incomng traffic from outside to a chosen device in SFR LAN.
+We choose this device to be the gateway.
+
+````
+Activation du DMZ 	
+Adresse Ip 	: 192.168.1.GOOGLE_GW
+````
+
+And in Google Home APP 
+
+`Network settings > Advanced settings > Port mgmt`, do natting 
+
+````
+8123 -> NAS:8123
+8080 -> NAS:8080
+````
+
+After this I can access from outside home (4g), this is working.
+- to HA using pub WAN IP  (`109....`) and port 8123 
+- NAS UI using pub WAN IP (`109....`)and port 8080
+
+It is a workaround to bridge mode: https://la-communaute.sfr.fr/t5/installation-et-param%C3%A9trage/nb6vac-utilisation-en-mode-bridge/td-p/2327729 
+
+#### Solution 2, does it allow to do WOW!?
+
+See https://github.com/scoulomb/misc-notes/blob/master/NAS-setup/Wake-On-LAN.md#in-practise
+And just re-use 
+- Setup made in Android APP 
+- And box has proxy wake on lan + dmz activated
+
+Unforutanetly not
+
+#### About SSH 
+
+SSH did not work in ny test (to hp pavillon in google wifi) both with
+- NAT 
+- And DMZ
+
+Thus either use local IP are connect this machine to SFR wifi when required.
+<!-- See [Tuya API](./Tuya-IR-controller/tuya-api.md) -->
+
+#### What do keep?
+
+Use double NAT rule.
 
 ## Projects
 
