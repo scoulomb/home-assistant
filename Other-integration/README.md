@@ -14,6 +14,8 @@ gpg  Hue-ref.md.gpg
 We can also integrate Hue Hub in Tahoma to link ligth with Tahoma ecosystem (without HA).
 It makes additional entities in HA.
 
+Note this cool stuff: https://community.hueessentials.com/t/how-to-set-up-power-on-behaviour-for-my-lights/720
+
 ## Denon
 
 Magic intergation But some feature missing. Idea to call [API](#api-integration) 
