@@ -299,7 +299,7 @@ Thus either use local IP are connect this machine to SFR wifi when required.
 
 Use double DNAT rule.
 <!-- ok nw ccl - retested double nat OK -->
-<!-- Note tuya and hue do not need NAT, probably socket is established from outbound and not inbound, even if msg flow is inbound -->
+<!-- Note tuya and hue do not need NAT, probably socket is established from outbound and not inbound, even if msg flow is inbound - OK CCL -->
 
 ## Projects
 
@@ -308,3 +308,9 @@ Use double DNAT rule.
 - [Other integration](./Other-integration/README.md)
 - [Some automation sample](./Some-automation-sample/README.md)
 - [ESPHome](./espHome/README.md)
+
+## Next to check
+
+- Pointer of section 
+- ESPHome 
+- Hue ligths (see other integ)
