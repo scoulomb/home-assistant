@@ -1233,4 +1233,4 @@ The way I configure the project fdor HA has no impact for API usage
 <!-- when using smarthome specific ac API single cmd was not working -->
 
 Status: file completed
-<!-- tested with last version copied to hp machine OK - STOP, remove creds, gist deleted -->
+<!-- tested with last version copied to hp machine OK - STOP, remove creds, gist deleted, and token now invalid -->
