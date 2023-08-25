@@ -332,11 +332,12 @@ See [Appendix on UPNP](./appendices/UPNP.md/)
 Note if using Google NEST wifi router, a DNS record is automatically created `scoulombel-nas`.
 Thus can access NAS by doing `scoulombel-nas:8123` in local NEST network. How does it work?
 See [Appendix on mDNS](./appendices/DNS.md#mdns).
-IP is also visible in Google home app, and accessible from device in google home network (to access from SFR add port fw in google home port management, but DNS name wlll not be visible from SFR network to access NAS in Google network)
+Private IP is also visible in Google home app ex `http://192.168.86.20:8123`), and accessible from device in google home network (to access from SFR add port fw in google home port management, but DNS name wlll not be visible from SFR network to access NAS in Google network)
 
 We can also access it via `home.mydomain.net:8123`, if A record `home.mydomain.net	A	1 hour	109.29.148.109`. is correctly set. See See [Appendix on (m)DNS](./appendices/DNS.md#dns-deep-dive).
 <!-- https://github.com/open-denon-heos/remote-control#suggestion-define-a-record-pointing-to-your-machinenas OK -->
 <!-- mdns OK -->
+<!-- mdns can be blocked in corp - work in phone / home.mydomain.net:8123 or ip acess will woerk if vpn unlike local ip / access from laptop on site osef-->
 
 ## Projects
 
@@ -348,7 +349,7 @@ We can also access it via `home.mydomain.net:8123`, if A record `home.mydomain.n
 
 ## Next to check
 
-<!-- - Pointer of section OK clear, commit 729e389 ok no come back osef-->
+<!-- - Pointer of section OK clear (but come back on point referenced here only), commit 729e389 ok no come back osef-->
 <!-- concluded NAT with 
 Links-mig-auto-cloud/README.md#migration-and-snatdnat
 https://github.com/scoulomb/docker-under-the-hood/blob/main/NAT-deep-dive-appendix/README.md#nat-deep-dive
