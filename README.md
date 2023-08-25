@@ -131,47 +131,79 @@ Alternative could be https://github.com/scoulomb/misc-notes/blob/master/lab-env/
 <!-- see also https://github.com/scoulomb/misc-notes/blob/master/replicate-k8s-ingress-locally-with-compose/README.md#k3s, not documented in heos, https://github.com/scoulomb/TODO-perso ref clear -->
 
   
- ## Store config in git
+## Store config in git
   
 See also https://community.home-assistant.io/t/sharing-your-configuration-on-github/195144
 
-## Suggestion: define A record pointing to your machine/NAS
-
-Example
-
-````
-$ nslookup local.nas.coulombel.net
-Name:   local.nas.coulombel.net
-Address: 192.168.1.88
-````
-
-<!-- https://github.com/open-denon-heos/remote-control#suggestion-define-a-record-pointing-to-your-machinenas -->
-
-
-Note if using google wifi router, a DNS record is automatically created `scoulombel-nas`.
-IP is visible in google home app (unlike SFR wifi), and accessible from device in google home network (to access from SFR add port fw in google home port management)
-See [note on network below](#note-on-network)
-
-IP in SFR wifi can be seen via `192.168.1.1`.
 
 ## Note on network
 
-### Topo 
+Before read some NAT foundation at 
+- https://github.com/scoulomb/docker-under-the-hood/blob/main/NAT-deep-dive-appendix/README.md#nat-deep-dive <!-- chema compliant between this doc and here, and detaill the @home -->
+- Links-mig-auto-cloud/README.md#migration-and-snatdnat <!-- link made ok -->
 
-I have 2 networks
-- SFR Box (Wifi + many eth)
-- Google home (wifi + 1 external eth + 1 eth conneced to SFR box eth)
 
-When NAS on SFR box eth, and Denon devices on Google home wifi.
+
+### Config 
+
+At home with Google Wifi
+
+- SFR Box (Modem + Router) (Wifi + Many eth)
+- Google Nest Home (Router) (Wifi + 1 external eth + 1 eth conneced to SFR box eth)
+
+
+### Double NAT with devices on 2 networks
+
+If NAS on SFR box network via ethernet (B), denon device on Google Next Wifi (A)
 
 Schematically
 
+
 ````
-Internet -> SFR Modem -> SFR router [WAN IP - 109.....109] -> Google router [GW IP in SFR LAN] -> Device in Google network [IP in Google LAN] 
-                                                           -> Device in SFR network [IP in SFR LAN]
+[Client Source IP, Source Port] --Internet--> [SFR: WAN IP, WAN/DNAT Port] --SFR LAN-->  [Google Nest: WAN IP, WAN/NAT Port] --Google Nest LAN-->  [Laptop/Device IP, Laptop/Device Port] - A
+                                                                           --SFR LAN-->  [Laptop/Device IP, Laptop/Device Port] - B
 ````
 
-See WAN IP: https://www.belkin.com/fr/support-article/?articleNum=10796
+We can access NAS from device in google wifi network (SNAT)
+But if home assistant is on the NAS, to access smart speaker on Google WIFI network need to configure DNAT (port management in google home app) and use Google router WAN IP.
+
+What is did in Google Home App Port Management
+`TCP/UDP 1255 -> 1255 Denon AVR x2700h - only TCP is required, this is for telnet HEOS API (note denon avr integration (non heos requires standard telnet port 23)`
+`TCP/UDP 1900 -> 1900 Denon AVR x2700h for UPNP disvovery but unused - only UDP is required`
+
+In BOX UI: http://192.168.1.1/network
+
+````
+# 	Adresse MAC 	Nom d'hôte 	Adresse IP 	Port
+1 	xx:xx:xx:xx:e3:d2 	test-dns 	      192.168.1.58 	      LAN 1   <- Google NEST IP in SFR LAN
+2 	xx:xx:xx:xx:2b:f7 	scoulombel-nas 	192.168.1.88      	LAN 3   <- NAS         IP in SFR LAN
+````
+
+Then in Home Assistant delete HEOS integration. 
+http://192.168.1.88:8123/config/integrations/integration/heos
+
+And add integration again we have a prompt
+
+````
+Please enter the host name or IP address of a Heos device (preferably one connected via wire to the network).
+````
+
+Here we enter Google Nest WAN IP: 192.168.1.58
+
+So that it targets speaker, with port 1255 (from heos cli pdf sepc). We  will see the 2 speaker (home 150, avr).
+UPNP is not used.
+Magic is that Denon Home is also recongized (as part of heos even if NAT only done to AVR)
+
+<!-- I managed to have this work again 24aug23 -->
+
+However we saw some issue with UPNP : Media server on NAS and remote control app: https://github.com/open-denon-heos/heospy/blob/main/heospy/ssdp.py#L38 (also use non heos command for power shut down requires extra port 23).
+- http://192.168.1.88:8000/ (HEOS CLI port) -- If we restart HEOS container in container station discovery does not work even if UPNP port 1900 forwarded (this was tested OK) <!-- initial test -->
+
+- Same with home assistant (this was tested OK) <!-- do not retry Ok replugged for retest -->
+
+
+
+### Can we avoid this Double NAT??
 
 In my case Bridge mode is not availalble: https://support.google.com/googlenest/answer/6277579?sjid=11569360593923687828-EU.
 Not that even 
@@ -179,52 +211,45 @@ Not that even
 
 I will not consider VPN option: https://networkengineering.stackexchange.com/questions/40773/how-to-make-ipsec-over-double-nat
 
-So I am relying on Double Natting.
 
+### A wired solution 
 
-### Issue and proposed solution
+Have all device in Google Nest Home LAN
+- to avoid NAT issue between devices in SFR LAN and Google NEST LAN.,
+- Benefit from UPNP,
+- Manage all devices in Google Nest ,
+- Simplify Somfy hub (in nest wifi) with Philips Hue
 
-Denon in Google LAN, NAS with HomeAssistant in SFR LAN.
-
-
-I did not manage to get it working again. 
-In the past I was able to, SSDP discovery worked similar to https://github.com/open-denon-heos/heospy/blob/main/heospy/__init__.py#L105 (without port 1900 forwarding apparently, 2 denon devices had gateway IP).
-
-Then had to dnat  port used by heos in Google wifi => Opened port 1223 (1255?) in google home wifi app (port management)
-https://forum.fibaro.com/topic/17590-fibaro-hcl-and-denon-heos/
-
-Decided to plug nas in ethernet plug  of google router to avoid this
+We will use Ethernet port of Google Nest HUB. 
+- We plug a L2 Switch to Nest external eth port
+- Then Nest router connected to SFR box directly via primary ethernet port.
+- We connect NAS (but also Philips Hue Hub) to the switch
 
 **Drawbacks** (we will see [below](#eliminate-drawbacks-of-the-solution), how to eliminate them.
 
  - Will lose WOW (Wake on Wan) via WOL PROXY CONFIGURED IN THE BOX: https://github.com/scoulomb/misc-notes/blob/master/NAS-setup/Wake-On-LAN.md#setup-2b-wow-with-cloud-server
- - If NAS is doing upnp for port forwarding it will open it in google home wifi and ned to it in SFR wifi 
- - Access to NAS inside Google Wifi network (NAS (home assistant UI, QNAP UI), SSH) from outside (Internet) can be complex 
+ - To access NAS service from outside (internet), we will need Double NAT (or simple NAT for devices in SFR LAN (but nothing should now be there))
 
-Then need to have somfy and hue on same wifi netowrk for integration (upnp discovery). Put both in SFR wifi.
-Normally home assitant in NAS should see those 2 devices.
 
-However for setup simplification I decided to have everything in same network.
-So I plug an ethernet switch on google home wifi external ethernet. In the hub I plugged all ethernet devices
-
-So that we have
-
-````
-Internet -> SFR Modem -> SFR router [WAN IP - 109.....109] -> Google router [GW IP in SFR LAN] -> Device in Google network [IP in Google LAN] 
-````
+When doing this we get NAS IP from Google home app (or use mdns)
+- http://192.168.86.20:8000 -- Restart container -- HEOS SSDP discovery worked
+- http://192.168.1.88:8123/config/integrations/dashboard -- Restart container -- SSDP discovery worked
 
 ### Trying to eLiminate drawbacks of the solution
 
 
-Use-case: I want to access HomeAssistant in NAS with following topology and where bridge mode is available, without a VPN
+Use-case: I want to access HomeAssistant in NAS with below topology and where bridge mode is available, without a VPN from Intenet
 
 ````
-Internet -> SFR Modem -> SFR router [WAN IP - 109.....109] -> Google router [GW IP in SFR LAN] -> NAS with HA on port 8123 [IP in Google LAN] 
+[Client Source IP, Source Port] --Internet--> [SFR: WAN IP, WAN/DNAT Port] --SFR LAN-->  [Google Nest: WAN IP, WAN/NAT Port] --Google Nest LAN-->  [NAS IP, Port=8123]
 ````
+
 
 #### Solution 1: Double DNAT
 
-I configured a double port forwarding , for instance in SFR
+If NAT config not required for call inside home, we need double NAT for outsode access
+
+I configured a double port forwarding , for instance in SFR BOX IPv4 NAT
 
 ````
 1 	ha 	TCP 	Port 	8123 	192.168.1.58 	8123 	
@@ -242,22 +267,19 @@ And in Google Home APP
 ````
 
 After this I can access from outside home (4g), this is working.
-- to HA using pub WAN IP  (`109....`) and port 8123 or 9123
-- NAS UI using pub WAN IP (`109....`)and port 9080
+- to HA using pub WAN IP  (SFR WAN IP `109....`) and port 8123 or 9123
+- NAS UI using pub WAN IP (SFR WAN IP `109....`)and port 9080
 
-Note htat when activating UPNP natting rules are not added to SFR box. 
-
-If we disable NAT it stops working
 
 
 #### Solution 2: Use DMZ 
 
-DMZ will forward all incomng traffic from outside to a chosen device in SFR LAN.
-We choose this device to be the gateway.
+DMZ will forward all incoming traffic from outside to a chosen device in SFR LAN.
+We choose this device to be the NEST gateway.
 
 ````
 Activation du DMZ 	
-Adresse Ip 	: 192.168.1.GOOGLE_GW
+Adresse Ip 	: 192.168.1.GOOGLE_NEST_WAN_IP
 ````
 
 And in Google Home APP 
@@ -270,8 +292,8 @@ And in Google Home APP
 ````
 
 After this I can access from outside home (4g), this is working.
-- to HA using pub WAN IP  (`109....`) and port 8123 
-- NAS UI using pub WAN IP (`109....`)and port 8080
+- to HA using pub WAN IP  (SFR WAN IP `109....`) and port 8123 
+- NAS UI using pub WAN IP (SFR WAN `109....`)and port 8080
 
 It is a workaround to bridge mode: https://la-communaute.sfr.fr/t5/installation-et-param%C3%A9trage/nb6vac-utilisation-en-mode-bridge/td-p/2327729 
 
@@ -292,14 +314,29 @@ SSH did not work in ny test (to hp pavillon in google wifi) both with
 
 See potential reasons: https://serverfault.com/questions/404516/ssh-not-working-through-double-nat
 
-Thus either use local IP are connect this machine to SFR wifi when required.
+Thus either use local IP if in NEST LAN or connect this machine to SFR wifi when access required from Internet.
 <!-- See [Tuya API](./Tuya-IR-controller/tuya-api.md) -->
 
 #### What do keep?
 
-Use double DNAT rule.
+Use wired solution with double DNAT rule.
 <!-- ok nw ccl - retested double nat OK -->
 <!-- Note tuya and hue do not need NAT, probably socket is established from outbound and not inbound, even if msg flow is inbound - OK CCL -->
+
+#### Note on UPNP
+
+See [Appendix on UPNP](./appendices/UPNP.md/)
+
+#### Note on (m)DNS 
+
+Note if using Google NEST wifi router, a DNS record is automatically created `scoulombel-nas`.
+Thus can access NAS by doing `scoulombel-nas:8123` in local NEST network. How does it work?
+See [Appendix on mDNS](./appendices/DNS.md#mdns).
+IP is also visible in Google home app, and accessible from device in google home network (to access from SFR add port fw in google home port management, but DNS name wlll not be visible from SFR network to access NAS in Google network)
+
+We can also access it via `home.mydomain.net:8123`, if A record `home.mydomain.net	A	1 hour	109.29.148.109`. is correctly set. See See [Appendix on (m)DNS](./appendices/DNS.md#dns-deep-dive).
+<!-- https://github.com/open-denon-heos/remote-control#suggestion-define-a-record-pointing-to-your-machinenas OK -->
+<!-- mdns OK -->
 
 ## Projects
 
@@ -311,6 +348,19 @@ Use double DNAT rule.
 
 ## Next to check
 
-- Pointer of section 
+<!-- - Pointer of section OK clear, commit 729e389 ok no come back osef-->
+<!-- concluded NAT with 
+Links-mig-auto-cloud/README.md#migration-and-snatdnat
+https://github.com/scoulomb/docker-under-the-hood/blob/main/NAT-deep-dive-appendix/README.md#nat-deep-dive
+https://github.com/scoulomb/home-assistant/blob/main/README.md#note-on-network, review not required a link made with @home
+-->
+
+- Volet: Scenario + montage final
+- [DNS QNAP cert](./appendices/DNS.md#use-nas-dyndns-and-certificate-in-qnap-cloud) and [UPNP IGD](./appendices/UPNP.md#upnp-igd-nat-traversal)
 - ESPHome 
-- Hue ligths (see other integ)
+- Hue ligths  micro coupure (see [other integ](./Other-integration/README.md)) 
+
+
+<!-- tahoma app working when ehtenet hub not AC plugged osef -->
+
+<!-- this repo is ready OK -->

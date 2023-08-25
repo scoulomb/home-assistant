@@ -43,3 +43,5 @@ We can see in Wifi list that [Tuya integration and IR remote](../Tuya-IR-control
 
 
 <!--here -->
+
+See https://esphome.io/components/esp32.html + https://www.az-delivery.de/products/3m-kabel-ds18b20-ohne-schrumpfschlauch
