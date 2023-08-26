@@ -138,11 +138,14 @@ See also https://community.home-assistant.io/t/sharing-your-configuration-on-git
 
 ## Note on network
 
-Before read some NAT foundation at 
+Before read some NAT foundation on top of this repo at 
 - https://github.com/scoulomb/docker-under-the-hood/blob/main/NAT-deep-dive-appendix/README.md#nat-deep-dive <!-- chema compliant between this doc and here, and detaill the @home -->
 - Links-mig-auto-cloud/README.md#migration-and-snatdnat <!-- link made ok -->
 
+Also in this repo we gave example of some NATing and DNS usage: https://github.com/scoulomb/myDNS/blob/master/2-advanced-bind/5-real-own-dns-application/6-use-linux-nameserver-part-a.md.
+This repo is linked (and consistent) to DNS section [of this file](#note-on-mdns).
 
+See also NAT and [VPN](./appendices/VPN.md).
 
 ### Config 
 
@@ -358,6 +361,7 @@ https://github.com/scoulomb/home-assistant/blob/main/README.md#note-on-network, 
 
 - Volet: Scenario + montage final
 - [DNS QNAP cert](./appendices/DNS.md#use-nas-dyndns-and-certificate-in-qnap-cloud) and [UPNP IGD](./appendices/UPNP.md#upnp-igd-nat-traversal)
+- [VPN usage](./appendices/VPN.md)
 - ESPHome 
 - Hue ligths  micro coupure (see [other integ](./Other-integration/README.md)) 
 
