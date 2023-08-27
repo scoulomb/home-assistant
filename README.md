@@ -350,7 +350,7 @@ We can also access it via `home.mydomain.net:8123`, if A record `home.mydomain.n
 - [Some automation sample](./Some-automation-sample/README.md)
 - [ESPHome](./espHome/README.md)
 
-## Next to check
+## Next to check --
 
 <!-- - Pointer of section OK clear (but come back on point referenced here only), commit 729e389 ok no come back osef-->
 <!-- concluded NAT with 
