@@ -357,9 +357,11 @@ We can also access it via `home.mydomain.net:8123`, if A record `home.mydomain.n
 Links-mig-auto-cloud/README.md#migration-and-snatdnat
 https://github.com/scoulomb/docker-under-the-hood/blob/main/NAT-deep-dive-appendix/README.md#nat-deep-dive
 https://github.com/scoulomb/home-assistant/blob/main/README.md#note-on-network, review not required a link made with @home
+See https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b21bb4e4ff34650 (W1A stuff should not impact but can update)
 -->
 
-- Volet: Scenario + montage final + tahoma open/close
+- Volet: Scenario + montage final 
+- Tahoma open/close (concluded follow-up optional: https://github.com/scoulomb/home-assistant/commit/7dd77264627883e46a170a73e414870607d48722)
 - [DNS QNAP cert](./appendices/DNS.md#use-nas-dyndns-and-certificate-in-qnap-cloud) and [UPNP IGD](./appendices/UPNP.md#upnp-igd-nat-traversal)
 - [VPN usage](./appendices/VPN.md)
 - ESPHome 
