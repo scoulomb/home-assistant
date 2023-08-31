@@ -56,17 +56,26 @@ On voit ce probleme d'inversion ouverture/fermeture
     - Deploy at (100-X)% dans l'appli Tahoma (curseur en haut) [retracted at X%] 
     - un setDeploy at (100-X)% (dans l'API execute de Somfy) *******
     - un setClose a X% (dans l'API execute de Somfy) (un volet ouvert correspond a un store ferme) -----------
-    - un opening a (100-X)% avec les routines Alexa (un volet ferme correspond a un store ouvert)
+    - un opening a (100-X)% avec les routines Alexa (un volet ferme correspond a un store ouvert) (ce qui explique que si meme valeur un volet monte quand l'autre descend)
     - un  `core:DeploymentState` a (100-X)% dans l'API status de Somfy *******
 
 
 On notera les cursor dans Tahoma app au meme niveau mais le pourcentage different
 Cela confirme le probleme d'inversion ouverture/feremture.
 
+<!-- example in Alexa 
+Dodo routine -> close shutter
+Donc volet ouvert (opening in Alexa app) a X=0%
+Donc Izymo a IO a 0% -> physiquement en bas
+     Integrated IO a 0% -> phisiquement en haut => change to opening at 100-X(=0)=100 pour comportement desire
+Reciproque bonjour
+
+-->
+
 ### Consequence
 
 - les comandes ouverture/fermeture sont inverses
-- Aussi si on demande de ouvrir tous les "vrai" stores, cela va fermer le dit volet vu comme un store (non souhaite)
+- Aussi si on demande de ouvrir tous les "vrai" stores, cela va fermer le dit volet vu comme un store (non souhaite) (volet appartient au groupe store, probleme sur les commandes groupees)
 
 <!-- - je dis vrai store car Izymo IO est concu pour les volets, et assi a noter que Izymo IO est pas reconnu comme du homekit a la difference du  [Somfy IO integrated motor], [cf.](../../tahoma-integration.md#use-apple-homekit-integration) -->
 
@@ -76,8 +85,7 @@ Voir les problemes similaire:
 
 ### Note
 
-Supprimer et rajouter le store dans Tahoma ne change rien,
-
+-Supprimer et rajouter le store dans Tahoma ne change rien
 
 ## Investigation
 
@@ -457,3 +465,10 @@ Note `setPosition` did not lead to physical action
 <!-- all concluded do not come back ok, 
 todo is to remove perso data DONE -> veut revenir mais etait clair, s'interdire car low added value OK 
 and post somfy forum TO BE DONE STOP-->
+
+Note: I considered that the fact it is seen as store is pure hardware (firmware) and I can not change it.
+
+<!-- quickcheck and seem ok and well consistent actually, so not required to come back, add alexa precsion, forum done, now follow-up forum+vendor but optional ok -->
+
+See [complement question on SOmfy Forum](https://forum.somfy.fr/questions/3220933-volet-roulant-store-tahoma).
+Back-up [here](somfy-forum.md).
