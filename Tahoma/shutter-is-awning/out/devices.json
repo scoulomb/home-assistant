@@ -1,0 +1,1188 @@
+[
+  {
+    "deviceURL": "zigbee://$mySecretTahomaPin/65535",
+    "available": true,
+    "synced": true,
+    "type": 5,
+    "states": [],
+    "label": "ZIGBEE (65535)",
+    "subsystemId": 0,
+    "attributes": [],
+    "enabled": true,
+    "controllableName": "zigbee:TransceiverV3_0Component",
+    "definition": {
+      "states": [],
+      "widgetName": "ZigbeeStack",
+      "attributes": [],
+      "uiClass": "ProtocolGateway",
+      "commands": [],
+      "type": "PROTOCOL_GATEWAY"
+    }
+  },
+  {
+    "deviceURL": "io://$mySecretTahomaPin/8431400",
+    "available": true,
+    "synced": true,
+    "type": 5,
+    "states": [],
+    "label": "IO (8431400)",
+    "subsystemId": 0,
+    "attributes": [],
+    "enabled": true,
+    "controllableName": "io:StackComponent",
+    "definition": {
+      "states": [],
+      "widgetName": "IOStack",
+      "attributes": [],
+      "uiClass": "ProtocolGateway",
+      "commands": [
+        {
+          "nparams": 1,
+          "commandName": "discoverActuators",
+          "paramsSig": "p1"
+        },
+        {
+          "commandName": "joinNetwork",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "advancedSomfyDiscover",
+          "paramsSig": "p1"
+        },
+        {
+          "commandName": "resetNetworkSecurity",
+          "nparams": 0
+        },
+        {
+          "commandName": "shareNetwork",
+          "nparams": 0
+        },
+        {
+          "nparams": 0,
+          "commandName": "discover1WayController",
+          "paramsSig": "*p1,*p2"
+        },
+        {
+          "nparams": 1,
+          "commandName": "discoverSensors",
+          "paramsSig": "p1"
+        },
+        {
+          "commandName": "discoverSomfyUnsetActuators",
+          "nparams": 0
+        }
+      ],
+      "type": "PROTOCOL_GATEWAY"
+    }
+  },
+  {
+    "deviceURL": "internal://$mySecretTahomaPin/wifi/0",
+    "available": true,
+    "synced": true,
+    "type": 1,
+    "states": [
+      {
+        "type": 1,
+        "name": "internal:SignalStrengthState",
+        "value": 88
+      },
+      {
+        "type": 3,
+        "name": "internal:CurrentInfraConfigState",
+        "value": "scoulomb"
+      },
+      {
+        "type": 3,
+        "name": "internal:WifiModeState",
+        "value": "infrastructure"
+      }
+    ],
+    "label": "INTERNAL (wifi/0)",
+    "subsystemId": 0,
+    "attributes": [],
+    "enabled": true,
+    "controllableName": "internal:WifiComponent",
+    "definition": {
+      "states": [
+        {
+          "name": "internal:CurrentInfraConfigState",
+          "rawStateId": "currentInfraConfig"
+        },
+        {
+          "name": "internal:SignalStrengthState",
+          "rawStateId": "signalStrength"
+        },
+        {
+          "name": "internal:WifiModeState",
+          "rawStateId": "mode"
+        }
+      ],
+      "widgetName": "Wifi",
+      "attributes": [],
+      "uiClass": "Wifi",
+      "commands": [
+        {
+          "nparams": 1,
+          "commandName": "setWifiMode",
+          "paramsSig": "p1"
+        },
+        {
+          "commandName": "clearCredentials",
+          "nparams": 0
+        },
+        {
+          "nparams": 2,
+          "commandName": "setTargetInfraConfig",
+          "paramsSig": "p1,p2"
+        }
+      ],
+      "type": "ACTUATOR"
+    }
+  },
+  {
+    "deviceURL": "zigbee://$mySecretTahomaPin/0/1",
+    "available": true,
+    "synced": true,
+    "type": 5,
+    "states": [],
+    "label": "ZIGBEE (0/1)",
+    "subsystemId": 0,
+    "attributes": [
+      {
+        "type": 3,
+        "name": "zigbee:Role",
+        "value": "coordinator"
+      },
+      {
+        "type": 1,
+        "name": "zigbee:RadioChannel",
+        "value": 11
+      },
+      {
+        "type": 3,
+        "name": "core:MacAddress",
+        "value": "Ul2R/v+Vjtw="
+      }
+    ],
+    "enabled": true,
+    "controllableName": "zigbee:StackV3Component",
+    "definition": {
+      "states": [
+        {
+          "name": "core:DiscreteRSSILevelState",
+          "rawStateId": "Rssi"
+        },
+        {
+          "name": "core:RSSILevelState",
+          "rawStateId": "Rssi"
+        },
+        {
+          "name": "core:ManufacturerNameState"
+        },
+        {
+          "name": "core:ProductModelNameState"
+        },
+        {
+          "name": "zigbee:LinkQualityIndicatorState",
+          "rawStateId": "Lqi"
+        }
+      ],
+      "widgetName": "ZigbeeStack",
+      "attributes": [
+        {
+          "name": "zigbee:Role"
+        },
+        {
+          "name": "core:ManufacturerId"
+        },
+        {
+          "name": "zigbee:RadioChannel"
+        },
+        {
+          "name": "core:MacAddress"
+        }
+      ],
+      "uiClass": "ProtocolGateway",
+      "commands": [
+        {
+          "commandName": "openNetworkWithCommissioningManagement",
+          "nparams": 0
+        },
+        {
+          "commandName": "closeNetworkManagement",
+          "nparams": 0
+        },
+        {
+          "nparams": 2,
+          "commandName": "unbind",
+          "paramsSig": "p1,p2"
+        },
+        {
+          "commandName": "refreshNetwork",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "openNetwork",
+          "paramsSig": "p1"
+        },
+        {
+          "commandName": "closeNetwork",
+          "nparams": 0
+        },
+        {
+          "commandName": "openNetworkManagement",
+          "nparams": 0
+        },
+        {
+          "commandName": "bindingNetwork",
+          "nparams": 0
+        },
+        {
+          "nparams": 2,
+          "commandName": "bind",
+          "paramsSig": "p1,p2"
+        }
+      ],
+      "type": "PROTOCOL_GATEWAY"
+    }
+  },
+  {
+    "deviceURL": "io://$mySecretTahomaPin/4820485",
+    "available": true,
+    "synced": true,
+    "type": 1,
+    "states": [
+      {
+        "type": 3,
+        "name": "core:StatusState",
+        "value": "available"
+      },
+      {
+        "type": 11,
+        "name": "core:CommandLockLevelsState",
+        "value": []
+      },
+      {
+        "type": 3,
+        "name": "core:DiscreteRSSILevelState",
+        "value": "good"
+      },
+      {
+        "type": 1,
+        "name": "core:RSSILevelState",
+        "value": 100
+      },
+      {
+        "type": 11,
+        "name": "core:ManufacturerSettingsState",
+        "value": {
+          "current_position": 51200
+        }
+      },
+      {
+        "type": 1,
+        "name": "core:ClosureState",
+        "value": 100
+      },
+      {
+        "type": 3,
+        "name": "core:OpenClosedState",
+        "value": "closed"
+      },
+      {
+        "type": 3,
+        "name": "core:NameState",
+        "value": "MODULE SHUTTER"
+      },
+      {
+        "type": 1,
+        "name": "core:Memorized1PositionState",
+        "value": 38
+      }
+    ],
+    "label": "MODULE SHUTTER",
+    "subsystemId": 0,
+    "attributes": [
+      {
+        "type": 10,
+        "name": "core:SupportedManufacturerSettingsCommands",
+        "value": [
+          "set_input_ergonomy",
+          "save_my_position",
+          "delete_my_position",
+          "reset_actuator",
+          "double_power_cut"
+        ]
+      },
+      {
+        "type": 3,
+        "name": "core:Manufacturer",
+        "value": "Somfy"
+      },
+      {
+        "type": 3,
+        "name": "core:FirmwareRevision",
+        "value": "5141146C05"
+      }
+    ],
+    "enabled": true,
+    "controllableName": "io:MicroModuleRollerShutterSomfyIOComponent",
+    "definition": {
+      "states": [
+        {
+          "name": "core:StatusState",
+          "rawStateId": "2147426304"
+        },
+        {
+          "name": "core:NameState",
+          "rawStateId": "1"
+        },
+        {
+          "name": "core:AdditionalStatusState",
+          "rawStateId": "2146500645"
+        },
+        {
+          "name": "core:ClosureState",
+          "rawStateId": "16832522"
+        },
+        {
+          "name": "core:SecuredPositionState",
+          "rawStateId": "16832522"
+        },
+        {
+          "name": "io:PairedMicroModuleWithLowBatteryState",
+          "rawStateId": "84059655"
+        },
+        {
+          "name": "core:DiscreteRSSILevelState",
+          "rawStateId": "2146500638"
+        },
+        {
+          "name": "core:RSSILevelState",
+          "rawStateId": "2146500638"
+        },
+        {
+          "name": "core:ManufacturerSettingsState",
+          "rawStateId": "65537"
+        },
+        {
+          "name": "core:OpenClosedState",
+          "rawStateId": "65537"
+        },
+        {
+          "name": "core:CommandLockLevelsState",
+          "rawStateId": "commandLockLevelsState"
+        },
+        {
+          "name": "core:ManufacturerDiagnosticsState",
+          "rawStateId": "2"
+        },
+        {
+          "name": "core:Memorized1PositionState",
+          "rawStateId": "16832512"
+        }
+      ],
+      "widgetName": "PositionableRollerShutter",
+      "attributes": [
+        {
+          "name": "core:SupportedManufacturerSettingsCommands"
+        },
+        {
+          "name": "core:Manufacturer"
+        },
+        {
+          "name": "core:FirmwareRevision"
+        }
+      ],
+      "uiClass": "RollerShutter",
+      "commands": [
+        {
+          "commandName": "stop",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "setDeployment",
+          "paramsSig": "p1"
+        },
+        {
+          "nparams": 1,
+          "commandName": "delayedStopIdentify",
+          "paramsSig": "p1"
+        },
+        {
+          "nparams": 1,
+          "commandName": "addLockLevel",
+          "paramsSig": "p1,*p2"
+        },
+        {
+          "nparams": 2,
+          "commandName": "runManufacturerSettingsCommand",
+          "paramsSig": "p1,p2"
+        },
+        {
+          "commandName": "down",
+          "nparams": 0
+        },
+        {
+          "commandName": "open",
+          "nparams": 0
+        },
+        {
+          "commandName": "unpairAllOneWayControllers",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "setConfigState",
+          "paramsSig": "p1"
+        },
+        {
+          "nparams": 1,
+          "commandName": "removeLockLevel",
+          "paramsSig": "p1"
+        },
+        {
+          "nparams": 1,
+          "commandName": "pairOneWayController",
+          "paramsSig": "p1,*p2"
+        },
+        {
+          "commandName": "unpairAllOneWayControllersAndDeleteNode",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "wink",
+          "paramsSig": "p1"
+        },
+        {
+          "nparams": 1,
+          "commandName": "setMemorized1Position",
+          "paramsSig": "p1"
+        },
+        {
+          "commandName": "identify",
+          "nparams": 0
+        },
+        {
+          "commandName": "startIdentify",
+          "nparams": 0
+        },
+        {
+          "commandName": "stopIdentify",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "advancedRefresh",
+          "paramsSig": "p1,*p2"
+        },
+        {
+          "commandName": "resetLockLevels",
+          "nparams": 0
+        },
+        {
+          "commandName": "keepOneWayControllersAndDeleteNode",
+          "nparams": 0
+        },
+        {
+          "commandName": "refreshMemorized1Position",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "unpairOneWayController",
+          "paramsSig": "p1,*p2"
+        },
+        {
+          "commandName": "up",
+          "nparams": 0
+        },
+        {
+          "commandName": "close",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "setName",
+          "paramsSig": "p1"
+        },
+        {
+          "nparams": 1,
+          "commandName": "setSecuredPosition",
+          "paramsSig": "p1"
+        },
+        {
+          "nparams": 1,
+          "commandName": "setPosition",
+          "paramsSig": "p1"
+        },
+        {
+          "commandName": "getName",
+          "nparams": 0
+        },
+        {
+          "commandName": "sendIOKey",
+          "nparams": 0
+        },
+        {
+          "commandName": "my",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "setClosure",
+          "paramsSig": "p1"
+        }
+      ],
+      "type": "ACTUATOR"
+    }
+  },
+  {
+    "deviceURL": "zigbee://$mySecretTahomaPin/0/242",
+    "available": true,
+    "synced": true,
+    "type": 5,
+    "states": [],
+    "label": "ZIGBEE (0/242)",
+    "subsystemId": 0,
+    "attributes": [
+      {
+        "type": 3,
+        "name": "zigbee:Role",
+        "value": "coordinator"
+      },
+      {
+        "type": 1,
+        "name": "zigbee:RadioChannel",
+        "value": 11
+      },
+      {
+        "type": 3,
+        "name": "core:MacAddress",
+        "value": "Ul2R/v+Vjtw="
+      }
+    ],
+    "enabled": true,
+    "controllableName": "zigbee:StackV3Component",
+    "definition": {
+      "states": [
+        {
+          "name": "core:DiscreteRSSILevelState",
+          "rawStateId": "Rssi"
+        },
+        {
+          "name": "core:RSSILevelState",
+          "rawStateId": "Rssi"
+        },
+        {
+          "name": "core:ManufacturerNameState"
+        },
+        {
+          "name": "core:ProductModelNameState"
+        },
+        {
+          "name": "zigbee:LinkQualityIndicatorState",
+          "rawStateId": "Lqi"
+        }
+      ],
+      "widgetName": "ZigbeeStack",
+      "attributes": [
+        {
+          "name": "zigbee:Role"
+        },
+        {
+          "name": "core:ManufacturerId"
+        },
+        {
+          "name": "zigbee:RadioChannel"
+        },
+        {
+          "name": "core:MacAddress"
+        }
+      ],
+      "uiClass": "ProtocolGateway",
+      "commands": [
+        {
+          "commandName": "openNetworkWithCommissioningManagement",
+          "nparams": 0
+        },
+        {
+          "commandName": "closeNetworkManagement",
+          "nparams": 0
+        },
+        {
+          "nparams": 2,
+          "commandName": "unbind",
+          "paramsSig": "p1,p2"
+        },
+        {
+          "commandName": "refreshNetwork",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "openNetwork",
+          "paramsSig": "p1"
+        },
+        {
+          "commandName": "closeNetwork",
+          "nparams": 0
+        },
+        {
+          "commandName": "openNetworkManagement",
+          "nparams": 0
+        },
+        {
+          "commandName": "bindingNetwork",
+          "nparams": 0
+        },
+        {
+          "nparams": 2,
+          "commandName": "bind",
+          "paramsSig": "p1,p2"
+        }
+      ],
+      "type": "PROTOCOL_GATEWAY"
+    }
+  },
+  {
+    "deviceURL": "internal://$mySecretTahomaPin/pod/0",
+    "available": true,
+    "synced": true,
+    "type": 1,
+    "states": [
+      {
+        "type": 3,
+        "name": "core:NameState",
+        "value": "Box"
+      },
+      {
+        "type": 3,
+        "name": "core:CountryCodeState",
+        "value": "FR"
+      },
+      {
+        "type": 1,
+        "name": "internal:LightingLedPodModeState",
+        "value": 1
+      },
+      {
+        "type": 3,
+        "name": "core:ConnectivityState",
+        "value": "online"
+      },
+      {
+        "type": 3,
+        "name": "core:LocalIPv4AddressState",
+        "value": "192.168.86.64"
+      },
+      {
+        "type": 3,
+        "name": "internal:Button3State",
+        "value": "pressed"
+      },
+      {
+        "type": 3,
+        "name": "internal:Button1State",
+        "value": "pressed"
+      }
+    ],
+    "label": "Box",
+    "subsystemId": 0,
+    "attributes": [],
+    "enabled": true,
+    "controllableName": "internal:PodV3Component",
+    "definition": {
+      "states": [
+        {
+          "name": "core:ConnectivityState",
+          "rawStateId": "networkConnectivity"
+        },
+        {
+          "name": "core:LocalAccessProofState",
+          "rawStateId": "localAccessProof"
+        },
+        {
+          "name": "internal:Button2State",
+          "rawStateId": "button2"
+        },
+        {
+          "name": "core:LocalIPv4AddressState",
+          "rawStateId": "ip"
+        },
+        {
+          "name": "core:CountryCodeState",
+          "rawStateId": "countryCode"
+        },
+        {
+          "name": "internal:Button3State",
+          "rawStateId": "button3"
+        },
+        {
+          "name": "internal:LightingLedPodModeState",
+          "rawStateId": "lightingLedPodMode"
+        },
+        {
+          "name": "core:NameState",
+          "rawStateId": "name"
+        },
+        {
+          "name": "internal:Button1State",
+          "rawStateId": "button1"
+        }
+      ],
+      "widgetName": "Pod",
+      "attributes": [],
+      "uiClass": "Pod",
+      "commands": [
+        {
+          "commandName": "deactivateCalendar",
+          "nparams": 0
+        },
+        {
+          "commandName": "refreshPodMode",
+          "nparams": 0
+        },
+        {
+          "commandName": "getName",
+          "nparams": 0
+        },
+        {
+          "commandName": "setPodLedOff",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "setCalendar",
+          "paramsSig": "p1"
+        },
+        {
+          "commandName": "setPodLedOn",
+          "nparams": 0
+        },
+        {
+          "commandName": "activateCalendar",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "setLightingLedPodMode",
+          "paramsSig": "p1"
+        },
+        {
+          "commandName": "update",
+          "nparams": 0
+        },
+        {
+          "commandName": "refreshUpdateStatus",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "setCountryCode",
+          "paramsSig": "p1"
+        }
+      ],
+      "type": "ACTUATOR"
+    }
+  },
+  {
+    "deviceURL": "zigbee://$mySecretTahomaPin/0/0",
+    "available": true,
+    "synced": true,
+    "type": 6,
+    "states": [],
+    "label": "ZIGBEE (0/0)",
+    "subsystemId": 0,
+    "attributes": [
+      {
+        "type": 3,
+        "name": "core:MacAddress",
+        "value": "Ul2R/v+Vjtw="
+      }
+    ],
+    "enabled": true,
+    "controllableName": "zigbee:ZigbeeNetworkNode",
+    "definition": {
+      "states": [
+        {
+          "name": "zigbee:RoutingTableState",
+          "rawStateId": "32818"
+        },
+        {
+          "name": "zigbee:NeighborTableState",
+          "rawStateId": "32817"
+        },
+        {
+          "name": "core:StatusState",
+          "rawStateId": "Available"
+        },
+        {
+          "name": "zigbee:BindingTableState",
+          "rawStateId": "32819"
+        }
+      ],
+      "widgetName": "ZigbeeNetwork",
+      "attributes": [
+        {
+          "name": "core:MacAddress"
+        },
+        {
+          "name": "core:CommissioningCode"
+        }
+      ],
+      "uiClass": "NetworkComponent",
+      "commands": [
+        {
+          "commandName": "refreshNeighborTable",
+          "nparams": 0
+        },
+        {
+          "commandName": "refreshRoutingTable",
+          "nparams": 0
+        },
+        {
+          "commandName": "refreshBindingTable",
+          "nparams": 0
+        },
+        {
+          "commandName": "leaveNetwork",
+          "nparams": 0
+        }
+      ],
+      "type": "INFRASTRUCTURE_COMPONENT"
+    }
+  },
+  {
+    "deviceURL": "io://$mySecretTahomaPin/16496531",
+    "available": true,
+    "synced": true,
+    "type": 1,
+    "states": [
+      {
+        "type": 3,
+        "name": "core:StatusState",
+        "value": "available"
+      },
+      {
+        "type": 11,
+        "name": "core:CommandLockLevelsState",
+        "value": []
+      },
+      {
+        "type": 3,
+        "name": "core:DiscreteRSSILevelState",
+        "value": "good"
+      },
+      {
+        "type": 1,
+        "name": "core:RSSILevelState",
+        "value": 100
+      },
+      {
+        "type": 11,
+        "name": "core:ManufacturerSettingsState",
+        "value": {
+          "current_position": 51200
+        }
+      },
+      {
+        "type": 3,
+        "name": "core:OpenClosedState",
+        "value": "open"
+      },
+      {
+        "type": 1,
+        "name": "core:TargetClosureState",
+        "value": 100
+      },
+      {
+        "type": 1,
+        "name": "core:DeploymentState",
+        "value": 100
+      },
+      {
+        "type": 6,
+        "name": "core:MovingState",
+        "value": false
+      },
+      {
+        "type": 3,
+        "name": "core:NameState",
+        "value": "Store chambre"
+      },
+      {
+        "type": 1,
+        "name": "core:Memorized1PositionState",
+        "value": 76
+      }
+    ],
+    "label": "Store chambre",
+    "subsystemId": 0,
+    "attributes": [
+      {
+        "type": 10,
+        "name": "core:SupportedManufacturerSettingsCommands",
+        "value": [
+          "dead_man_up",
+          "dead_man_down",
+          "dead_man_stop",
+          "dead_man_impulse_up",
+          "dead_man_impulse_down",
+          "enter_settings_mode",
+          "save_upper_end_limit",
+          "save_lower_end_limit",
+          "stop_after_save_limit",
+          "save_settings",
+          "invert_rotation",
+          "save_my_position",
+          "delete_my_position",
+          "reset_actuator",
+          "double_power_cut",
+          "eject_from_setting_mode",
+          "enter_back_impulse_setting_mode",
+          "save_back_impulse_position"
+        ]
+      },
+      {
+        "type": 3,
+        "name": "core:Manufacturer",
+        "value": "Somfy"
+      },
+      {
+        "type": 3,
+        "name": "core:FirmwareRevision",
+        "value": "5104761X04"
+      }
+    ],
+    "enabled": true,
+    "controllableName": "io:HorizontalAwningIOComponent",
+    "definition": {
+      "states": [
+        {
+          "name": "core:StatusState",
+          "rawStateId": "2147426304"
+        },
+        {
+          "name": "core:NameState",
+          "rawStateId": "1"
+        },
+        {
+          "name": "core:DiscreteRSSILevelState",
+          "rawStateId": "2146500638"
+        },
+        {
+          "name": "core:RSSILevelState",
+          "rawStateId": "2146500638"
+        },
+        {
+          "name": "core:AdditionalStatusState",
+          "rawStateId": "2146500645"
+        },
+        {
+          "name": "core:TargetClosureState",
+          "rawStateId": "16832522"
+        },
+        {
+          "name": "core:SecuredPositionState",
+          "rawStateId": "16832522"
+        },
+        {
+          "name": "core:ManufacturerSettingsState",
+          "rawStateId": "65537"
+        },
+        {
+          "name": "core:OpenClosedState",
+          "rawStateId": "65537"
+        },
+        {
+          "name": "core:DeploymentState",
+          "rawStateId": "65537"
+        },
+        {
+          "name": "core:MovingState",
+          "rawStateId": "65557"
+        },
+        {
+          "name": "core:ManufacturerDiagnosticsState",
+          "rawStateId": "2"
+        },
+        {
+          "name": "core:CommandLockLevelsState",
+          "rawStateId": "commandLockLevelsState"
+        },
+        {
+          "name": "core:Memorized1PositionState",
+          "rawStateId": "16832512"
+        }
+      ],
+      "widgetName": "PositionableHorizontalAwning",
+      "attributes": [
+        {
+          "name": "core:SupportedManufacturerSettingsCommands"
+        },
+        {
+          "name": "core:Manufacturer"
+        },
+        {
+          "name": "core:FirmwareRevision"
+        }
+      ],
+      "uiClass": "Awning",
+      "commands": [
+        {
+          "nparams": 1,
+          "commandName": "setDeployment",
+          "paramsSig": "p1"
+        },
+        {
+          "nparams": 1,
+          "commandName": "addLockLevel",
+          "paramsSig": "p1,*p2"
+        },
+        {
+          "commandName": "refreshMemorized1Position",
+          "nparams": 0
+        },
+        {
+          "commandName": "undeploy",
+          "nparams": 0
+        },
+        {
+          "commandName": "startIdentify",
+          "nparams": 0
+        },
+        {
+          "commandName": "up",
+          "nparams": 0
+        },
+        {
+          "commandName": "identify",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "advancedRefresh",
+          "paramsSig": "p1,*p2"
+        },
+        {
+          "commandName": "stop",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "delayedStopIdentify",
+          "paramsSig": "p1"
+        },
+        {
+          "nparams": 2,
+          "commandName": "runManufacturerSettingsCommand",
+          "paramsSig": "p1,p2"
+        },
+        {
+          "commandName": "open",
+          "nparams": 0
+        },
+        {
+          "commandName": "unpairAllOneWayControllers",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "setConfigState",
+          "paramsSig": "p1"
+        },
+        {
+          "nparams": 1,
+          "commandName": "pairOneWayController",
+          "paramsSig": "p1,*p2"
+        },
+        {
+          "commandName": "unpairAllOneWayControllersAndDeleteNode",
+          "nparams": 0
+        },
+        {
+          "commandName": "resetLockLevels",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "wink",
+          "paramsSig": "p1"
+        },
+        {
+          "commandName": "stopIdentify",
+          "nparams": 0
+        },
+        {
+          "commandName": "sendIOKey",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "setClosure",
+          "paramsSig": "p1"
+        },
+        {
+          "commandName": "keepOneWayControllersAndDeleteNode",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "setMemorized1Position",
+          "paramsSig": "p1"
+        },
+        {
+          "commandName": "deploy",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "unpairOneWayController",
+          "paramsSig": "p1,*p2"
+        },
+        {
+          "commandName": "close",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "setName",
+          "paramsSig": "p1"
+        },
+        {
+          "nparams": 1,
+          "commandName": "setSecuredPosition",
+          "paramsSig": "p1"
+        },
+        {
+          "nparams": 1,
+          "commandName": "setPosition",
+          "paramsSig": "p1"
+        },
+        {
+          "commandName": "getName",
+          "nparams": 0
+        },
+        {
+          "commandName": "down",
+          "nparams": 0
+        },
+        {
+          "commandName": "my",
+          "nparams": 0
+        },
+        {
+          "nparams": 1,
+          "commandName": "removeLockLevel",
+          "paramsSig": "p1"
+        }
+      ],
+      "type": "ACTUATOR"
+    }
+  }
+]

@@ -359,7 +359,7 @@ https://github.com/scoulomb/docker-under-the-hood/blob/main/NAT-deep-dive-append
 https://github.com/scoulomb/home-assistant/blob/main/README.md#note-on-network, review not required a link made with @home
 -->
 
-- Volet: Scenario + montage final
+- Volet: Scenario + montage final + tahoma open/close
 - [DNS QNAP cert](./appendices/DNS.md#use-nas-dyndns-and-certificate-in-qnap-cloud) and [UPNP IGD](./appendices/UPNP.md#upnp-igd-nat-traversal)
 - [VPN usage](./appendices/VPN.md)
 - ESPHome 

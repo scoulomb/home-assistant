@@ -4,9 +4,9 @@
       {
         "commands": [
           {
-            "name": "setDeployment",
+            "name": "setClosure",
             "parameters": [
-              "25"
+              "10"
             ]
           }
         ],

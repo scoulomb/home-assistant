@@ -4,13 +4,13 @@
       {
         "commands": [
           {
-            "name": "setDeployment",
+            "name": "setClosure",
             "parameters": [
-              "25"
+              "10"
             ]
           }
         ],
-        "deviceURL": "io://$mySecretTahomaPin/4820485"
+        "deviceURL": "io://$mySecretTahomaPin/16496531"
       }
     ]
   }

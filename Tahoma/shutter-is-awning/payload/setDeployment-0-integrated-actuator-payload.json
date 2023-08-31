@@ -6,11 +6,11 @@
           {
             "name": "setDeployment",
             "parameters": [
-              "25"
+              "0"
             ]
           }
         ],
-        "deviceURL": "io://$mySecretTahomaPin/4820485"
+        "deviceURL": "io://$mySecretTahomaPin/16496531"
       }
     ]
   }

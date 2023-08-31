@@ -1,0 +1,328 @@
+{
+  "deviceURL": "io://$mySecretTahomaPin/16496531",
+  "available": true,
+  "synced": true,
+  "type": 1,
+  "states": [
+    {
+      "type": 3,
+      "name": "core:StatusState",
+      "value": "available"
+    },
+    {
+      "type": 11,
+      "name": "core:CommandLockLevelsState",
+      "value": []
+    },
+    {
+      "type": 3,
+      "name": "core:DiscreteRSSILevelState",
+      "value": "good"
+    },
+    {
+      "type": 1,
+      "name": "core:RSSILevelState",
+      "value": 100
+    },
+    {
+      "type": 11,
+      "name": "core:ManufacturerSettingsState",
+      "value": {
+        "current_position": 43543
+      }
+    },
+    {
+      "type": 3,
+      "name": "core:OpenClosedState",
+      "value": "open"
+    },
+    {
+      "type": 1,
+      "name": "core:TargetClosureState",
+      "value": 85
+    },
+    {
+      "type": 1,
+      "name": "core:DeploymentState",
+      "value": 85
+    },
+    {
+      "type": 6,
+      "name": "core:MovingState",
+      "value": false
+    },
+    {
+      "type": 3,
+      "name": "core:NameState",
+      "value": "Store chambre"
+    },
+    {
+      "type": 1,
+      "name": "core:Memorized1PositionState",
+      "value": 76
+    }
+  ],
+  "label": "Store chambre",
+  "subsystemId": 0,
+  "attributes": [
+    {
+      "type": 10,
+      "name": "core:SupportedManufacturerSettingsCommands",
+      "value": [
+        "dead_man_up",
+        "dead_man_down",
+        "dead_man_stop",
+        "dead_man_impulse_up",
+        "dead_man_impulse_down",
+        "enter_settings_mode",
+        "save_upper_end_limit",
+        "save_lower_end_limit",
+        "stop_after_save_limit",
+        "save_settings",
+        "invert_rotation",
+        "save_my_position",
+        "delete_my_position",
+        "reset_actuator",
+        "double_power_cut",
+        "eject_from_setting_mode",
+        "enter_back_impulse_setting_mode",
+        "save_back_impulse_position"
+      ]
+    },
+    {
+      "type": 3,
+      "name": "core:Manufacturer",
+      "value": "Somfy"
+    },
+    {
+      "type": 3,
+      "name": "core:FirmwareRevision",
+      "value": "5104761X04"
+    }
+  ],
+  "enabled": true,
+  "controllableName": "io:HorizontalAwningIOComponent",
+  "definition": {
+    "states": [
+      {
+        "name": "core:StatusState",
+        "rawStateId": "2147426304"
+      },
+      {
+        "name": "core:NameState",
+        "rawStateId": "1"
+      },
+      {
+        "name": "core:DiscreteRSSILevelState",
+        "rawStateId": "2146500638"
+      },
+      {
+        "name": "core:RSSILevelState",
+        "rawStateId": "2146500638"
+      },
+      {
+        "name": "core:AdditionalStatusState",
+        "rawStateId": "2146500645"
+      },
+      {
+        "name": "core:TargetClosureState",
+        "rawStateId": "16832522"
+      },
+      {
+        "name": "core:SecuredPositionState",
+        "rawStateId": "16832522"
+      },
+      {
+        "name": "core:ManufacturerSettingsState",
+        "rawStateId": "65537"
+      },
+      {
+        "name": "core:OpenClosedState",
+        "rawStateId": "65537"
+      },
+      {
+        "name": "core:DeploymentState",
+        "rawStateId": "65537"
+      },
+      {
+        "name": "core:MovingState",
+        "rawStateId": "65557"
+      },
+      {
+        "name": "core:ManufacturerDiagnosticsState",
+        "rawStateId": "2"
+      },
+      {
+        "name": "core:CommandLockLevelsState",
+        "rawStateId": "commandLockLevelsState"
+      },
+      {
+        "name": "core:Memorized1PositionState",
+        "rawStateId": "16832512"
+      }
+    ],
+    "widgetName": "PositionableHorizontalAwning",
+    "attributes": [
+      {
+        "name": "core:SupportedManufacturerSettingsCommands"
+      },
+      {
+        "name": "core:Manufacturer"
+      },
+      {
+        "name": "core:FirmwareRevision"
+      }
+    ],
+    "uiClass": "Awning",
+    "commands": [
+      {
+        "nparams": 1,
+        "commandName": "setDeployment",
+        "paramsSig": "p1"
+      },
+      {
+        "nparams": 1,
+        "commandName": "addLockLevel",
+        "paramsSig": "p1,*p2"
+      },
+      {
+        "commandName": "refreshMemorized1Position",
+        "nparams": 0
+      },
+      {
+        "commandName": "undeploy",
+        "nparams": 0
+      },
+      {
+        "commandName": "startIdentify",
+        "nparams": 0
+      },
+      {
+        "commandName": "up",
+        "nparams": 0
+      },
+      {
+        "commandName": "identify",
+        "nparams": 0
+      },
+      {
+        "nparams": 1,
+        "commandName": "advancedRefresh",
+        "paramsSig": "p1,*p2"
+      },
+      {
+        "commandName": "stop",
+        "nparams": 0
+      },
+      {
+        "nparams": 1,
+        "commandName": "delayedStopIdentify",
+        "paramsSig": "p1"
+      },
+      {
+        "nparams": 2,
+        "commandName": "runManufacturerSettingsCommand",
+        "paramsSig": "p1,p2"
+      },
+      {
+        "commandName": "open",
+        "nparams": 0
+      },
+      {
+        "commandName": "unpairAllOneWayControllers",
+        "nparams": 0
+      },
+      {
+        "nparams": 1,
+        "commandName": "setConfigState",
+        "paramsSig": "p1"
+      },
+      {
+        "nparams": 1,
+        "commandName": "pairOneWayController",
+        "paramsSig": "p1,*p2"
+      },
+      {
+        "commandName": "unpairAllOneWayControllersAndDeleteNode",
+        "nparams": 0
+      },
+      {
+        "commandName": "resetLockLevels",
+        "nparams": 0
+      },
+      {
+        "nparams": 1,
+        "commandName": "wink",
+        "paramsSig": "p1"
+      },
+      {
+        "commandName": "stopIdentify",
+        "nparams": 0
+      },
+      {
+        "commandName": "sendIOKey",
+        "nparams": 0
+      },
+      {
+        "nparams": 1,
+        "commandName": "setClosure",
+        "paramsSig": "p1"
+      },
+      {
+        "commandName": "keepOneWayControllersAndDeleteNode",
+        "nparams": 0
+      },
+      {
+        "nparams": 1,
+        "commandName": "setMemorized1Position",
+        "paramsSig": "p1"
+      },
+      {
+        "commandName": "deploy",
+        "nparams": 0
+      },
+      {
+        "nparams": 1,
+        "commandName": "unpairOneWayController",
+        "paramsSig": "p1,*p2"
+      },
+      {
+        "commandName": "close",
+        "nparams": 0
+      },
+      {
+        "nparams": 1,
+        "commandName": "setName",
+        "paramsSig": "p1"
+      },
+      {
+        "nparams": 1,
+        "commandName": "setSecuredPosition",
+        "paramsSig": "p1"
+      },
+      {
+        "nparams": 1,
+        "commandName": "setPosition",
+        "paramsSig": "p1"
+      },
+      {
+        "commandName": "getName",
+        "nparams": 0
+      },
+      {
+        "commandName": "down",
+        "nparams": 0
+      },
+      {
+        "commandName": "my",
+        "nparams": 0
+      },
+      {
+        "nparams": 1,
+        "commandName": "removeLockLevel",
+        "paramsSig": "p1"
+      }
+    ],
+    "type": "ACTUATOR"
+  }
+}
