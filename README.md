@@ -360,7 +360,8 @@ https://github.com/scoulomb/home-assistant/blob/main/README.md#note-on-network, 
 See https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b21bb4e4ff34650 (W1A stuff should not impact but can update even if other commit in HA repo in btw)
 -->
 
-<!-- volet montage final ccl -->
+<!-- volet montage final ccl 
+https://github.com/scoulomb/home-assistant/commit/6e413c0fd0175fd6519cbaa95a6e7b762876fcf2 -->
 
 - Volet: [Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md) 
 - Tahoma open/close (concluded follow-up optional: https://github.com/scoulomb/home-assistant/commit/7dd77264627883e46a170a73e414870607d48722)
@@ -373,3 +374,4 @@ See https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b
 <!-- tahoma app working when ehtenet hub not AC plugged osef -->
 
 <!-- this repo is ready OK -->
+<!-- tips for reduce pic size is to use snipping tool -->
