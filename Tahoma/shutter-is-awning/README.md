@@ -455,4 +455,5 @@ Note `setPosition` did not lead to physical action
 - `core:DeploymentState`, `core:ClosureState` can be seen as `getDeployment`. See [pb description section](#description) and *******, why they are equivalent
 
 <!-- all concluded do not come back ok, 
-todo is to remove perso data DONE and post somfy forum TO BE DONE STOP-->
+todo is to remove perso data DONE -> veut revenir mais etait clair, s'interdire car low added value OK 
+and post somfy forum TO BE DONE STOP-->
