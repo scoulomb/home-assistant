@@ -357,7 +357,7 @@ We can also access it via `home.mydomain.net:8123`, if A record `home.mydomain.n
 Links-mig-auto-cloud/README.md#migration-and-snatdnat
 https://github.com/scoulomb/docker-under-the-hood/blob/main/NAT-deep-dive-appendix/README.md#nat-deep-dive
 https://github.com/scoulomb/home-assistant/blob/main/README.md#note-on-network, review not required a link made with @home
-See https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b21bb4e4ff34650 (W1A stuff should not impact but can update)
+See https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b21bb4e4ff34650 (W1A stuff should not impact but can update even if other commit in HA repo in btw)
 -->
 
 - Volet: Scenario + montage final 
