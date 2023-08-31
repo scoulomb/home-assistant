@@ -41,7 +41,7 @@ On voit ce probleme d'inversion ouverture/fermeture
     - Deploy at 0% dans l'appli Tahoma (curseur en faut) [retracted at 100%]
     - un setDeploy a 0% (dans l'API execute de Somfy)
     - un setClose a 100% (dans l'API execute de Somfy) (un volet ouvert correspond a un store ferme)
-    - un opening a 0% avec les routines Alexa (un volet ferme correspond a un store ouvert)
+    - un opening a 0% avec les routines Alexa (un volet ferme correspond a un store ouvert) (=closed in google UI**)
     - un  `core:DeploymentState` a 0% dans l'API status de Somfy
 
 - On peut gneraliser avec le state 2 et 1 (100=x, 0=(100-x))
@@ -63,7 +63,7 @@ On voit ce probleme d'inversion ouverture/fermeture
 On notera les cursor dans Tahoma app au meme niveau mais le pourcentage different
 Cela confirme le probleme d'inversion ouverture/feremture.
 
-Alexa works the same way as Google Home (opening)
+Alexa works the same way as Google Home (opening percentage)**.
 <!-- example in Alexa 
 Dodo routine -> close shutter
 Donc volet ouvert (opening in Alexa app) a X=0%
