@@ -114,20 +114,37 @@ Quand interrupteur filaire: montee moteur L1, descente moteur L2 recupere sur Iz
 
 
 Pour gagner espace boitier 
-- utiliser wago 2 entree au lieu de 3 entree (wago 2 et 5 sur la photo). Un wago 4 entre n'existe pas.
-- Interrupteur 
-    - filaire
-        - fil phase plus fin
-        - interrupteur plus fin : https://www.somfypro.fr/produits/-/e-cat/1811272/COMMANDE_GENERALE_SMOOVE_ORIGIN_IB
-    - ou automatique
-        - isoler A/B
+- Utiliser wago 2 entree au lieu de 3 entree (wago 2 et 5 sur la photo). Un wago 4 entre n'existe pas.
+- Fil phase plus fin
+- Interrupteur plus fin : https://www.somfypro.fr/produits/-/e-cat/1811272/COMMANDE_GENERALE_SMOOVE_ORIGIN_IB
+- On en profitera pour ordnonner cable installation puis store puis volet puis Izymo dans les wago
+
+![](./media/montage-interrupteur-fin.PNG)
+
+Et malheureusement ca ne rentre pas dans le boitier :(.
+Donc  pas d'interrupteur manuel :(
+- on enleve le cable de phase du wago 5 entree vers l'interrupteur
+- et on met un wago sur A/B pour isoler 
+Je garde le wago 5 entree de la phase vers interrupteur et l'interrupteur avec le fil fin en cas de probleme (plus de pile, micro recpteur casse...)
+
+On range tout 
+
+![](./media/izymo-sans-interrupteur-range.PNG)
+   
+
+et on met un bouton automatique IO (avec une pile pffff...)
+
+![](./media/interrupteur-sans-fil.PNG)
+
+Pour association, interrupteur volet check [this note](./hardware-remotes/README.md)
+
 <!-- ok clear re-cf YES OK STOP - plus espace optional de decrire ici OK-->
 
 Le store de la chambbre etant nativement automatique la phase installation est directemment connecte au moteur (fil L1).
 D'ou un wago pour isoler l'ancienne descente (L2).
 Et cette phase repart sur le store (qui lui a L1 et L2 car [interrupteur](#standard))
 
-<!-- no need to re-check - could unplug to double check but ok stop -->
+<!-- no need to re-check - could unplug to double check but ok stop -- yes ok-->
 
 ## Software setup 
 
@@ -191,8 +208,8 @@ They are thinking to integrate it in the Python client instead of using OverKiz 
 We can play with this local API anyway and call it from HA.
 See [Local Tahoma](./local-tahoma/local-tahoma.md).
 
-<!-- done above completed except montage final - could integrate shell cmd in HA 
-HERE OK -->
+<!-- done above completed except montage final DONE 31 aug23- could integrate shell cmd in HA 
+optional OK and add in global todo-->
 
 ## No tahoma integration (esphome based)
 
@@ -201,5 +218,7 @@ We could use [ESPHome](../espHome/README.md).
 ## Next ideas
 
 - https://www.la-maison-electrique.com/somfy/62578-lanceur-de-scenario-tahoma-1824035-3660849517052.html
-- Izymo on-off mais va etre complique car on la phase et retour lampe sur l'interrupteur (comme L -> L1/L2 moteur) mais neutre pas accessible facilement dans mon installation :(: https://www.somfy.fr/produits/1822649/recepteur-on-off-io-izymo (see montage eventuel)
+    - See [Hardware remotes](./hardware-remotes/README.md)
+- Izymo on-off mais va etre complique car on la phase et retour lampe sur l'interrupteur (comme L -> L1/L2 moteur) mais neutre pas accessible facilement dans mon installation :(: https://www.somfy.fr/produits/1822649/recepteur-on-off-io-izymo (see montage eventuel) <!--if done later and link not done ok -->
 
+<!-- ok ccl Fully 31 aug23, and remaining item independent move to gobal todo in top readme -->
