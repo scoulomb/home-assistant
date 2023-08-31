@@ -360,7 +360,7 @@ https://github.com/scoulomb/home-assistant/blob/main/README.md#note-on-network, 
 See https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b21bb4e4ff34650 (W1A stuff should not impact but can update even if other commit in HA repo in btw)
 -->
 
-- Volet: Scenario + montage final 
+- Volet: Scenario + montage final (+command pairing stagin aera ok)
 - Tahoma open/close (concluded follow-up optional: https://github.com/scoulomb/home-assistant/commit/7dd77264627883e46a170a73e414870607d48722)
 - [DNS QNAP cert](./appendices/DNS.md#use-nas-dyndns-and-certificate-in-qnap-cloud) and [UPNP IGD](./appendices/UPNP.md#upnp-igd-nat-traversal)
 - [VPN usage](./appendices/VPN.md)

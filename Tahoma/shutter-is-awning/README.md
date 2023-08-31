@@ -63,6 +63,7 @@ On voit ce probleme d'inversion ouverture/fermeture
 On notera les cursor dans Tahoma app au meme niveau mais le pourcentage different
 Cela confirme le probleme d'inversion ouverture/feremture.
 
+Alexa works the same way as Google Home (opening)
 <!-- example in Alexa 
 Dodo routine -> close shutter
 Donc volet ouvert (opening in Alexa app) a X=0%
