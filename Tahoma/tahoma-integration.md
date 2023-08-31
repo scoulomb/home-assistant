@@ -235,7 +235,7 @@ We could use [ESPHome](../espHome/README.md).
 ##### Cout reel 
 
 - Micro recepteur -  75 euros (Automatimse.net)
-- Wago - 20 euros (Mr Birco)
+- Wago - 20 euros (Mr Birco (3,5) + AMZ (2 bornes) )
 - Commande  Smoove Orgin RS100 IO - 30 euros (ebay)
 - Commande Situo optional - 30 euros (ebay)
 - Box Tahoma (deja acquise) 
