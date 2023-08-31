@@ -115,7 +115,7 @@ Quand interrupteur filaire: montee moteur L1, descente moteur L2 recupere sur Iz
 
 Pour gagner espace boitier 
 - Utiliser wago 2 entree au lieu de 3 entree (wago 2 et 5 sur la photo). Un wago 4 entre n'existe pas.
-- Fil phase plus fin
+- Fil phase plus fin <!-- pris une gaine 4 cables souple, 4G1.5mm2, 2300w, H05 VV-F, cable amzazon trop epaiset pas prendre cable non souple -->
 - Interrupteur plus fin : https://www.somfypro.fr/produits/-/e-cat/1811272/COMMANDE_GENERALE_SMOOVE_ORIGIN_IB
 - On en profitera pour ordnonner cable installation puis store puis volet puis Izymo dans les wago
 
@@ -123,9 +123,11 @@ Pour gagner espace boitier
 
 Et malheureusement ca ne rentre pas dans le boitier :(.
 Donc  pas d'interrupteur manuel :(
-- on enleve le cable de phase du wago 5 entree vers l'interrupteur
-- et on met un wago sur A/B pour isoler 
+- on enleve le cable de phase du wago 5 entree vers l'interrupteur (1)
+- et on met un wago sur A/B pour isoler (2)
 Je garde le wago 5 entree de la phase vers interrupteur et l'interrupteur avec le fil fin en cas de probleme (plus de pile, micro recpteur casse...)
+
+![](./media/izymo-sans-interrupteur-manuel.PNG)
 
 On range tout 
 
@@ -222,3 +224,32 @@ We could use [ESPHome](../espHome/README.md).
 - Izymo on-off mais va etre complique car on la phase et retour lampe sur l'interrupteur (comme L -> L1/L2 moteur) mais neutre pas accessible facilement dans mon installation :(: https://www.somfy.fr/produits/1822649/recepteur-on-off-io-izymo (see montage eventuel) <!--if done later and link not done ok -->
 
 <!-- ok ccl Fully 31 aug23, and remaining item independent move to gobal todo in top readme -->
+
+## Cout estime
+
+
+### Cout total 
+
+~ 170 euros
+
+##### Cout reel 
+
+- Micro recepteur -  75 euros (Automatimse.net)
+- Wago - 20 euros (Mr Birco)
+- Commande  Smoove Orgin RS100 IO - 30 euros (ebay)
+- Commande Situo optional - 30 euros (ebay)
+- Box Tahoma (deja acquise) 
+
+#### Cout qui aurait pu etre evite
+
+- Erreur cable trop epais - 15 euros (A<Z>)
+- Bout de gaine 4 files file (<1 euros) (Mr Brico)
+- Interrupteur Manuel SOmfy Smoove Origin IB - 30 euros (stock pro) - Bien d'avoir un interrupteur manuel (mais le Inis aurait suffir)
+
+### Cout evite, article retourne
+
+- Wago cable non souple (Mr Brico)
+- Ecrou pour ecarter interrupteur (Mr Brico)
+- Pince a denuder - 20 euros (AMZ)
+- Interrupteur Inis retournee +schneider - 15 + 20 euros (AMZ)
+- Boitier smoove (interruteur manuel, celui fourni avec automatique compatible) - 5 euros (AMZ)
