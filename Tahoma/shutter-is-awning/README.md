@@ -34,14 +34,14 @@ On voit ce probleme d'inversion ouverture/fermeture
     - Open at 100% dans l'appli Tahoma (curseur en faut) [close at 0%]
     - un setDeploy a 0% (dans l'API execute de Somfy)
     - un setClose a 0% (dans l'API execute de Somfy)
-    - un opening a 100% avec les routines Alexa
+    - un opening a 100% avec les routines Alexa (=open 100% in google UI**)
     - un  `core:ClosureState` a 0% dans l'API status de Somfy
 
   - Pour avor l'equivalent d'un volet ouvert a 100% avec un moteur de store  montee sur un volet roulant
     - Deploy at 0% dans l'appli Tahoma (curseur en faut) [retracted at 100%]
     - un setDeploy a 0% (dans l'API execute de Somfy)
     - un setClose a 100% (dans l'API execute de Somfy) (un volet ouvert correspond a un store ferme)
-    - un opening a 0% avec les routines Alexa (un volet ferme correspond a un store ouvert) (=closed in google UI**)
+    - un opening a 0% avec les routines Alexa (un volet ferme correspond a un store ouvert) (=closed in google UI**) <!-- test in ghome app avec 2 volet en haut physiquement -->
     - un  `core:DeploymentState` a 0% dans l'API status de Somfy
 
 - On peut gneraliser avec le state 2 et 1 (100=x, 0=(100-x))
@@ -49,7 +49,7 @@ On voit ce probleme d'inversion ouverture/fermeture
     - Open at X% dans l'appli Tahoma (curseur en faut) [close at (100-X)%]
     - un setDeploy a (100-X)% (dans l'API execute de Somfy)  *******
     - un setClose a (100-X)% (dans l'API execute de Somfy) 
-    - un opening a X% avec les routines Alexa
+    - un opening a X% avec les routines Alexa (=open X% in google UI**)
     - un  `core:ClosureState` a (100-X)% dans l'API status de Somfy *******
 
   - Pour avor l'equivalent d'un volet ouvert a X% avec un moteur de store  montee sur un volet roulant
@@ -83,6 +83,10 @@ Reciproque bonjour
 Voir les problemes similaire: 
 - https://forum.somfy.fr/questions/2324963-volet-reconnu-tant-store
 - https://forum.somfy.fr/questions/3189238-store-reconnu-volet-tahoma
+- https://forum.somfy.fr/questions/3220107-volet-roulant-io-inverse-google-home, see ** ok google ferme la chambre ouvre les volets ! <!-- shown example in Alexa routine setup (No UI in app and EchoShow) and google App UI (and nest similar cursor) but here we see problem for Alexa/Goolge if use native command -->
+<!-- les routines Alexa/ou Google (did not try Google at time of writing osef) evitent ce probleme car on corrige le setup dedans, les 2 ce trigger depuis Nest/EchoShow-->
+<!-- did not try native and google one not perfect anyway osef -->
+
 
 ### Note
 

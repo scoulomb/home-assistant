@@ -115,8 +115,8 @@ Quand interrupteur filaire: montee moteur L1, descente moteur L2 recupere sur Iz
 
 Pour gagner espace boitier 
 - Utiliser wago 2 entree au lieu de 3 entree (wago 2 et 5 sur la photo). Un wago 4 entre n'existe pas.
-- Fil phase plus fin <!-- pris une gaine 4 cables souple, 4G1.5mm2, 2300w, H05 VV-F, cable amzazon trop epaiset pas prendre cable non souple -->
-- Interrupteur plus fin : https://www.somfypro.fr/produits/-/e-cat/1811272/COMMANDE_GENERALE_SMOOVE_ORIGIN_IB
+- Fil phase plus fin <!-- pris une gaine 4 cables souple, 4G1.5mm2, 2300w, H05 VV-F, cable amzazon trop epais et pas prendre cable non souple -->
+- Interrupteur plus fin : https://www.somfypro.fr/produits/-/e-cat/1811272/COMMANDE_GENERALE_SMOOVE_ORIGIN_IB (petit defaut sur cette interrupteur on doit rester appuyer (test sans cavalier et toute positions))
 - On en profitera pour ordnonner cable installation puis store puis volet puis Izymo dans les wago
 
 ![](./media/montage-interrupteur-fin.PNG)
