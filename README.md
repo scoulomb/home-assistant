@@ -364,7 +364,7 @@ See https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b
 https://github.com/scoulomb/home-assistant/commit/6e413c0fd0175fd6519cbaa95a6e7b762876fcf2 -->
 
 - Volet: [Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md) 
-- Tahoma open/close (concluded follow-up optional: https://github.com/scoulomb/home-assistant/commit/7dd77264627883e46a170a73e414870607d48722)
+- Tahoma open/close (optional vendor follow-up only: https://github.com/scoulomb/home-assistant/commit/7dd77264627883e46a170a73e414870607d48722) -
 - [DNS QNAP cert](./appendices/DNS.md#use-nas-dyndns-and-certificate-in-qnap-cloud) and [UPNP IGD](./appendices/UPNP.md#upnp-igd-nat-traversal)
 - [VPN usage](./appendices/VPN.md)
 - ESPHome 
