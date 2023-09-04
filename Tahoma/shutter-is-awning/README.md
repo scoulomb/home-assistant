@@ -44,11 +44,11 @@ On voit ce probleme d'inversion ouverture/fermeture
     - un opening a 0% avec les routines Alexa (un volet ferme correspond a un store ouvert) (=closed in google UI**) <!-- test in ghome app avec 2 volet en haut physiquement -->
     - un  `core:DeploymentState` a 0% dans l'API status de Somfy
 
-- On peut gneraliser avec le state 2 et 1 (100=x, 0=(100-x))
+- On peut generaliser avec le state 2 et 1 (100=x, 0=(100-x))
   - Un volet ouvert a X% (volet en butee X) physiqument correspond a un
     - Open at X% dans l'appli Tahoma (curseur en faut) [close at (100-X)%]
-    - un setDeploy a (100-X)% (dans l'API execute de Somfy)  *******
-    - un setClose a (100-X)% (dans l'API execute de Somfy) 
+    - un setDeploy a (100-X)% (dans l'API execute de Somfy)  ******* -----------
+    - un setClose a (100-X)% (dans l'API execute de Somfy) -----------
     - un opening a X% avec les routines Alexa (=open X% in google UI**)
     - un  `core:ClosureState` a (100-X)% dans l'API status de Somfy *******
 
@@ -68,7 +68,7 @@ Alexa works the same way as Google Home (opening percentage)**.
 Dodo routine -> close shutter
 Donc volet ouvert (opening in Alexa app) a X=0%
 Donc Izymo a IO a 0% -> physiquement en bas
-     Integrated IO a 0% -> phisiquement en haut => change to opening at 100-X(=0)=100 pour comportement desire
+     Integrated IO a 0% -> physiquement en haut => change to opening at 100-X(=0)=100 pour comportement desire
 Reciproque bonjour
 
 -->
@@ -83,7 +83,7 @@ Reciproque bonjour
 Voir les problemes similaire: 
 - https://forum.somfy.fr/questions/2324963-volet-reconnu-tant-store
 - https://forum.somfy.fr/questions/3189238-store-reconnu-volet-tahoma
-- https://forum.somfy.fr/questions/3220107-volet-roulant-io-inverse-google-home, see ** ok google ferme la chambre ouvre les volets ! <!-- shown example in Alexa routine setup (No UI in app and EchoShow) and google App UI (and nest similar cursor) but here we see problem for Alexa/Goolge if use native command -->
+- https://forum.somfy.fr/questions/3220107-volet-roulant-io-inverse-google-home, see ** ok google ferme la chambre ouvre les volets ! <!-- shown example in Alexa routine setup (No UI in app and EchoShow) and google App UI (and nest similar cursor) but here we see problem for Alexa/Google if use native command -->
 <!-- les routines Alexa/ou Google (did not try Google at time of writing osef) evitent ce probleme car on corrige le setup dedans, les 2 ce trigger depuis Nest/EchoShow-->
 <!-- did not try native and google one not perfect anyway osef -->
 
@@ -140,7 +140,7 @@ Also visible in Home Assisitant.
 
 
 
-Let's compare state of [expereince](#experience): 1, 2, 3 setting state via Tahoma app.
+Let's compare state of [experience](#experience): 1, 2, 3 setting state via Tahoma app.
 
 ### State 1
 
@@ -447,13 +447,13 @@ $ cat out/state-setClose-10percent-izymo-actuator.json  | jq '.[] | select(.name
 }
 ````
 
-This is in line with what we had seen in [pb description section](#description).
+This is in line with what we had seen in [pb description section See -----------, compare setDeploy and setClose value for each case spearately](#description). <!-- clear -->
 
 - Un setClose a X=10% sur le moteur vu comme un store correspond a un setDeploy a 90% (dans l'API execute de Somfy).
 - D'ou le 90% at [out/state-setClose-10percent-integrated-actuator.json](out/state-setClose-10percent-integrated-actuator.json)
 - Donc volet en bas
 
-- Un setClose a X=10% sur le volet roulant Izymo correspond a un setDeploy a 10% (dans l'API execute de Somfy).
+- Un setClose a X=10% sur le volet roulant Izymo correspond a un setDeploy a 10% (X=90) (dans l'API execute de Somfy).
 - D'ou le 10% at [out/state-setClose-10percent-izymo-actuator.json]( out/state-setClose-10percent-izymo-actuator.json)
 - Donc volet en haut
 
@@ -467,13 +467,16 @@ Note `setPosition` did not lead to physical action
 - If using API use `setDeployment` comand which does not confuse
 - `core:DeploymentState`, `core:ClosureState` can be seen as `getDeployment`. See [pb description section](#description) and *******, why they are equivalent
 
-<!-- all concluded do not come back ok, 
-todo is to remove perso data DONE -> veut revenir mais etait clair, s'interdire car low added value OK 
-and post somfy forum TO BE DONE STOP-->
-
 Note: I considered that the fact it is seen as store is pure hardware (firmware) and I can not change it.
-
-<!-- quickcheck and seem ok and well consistent actually, so not required to come back, add alexa precsion, forum done, now follow-up forum+vendor but optional ok -->
+It has been confirmed by Somdy Forum.
 
 See [complement question on SOmfy Forum](https://forum.somfy.fr/questions/3220933-volet-roulant-store-tahoma).
 Back-up [here](somfy-forum.md).
+
+<!-- SI achete module Izymo pour un store peut inverser fil monter et descente -->
+
+<!-- perso data rm, forum ccl will not learn more,
+made a re-read of the whole and it is clear , was prevously concluded on top: https://github.com/scoulomb/home-assistant/commit/7dd77264627883e46a170a73e414870607d48722
+So I fully re-conclude all 
+
+Only remain si vendor follow-up and optional-->
