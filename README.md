@@ -359,12 +359,13 @@ https://github.com/scoulomb/docker-under-the-hood/blob/main/NAT-deep-dive-append
 https://github.com/scoulomb/home-assistant/blob/main/README.md#note-on-network, review not required a link made with @home
 See https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b21bb4e4ff34650 (W1A stuff should not impact but can update even if other commit in HA repo in btw)
 -->
-
+- Tahoma open/close (optional vendor follow-up only: https://github.com/scoulomb/home-assistant/commit/7dd77264627883e46a170a73e414870607d48722) 
 <!-- volet montage final ccl 
 https://github.com/scoulomb/home-assistant/commit/6e413c0fd0175fd6519cbaa95a6e7b762876fcf2 -->
 
 - Volet: [Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md) 
-- Tahoma open/close (optional vendor follow-up only: https://github.com/scoulomb/home-assistant/commit/7dd77264627883e46a170a73e414870607d48722) -
+  - https://community.home-assistant.io/t/trigger-automation-when-scene-is-triggered/7932    
+   -https://community.home-assistant.io/t/can-i-trigger-an-automation-by-scene-being-activated/222468
 - [DNS QNAP cert](./appendices/DNS.md#use-nas-dyndns-and-certificate-in-qnap-cloud) and [UPNP IGD](./appendices/UPNP.md#upnp-igd-nat-traversal)
 - [VPN usage](./appendices/VPN.md)
 - ESPHome 
