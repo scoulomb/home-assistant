@@ -1,5 +1,7 @@
 # Volet roulant vu comme un Store dans la Tahoma
 
+## Question
+
 https://forum.somfy.fr/questions/3220933-volet-roulant-store-tahoma
 
 
@@ -50,3 +52,34 @@ Bien à vous,
 Sylvain
 
 Problème similaire vu sur le forum: https://forum.somfy.fr/questions/2324963-volet-reconnu-tant-store
+
+## Response
+
+> Un tel roman pour ca....?
+Votre moteur est tout simplement un moteur de store, c'est donc tout logiquement que ce moteur soit reconnu comme tel dans Tahoma.
+Il arrive que les fabricants posent des moteurs de store dans des VR et inversement.
+Il n'y a rien à faire sauf à changer le moteur pour un de VR.
+Bonne journée
+
+And on this question https://forum.somfy.fr/questions/3220107-volet-roulant-io-inverse-google-home
+
+
+
+>Bonjour,
+L'icône de la cuisine est celle d'un store.
+Le moteur utilisé par le volet est en fait celui d'un store.
+Ce qui explique le problème d'inversion des commande
+Un volet ouvert corespond a un store ferme.
+J'ai le même probleme:https://forum.somfy.fr/questions/3220933-volet-roulant-store-tahoma#answer_8348356
+Bonne journée
+Sylvain
+
+
+> Bonjour Stéphane et Sylvain,
+En effet vous avez chacun un moteur installé qui est un moteur de store et non de volet roulant ce qui explique cette inversion.
+Bonne journée,
+
+
+> Mon probleme va ce régler , je vais recevoir un nouveau moteur de volet ce coup ci et le moteur "store" sera retourner car non conforme a ma commande.
+Mais c'est quand meme etrange de ne pas pouvoir leur changer d'usage.
+Merci pour votre aide
