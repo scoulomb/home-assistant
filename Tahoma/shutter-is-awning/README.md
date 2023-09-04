@@ -55,7 +55,7 @@ On voit ce probleme d'inversion ouverture/fermeture
   - Pour avor l'equivalent d'un volet ouvert a X% avec un moteur de store  montee sur un volet roulant
     - Deploy at (100-X)% dans l'appli Tahoma (curseur en haut) [retracted at X%] 
     - un setDeploy at (100-X)% (dans l'API execute de Somfy) *******
-    - un setClose a X% (dans l'API execute de Somfy) (un volet ouvert correspond a un store ferme) -----------
+    - un setClose a X% (dans l'API execute de Somfy) (un volet ouvert correspond a un store ferme) ----------- ++++++++++++++++
     - un opening a (100-X)% avec les routines Alexa (un volet ferme correspond a un store ouvert) (ce qui explique que si meme valeur un volet monte quand l'autre descend)
     - un  `core:DeploymentState` a (100-X)% dans l'API status de Somfy *******
 
@@ -70,7 +70,7 @@ Donc volet ouvert (opening in Alexa app) a X=0%
 Donc Izymo a IO a 0% -> physiquement en bas
      Integrated IO a 0% -> physiquement en haut => change to opening at 100-X(=0)=100 pour comportement desire
 Reciproque bonjour
-
+How I realized the issue+marked as store in app
 -->
 
 ### Consequence
@@ -83,7 +83,7 @@ Reciproque bonjour
 Voir les problemes similaire: 
 - https://forum.somfy.fr/questions/2324963-volet-reconnu-tant-store
 - https://forum.somfy.fr/questions/3189238-store-reconnu-volet-tahoma
-- https://forum.somfy.fr/questions/3220107-volet-roulant-io-inverse-google-home, see ** ok google ferme la chambre ouvre les volets ! <!-- shown example in Alexa routine setup (No UI in app and EchoShow) and google App UI (and nest similar cursor) but here we see problem for Alexa/Google if use native command -->
+- https://forum.somfy.fr/questions/3220107-volet-roulant-io-inverse-google-home, see ** ok google ferme la chambre (sous entendu les store de la chambre) ouvre les volets de la chambre (cf. ++++++++++++++++) ! <!-- shown example in Alexa routine setup (No UI in app and EchoShow) and google App UI (and nest similar cursor) but here we see problem for Alexa/Google if use native command -->
 <!-- les routines Alexa/ou Google (did not try Google at time of writing osef) evitent ce probleme car on corrige le setup dedans, les 2 ce trigger depuis Nest/EchoShow-->
 <!-- did not try native and google one not perfect anyway osef -->
 
