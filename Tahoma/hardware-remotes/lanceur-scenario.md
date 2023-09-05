@@ -102,3 +102,10 @@ Script writing tip
 - Use insecure mode if cert shaddow (corp)
 - Make a function to register a watcher, get event, process event
 - Use chat gpt to witre a code ( as I already wrote the code but lost it in migration)
+    - Give openapi yaml
+    - Tell write a python script to register an event listener and fetch an event
+    - Slpit in function 
+    - Add bearer token
+    - Output: a script more pythonic from what I did, some error still in fString with bearer token, and use varaible before defnition, but it is impressive
+
+    # Hue button try
