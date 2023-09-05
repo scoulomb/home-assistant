@@ -372,6 +372,7 @@ https://github.com/scoulomb/home-assistant/commit/6e413c0fd0175fd6519cbaa95a6e7b
 - Hue ligths  micro coupure (see [other integ](./Other-integration/README.md)) 
 - Izymo on/off
 -  Curl command from HA (to use denon, tahoma local API)
+-  We can do equivalent of HA using GoogleHome including levave home location (equivalent to what described in [Tahoma Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md))
 <!-- tahoma app working when ehtenet hub not AC plugged osef -->
 
 <!-- this repo is ready OK -->

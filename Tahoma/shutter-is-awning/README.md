@@ -480,3 +480,8 @@ made a re-read of the whole and it is clear , was prevously concluded on top: ht
 So I fully re-conclude all 
 
 Only remain si vendor follow-up and optional-->
+
+<!-- SHUTTER in french volet
+     AWING   in french store 
+in this doc, even if some people my say store in french for AWING
+-->
