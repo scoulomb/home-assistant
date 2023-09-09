@@ -365,7 +365,7 @@ https://github.com/scoulomb/home-assistant/commit/6e413c0fd0175fd6519cbaa95a6e7b
 
 - Volet: [Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md) 
 - [DNS QNAP cert](./appendices/DNS.md#use-nas-dyndns-and-certificate-in-qnap-cloud) and [UPNP IGD](./appendices/UPNP.md#upnp-igd-nat-traversal)
-- [VPN usage](./appendices/VPN.md)
+- [VPN usage and NAS](./appendices/VPN.md)
 - ESPHome 
 - Hue ligths  micro coupure (see [other integ](./Other-integration/README.md)) 
 - Izymo on/off
