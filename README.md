@@ -357,21 +357,26 @@ We can also access it via `home.mydomain.net:8123`, if A record `home.mydomain.n
 Links-mig-auto-cloud/README.md#migration-and-snatdnat
 https://github.com/scoulomb/docker-under-the-hood/blob/main/NAT-deep-dive-appendix/README.md#nat-deep-dive
 https://github.com/scoulomb/home-assistant/blob/main/README.md#note-on-network, review not required a link made with @home
-See https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b21bb4e4ff34650 (W1A stuff should not impact but can update even if other commit in HA repo in btw)
+See https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b21bb4e4ff34650 (Work1A stuff should not impact but can update even if other commit in HA repo in btw)
 -->
+<!-- OK - spearator NAT commit OK (many topics no NAT, and NAT update no more check) --> 
 - Tahoma open/close (optional vendor follow-up only: https://github.com/scoulomb/home-assistant/commit/7dd77264627883e46a170a73e414870607d48722) 
 <!-- volet montage final ccl 
 https://github.com/scoulomb/home-assistant/commit/6e413c0fd0175fd6519cbaa95a6e7b762876fcf2 -->
 
-- Volet: [Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md) 
+- Volet: [Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md) -> Docker image
 - [DNS QNAP cert](./appendices/DNS.md#use-nas-dyndns-and-certificate-in-qnap-cloud) and [UPNP IGD](./appendices/UPNP.md#upnp-igd-nat-traversal)
+  - https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b21bb4e4ff34650#commitcomment-125603663 (and not the comment above, also it is independent) -> ccl as said in comment
 - [VPN usage and NAS](./appendices/VPN.md)
-- ESPHome 
+  - See link to https://github.com/scoulomb/home-assistant/commit/e4dc75b2c6ad43c70aea40947ec33e411feeab5e
+- ESPHome + lampe Quechua
 - Hue ligths  micro coupure (see [other integ](./Other-integration/README.md)) 
 - Izymo on/off
 -  Curl command from HA (to use denon, tahoma local API)
 -  We can do equivalent of HA using GoogleHome including levave home location (equivalent to what described in [Tahoma Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md))
-<!-- tahoma app working when ehtenet hub not AC plugged osef -->
+<!-- tahoma app working when ehtenet hub -> normal it is on wifi -->
 
 <!-- this repo is ready OK -->
 <!-- tips for reduce pic size is to use snipping tool -->
+
+
