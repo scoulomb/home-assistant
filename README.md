@@ -367,6 +367,7 @@ https://github.com/scoulomb/home-assistant/commit/6e413c0fd0175fd6519cbaa95a6e7b
 - Volet: [Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md) -> Docker image
 - [DNS QNAP cert](./appendices/DNS.md#use-nas-dyndns-and-certificate-in-qnap-cloud) and [UPNP IGD](./appendices/UPNP.md#upnp-igd-nat-traversal)
   - https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b21bb4e4ff34650#commitcomment-125603663 (and not the comment above, also it is independent) -> ccl as said in comment
+  - See SSH link https://github.com/scoulomb/docking-station/commit/7a09cd14c2616066e4082c57424128fc2939b38c (this is CCL), https://github.com/scoulomb/docking-station#misc-notes  + paper notes + listing.md
 - [VPN usage and NAS](./appendices/VPN.md)
   - See link to https://github.com/scoulomb/home-assistant/commit/e4dc75b2c6ad43c70aea40947ec33e411feeab5e
 - ESPHome + lampe Quechua
