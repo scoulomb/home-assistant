@@ -590,3 +590,5 @@ We can also see it in browser
 Story for testing juge ok do not check more -->
 
 Note we patch a bit https://github.com/scoulomb/misc-notes/blob/master/lab-env/ but it is still valid <!-- do not read it, no xref ok -->
+
+Note in MyQNAPcloud this custom (with SAN) SSL certificate is recognized as active but it took some time and it mentions auto renew.
