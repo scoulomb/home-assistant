@@ -2,6 +2,20 @@
 
 Intro to Home Assistant: https://www.youtube.com/watch?v=TaIwArlov_4
 
+## Some initial setup
+
+- Used https://github.com/scoulomb/misc-notes/blob/master/lab-env/README.md
+- Recommended complement for this project
+  - We can use Dell Precision and https://github.com/scoulomb/docking-station (see setup instruction)
+  - I recomment to setup for this project
+    - Editor: `apt install vim` + vs code from software application
+    - Git: 
+      - `Add ssh keys: `ssh-keygen` + https://github.com/settings/keys and clone via ssh
+      - https://github.com/scoulomb/dev_vm/blob/master/saltstack/salt/common/git/gitconfig
+        - Where we update email
+        -for https://github.com/so-fancy/diff-so-fancy/issues/343: add path .bashrc and full path in gitconfig if not working
+    - We will also complement natting and DNS configuration in particular for SSH in ["note on network section"](#note-on-network)
+
 ## Deploy Home Assistant via Docker Compose
 
 https://www.home-assistant.io/installation/alternative/#docker-compose
@@ -145,6 +159,8 @@ Before read some NAT foundation on top of this repo at
 Also in this repo we gave example of some NATing and DNS usage: https://github.com/scoulomb/myDNS/blob/master/2-advanced-bind/5-real-own-dns-application/6-use-linux-nameserver-part-a.md.
 This repo is linked (and consistent) to DNS section [of this file](#note-on-mdns).
 
+We also had NAT configuration here (no NEST router): https://github.com/scoulomb/misc-notes/blob/master/lab-env/README.md#add-a-nat-rule-to-access-from-internet
+
 See also NAT and [VPN](./appendices/VPN.md).
 
 ### Config 
@@ -273,7 +289,14 @@ After this I can access from outside home (4g), this is working.
 - to HA using pub WAN IP  (SFR WAN IP `109....`) and port 8123 or 9123
 - NAS UI using pub WAN IP (SFR WAN IP `109....`)and port 9080
 
+We can also double forward port 443 as NAS will allow access via both HTTP (8080) and HTTPS (443)
 
+````
+x 	nas-sec  TCP 	Port 	9443 	192.168.1.58 	8443 	
+x 	nas-sec2 TCP 	Port 	443 	192.168.1.58 	8443 	
+# `Network settings > Advanced settings > Port mgmt`, do natting 
+8443 -> NAS:443
+````
 
 #### Solution 2: Use DMZ 
 
@@ -311,14 +334,29 @@ Unforutanetly not
 
 #### About SSH 
 
-SSH did not work in ny test (to hp pavillon in google wifi) both with
+Trying to do equivalent of https://github.com/scoulomb/misc-notes/blob/master/lab-env/README.md#add-a-nat-rule-to-access-from-internet with double NAT
+
+SSH did not work in ny test to hp pavillon in google wifi both with
 - NAT 
 - And DMZ
 
 See potential reasons: https://serverfault.com/questions/404516/ssh-not-working-through-double-nat
 
 Thus either use local IP if in NEST LAN or connect this machine to SFR wifi when access required from Internet.
+
+I managed to have this working with Precision: https://github.com/scoulomb/docking-station#misc-notes
+
+````
+# box
+3	ssh	TCP	Port	22	192.168.1.58	2222 (where .58 is nest router)
+
+# Ghome app - port forwarding
+2222 -> 22 (laptop ip, wait if not seen, can have old name attached to mac@)
+````
+
 <!-- See [Tuya API](./Tuya-IR-controller/tuya-api.md) -->
+
+
 
 #### What do keep?
 
@@ -330,17 +368,9 @@ Use wired solution with double DNAT rule.
 
 See [Appendix on UPNP](./appendices/UPNP.md/)
 
-#### Note on (m)DNS 
+#### Note on (m)DNS and certificates
 
-Note if using Google NEST wifi router, a DNS record is automatically created `scoulombel-nas`.
-Thus can access NAS by doing `scoulombel-nas:8123` in local NEST network. How does it work?
-See [Appendix on mDNS](./appendices/DNS.md#mdns).
-Private IP is also visible in Google home app ex `http://192.168.86.20:8123`), and accessible from device in google home network (to access from SFR add port fw in google home port management, but DNS name wlll not be visible from SFR network to access NAS in Google network)
-
-We can also access it via `home.mydomain.net:8123`, if A record `home.mydomain.net	A	1 hour	109.29.148.109`. is correctly set. See See [Appendix on (m)DNS](./appendices/DNS.md#dns-deep-dive).
-<!-- https://github.com/open-denon-heos/remote-control#suggestion-define-a-record-pointing-to-your-machinenas OK -->
-<!-- mdns OK -->
-<!-- mdns can be blocked in corp - work in phone / home.mydomain.net:8123 or ip acess will woerk if vpn unlike local ip / access from laptop on site osef-->
+ See [Appendix on (m)DNS](./appendices/DNS.md#dns-deep-dive).
 
 ## Projects
 
@@ -366,8 +396,8 @@ https://github.com/scoulomb/home-assistant/commit/6e413c0fd0175fd6519cbaa95a6e7b
 
 - Volet: [Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md) -> Docker image
 - [DNS QNAP cert](./appendices/DNS.md#use-nas-dyndns-and-certificate-in-qnap-cloud) and [UPNP IGD](./appendices/UPNP.md#upnp-igd-nat-traversal)
-  - https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b21bb4e4ff34650#commitcomment-125603663 (and not the comment above, also it is independent) -> ccl as said in comment
-  - See SSH link https://github.com/scoulomb/docking-station/commit/7a09cd14c2616066e4082c57424128fc2939b38c (this is CCL), https://github.com/scoulomb/docking-station#misc-notes  + paper notes + listing.md
+  - https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b21bb4e4ff34650#commitcomment-125603663 (and not the comment above, also it is independent) -> ccl as said in comment 
+  - See SSH link https://github.com/scoulomb/docking-station/commit/7a09cd14c2616066e4082c57424128fc2939b38c (this is CCL 2oct 23, 3:15 PM OK), https://github.com/scoulomb/docking-station#misc-notes  + paper notes + listing.md + HA staging aera
 - [VPN usage and NAS](./appendices/VPN.md)
   - See link to https://github.com/scoulomb/home-assistant/commit/e4dc75b2c6ad43c70aea40947ec33e411feeab5e
 - ESPHome + lampe Quechua
