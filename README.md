@@ -353,7 +353,7 @@ I managed to have this working with Precision: https://github.com/scoulomb/docki
 # Ghome app - port forwarding
 2222 -> 22 (laptop ip, wait if not seen, can have old name attached to mac@)
 ````
-
+See [Appendices DNS/SSH](./appendices/DNS.md#ssh)
 <!-- See [Tuya API](./Tuya-IR-controller/tuya-api.md) -->
 
 
