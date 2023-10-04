@@ -406,7 +406,7 @@ See [Appendix on UPNP](./appendices/UPNP.md/)
 
 <!-- - Pointer of section OK clear (but come back on point referenced here only), commit 729e389 ok no come back osef-->
 - Paper notes + listing.md + HA staging aera
-- misc: mac downgrade + remote when back  + refund maladie (+ bike2021)
+- misc: mac downgrade + remote when back  + refund maladie (+ bike2021) + kine
 - [QNAP file sharing](./appendices/file-sharing.md)
 - [VPN usage and NAS](./appendices/VPN.md)
   - See link to https://github.com/scoulomb/home-assistant/commit/e4dc75b2c6ad43c70aea40947ec33e411feeab5e
@@ -419,6 +419,7 @@ See [Appendix on UPNP](./appendices/UPNP.md/)
 - Curl command from HA (to use denon, tahoma local API)
 - We can do equivalent of HA using GoogleHome including levave home location (equivalent to what described in [Tahoma Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md))
 - Also apple HomeKit on mac/iphone + Shortcuts
+- Ant+ : https://gist.github.com/scoulomb/a5ad314e3c9f1c9a39c58aebaa13d4bf
 
 <!-- tahoma app working when ehtenet hub -> normal it is on wifi -->
 <!-- this repo is ready OK -->
