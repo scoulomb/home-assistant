@@ -31,7 +31,8 @@ other port not mentionned in this section are
 http://192.168.1.1/network/nat
 - ssh 22 -> 2222(seen at [README](../README.md#solution-1-double-dnat))
 - cert valid 80 -? 8180 (see at next section)
-And reforward in ghome OK - Stop do not recheck osef
+- + inactive denon
+And reforward in ghome OK - Stop do not recheck osef - yes was ccl forbidden OK - loss of time as quickly checked already toc
 
 
 Mix tls non tls port, in the end termination counts so could send 443 to 80?
