@@ -26,13 +26,13 @@ QNAP mentions it in myQNAPcloud UI
 
 > Warning The certificate only secures connections to the myQNAPcloud domain name. It does not secure the IP address. Learn more.
 
-<!-- link made in port with doc next paragraph and [README](../README.md#solution-1-double-dnat)) OK CLEAR
+<!-- link made in port with doc next section and [README](../README.md#solution-1-double-dnat)) OK CLEAR
 other port not mentionned in this section are
 http://192.168.1.1/network/nat
 - ssh 22 -> 2222(seen at [README](../README.md#solution-1-double-dnat))
-- cert valid 80 -? 8180 (see at next section)
+- cert valid 80 -> 8180 (see at next section)
 - + inactive denon
-And reforward in ghome OK - Stop do not recheck osef - yes was ccl forbidden OK - loss of time as quickly checked already toc
+And reforward in ghome OK - Stop do not recheck osef - yes was ccl forbidden OK - loss of time as quickly checked already toc - recheck and indeed ok no more required.
 
 
 Mix tls non tls port, in the end termination counts so could send 443 to 80?
@@ -533,7 +533,7 @@ We have this rule we did above
 - `gHome` > `Port mgmt` > `8180 -> 80` on Dell Precsion. 
 ````
 
-We change to port 80 of NAS (validation process see we have something on port 80 but not pointing to good machine thus the failure)
+We change to port 80 of NAS (validation process see we have something on port 80 but not pointing to good machine thus the failure). So 443 port not used here. And note port `80` is NAS is forbidden so only for validation. (do not investigate more0)
 
 
 Then it worked with all `home.coulombel.net` domain.
