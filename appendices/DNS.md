@@ -3,10 +3,65 @@
 
 We can access to HomeAssitant using local Private IP which is visible in Google home app for instance `http://192.168.86.20:8123`), and accessible from deviced in google home network (to access from SFR network add port fw in google home port management anf use Google Home WAN private IP (but note [mDNS](#mdns) name will not be visible from SFR network to access NAS in Google network).
 
-We can also use SFR WAN Public IP such as `109.29.148....`.
+We can also use SFR WAN Public IP such as `109.29.148....:8123` (or `9123`, do not consider it in rest of doc) where **WARNING**: Port depends on NAT setup (see [README](../README.md#solution-1-double-dnat))
+
+
+In http for now.
+
+Similar for QNAP mgmt UI on port where **WARNING**: Port depends on NAT setup (see [README](../README.md#solution-1-double-dnat))
+
+- `9080` (http)
+- `9443` and `443` (https)
 
 <!-- __[1] make this comment clear: https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b21bb4e4ff34650#commitcomment-125603663 and not ref here: https://gist.github.com/scoulomb/d71c757c346a0b4032bc49a6934ebe15, and rewrite no need more check OK
 -->
+
+Note when we will setup certificate if using IP, it is like a domain nmismatch if we do not include the IP in SAN. Certbot will not allow it (even if not CN and just SAN). QNAP mentions it in myQNAPcloud UI
+
+````
+Certbot output: The Let's Encrypt certificate authority will not issue certificates for a bare IP address.
+````
+
+QNAP mentions it in myQNAPcloud UI
+
+> Warning The certificate only secures connections to the myQNAPcloud domain name. It does not secure the IP address. Learn more.
+
+<!-- link made in port with doc next paragraph and [README](../README.md#solution-1-double-dnat)) OK CLEAR
+other port not mentionned in this section are
+http://192.168.1.1/network/nat
+- ssh 22 -> 2222(seen at [README](../README.md#solution-1-double-dnat))
+- cert valid 80 -? 8180 (see at next section)
+And reforward in ghome OK - Stop do not recheck osef
+
+
+Mix tls non tls port, in the end termination counts so could send 443 to 80?
+For instance 
+nas-sec2 	TCP 	Port 	443 	192.168.1.58 	8443
+and 
+ghome 8443 -> 8080 (not 80, which us forbideen in nas locally)instead of 8443 -> 443 of nas
+
+
+coulomb@scoulomb-Precision-3540:~$ curl -I  http://home.coulombel.net:443 | head -n 2
+HTTP/1.1 200 OK
+Date: Wed, 04 Oct 2023 18:46:53 GMT
+
+scoulomb@scoulomb-Precision-3540:~$ curl -I home.coulombel.net:443 | head -n 2
+HTTP/1.1 200 OK
+Date: Wed, 04 Oct 2023 18:46:59 GMT
+
+Note that curl see that 443 default port protocol (https) not working and use http
+Same in mozilla can see connection not encrypted in sec info of cert so use http
+
+If force
+
+scoulomb@scoulomb-Precision-3540:~$ curl -I https://home.coulombel.net:443 | head -n 2
+curl: (35) OpenSSL/1.1.1f: error:1408F10B:SSL routines:ssl3_get_record:wrong version number
+
+In firefox Error code: SSL_ERROR_RX_RECORD_TOO_LONG
+
+Revert to initial setup in ghome 
+
+ -->
 
 ## Local DNS
 
