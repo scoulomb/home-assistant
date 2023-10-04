@@ -249,7 +249,9 @@ And thus example with [SSH](../README.md#about-ssh) and domain usage https://git
 
 ## DNS deep dive 
 
-In this page I explained dynamic DNS feature: https://github.com/scoulomb/myDNS/blob/master/2-advanced-bind/5-real-own-dns-application/6-use-linux-nameserver-part-a.md#dynamic-dns-for-public-ip-with-router-configuration
+In this page I explained dynamic DNS feature:
+- https://github.com/scoulomb/myDNS/blob/master/2-advanced-bind/5-real-own-dns-application/6-use-linux-nameserver-part-a.md#dynamic-dns-for-public-ip-with-router-configuration
+- https://github.com/scoulomb/misc-notes/blob/master/lab-env/README.md#dyndns
 
 Google DNS by default support DynDNS: https://support.google.com/domains/answer/6147083?authuser=0&hl=en (was using Gandi in the past)
 
@@ -257,7 +259,7 @@ Google DNS by default support DynDNS: https://support.google.com/domains/answer/
 Also public DNS can point to private IP (SFR or Google net).
 <!-- tested with SFR -->
 
-With time I realized dynamic DNS is not required as box IP is not changing a lot so a simple A record is sufficient.
+With time I realized dynamic DNS is not mandatory as box IP is not changing a lot so a simple A record is sufficient.
 Like `home.coulombel.net	A	1 hour	109.29.148.109`. 
 To access my home assisant at `http://home.coulombel.net:8123` fom outside (and inside) with good NAT rule (even if we go out to go in).
 
@@ -281,11 +283,11 @@ So two option to use an alternative DNS.
 
 <!-- mDNS is not visible from SFR network, which is obvious -->
 
-<-- all clear above, ccl  -->
+<!-- all clear above, ccl  -->
 
 
 ## Add certificates 
-[here] + [paper clear OK STOP]
+
 We will setup certificate for HomeAssisant.
 
 ### Objective 1: HA in HTTPS
@@ -530,3 +532,5 @@ We can also see it in browser
 
 <!-- Note xref __[1], __[2], __[3], also NAT rule can be refound including DENON , all OK
 Story for testing juge ok do not check more -->
+
+Note we patch a bit https://github.com/scoulomb/misc-notes/blob/master/lab-env/ but it is still valid <!-- do not read it, no xref ok -->

@@ -334,7 +334,9 @@ Unforutanetly not
 
 #### About SSH 
 
-Trying to do equivalent of https://github.com/scoulomb/misc-notes/blob/master/lab-env/README.md#add-a-nat-rule-to-access-from-internet with double NAT
+Trying to do equivalent of 
+- https://github.com/scoulomb/misc-notes/blob/master/lab-env/README.md#add-a-nat-rule-to-access-from-internet with double NAT
+- https://github.com/scoulomb/misc-notes/blob/master/lab-env/README.md#add-ssh
 
 SSH did not work in ny test to hp pavillon in google wifi both with
 - NAT 
