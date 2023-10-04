@@ -5,7 +5,8 @@ We can access to HomeAssitant using local Private IP which is visible in Google 
 
 We can also use SFR WAN Public IP such as `109.29.148....`.
 
-<!-- __[1] make this comment clear: https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b21bb4e4ff34650#commitcomment-125603663 and not ref here: https://gist.github.com/scoulomb/d71c757c346a0b4032bc49a6934ebe15, and rewrite no need more check OK -->
+<!-- __[1] make this comment clear: https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b21bb4e4ff34650#commitcomment-125603663 and not ref here: https://gist.github.com/scoulomb/d71c757c346a0b4032bc49a6934ebe15, and rewrite no need more check OK
+-->
 
 ## Local DNS
 
@@ -245,7 +246,7 @@ We will see in certificate section how to setup those.
 
 And thus example with [SSH](../README.md#about-ssh) and domain usage https://github.com/scoulomb/docking-station#misc-notes
 
-<!-- __[3] https://github.com/scoulomb/docking-station/commit/7a09cd14c2616066e4082c57424128fc2939b38c#commitcomment-128854058 OK -->
+<!-- __[3] https://github.com/scoulomb/docking-station/commit/7a09cd14c2616066e4082c57424128fc2939b38c#commitcomment-128854058 OK and CCL -->
 
 ## DNS deep dive 
 
