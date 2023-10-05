@@ -407,6 +407,7 @@ See https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b
  -->
 
 <!-- so dns is really ccl STOP, and rework backlog do not recheck that ci, and check quick OK stop-->
+<!-- Added ref ci: https://github.com/scoulomb/home-assistant/commit/223239b848add5c4ae1b9a2dfdca894120034231 -->
 
 ## Note on UPNP
 
@@ -429,8 +430,8 @@ See [Appendix on UPNP](./appendices/UPNP.md/)
 ## Next to check --
 
 <!-- - Pointer of section OK clear (but come back on point referenced here only), commit 729e389 ok no come back osef-->
-- Paper notes + listing.md + HA staging aera
-- misc: mac downgrade + remote when back  + refund maladie (+ bike2021) + kine
+- Paper notes + listing.md + HA staging aera == secdata file moved to https://gist.github.com/scoulomb/ac0b63607102e4d94abcc562d33d6f06
+- misc: mac downgrade (new laptop to fetch ti, dock impact optional, todo in drive, keep mac turned off) + remote when back  + refund maladie (+ bike2021) + kine
 - [QNAP file sharing](./appendices/file-sharing.md)
 - [VPN usage and NAS](./appendices/VPN.md)
   - See link to https://github.com/scoulomb/home-assistant/commit/e4dc75b2c6ad43c70aea40947ec33e411feeab5e
@@ -442,12 +443,16 @@ See [Appendix on UPNP](./appendices/UPNP.md/)
 - Izymo on/off
 - Curl command from HA (to use denon, tahoma local API)
 - We can do equivalent of HA using GoogleHome including levave home location (equivalent to what described in [Tahoma Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md))
+- Equivalent to Tahoma scenario via hue button (promo darty)
 - Also apple HomeKit on mac/iphone + Shortcuts
 - Ant+ : https://gist.github.com/scoulomb/a5ad314e3c9f1c9a39c58aebaa13d4bf
+- gitconfig as in beg of this doc in mac (also this readme and [DNS](./appendices/DNS.md) complements original doc: https://github.com/scoulomb/misc-notes/blob/master/lab-env/README.md which is till valid and keep it like this OK STOP)
+
 
 <!-- tahoma app working when ehtenet hub -> normal it is on wifi -->
 <!-- this repo is ready OK -->
 <!-- tips for reduce pic size is to use snipping tool -->
 
+<!-- ignore rick graziani video on nat -->
 
 <!-- ok as part ref in vs code, we have all here under seprarator ok-->
