@@ -31,7 +31,7 @@ other port not mentionned in this section are
 http://192.168.1.1/network/nat
 - ssh 22 -> 2222(seen at [README](../README.md#solution-1-double-dnat))
 - cert valid 80 -> 8180 (see at next section)
-- + inactive denon
+- + inactive denon + [VPN](VPN.md)
 And reforward in ghome OK - Stop do not recheck osef - yes was ccl forbidden OK - loss of time as quickly checked already toc - recheck and indeed ok no more required.
 
 

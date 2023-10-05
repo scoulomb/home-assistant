@@ -355,7 +355,7 @@ I managed to have this working with Precision: https://github.com/scoulomb/docki
 # Ghome app - port forwarding
 2222 -> 22 (laptop ip, wait if not seen, can have old name attached to mac@)
 ````
-See [Appendices DNS/SSH](./appendices/DNS.md#ssh)
+See [Appendices DNS/SSH](./appendices/DNS.md#ssh) (IP and then with domain (see  [Note on (m)DNS and certificates](#note-on-mdns-and-certificates))
 <!-- See [Tuya API](./Tuya-IR-controller/tuya-api.md) -->
 
 
@@ -381,8 +381,32 @@ See https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b
 
  See [Appendix on (m)DNS](./appendices/DNS.md). <!-- ccl -->
 
+ <!-- EDIT:
+ Was well concluded
+ https://github.com/scoulomb/home-assistant/blob/191da58ec8d6314ff889a67a286e3595d75a5daf/appendices/DNS.md?plain=1#L29
+
+ https://github.com/scoulomb/home-assistant/blob/191da58ec8d6314ff889a67a286e3595d75a5daf/appendices/DNS.md?plain=1#L35
+
+ And link obj 1 and 2 well made with above 
+ https://github.com/scoulomb/home-assistant/blob/191da58ec8d6314ff889a67a286e3595d75a5daf/appendices/DNS.md?plain=1#L350
+ https://github.com/scoulomb/home-assistant/blob/191da58ec8d6314ff889a67a286e3595d75a5daf/appendices/DNS.md?plain=1#L481
+ Check and OK nore than sufficient
+ Then all 4 oct commit shows OK
+ STOP
+
+ And note that 
+
+ "See [Appendices DNS/SSH](./appendices/DNS.md#ssh) (IP and then with domain (see  [Note on (m)DNS and certificates](#note-on-mdns-and-certificates))
+ compliant with https://github.com/scoulomb/home-assistant/blob/191da58ec8d6314ff889a67a286e3595d75a5daf/appendices/DNS.md?plain=1#L6
+ -->
+
  <!-- https://github.com/scoulomb/docking-station/commit/7a09cd14c2616066e4082c57424128fc2939b38c#commitcomment-128854058 OK CCL -->
 
+ <!-- EDIT: see comment last line where linking done 
+ https://github.com/scoulomb/docking-station/commit/5a65b6d1ce9e36a191e9a90b194ba4e4edba724c (circular ok stop here)
+ -->
+
+<!-- so dns is really ccl STOP, and rework backlog do not recheck that ci, and check quick OK stop-->
 
 ## Note on UPNP
 

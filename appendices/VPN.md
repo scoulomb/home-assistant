@@ -10,3 +10,5 @@ Link to
 But those 2 link concluded and clear
 
 Check vpn micode
+
+It requires to add a NAT port on top of what we defined in [DNS intro](./DNS.md) <!--  xref OK-->
