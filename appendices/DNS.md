@@ -26,13 +26,21 @@ QNAP mentions it in myQNAPcloud UI
 
 > Warning The certificate only secures connections to the myQNAPcloud domain name. It does not secure the IP address. Learn more.
 
-<!-- link made in port with doc next section and [README](../README.md#solution-1-double-dnat)) OK CLEAR
-other port not mentionned in this section are
-http://192.168.1.1/network/nat
-- ssh 22 -> 2222(seen at [README](../README.md#solution-1-double-dnat))
-- cert valid 80 -> 8180 (see at next section)
-- + inactive denon + [VPN](VPN.md)
-And reforward in ghome OK - Stop do not recheck osef - yes was ccl forbidden OK - loss of time as quickly checked already toc - recheck and indeed ok no more required.
+## NAT port note
+
+**Note** <!-- clear and ok, no come back -->
+Link made in port with this doc next section and [README](../README.md#solution-1-double-dnat)) are clear.
+Other NAT port (http://192.168.1.1/network/nat) ot mentionned in this introduction are
+- ssh 22 -> 2222 for Precision (seen at [README](../README.md#solution-1-double-dnat))
+- cert valid 80 -> 8180 (see at next [section](#objective-1-ha-in-https))
+- inactive denon [README](../README.md#double-nat-with-devices-on-2-networks))
+- [file-sharing](file-sharing/sync-nas-to-hdd-cloud.md#setup-ftp-in-nas) 
+  - NAT for FTP in passive mode range 
+  - sFTP using ssh to NAS (222)
+- [VPN](VPN.md) -> OK CLEAR
+
+And reforward in ghome OK 
+<!-- Stop do not recheck osef - yes was ccl forbidden OK - loss of time as quickly checked already toc - recheck and indeed ok no more required.
 
 
 Mix tls non tls port, in the end termination counts so could send 443 to 80?
@@ -62,7 +70,7 @@ In firefox Error code: SSL_ERROR_RX_RECORD_TOO_LONG
 
 Revert to initial setup in ghome 
 
- -->
+-->
 
 ## Local DNS
 
