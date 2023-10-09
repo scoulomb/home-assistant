@@ -22,3 +22,4 @@ See in order
 
 
 <!-- concluded only opytional stuff -->
+<!-- and this OK: https://github.com/scoulomb/home-assistant/commit/b21f5b324f301b7bfb29deb53f940348a631efc9#r129526303 -->
