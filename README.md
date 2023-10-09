@@ -451,7 +451,7 @@ See [Appendix on UPNP](./appendices/UPNP.md/)
 - Curl command from HA (to use denon, tahoma local API)
 - We can do equivalent of HA using GoogleHome including levave home location (equivalent to what described in [Tahoma Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md))
 - Equivalent to Tahoma scenario via hue button (promo darty)
-- Also apple HomeKit on mac/iphone + Shortcuts
+- Also apple HomeKit on mac/iphone/appple tv + Shortcuts
 - Ant+ : https://gist.github.com/scoulomb/a5ad314e3c9f1c9a39c58aebaa13d4bf + fan shutter
 - gitconfig as in beg of this doc in mac (also this readme and [DNS](./appendices/DNS.md) complements original doc: https://github.com/scoulomb/misc-notes/blob/master/lab-env/README.md which is till valid and keep it like this OK STOP)
 - apple tv (eith share display-> docking)

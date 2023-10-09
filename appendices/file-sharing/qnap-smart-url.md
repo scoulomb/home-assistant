@@ -179,3 +179,10 @@ Other links? osef
 
 Same with philips hue can NAT hue bridge or ue hue cloud services.
 
+<!-- inbound link (IP) -> socket establishment is inbound, 
+and outbound link (IP) -> socket establishment is outbound
+and inbound/outbound IP same IP used to have socket establishment i/o 
+
+See https://github.com/scoulomb/private_script/ Links  mig README.md 
+
+JUGE OK STOP, no link more-->
