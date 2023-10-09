@@ -163,3 +163,19 @@ All mnaual link working.
 <!-- QNAP SMART URL CCL OK -->
 
 We re-enable all NAT rules.
+
+## SMART url and no NAT rules
+
+We can see that magically SMART url work without Natting,
+
+My hypothesis is that in that case socket establishment direction is outbound to QNAP to allow inbound message flow (request to NAS, reply from NAS).
+
+Where when using NAT socket establismnent + message flow (request to NAS, reply from NAS) is inbound
+
+<!--
+See https://github.com/scoulomb/private_script/blob/main/Links-story-notes/socketEstablishmentDirection.md#L1
+Other links? osef
+-->
+
+Same with philips hue can NAT hue bridge or ue hue cloud services.
+
