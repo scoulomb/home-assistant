@@ -1,20 +1,34 @@
 # mDNS, DNS and certificates
 
+## Intro
 
-We can access to HomeAssitant using local Private IP which is visible in Google home app for instance `http://192.168.86.20:8123`), and accessible from deviced in google home network (to access from SFR network add port fw in google home port management anf use Google Home WAN private IP (but note [mDNS](#mdns) name will not be visible from SFR network to access NAS in Google network).
+### HA
 
-We can also use SFR WAN Public IP such as `109.29.148....:8123` (or `9123`, do not consider it in rest of doc) where **WARNING**: Port depends on NAT setup (see [README](../README.md#solution-1-double-dnat))
+We can access to HomeAssitant using local Private IP which is visible in Google home app for instance `http://192.168.86.96:8123`), and accessible from deviced in google home network (to access from SFR network add port fw in google home port management anf use Google Home WAN private IP (but note [mDNS](#mdns) name will not be visible from SFR network to access NAS in Google network).
 
+We can also use SFR WAN Public IP such as `http://109.29.148....:8123` (or `9123`, do not consider it in rest of doc) where **WARNING**: Port depends on NAT setup (see [README](../README.md#solution-1-double-dnat))
 
-In http for now.
+We also consider not certificate is setup in HA.
+This in http only for now (HA unlike QNAP UI does not allow TLS + non TLS as we wll see below)
 
-Similar for QNAP mgmt UI on port where **WARNING**: Port depends on NAT setup (see [README](../README.md#solution-1-double-dnat))
+### QNAP
 
-- `9080` (http)
-- `9443` and `443` (https)
+Similar for QNAP mgmt UI.
+Locally via `http://192.168.86.96:8080` and  `https://192.168.86.96:443`
+
+ And via external port where **WARNING**: Port depends on NAT setup (see [README](../README.md#solution-1-double-dnat))
+
+- `http://109.29.148.109:9080` (http)
+- `https://109.29.148.109:9443` and `https://109.29.148.109:443` (https) <!-- unlike HA where I reforward only oirginal Port (intermediate can be different via gHome),  I use NAT with 9xxx (for TLS/non TLS) and one where I kept original port (TLS) -->
 
 <!-- __[1] make this comment clear: https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b21bb4e4ff34650#commitcomment-125603663 and not ref here: https://gist.github.com/scoulomb/d71c757c346a0b4032bc49a6934ebe15, and rewrite no need more check OK
 -->
+
+### NAT Loopback
+
+We can use public IP here because of NAT loopback: https://support.myqnapcloud.com/faq/i-can-connect-to-my-qnap-devices-using-ddnswan-ip-when-i-am-away-from-home-but-why-cant-i-do-it-at-home?category=ddns&lang=en 
+
+### IP and cert
 
 Note when we will setup certificate if using IP, it is like a domain nmismatch if we do not include the IP in SAN. Certbot will not allow it (even if not CN and just SAN). QNAP mentions it in myQNAPcloud UI
 
@@ -26,20 +40,41 @@ QNAP mentions it in myQNAPcloud UI
 
 > Warning The certificate only secures connections to the myQNAPcloud domain name. It does not secure the IP address. Learn more.
 
-## NAT port note
+### NAT port note
 
 **Note** <!-- clear and ok, no come back -->
-Link made in port with this doc next section and [README](../README.md#solution-1-double-dnat)) are clear.
-Other NAT port (http://192.168.1.1/network/nat) ot mentionned in this introduction are
-- ssh 22 -> 2222 for Precision (seen at [README](../README.md#solution-1-double-dnat))
-- cert valid 80 -> 8180 (see at next [section](#objective-1-ha-in-https))
+Link made in port with this doc [next section](#public-dns) (and chained with [add cert](#add-certificates)) and [README](../README.md#solution-1-double-dnat)) are clear.
+
+Other NAT port (http://192.168.1.1/network/nat) not mentionned in this [introduction](#intro) are
+- **ssh** `22 -> 2222` for Precision (seen at [README](../README.md#about-ssh)) 
+- cert valid `80 -> 8180` (see at next [section](#objective-1-ha-in-https))
 - inactive denon [README](../README.md#double-nat-with-devices-on-2-networks))
+- [QNAP Smart URL Test](./file-sharing/qnap-smart-url.md)
 - [file-sharing](file-sharing/sync-nas-to-hdd-cloud.md#setup-ftp-in-nas) 
   - NAT for FTP in passive mode range 
-  - sFTP using ssh to NAS (222)
+  - SSH/sFTP using **ssh** to NAS (`222 -> 22222` for NAS). Do not confuse with  **ssh** `22 -> 2222`
 - [VPN](VPN.md) -> OK CLEAR
 
-And reforward in ghome OK 
+And everytime we have to reforward in ghome OK 
+
+
+Note QNAP NAS srrvice has default port but it can be customized (path in parentheis). THis the port gHome would re-target in double NAT.
+- SSH/SFTP is 22  (control panel, network and file service, telnet/ssh)
+- (telnet is 13131 (control panel, network and file service, telnet/ssh))
+- FTP is 21 (control panel, network and file service), QuFTP, [file-sharing](file-sharing/sync-nas-to-hdd-cloud.md#setup-ftp-in-nas) and also passive mode)
+- Webserver HTTP (control panel, webserver)
+  - 80
+  - 8081 (TLS)
+- Managment UI, Qmusic, QPhoto (control panel, general settings, system amdin)
+  - 8080
+  - 443 (TLS) 
+- VPN 
+  - OpenVPN (1194) (QuVPN)
+  - ....
+
+Those are the port where gHome reforwards to.
+
+
 <!-- Stop do not recheck osef - yes was ccl forbidden OK - loss of time as quickly checked already toc - recheck and indeed ok no more required.
 
 
@@ -71,6 +106,7 @@ In firefox Error code: SSL_ERROR_RX_RECORD_TOO_LONG
 Revert to initial setup in ghome 
 
 -->
+<!-- this part is re-concluded -->
 
 ## Local DNS
 

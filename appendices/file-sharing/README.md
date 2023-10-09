@@ -13,9 +13,12 @@ Reminder NAT rules defined [DNS.md intro](../DNS.md#nat-port-note) => see [READM
 
 See in order
 
-- [QNAP smart url](./qnap-smart-url.md)
-- [QNAP file sharing]
-- [Sync NAS to HDD and cloud](./sync-nas-to-hdd-cloud.md) -- Concluded
+- [QNAP smart url](./qnap-smart-url.md) -- Concluded
+- [QNAP file sharing](./qnap-file-sharing.md) -- Concluded
+- [Sync NAS to HDD and cloud](./sync-nas-to-hdd-cloud.md) -- Concluded (optional do a rclone) <!-- this section was written before QNAP smart URL only afdded FTP NAT rules so OK -->
     - [Ubuntu network drive](./archive/ubuntu-network-drive.md)  -- Concluded
-- [Share a Pcloud link]()
-- [My data Summary](./data_summary.txt)
+    - Could add a CronJob (for now do not do)
+- [My data Summary](./data_summary.txt) -- Concluded (optional eventually)
+
+
+<!-- concluded only opytional stuff -->

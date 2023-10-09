@@ -409,6 +409,14 @@ See https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b
 <!-- so dns is really ccl STOP, and rework backlog do not recheck that ci, and check quick OK stop-->
 <!-- Added ref ci: https://github.com/scoulomb/home-assistant/commit/223239b848add5c4ae1b9a2dfdca894120034231 -->
 
+
+## Note on QNAP Smart URL and file sharing
+
+See [Note on QNAP Smart URL and file sharing](./appendices/file-sharing/README.md)
+
+<!-- note with DNS OK and this was written after -->
+<!-- CONCLUDED OK, only optional stuff OK -->
+
 ## Note on UPNP
 
 See [Appendix on UPNP](./appendices/UPNP.md/)
@@ -420,24 +428,23 @@ See [Appendix on UPNP](./appendices/UPNP.md/)
   - Tahoma open/close (optional vendor follow-up only: https://github.com/scoulomb/home-assistant/commit/7dd77264627883e46a170a73e414870607d48722) 
   <!-- volet montage final ccl 
   https://github.com/scoulomb/home-assistant/commit/6e413c0fd0175fd6519cbaa95a6e7b762876fcf2 -->
-
 - [Tuya IR](./Tuya-IR-controller/README.md)
 - [Other integration](./Other-integration/README.md)
 - [Some automation sample](./Some-automation-sample/README.md)
 - [ESPHome](./espHome/README.md)
-- [QNAP file sharing](./appendices/file-sharing.md)
+
 
 ## Next to check --
 
 <!-- - Pointer of section OK clear (but come back on point referenced here only), commit 729e389 ok no come back osef-->
-- Paper notes + listing.md + HA staging aera == secdata file moved to https://gist.github.com/scoulomb/ac0b63607102e4d94abcc562d33d6f06
-- misc: mac downgrade (new laptop to fetch ti, dock impact optional, todo in drive, keep mac turned off) + remote when back  + refund maladie (+ bike2021) + kine
-- [QNAP file sharing](./appendices/file-sharing.md)
+- Paper notes (letter) + listing.md + HA staging aera == secdata file moved to https://gist.github.com/scoulomb/ac0b63607102e4d94abcc562d33d6f06
+- misc: mac downgrade (docking?, login to vpn first time + auth app then log latp)(new laptop to fetch ti, dock impact optional, todo in drive, keep mac turned off) + remote when back  + refund maladie (+ bike2021) + kine
+- Optional tagged part in  [Note on QNAP Smart URL and file sharing](./appendices/file-sharing/README.md) + --skips-links --progress -vv
 - [VPN usage and NAS](./appendices/VPN.md)
   - See link to https://github.com/scoulomb/home-assistant/commit/e4dc75b2c6ad43c70aea40947ec33e411feeab5e
+  - For netflix vpn, rahter than configuring vpn on firetv, connect firetv to phone where we have vpn
+- See [UPNP IGD](./appendices/UPNP.md#upnp-igd-nat-traversal) in NAS
 - Volet: [Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md) -> Docker image
-- See [UPNP IGD](./appendices/UPNP.md#upnp-igd-nat-traversal)
-
 - ESPHome + lampe Quechua
 - Hue ligths  micro coupure (see [other integ](./Other-integration/README.md)) 
 - Izymo on/off
@@ -445,10 +452,10 @@ See [Appendix on UPNP](./appendices/UPNP.md/)
 - We can do equivalent of HA using GoogleHome including levave home location (equivalent to what described in [Tahoma Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md))
 - Equivalent to Tahoma scenario via hue button (promo darty)
 - Also apple HomeKit on mac/iphone + Shortcuts
-- Ant+ : https://gist.github.com/scoulomb/a5ad314e3c9f1c9a39c58aebaa13d4bf
+- Ant+ : https://gist.github.com/scoulomb/a5ad314e3c9f1c9a39c58aebaa13d4bf + fan shutter
 - gitconfig as in beg of this doc in mac (also this readme and [DNS](./appendices/DNS.md) complements original doc: https://github.com/scoulomb/misc-notes/blob/master/lab-env/README.md which is till valid and keep it like this OK STOP)
-
-
+- apple tv (eith share display-> docking)
+- pss + pv ag
 <!-- tahoma app working when ehtenet hub -> normal it is on wifi -->
 <!-- this repo is ready OK -->
 <!-- tips for reduce pic size is to use snipping tool -->

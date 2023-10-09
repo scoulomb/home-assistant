@@ -137,7 +137,7 @@ scoulomb@scoulomb-Precision-3540:~/dev$ rclone authorize "pcloud"
 
 <5>NOTICE: Got code
 Paste the following into your remote machine --->
-{"access_token":"Uvu7ZDnONSzyJXpmZ5vBnykZoFlsPtd6QAmBCj35oIT3h4es3Mdy","token_type":"bearer","expiry":"0001-01-01T00:00:00Z"}
+{"access_token":"Uvu7ZDnONSMYSECRETOTKEN","token_type":"bearer","expiry":"0001-01-01T00:00:00Z"}
 <---End paste
 ````
 
@@ -154,13 +154,13 @@ Configuration file is stored at:
 $cat /home/scoulomb/snap/rclone/477/.config/rclone/rclone.conf
 [pcloud]
 type = pcloud
-token = Uvu7ZDnONSzyJXpmZ5vBnykZoFlsPtd6QAmBCj35oIT3h4es3Mdy
+token = Uvu7ZDnONSMYSECRETOTKEN
 hostname = eapi.pcloud.com
 
 [pc2]
 type = pcloud
 hostname = eapi.pcloud.com
-token = {"access_token":"Uvu7ZDnONSzyJXpmZ7P2nykZgrqbfGXDzO8ye9fFtpyEDfcxWBBy","token_type":"bearer","expiry":"0001-01-01T00:00:00Z"}
+token = {"access_token":"Uvu7ZDnASECTOKEN","token_type":"bearer","expiry":"0001-01-01T00:00:00Z"}
 ````
 
 We have an error when syncing with pcloud but not pc2: `Failed to create file system for "pcloud:nas-sync-direct-rclone": failed to configure Pcloud: invalid character 'U' looking for beginning of value`
@@ -174,7 +174,7 @@ vim myconf.txt (open terminal from explorer, be careful this path is not the sam
 [pc]
 type = pcloud
 hostname = eapi.pcloud.com
-token = {"access_token":"Uvu7ZDnONSzyJXpmZ7P2nykZgrqbfGXDzO8ye9fFtpyEDfcxWBBy","token_type":"bearer","expiry":"0001-01-01T00:00:00Z"}
+token = {"access_token":"Uvu7ZDnASECTOKEN","token_type":"bearer","expiry":"0001-01-01T00:00:00Z"}
 ````
 
 and 
@@ -250,9 +250,7 @@ https://help.one.com/hc/en-us/articles/115005585709-How-do-I-connect-to-an-SFTP-
 
 
 From same location we can enable sFTP (open SSH setting and enable sFTP)
-
  
-
 ````
 ssh admin@home.coulombel.net -> password denied
 ssh admin@scoulombel-nas -> OK

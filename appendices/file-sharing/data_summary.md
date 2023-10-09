@@ -39,22 +39,25 @@
     - NOW Only used for sync from here (NAS) to pcloud via HBS
 ==> OK
 
-# So in term of data - 6oct23
+# So in term of data
 
-- Current sync : scoulomb-data
+6oct23
+
+- Current sync : scoulomb-data (see details in [sync NAS to HDD/Cloud](./sync-nas-to-hdd-cloud.md))
   - NAS to Pcloud via rClone
   - NAS to LaCie Orange via HBS
 
 - Iphone photo to iCloud
-- Iphone to scoulomd-data via Sync
+- Iphone to scoulomd-data via [QFilePro](./qnap-file-sharing.md)
 
 - We also have 
   - git repo
-  - manninf book
+  - manning book
   - onedrive 1a
 
+Optional 
+ - Get whatapp image
+ - Ensure dropbox not empty
 
-- Get whatapp image
-- Ensure dropbox not empty
 
-
+Old data summary to ignore OK - do not recheck all here OK
