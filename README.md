@@ -438,14 +438,20 @@ See [Appendix on UPNP](./appendices/UPNP.md/)
 ## Next to check --
 
 <!-- - Pointer of section OK clear (but come back on point referenced here only), commit 729e389 ok no come back osef-->
-- Paper notes (letter) + listing.md + HA staging aera == secdata file moved to https://gist.github.com/scoulomb/ac0b63607102e4d94abcc562d33d6f06
-- misc: mac downgrade (keep m turned off + giveback laptop, docking-station commit commit referenced above OK add conluded) + remote when back  + refund maladie (+ bike2021) + kine
-- Optional tagged part in  [Note on QNAP Smart URL and file sharing](./appendices/file-sharing/README.md) + --skips-links --progress -vv
+
+### Interesting
+
+- Paper notes (letter)
+- Optional tagged part in [Note on QNAP Smart URL and file sharing](./appendices/file-sharing/README.md) + --skips-links --progress -vv
 - [VPN usage and NAS](./appendices/VPN.md)
   - See link to https://github.com/scoulomb/home-assistant/commit/e4dc75b2c6ad43c70aea40947ec33e411feeab5e
   - For netflix vpn, rahter than configuring vpn on firetv, connect firetv to phone where we have vpn
 - See [UPNP IGD](./appendices/UPNP.md#upnp-igd-nat-traversal) in NAS
-- Volet: [Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md) -> Docker image
+- Volet: [Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md) -> Docker image (HA staging aera == secdata file moved to https://gist.github.com/scoulomb/ac0b63607102e4d94abcc562d33d6f06)
+- apple tv (share display-> docking-sation git  update above): https://support.apple.com/en-us/HT210380
+
+### Very optional
+
 - ESPHome + lampe Quechua
 - Hue ligths  micro coupure (see [other integ](./Other-integration/README.md)) 
 - Izymo on/off
@@ -455,8 +461,6 @@ See [Appendix on UPNP](./appendices/UPNP.md/)
 - Also apple HomeKit on mac/iphone/appple tv + Shortcuts
 - Ant+ : https://gist.github.com/scoulomb/a5ad314e3c9f1c9a39c58aebaa13d4bf + fan shutter
 - gitconfig as in beg of this doc in mac (also this readme and [DNS](./appendices/DNS.md) complements original doc: https://github.com/scoulomb/misc-notes/blob/master/lab-env/README.md which is till valid and keep it like this OK STOP)
-- apple tv (eith share display-> docking): https://support.apple.com/en-us/HT210380
-- pss + pv ag
 - QNAP 2FA
 <!-- tahoma app working when ehtenet hub -> normal it is on wifi -->
 <!-- this repo is ready OK -->
