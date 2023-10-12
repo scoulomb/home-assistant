@@ -423,6 +423,7 @@ See [Note on QNAP Smart URL and file sharing](./appendices/file-sharing/README.m
 [VPN usage and NAS](./appendices/VPN.md)
 
 <!-- See link to https://github.com/scoulomb/home-assistant/commit/e4dc75b2c6ad43c70aea40947ec33e411feeab5e OK -->
+<!-- this is ccl -->
 
 ## Note on UPNP
 
