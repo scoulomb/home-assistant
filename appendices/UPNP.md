@@ -57,8 +57,67 @@ UPNP is used for [Discovery](#discovery) as Apple Bonjour service.
 
 <-- all clear above, ccl  -->
 
-## UPNP IGD NAT Traversal
+## UPnP IGD NAT Traversal
 
-HomeAssistant can be used ton configure Gateway (see IGD in devices and services)
 
-It can also be used by QNAP cloud: https://docs.qnap.com/operating-system/qts/4.5.x/fr-fr/GUID-8E3D6623-6D02-4AB4-B89B-B622631CE707.html
+
+It can also be used by QNAP cloud: 
+
+- https://docs.qnap.com/operating-system/qts/4.5.x/fr-fr/GUID-8E3D6623-6D02-4AB4-B89B-B622631CE707.html
+- https://docs.qnap.com/operating-system/qts/4.4.x/en-us/GUID-5B1E585C-8A0D-45FD-A255-3E18F54CB582.html
+
+Go to `http://scoulombel-nas:8080/` > `burger left to application` > `myQNAPCloud` > `DDNS` > `To set up UPnP port forwarding, click here`.
+
+
+We will  test it with [OpenVPN port](./VPN.md#natting).
+
+We had defined 
+
+````
+http://192.168.1.1/network/nat
+OpenVPN 	UDP 	Port 	1194 	192.168.1.58 	11194
+
+GHome / Port management
+11194 -> 1194 ( to NAS) / UDP (all other rules were in TCP, first UDP rule in this doc)
+````
+
+Note we do not use `1194 -> 1194` (default)
+But `11194` -> `1194`.
+
+- Phone in 4G (cut wifi) > we can connect
+- GHome port mamangement -> remove `11194 -> 1194 ( to NAS) / UDP` NAT rules (can put wifi for faster response to do the config)
+- Remove wifi, and try to reconnect to VPN (connection IS cut after NAT port removal, but it takes some time) -> unable to connect, connection timeout
+- `http://scoulombel-nas:8080/` > `burger left to application` > `myQNAPCloud` > `DDNS` > `To set up UPnP port forwarding, click here`.
+    - Enable UPNP port forwarding
+    - Add NAS service targetting default port (for ovpn it is 1194) will not work): port in use error (even if UPNP using that service is disabled in UI (some bug to disable ovpn but tried with another one) <!-- I activated all NAT rule on SFR router to check if link with the fact could not disable open vpn UPNP in NAS UI but not related, rules remain disabled, can enable and disable other rule easily in UPNP UI, openvpn UPNP rule causing issue -->
+    - So we will also change NAT rule on box to
+        - http://192.168.1.1/network/nat
+        - OpenVPN 	UDP 	Port 	1194 	192.168.1.58 	1194 (we have to rm nat, diabling not sufficient)
+    - We can connect OK
+- Now I will turn off UPNP and try to reconnect -> timeout
+- Turn on UPNP again ->Working
+- I come back to initial setup
+    - Disable UPNP
+    - initial NAT rules 
+    - Tested working OK
+
+- If I disable NAT rule on SFR, it will disconnect (I have re-check, what happened when come back to initial setup OK, if I renable NAT rule it will reconnect auto)
+
+
+
+Note this is goung further that upnp: https://www.qnap.com/fr-fr/how-to/faq/article/how-do-i-disable-the-upnp-service
+
+## UPNP/IGD in HA
+
+HomeAssistant (see IGD in devices and services)
+
+https://www.home-assistant.io/integrations/upnp
+
+It is called IGD: https://en.wikipedia.org/wiki/Universal_Plug_and_Play / https://en.wikipedia.org/wiki/Internet_Gateway_Device_Protocol
+
+But it does not help to set up NAT traversal rules to my knowledge
+
+<!-- I have an error and will not explore more -->
+
+<!-- ccl OK -->
+

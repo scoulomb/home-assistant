@@ -386,6 +386,18 @@ So two option to use an alternative DNS.
 
 <!-- all clear above, ccl  -->
 
+## DynDNS and NAS
+
+QNAP NAS supports also dynDNS of several provider (NO-IP,google domains) natively.
+
+`http://scoulombel-nas:8080/` > `control panel` > `network and virtual switch` > `DDNS`.
+
+There we also find dynDNS of NAS.
+
+Thus `home.coulombel.net` could there be managed as dynDNS (not tried)
+
+<!-- this is clear stop, and well located OK STOP -->
+
 
 ## Add certificates 
 

@@ -78,7 +78,7 @@ Do the test from IPhone
         - Note HEOS UPNP does not seem to work
 - From phone which is in 4G -> what is my IP gives SFR `109.29....` -> VPN is working
 
-Note actually when VPN connected I can disable the NAT rule, but I will not be able to reconnect
+Note actually when VPN connected I can disable the NAT rule, but I will not be able to reconnect --> Wrong see [UPNP.md](./UPNP.md#upnp-igd-nat-traversal)
 
 ## Netflix and VPN 
 
@@ -225,3 +225,5 @@ So we have a workaround for netflix (no need to chnage the household) <!-- did n
 
 <!-- section ccl, qvpn client osef-->
 <!-- CCL :) -->
+
+<!-- could replace in config generated folder ip by qnap or home.coulombel.net DNS, in particular if IP is changing, but will not try this STOP-->

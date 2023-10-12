@@ -381,6 +381,10 @@ See https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b
 
  See [Appendix on (m)DNS](./appendices/DNS.md). <!-- ccl -->
 
+ Note SSH on NAS and Precsion at [Appendix on (m)DNS](./appendices/DNS.md#intro).
+ Good alternative to multidesk with https://github.com/scoulomb/docking-station
+
+
  <!-- EDIT:
  Was well concluded
  https://github.com/scoulomb/home-assistant/blob/191da58ec8d6314ff889a67a286e3595d75a5daf/appendices/DNS.md?plain=1#L29
@@ -425,9 +429,16 @@ See [Note on QNAP Smart URL and file sharing](./appendices/file-sharing/README.m
 <!-- See link to https://github.com/scoulomb/home-assistant/commit/e4dc75b2c6ad43c70aea40947ec33e411feeab5e OK -->
 <!-- this is ccl -->
 
-## Note on UPNP
+## Note on UPnP and UPnP IGD 
 
-See [Appendix on UPNP](./appendices/UPNP.md/)
+
+See [Appendix on UPNP](./appendices/UPNP.md)
+
+
+IGD subpart of UPnP.
+
+<!-- concluded OK, well done -->
+<!-- ALL NETWORK APPENDICES DONE -->
 
 ## Projects
 
@@ -450,9 +461,15 @@ See [Appendix on UPNP](./appendices/UPNP.md/)
 
 - Paper notes (letter)
 - Optional tagged part in [Note on QNAP Smart URL and file sharing](./appendices/file-sharing/README.md) + --skips-links --progress -vv
-- See [UPNP IGD](./appendices/UPNP.md#upnp-igd-nat-traversal) in NAS+ha
 - Volet: [Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md) -> Docker image (HA staging aera == secdata file moved to https://gist.github.com/scoulomb/ac0b63607102e4d94abcc562d33d6f06)
 - apple tv (share display-> docking-sation git  update above): https://support.apple.com/en-us/HT210380
+- Also apple HomeKit 
+  - on mac/iphone/appple tv + Shortcuts + apple tv
+  - Apple TV in HA
+  - Thread (home assistant -> thread -> 3 borders routers) / Matter
+- sock listen and receive
+- note vs code end
+- VPN config file to understand optionally
 
 ### Very optional
 
@@ -462,7 +479,6 @@ See [Appendix on UPNP](./appendices/UPNP.md/)
 - Curl command from HA (to use denon, tahoma local API)
 - We can do equivalent of HA using GoogleHome including levave home location (equivalent to what described in [Tahoma Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md))
 - Equivalent to Tahoma scenario via hue button (promo darty)
-- Also apple HomeKit on mac/iphone/appple tv + Shortcuts
 - Ant+ : https://gist.github.com/scoulomb/a5ad314e3c9f1c9a39c58aebaa13d4bf + fan shutter
 - gitconfig as in beg of this doc in mac (also this readme and [DNS](./appendices/DNS.md) complements original doc: https://github.com/scoulomb/misc-notes/blob/master/lab-env/README.md which is till valid and keep it like this OK STOP)
 - QNAP 2FA
@@ -474,3 +490,4 @@ See [Appendix on UPNP](./appendices/UPNP.md/)
 
 <!-- ok as part ref in vs code, we have all here under seprarator ok-->
 <!-- commit verified in lab env osef ok -->
+<!-- firmare update 5410 changes nothing as usb-c for docking -->

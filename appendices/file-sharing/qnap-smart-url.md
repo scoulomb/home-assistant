@@ -95,7 +95,7 @@ cert-valid 	TCP 	Port 	80 	192.168.1.58 	8180
 - We will test QTS desktop QNAP Smart URL resolution based on NAT port we have (Qfile, QPhoto are smilar)
 - We will test also webserver which does not have Smart URL resolution
 - We presume algo is order given in myQNAP cloud. We will use custom access where we disabled services publication to see if it does not impact resolution. (we will see it depends on devices)
-- We will test in custom acces control with admin user (sco.....l@gmail.com), and NAS service unpublished to prove it does not impact Smart URL resolution (only what is shown in UI)
+- We will test in custom acces control with admin user (sco.....l@gmail.com, QNAP ID in myQNAPCloud overview in NAS), and NAS service unpublished to prove it does not impact Smart URL resolution (only what is shown in UI)
     - Below behavior was tested
         - When public no login is required to access URL
         - When private only admin can access URL (qnap account s.....l@gmail.com)
