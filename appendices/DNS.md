@@ -50,10 +50,10 @@ Other NAT port (http://192.168.1.1/network/nat) not mentionned in this [introduc
 - cert valid `80 -> 8180` (see at next [section](#objective-1-ha-in-https))
 - inactive denon [README](../README.md#double-nat-with-devices-on-2-networks))
 - [QNAP Smart URL Test](./file-sharing/qnap-smart-url.md)
-- [file-sharing](file-sharing/sync-nas-to-hdd-cloud.md#setup-ftp-in-nas) 
+- [file-sharing](./file-sharing/sync-nas-to-hdd-cloud.md#setup-ftp-in-nas) 
   - NAT for FTP in passive mode range 
   - SSH/sFTP using **ssh** to NAS (`222 -> 22222` for NAS). Do not confuse with  **ssh** `22 -> 2222`
-- [VPN](VPN.md) -> OK CLEAR
+- [VPN](VPN.md#natting) -> OK CLEAR
 
 And everytime we have to reforward in ghome OK 
 

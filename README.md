@@ -418,6 +418,12 @@ See [Note on QNAP Smart URL and file sharing](./appendices/file-sharing/README.m
 <!-- note with DNS OK and this was written after -->
 <!-- CONCLUDED OK, only optional stuff OK -->
 
+## Note on VPN
+
+[VPN usage and NAS](./appendices/VPN.md)
+
+<!-- See link to https://github.com/scoulomb/home-assistant/commit/e4dc75b2c6ad43c70aea40947ec33e411feeab5e OK -->
+
 ## Note on UPNP
 
 See [Appendix on UPNP](./appendices/UPNP.md/)
@@ -443,10 +449,7 @@ See [Appendix on UPNP](./appendices/UPNP.md/)
 
 - Paper notes (letter)
 - Optional tagged part in [Note on QNAP Smart URL and file sharing](./appendices/file-sharing/README.md) + --skips-links --progress -vv
-- [VPN usage and NAS](./appendices/VPN.md)
-  - See link to https://github.com/scoulomb/home-assistant/commit/e4dc75b2c6ad43c70aea40947ec33e411feeab5e
-  - For netflix vpn, rahter than configuring vpn on firetv, connect firetv to phone where we have vpn
-- See [UPNP IGD](./appendices/UPNP.md#upnp-igd-nat-traversal) in NAS
+- See [UPNP IGD](./appendices/UPNP.md#upnp-igd-nat-traversal) in NAS+ha
 - Volet: [Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md) -> Docker image (HA staging aera == secdata file moved to https://gist.github.com/scoulomb/ac0b63607102e4d94abcc562d33d6f06)
 - apple tv (share display-> docking-sation git  update above): https://support.apple.com/en-us/HT210380
 
