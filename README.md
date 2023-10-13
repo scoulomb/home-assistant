@@ -438,7 +438,7 @@ See [Appendix on UPNP](./appendices/UPNP.md)
 IGD subpart of UPnP.
 
 <!-- concluded OK, well done -->
-<!-- ALL NETWORK APPENDICES DONE -->
+<!-- ALL NETWORK APPENDICES DONE: https://github.com/scoulomb/home-assistant/commit/30d72433462800fd69baa99c1da8f01dd1627d59#diff-bfb4e89cd42e2d89ad2e4e402b397857ebe2e6dd2cff8af4e0f9ee2c32bc9c95R229, recf 13oct23 1:05 PM OK -->
 
 ## Projects
 
@@ -469,7 +469,7 @@ IGD subpart of UPnP.
   - Thread (home assistant -> thread -> 3 borders routers) / Matter
 - sock listen and receive
 - note vs code end
-- VPN config file to understand optionally
+- VPN config file to understand optionally (DO NOT DO: do not try to use ddns here, commit ccl upnp STOP ;) Stop)
 
 ### Very optional
 
