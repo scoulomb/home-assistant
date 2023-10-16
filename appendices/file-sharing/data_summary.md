@@ -39,6 +39,8 @@
     - NOW Only used for sync from here (NAS) to pcloud via HBS
 ==> OK
 
+- MyQNAPCloud -> tentative back-up OK via HBS rm
+
 # So in term of data
 
 6oct23
@@ -54,6 +56,11 @@
   - git repo
   - manning book
   - onedrive 1a
+  - quobuzz (backup, except no zip for london)
+
+- misc
+  - Whatsapp sync to iCloud OK
+  - Authentificator to iCloud OK
 
 Optional 
  - Get whatapp image

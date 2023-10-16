@@ -465,7 +465,7 @@ IGD subpart of UPnP.
 See [Apple ecosystem](./apple-ecosystem/README.md).
 
 
-## Next to check -- HERE
+## Next to check -- CHECK TODO FROM HERE
 
 <!-- - Pointer of section OK clear (but come back on point referenced here only), commit 729e389 ok no come back osef-->
 
@@ -473,6 +473,8 @@ See [Apple ecosystem](./apple-ecosystem/README.md).
 
 - Paper notes (letter)
 - Optional tagged part in [Note on QNAP Smart URL and file sharing](./appendices/file-sharing/README.md) 
+  - Sync completed only doubt is: # Program is closed when sync
+  - and do a cj ? can keep it like this
 - Volet: [Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md) -> Docker image (HA staging aera == secdata file moved to https://gist.github.com/scoulomb/ac0b63607102e4d94abcc562d33d6f06)
 - Also apple HomeKit. Check [Apple ecosystem](#apple-smarthome-ecosystem-as-alternative-to-ha)
   - Resetup (see paper) via HomeKit
@@ -489,7 +491,7 @@ See [Apple ecosystem](./apple-ecosystem/README.md).
 - note vs code end
 - VPN config file to understand optionally (DO NOT DO: do not try to use ddns here, commit ccl upnp STOP ;) Stop)
 - Somfy vendor follow-up [optional](#projects)
-- link vs code
+- link vs code (move some ccl to here)
 
 ### Very optional
 

@@ -197,19 +197,41 @@ Note copy vs sync: https://forum.rclone.org/t/rclone-copy-or-sync/2089/6
 -`-timeout 1000s`:  https://forum.rclone.org/t/rclone-stucks-at-the-end-of-a-big-file-upload/8102
 - also use `--track-renames` option 
 - use setsid for clsoing shell
+- cloud use `--exclude="*.git/"`
+- use `--size-` to avoid full checksum check (otherwise stuck at 100%): https://forum.rclone.org/t/ignore-checksum-not-respected-on-rclone-check/13727/2, https://rclone.org/docs/#ignore-checksum
 
 ````
 ssh admin@scoulombel-nas
-alias rclone="//share/homes/admin/rclone-v1.64.0-linux-amd64/rclone"
+alias rclone="//share/homes/admin/rclone-v1.64.0-linux-amd64/rclone" # setsid does not work with alias (execvp error), but can use alias if setsid not used. In that case log to file can be removed.
 
-rclone sync //share/homes/admin/scoulomb-data pc:nas-sync-direct-rclone --timeout 1000s --exclude="*.git/"  -P
+setsid //share/homes/admin/rclone-v1.64.0-linux-amd64/rclone sync //share/homes/admin/scoulomb-data pc:nas-sync-direct-rclone --timeout 1000s  --track-renames --skip-links --max-size 4.6G --size-only --progress -vv > //share/homes/admin/out.txt
 
-# setsid does not work with alias (execvp error)
-setsid //share/homes/admin/rclone-v1.64.0-linux-amd64/rclone  sync //share/homes/admin/scoulomb-data pc:nas-sync-direct-rclone --timeout 1000s > //share/homes/admin/out.txt
-# setsid and `` not working for now (excvp)
 tail -f //share/homes/admin/out.txt
+
+ps | grep rclone
+kill <PID>
+# once sunc done
+# we can laucnh a special without `--max-size`
+
+setsid //share/homes/admin/rclone-v1.64.0-linux-amd64/rclone sync //share/homes/admin/scoulomb-data pc:nas-sync-direct-rclone --timeout 1000s  --track-renames --skip-links --size-only --progress -vv > //share/homes/admin/out.txt
+# Program is closed when sync
 ````
 
+Could manage ssh key to not enter pwd: https://github.com/scoulomb/misc-notes/blob/master/lab-env/README.md#avoid-credentials-in-ssh-and-do-not-use-sshpass
+We already have a SSH key for git, see [README](../../README.md#some-initial-setup)(to push and not to sign the commit)
+
+````
+ssh-copy-id admin@scoulombel-nas
+ssh admin@scoulombel-nas # not login required
+cat .ssh/authorized_keys # we see the key
+````
+
+Very useful if scripting
+
+We can alternatively do a CronJob.
+<!-- tested and working, and sync all folder with this ->
+
+See command: https://rclone.org/commands/rclone_sync/ (in particular max szie)
 
 ### ALtnerative ro RClone use multcloud and FTP <!-- OK CCL confirmed-->
 
@@ -265,6 +287,7 @@ We need a NAT rule for SSH NAS access.
 ````
 ssh admin@home.coulombel.net -p 222
 ````
+<!-- ssh story and nas clear, stop here OK -->
 
 And access in Filezilla 
 - `sftp://scoulombel-nas admin pwd default-port=22` OK
