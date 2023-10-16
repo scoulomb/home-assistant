@@ -439,6 +439,8 @@ IGD subpart of UPnP.
 
 <!-- concluded OK, well done -->
 <!-- ALL NETWORK APPENDICES DONE: https://github.com/scoulomb/home-assistant/commit/30d72433462800fd69baa99c1da8f01dd1627d59#diff-bfb4e89cd42e2d89ad2e4e402b397857ebe2e6dd2cff8af4e0f9ee2c32bc9c95R229, recf 13oct23 1:05 PM OK -->
+<!--and commit after reamde update ok-->
+
 
 ## Projects
 
@@ -452,24 +454,42 @@ IGD subpart of UPnP.
 - [Some automation sample](./Some-automation-sample/README.md)
 - [ESPHome](./espHome/README.md)
 
+## Apple TV 
 
-## Next to check --
+[See Apple TV in Docking station](https://github.com/scoulomb/docking-station/blob/main/README.md#apple-tv-4k-3gen)
+
+<!-- ccl OK STOP: https://github.com/scoulomb/docking-station/commit/7a09cd14c2616066e4082c57424128fc2939b38c -->
+
+## Apple smarthome ecosystem as alternative to HA
+
+See [Apple ecosystem](./apple-ecosystem/README.md).
+
+
+## Next to check -- HERE
 
 <!-- - Pointer of section OK clear (but come back on point referenced here only), commit 729e389 ok no come back osef-->
 
 ### Interesting
 
 - Paper notes (letter)
-- Optional tagged part in [Note on QNAP Smart URL and file sharing](./appendices/file-sharing/README.md) + --skips-links --progress -vv
+- Optional tagged part in [Note on QNAP Smart URL and file sharing](./appendices/file-sharing/README.md) 
 - Volet: [Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md) -> Docker image (HA staging aera == secdata file moved to https://gist.github.com/scoulomb/ac0b63607102e4d94abcc562d33d6f06)
-- apple tv (share display-> docking-sation git  update above): https://support.apple.com/en-us/HT210380
-- Also apple HomeKit 
-  - on mac/iphone/appple tv + Shortcuts + apple tv
+- Also apple HomeKit. Check [Apple ecosystem](#apple-smarthome-ecosystem-as-alternative-to-ha)
+  - Resetup (see paper) via HomeKit
+    - https://www.philips-hue.com/fr-fr/explore-hue/works-with/apple-homekit/set-up#Je_suis_dj_connect__Apple_Home_mais_je_souhaite_utiliser_Matter__la_place_Comment_changer
+    - https://service.somfy.com/downloads/be_v5/faqhomekit_and_tahoma_compatibility.pdf
+  - Mac/iphone/apple tv integration + Shortcuts (same ghome)
   - Apple TV in HA
   - Thread (home assistant -> thread -> 3 borders routers) / Matter
-- sock listen and receive
+  - Integration via Matter or HomeKit or Provider Api (like Alexa) (example of Hue)
+    - https://www.numerama.com/tech/1170068-matter-va-revolutionner-la-maison-connectee-tout-savoir-sur-cet-incroyable-alliance.html
+- sock listen and receive: lien http socket
+  - https://www.qnx.com/developers/docs/qnx_4.25_docs/tcpip50/prog_guide/sock_advanced_tut.html
+  - https://stackoverflow.com/questions/6810444/two-way-communication-in-socket-programming-using-c
 - note vs code end
 - VPN config file to understand optionally (DO NOT DO: do not try to use ddns here, commit ccl upnp STOP ;) Stop)
+- Somfy vendor follow-up [optional](#projects)
+- link vs code
 
 ### Very optional
 
