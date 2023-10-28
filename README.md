@@ -457,8 +457,9 @@ IGD subpart of UPnP.
 ## Sound and Video
 
 - [See Apple TV in Docking station](https://github.com/scoulomb/docking-station/blob/main/README.md#apple-tv-4k-3gen)
-<!-- ccl OK STOP: https://github.com/scoulomb/docking-station/commit/7a09cd14c2616066e4082c57424128fc2939b38c -->
-- [Sound video README including Apple TV](./README.md)  [To be done]
+<!-- Apple TV in Docking station and docking sation ccl OK STOP: https://github.com/scoulomb/docking-station/commit/7a09cd14c2616066e4082c57424128fc2939b38c, and this comment shows ccl
+https://github.com/scoulomb/docking-station/commit/7a09cd14c2616066e4082c57424128fc2939b38c#commitcomment-131156149 -->
+- [Sound video README including Apple TV](./sound-video/README.md)  [To be done]
 
 
 ## Apple HomeKit, Amazon Alexa, Google Home, Matter and Thread 
@@ -479,7 +480,7 @@ Note Apple TV is a Thread device.
   - Sync completed only doubt is: # Program is closed when sync
   - and do a cj ? can keep it like this
 - Volet: [Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md) -> Docker image (HA staging aera == secdata file moved to https://gist.github.com/scoulomb/ac0b63607102e4d94abcc562d33d6f06)
-- [Sound and video](./sound-video/README.md)
+- [Sound and video](./sound-video/README.md) in [Sound and video](#sound-and-video)
 - Also apple HomeKit.... Check [this](#apple-homekit-amazon-alexa-google-home-matter-and-thread)
   - Resetup (see paper) via HomeKit
     - https://www.philips-hue.com/fr-fr/explore-hue/works-with/apple-homekit/set-up#Je_suis_dj_connect__Apple_Home_mais_je_souhaite_utiliser_Matter__la_place_Comment_changer
@@ -496,6 +497,8 @@ Note Apple TV is a Thread device.
 - VPN config file to understand optionally (DO NOT DO: do not try to use ddns here, commit ccl upnp STOP ;) Stop)
 - Somfy vendor follow-up [optional](#projects)
 - link vs code (move some ccl to here)
+
+Note we have ONLY readme here + xref vs code (and paper note complement on todo or details)
 
 ### Very optional
 
