@@ -454,15 +454,18 @@ IGD subpart of UPnP.
 - [Some automation sample](./Some-automation-sample/README.md)
 - [ESPHome](./espHome/README.md)
 
-## Apple TV 
+## Sound and Video
 
-[See Apple TV in Docking station](https://github.com/scoulomb/docking-station/blob/main/README.md#apple-tv-4k-3gen)
-
+- [See Apple TV in Docking station](https://github.com/scoulomb/docking-station/blob/main/README.md#apple-tv-4k-3gen)
 <!-- ccl OK STOP: https://github.com/scoulomb/docking-station/commit/7a09cd14c2616066e4082c57424128fc2939b38c -->
+- [Sound video README including Apple TV](./README.md)  [To be done]
 
-## Apple smarthome ecosystem as alternative to HA
 
-See [Apple ecosystem](./apple-ecosystem/README.md).
+## Apple HomeKit, Amazon Alexa, Google Home, Matter and Thread 
+ 
+See [README](./homekit-alexa-ghome-matter-thread/README.md)
+
+Note Apple TV is a Thread device.
 
 
 ## Next to check -- CHECK TODO FROM HERE
@@ -476,7 +479,8 @@ See [Apple ecosystem](./apple-ecosystem/README.md).
   - Sync completed only doubt is: # Program is closed when sync
   - and do a cj ? can keep it like this
 - Volet: [Scenario](./Tahoma/hardware-remotes/lanceur-scenario.md) -> Docker image (HA staging aera == secdata file moved to https://gist.github.com/scoulomb/ac0b63607102e4d94abcc562d33d6f06)
-- Also apple HomeKit. Check [Apple ecosystem](#apple-smarthome-ecosystem-as-alternative-to-ha)
+- [Sound and video](./sound-video/README.md)
+- Also apple HomeKit.... Check [this](#apple-homekit-amazon-alexa-google-home-matter-and-thread)
   - Resetup (see paper) via HomeKit
     - https://www.philips-hue.com/fr-fr/explore-hue/works-with/apple-homekit/set-up#Je_suis_dj_connect__Apple_Home_mais_je_souhaite_utiliser_Matter__la_place_Comment_changer
     - https://service.somfy.com/downloads/be_v5/faqhomekit_and_tahoma_compatibility.pdf
