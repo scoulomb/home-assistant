@@ -498,7 +498,8 @@ Note Apple TV is a Thread device.
 - Somfy vendor follow-up [optional](#projects)
 - link vs code (move some ccl to here)
 
-Note we have ONLY readme here + xref vs code (and paper note complement on todo or details)
+Note we have ONLY readme here + xref vs code (and paper note complement on todo or details).
+Remain only what is described here in this doc (and ccl comments in this file and gh clear OK).
 
 ### Very optional
 
