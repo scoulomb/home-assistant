@@ -27,8 +27,31 @@ https://www.passionhomecinema.fr/blocs-2-canaux/4264-atoll-ma100-bloc-stereo-noi
 Example de lancement a 400: https://hifi-conseil.com/boutique/electronique_old/ampli/atoll/atoll_ma_100/
 Vu a 280 euros: https://www.dealabs.com/search?q=atoll%20ma100, https://www.dealabs.com/bons-plans/amplificateur-de-puissance-atoll-ma100-noir-80w-rca-out-bridge-mono-150w-trigger-2050903
 
-Atoll MA100 + HD120 - Modele expo
+
+
+Atoll MA100 + HD120 + evergreen rca 0.6 sur son-vide0, 1049 euros au lieu de 1 359 € 
+https://www.son-video.com/article/dac-audio-usb/atoll/hd120-plus-ma100-aluminium-evergreen-rca-0-6-m
+Ou element seul
+- MA100: https://www.son-video.com/article/amplis-de-puissance/atoll/ma100-noir (490 negocie a 450)
+- HD120:https://www.son-video.com/article/dac-audio-usb/atoll/hd120-aluminium (790 euros)
+- https://www.son-video.com/article/cables-stereo-rca/audioquest/evergreen-rca-0-6-m (79 euros) -> 60 euros sur amazon : https://www.amazon.fr/AudioQuest-Evergreen-cable-Cables-cuivre/dp/B005T44LES/ref=asc_df_B005T44LES/?tag=googshopfr-21&linkCode=df0&hvadid=194944888030&hvpos=&hvnetw=g&hvrand=2033671962238066348&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9054964&hvtargid=pla-83780017766&psc=1
+Total seul: 1359 euros
+
+
+Atoll MA100 + HD120 - Modele expo (-50%)
 https://laser-experience.fr/amplificateur-hifi-son-le-havre-fecamp-rouen-dieppe-yvetot-76-caen-14-st-lo-50-evreux-27-paris-seine-maritime-normandie/248-aroll-pack-ma100-HD120-meilleur-prix-le-havre-rouen-fecamp-dieppe-76-caen-14-evreux-27-st-lo-50-paris-seine-maritime-orleans.html => 650 Euros
+
+
+Difference modele expo et son video: 1049 - 60 (cable) -650 = 339 euros
+
+1049 339
+100
+
+Soit 32.3% de reduction (prix occaz: https://www.cnetfrance.fr/produits/renvendre-son-materiel-d-occasion-39811713.htm et des enceintes)
+
+But better to have a pre-amplifier: 
+https://www.son-video.com/guide/creer-une-installation-hi-fi-avec-un-ampli-home-cinema
+
 
 Note pre-out se mette sur ampli de puissance : https://manuals.denon.com/AVRX3700H/NA/FR/GFNFSYtmyicciu.php
 Par le 2700h a seulement une zone 2 pre-out a la difference du 3700h qui a des front pre-out
@@ -42,7 +65,6 @@ L'ampli ma100 fait 2x65W mais mieux que le pm6007
 Note sur la puissance ici: https://mycine.eu/blog/enceintes
 
 
-https://www.dealabs.com/bons-plans/pre-amplificateur-avec-dac-et-ampli-casque-atoll-hd120-amplificateur-de-puissance-atoll-ma100-paire-denceintes-triangle-titus-ez-164040
 
 
 # Achat enceinte
@@ -54,7 +76,7 @@ Vrai prix: https://www.trianglehifi.fr/products/enceinte-bibliotheque-esprit-ez-
 
 Etait a 650 Euros au black friday de 2022 (modele classqiue de la marque)
 
-# Prix emsemble
+# Prix emsemble avec enceinte
 
 650 + 479 = 1129 euros
 
@@ -105,3 +127,39 @@ https://www.ariase.com/box/dossiers/fin-adsl-fermeture-reseau-cuivre
 
 
 WAHOO
+
+Test du Dynavox aux s
+Bluetooth Atool
+
+Quand aucune source est jouee gros bruuit de "buzz" dans les enceintes.
+Si cable electrique s'approache de la boite on a un bruit d'interference, 
+Un son blanc est ajoute au son de sortie et oblige de montee le volume a 6 pour avoir un volume equivalent a 2. Grosse perte de signal
+Produit retourne
+
+Lr audiophonic semble OK 
+Prtit bruit balnc tres faible qd qucune source joue mais similaire
+Je delore lq qualite de la connectique
+
+
+
+Pendant les test la zone 2 envoye un signal
+
+
+
+Avait commande le audiophnics avant le test au vu des commentaire sur la fabrication interieure
+
+COmmande chez Audiphonics 
+- cable pour platine vinyle Blanco (car utilise maintenant le cable de la platine pour pre-out ampli vers botier rca, ce cable etait meme utilise avec une rallonge intialement pour la platine vinyle)
+- Et cable boitier switch vers Ampli de puissance  	ATAUDIO KING WOLF RCA 
+- Utilse cable kabel direkt entre pre-ampli et switch box? a voir si je le garde....????
+
+
+Amazon sur cb
+- renvoye cle dynamo
+- cable 0.5m (car utilise AT AUDIO_)
+- dynavox
+
+Amazon sur compte 
+- cable 1.5 m RCA (Amazon n'a pas demande de retouner le produit) initailement destine a platine vinyle. Remplace par blanco
+
+
