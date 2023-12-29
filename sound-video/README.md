@@ -513,7 +513,293 @@ Tested with Youtube.
 
 <!-- here -->
 
-## Remote control
+## Sound
+
+See as introduction
+- https://github.com/scoulomb/docking-station/blob/main/README.md#music
+- https://github.com/scoulomb/docking-station/blob/main/README.md#apple-tv-audio
+- https://github.com/scoulomb/docking-station/blob/main/README.md#zwiftapple-tv (pre-out)
+
+We can do multi-room music
+
+### Multiroom
+
+We can test with  
+- Denon AVR X-2700 H with 5.1 speaker
+- 2 denon-home 150
+- 1 HIFI player (Atoll MA100 amp +HD120 pre-amp)
+
+Let's do this initial setup:
+
+- We pair the 2 Denon Home as stereo pair in HEOS app
+- We set the stereo-pair in same room as AVR in HEOS app
+- We have have the AVR zone 2 pre-out + Atoll HD120 as input of Hifi player amp as below
+
+````
+Apple TV   -> Zone 2 AVR -> Switch box -> MA100
+Laptop USB -> HD120      ->
+````
+
+#### 1- Via HEOS (sync avr /denon home stereo pair + stereo pair) + Zone 2 pre-out
+
+- This is working great for source (like vinyle) but weirdly when source is Heos music (for instance deezer via HEOS) we have desynchro (in particular in zone 2!!!!)
+
+
+#### 2- Via HEOS (stereo pair) +  Zone 2 pre-out + Air Play (embeeded in AVR) + Home 150 AirPlay stereo pair
+
+
+Note when playing air play, in current implem it ungroup the Home 150 stereo pair from avr (with the main + zone 2), and it is seen as 2 AirPlay spearkers
+It does not have functional impact
+
+
+In the past it was even ungrouping the stereo pair: https://www.denon.com/ro-ro/blog/denon-home-why-you-should-think-about-stereo-pairing-ro
+> It is also worth mentioning that, due to technical reasons, as of this moment, Apple Airplay will be disabled in stereo configuration, but support for this streaming option is incoming – so hold tight, Apple fans.
+
+
+#### 3- Via HEOS (stereo pair) +  Zone 2 pre-out + Air Play (apple TV) + Home 150 AirPlay stereo pair
+
+We can use use AirPlay from Apple TV
+It is also working. I noticed less desynchro in this setup.
+
+#### 4- Via HEOS (stereo pair + group AVR/Home 150) +  Zone 2 pre-out + Air Play (apple TV)
+
+Unlike when AirPLay of receiver is used, if we use AirPlay of apple TV, AVR-Home 150 stereo pair is working
+
+#### 5- Same as 3 but we replace Zone 2 pre-out by AirPplay receiver plugeed to HD120 DAC 
+
+It also works with 2 and 4. <!-- not tested the also work work with 2 and 4-->
+
+
+We can use as AirPlay receiver which supports AirPLay 2 (for multiroom suuport). See 3 versions of AirPlay: https://en.wikipedia.org/wiki/AirPlay
+- AirTunes
+- Airplay 1
+- AirPlay 2
+
+This receiver can be plugged RCA plug, Digital Audio or Coaxial (Digital).
+When Digital receiver DAC can be used.
+
+See [music streamer with AirPLay 2](./music-streamer.md)
+
+Alternative is to use laptop with 
+- shairport sync: https://github.com/mikebrady/shairport-sync/blob/master/BUILD.md
+- where we have switch box active HD120 pre-amp.
+
+##### shairport seyp
+
+I used 
+
+````
+shairport-sync -v --statistics
+````
+
+ we can  use `&` mode
+
+ ````
+ shairport-sync &
+ ````
+
+ Note that when used `systemctl`, speakers were not visible as AirPlay speaker from deezer app: https://github.com/mikebrady/shairport-sync/blob/master/BUILD.md#5-enable-and-start-service
+
+ Also noticed that when launching process it has to be startrd when in sound setting output is set to Atoll Digital Output oterwise can stay in built-in.
+ In HD120 it using usb-red.
+
+ Stop 
+
+````
+$ ps -aux |  grep  shairport
+scoulomb   60427  6.4  0.0 839056 27192 pts/1    Sl   12:02   0:22 shairport-sync
+scoulomb   62867  0.0  0.0   9216  2560 pts/1    S+   12:08   0:00 grep --color=auto shairport
+$ kill -9 60427
+````
+  
+##### AirPLay 1
+
+If we use Kodi as AirPlay receiver. No multiroom is supported.
+It will disable other speakers.
+
+Same observed with Triangle AIO-C.
+An alternative for multiroom would to use several AIO as aux in Home 150 + AVR.
+Similar to **setup 4**.
+
+#### 6- Replace stereo pair by 2  Mono speaker
+
+We can in all setup above ungroup stereo pair and have 2 mono HEOS (1,4) or AirPlay speaker(2,3).
+
+<!-- not all tested setup 6 -->
+
+
+### Other alternative 
+
+- Receiverlike  AIO-C can embeed
+    - Spotify connect 
+    - Music provider directly.
+    - DLNA
+    - AirPLay
+
+See [music streamer with AirPLay 2](./music-streamer.md)
+
+[here-------------------------]
+When using Deezer audio output we have 
+
+- IPhone => Builtin speaker, or wire
+- AirPlay and Bluetooth -> AirPLay see above and Bluetooth Headset but also HD120 (blue ligth on HD120)
+- Google Cast => Google next or any receiver supporting chromecast
+- Deezer connect => Phone tablet can be receiver to HD120 (via win app or browser, tested) and some latency
+
+Bluetooth on HD120
+- I was impressed by sound quality here: Actually receiver support Apt-x HD AUDIO + AAC 
+- When used with iPhone it uses AAC code (to no confuse with AAC compression format). It is not loseless but gives good quality with iPhone
+- Not tried: AVR could stream bluetooth signal to HD120
+
+Spotify is the most complete
+
+
+
+
+### Sound quality
+
+- When playing via [Kodi](#kodi) AirPlay, deezer content in Hifi quality it shows this information
+
+`2.0 44.1 khz 1411 kbs 16 bit`
+
+- If I change audio quality to`standard`, it shows the same value. As those are the quality of Airplay tunnel.
+
+#### Understand sampling and bit rate
+
+https://www.headphonesty.com/2019/07/sample-rate-bit-depth-bit-rate/
+
+#### Music quality
+
+- Qutoting deezer app:
+> Standard streams at 128kbps, High Quality at 320 kbps, and High Fidelity at 1411 kbps (FLAC), which requires a high-speed resolution.
+
+See here codec details from music provider: https://www.audiophiledebutant.fr/comprendre-laudio/explication-sur-les-formats-numeriques-audio/
+<!-- https://manual.yamaha.com/av/18/rxv485/fr-FR/341956619.html -->
+
+- What is CD quality?
+44.1 khz sampling frquency with a 16 bit depth is CD quality (Flac). Hi-res audio aims at Higher sampling rate rate.
+Quoting https://electronics.sony.com/hi-res-audio-mp3-cd-sound-quality-comparison
+> High-Resolution Audio files have a sampling frequency of 96 kHz/24 bit, which is significantly higher than the 44.1 KHz/16 bit sampling frequency of CDs.
+I saw even 192 kHz.
+
+- It we talk on bit rate (https://electronics.sony.com/hi-res-audio-mp3-cd-sound-quality-comparison)
+    - > When comparing bitrate, or the amount of data transferred per second, High-Resolution Audio’s bitrate (9,216 kbps) is nearly seven times higher than that of CDs (1,411 kbps) and almost 29 times higher than that of MP3s (320 kbps). And the higher the bitrate, the more accurately the signal is measured.
+    - > Popular streaming websites like Spotify and Pandora typically use a bitrate of 160 kbps, which is less than that of MP3s. If you spring for Spotify Premium, you’ll still only have access to 320 kbps tracks, which is equivalent to MP3s.
+
+- Note mp3 encoding use psychoacoutic (as Dolby Digital+, Dolby True HD is loseless and I asusme it does not use psychoacoustic)
+
+- How to go from 44.1 Hz/16 bit to bit rate computation
+    - CD quality: 44.1 (sample per second)*16 bit*2channel= 1411.2 kbs
+    - Hi res:     192 (sample per second)*24 bit*2channel= 9216 kbs
+
+
+
+#### LAN Streaming tunnel
+
+- Bluetooth use code (to not confuse with sound format): DBC is the worst, AAC and Apt-x ok with apple device but not lossless and use psychoacoustic.
+AAC is relying on AAC lossy codec (https://en.wikipedia.org/wiki/Advanced_Audio_Coding)  to not confuse wiht AAC sound format.
+- AirPlay over Wifi : it is limited to CD quality.
+See: https://discussions.apple.com/thread/254583373
+Which makes us understand the Kodi output in intro.
+
+- A lossless way is to use DLNA. See [DLNA streaming](#dlna-streaming)
+    - Not supported by Deezer
+    - But Spotify supports it (seems Android only did not find on iPhone)
+
+
+#### Smart speaker
+
+Smart Speaker in the sense here that the reciver is directly receving the audio from Internet (NOT USING [Lan streaming tunnel](#lan-streaming-tunnel)
+
+- **HEOS Deeezer streaming on AVR is limited to 320kbs** whereas application gives access to CD quality
+    - Also see issue with [setup 1](#1--via-heos-sync-avr-denon-home-stereo-pair--stereo-pair--zone-2-pre-out)
+- Spotify offers more option (on top of bluetooth/airplay) when streaming with spotify connect on AVR, Heos 150 and Alexa devices (including FireTV
+    - Spotify thus offer its own multiroom techno in the end if speaker, receiver supports Spotify connect
+    - ANd we do similar setup as with AirPLay (but no tunnel)
+    - It is a proprietatary techno
+    - Spotfy connect is not integrated directly as Deezer in Heos, they have their own techno
+
+
+[ALL ABOVE OK -- we are here]
+
+
+last item is visible as we have an heos service with avahi
+alexa des not use spotyify connect (as using avahi)
+
+#### DLNA streaming A
+
+
+Spotify can use DLNA (did not see it in iOS version though). 
+**Deezer does not support DLNA: https://en.deezercommunity.com/ideas/dlna-upnp-support-6742**
+
+From NAS (and music station application) we can stream using DLNA (no multiroom except wired zone 2).
+When connecting to music station in IPhone using same mecahanism as [FileStation](../appendices/file-sharing/qnap-file-sharing.md#before-we-go-further-lets-check-qfilepro-in-ios)
+<!-- note we do not have DDNS in music station and wan IP in both, did the the check OK-->
+
+We can also use [webUI](../appendices/file-sharing/qnap-smart-url.md#smart-url)) 
+
+- File station (similar for Photo and Music station, and using same port as QTS desktop)
+    - https://music.qlink.to/scoulomb
+    - https://192.168.86.96:443/musicstation/
+    - http://192.168.86.96:8080/musicstation/
+    - https://scoulomb.myqnapcloud.com:443/musicstation/
+    - http://scoulomb.myqnapcloud.com:8082/musicstation/
+    - https://109.29.148.109:443/musicstation/
+    - http://109.29.148.109:8082/musicstation/
+
+or via QTS deskop and music app.
+
+Note that multiroom from QMUsic app/webUI is not working though it should be multiroom (and called multizine in app)
+https://www.son-video.com/rayonin/haute-fidelite/systemes-multiroom/systeme-hi-fi-multiroom (Sonos, DLNA, AirPlay + HEOS)
+Workaround is heos group + wired zone 2 (tested OK)
+
+
+https://github.com/open-denon-heos/heospy/blob/main/heospy/ssdp.py
+
+avahi-browse --all --resolve | grep -C 4 spotify
+~$ avahi-browse -d local _spotify-connect._tcp --resolve
+avahi-browse -d local _matter._tcp --resolve
+avahi-browse -d local _http._tcp --resolve
+http://192.168.86.105/settings/
+http://denon-home-150-2.local/settings/
+
+avahi-browse -k --all (to not resolve service type)
+
+avahi-browse -d local _airplay._tcp --resolve
+
+
+avahi-browse -d local _airplay._tcp --resolve (airplay v1 and v2)
+
+avahi-browse -d local _raop._tcp --resolve (old, airtunes)
+https://openairplay.github.io/airplay-spec/service_discovery.html
+
+
+If start shareport locally
+shairport-sync -v --statistics
+
+we can see it: avahi-browse -d local _raop._tcp --resolve
+avahi-browse -d local _airplay._tcp --resolve
+
+
+does it work through vpn??
+
+
+dlna servvice kodi not visible spotify
+avahi??
+
+
+
+#### Music assistant
+
+See https://blog.jlpouffier.fr/chatgpt-powered-music-search-engine-on-a-local-voice-assistant/ with music assitant
+    - Lien linkedin
+
+
+
+## Remote control B
+
+Additional IR remote control on AMzon 
+
 
 Apple TV has 
 - official remote (only 1 per ATV: https://support.apple.com/fr-fr/guide/tv/atvbc9953e63/tvos)
@@ -545,3 +831,14 @@ We can use a replacement remote https://support.apple.com/fr-fr/HT208492
 check dlna
 
 OK
+
+C-THAOMA SETUP
+
+dojo: dockig sation + teams + vpn
+
+curl --config: https://everything.curl.dev/cmdline/configfile
+
+
+airplay truncation: https://help.roonlabs.com/portal/en/kb/articles/airplay-setup#Set-Up
+
+https://www.linkplay.com/

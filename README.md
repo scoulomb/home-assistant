@@ -475,6 +475,10 @@ Note Apple TV is a Thread device.
 
 ### Interesting
 
+- Misc 
+  - register triangle
+  - pied triangle
+  - dynavox
 - Paper notes (letter)
 - Optional tagged part in [Note on QNAP Smart URL and file sharing](./appendices/file-sharing/README.md) 
   - Sync completed only doubt is: # Program is closed when sync
@@ -490,9 +494,6 @@ Note Apple TV is a Thread device.
   - Thread (home assistant -> thread -> 3 borders routers) / Matter
   - Integration via Matter or HomeKit or Provider Api (like Alexa) (example of Hue)
     - https://www.numerama.com/tech/1170068-matter-va-revolutionner-la-maison-connectee-tout-savoir-sur-cet-incroyable-alliance.html
-- sock listen and receive: lien http socket
-  - https://www.qnx.com/developers/docs/qnx_4.25_docs/tcpip50/prog_guide/sock_advanced_tut.html
-  - https://stackoverflow.com/questions/6810444/two-way-communication-in-socket-programming-using-c
 - note vs code end
 - VPN config file to understand optionally (DO NOT DO: do not try to use ddns here, commit ccl upnp STOP ;) Stop)
 - Somfy vendor follow-up [optional](#projects)
@@ -524,3 +525,13 @@ Each WIP section for instance sound video contains its status/ tasks (for instan
 <!-- ok as part ref in vs code, we have all here under seprarator ok-->
 <!-- commit verified in lab env osef ok -->
 <!-- firmare update 5410 changes nothing as usb-c for docking -->
+
+## Side notes
+
+- sock listen and receive: lien http socket (concluded )
+  - private_script Links-mig-auto-cloud/Additional-comments.md#socket-establishment-directrion-vs-message-flow-direction (status not mandatory xref done)
+  - private_script Links-story-notes/socketEstablishmentDirection.md
+  - https://www.qnx.com/developers/docs/qnx_4.25_docs/tcpip50/prog_guide/sock_advanced_tut.html
+  - https://stackoverflow.com/questions/6810444/two-way-communication-in-socket-programming-using-c
+
+- ipv6 do not work on it: private_script Links-mig-auto-cloud/Additional-comments.md#pay 

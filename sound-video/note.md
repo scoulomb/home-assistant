@@ -96,14 +96,6 @@ https://discussions.apple.com/thread/251784344
 
 https://www.journaldulapin.com/2022/03/17/dolby-mat-appletv/
 
-https://en.deezercommunity.com/ideas/dlna-upnp-support-6742
-
-And HEOS at mp3 rate
-
-Spotify and nas can use upnp
-
-Air do re-encoding
-
 
 # Atmos
 
@@ -144,15 +136,16 @@ Je delore lq qualite de la connectique
 
 Pendant les test la zone 2 envoye un signal
 
-
+<!-- voit 1,23 paper in notice AV -->
 
 Avait commande le audiophnics avant le test au vu des commentaire sur la fabrication interieure
 
 COmmande chez Audiphonics 
 - cable pour platine vinyle Blanco (car utilise maintenant le cable de la platine pour pre-out ampli vers botier rca, ce cable etait meme utilise avec une rallonge intialement pour la platine vinyle)
 - Et cable boitier switch vers Ampli de puissance  	ATAUDIO KING WOLF RCA 
+<!-- emballage avec boitier dans carton triangle -->
 - Utilse cable kabel direkt entre pre-ampli et switch box? a voir si je le garde....????
-
+<!-- emballagw dans boite av-->
 
 Amazon sur cb
 - renvoye cle dynamo
@@ -161,5 +154,5 @@ Amazon sur cb
 
 Amazon sur compte 
 - cable 1.5 m RCA (Amazon n'a pas demande de retouner le produit) initailement destine a platine vinyle. Remplace par blanco
-
-
+<!-- dans boite av-->
+<!-- boite av acable dp de ecran asus OK -->

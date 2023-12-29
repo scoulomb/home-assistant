@@ -11,6 +11,7 @@ It allows connection vua
 - myQNAPcloud (set to DDNS)
 - myQNAPcloud link
 - DDNS
+- Update: we also have WAN IP
 
 exactly what we have seen in Smart URL
 
