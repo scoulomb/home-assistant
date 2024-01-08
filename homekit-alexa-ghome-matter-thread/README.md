@@ -45,3 +45,4 @@ Alexa routine + tahoma
 
 ## SPeakers
 
+See [sound video](../sound-video/README.md#how-does-service-discovery-work-behind-the-scene)

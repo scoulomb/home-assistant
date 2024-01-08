@@ -1,0 +1,238 @@
+scoulomb@scoulomb-Precision-3540:~/dev/home-assistant/sound-video/code$ ./service-discovery.sh 
+--------------- Avahi output ---------------------------------
++;wlo1;IPv6;000678612752Denon\032AVR-X2700H;_spotify-connect._tcp;local
++;wlo1;IPv4;000678612752Denon\032AVR-X2700H;_spotify-connect._tcp;local
++;wlo1;IPv4;7ccf1dbf7ef93e18;_spotify-connect._tcp;local
++;wlo1;IPv4;36ee3ebf-a2db-40c0-a62e-76a66bb;_spotify-connect._tcp;local
++;wlo1;IPv4;c99d7135-6090-4f45-a2c5-3922deb;_spotify-connect._tcp;local
++;wlo1;IPv4;2c052379-e9dd-4d72-a969-1727e68;_spotify-connect._tcp;local
+=;wlo1;IPv6;000678612752Denon\032AVR-X2700H;_spotify-connect._tcp;local;Denon-AVR-X2700H.local;192.168.86.42;51433;"CPath=/zc" "VERSION=1.0"
+=;wlo1;IPv4;000678612752Denon\032AVR-X2700H;_spotify-connect._tcp;local;Denon-AVR-X2700H.local;192.168.86.42;51433;"CPath=/zc" "VERSION=1.0"
+=;wlo1;IPv4;7ccf1dbf7ef93e18;_spotify-connect._tcp;local;7ccf1dbf7ef93e18.local;192.168.86.103;38500;"Stack=SP" "VERSION=1.0" "CPath=/zc"
+=;wlo1;IPv4;36ee3ebf-a2db-40c0-a62e-76a66bb;_spotify-connect._tcp;local;36ee3ebf-a2db-40c0-a62e-76a66bb.local;192.168.86.116;43544;"Stack=SP" "VERSION=1.0" "CPath=/zc/0"
+=;wlo1;IPv4;c99d7135-6090-4f45-a2c5-3922deb;_spotify-connect._tcp;local;c99d7135-6090-4f45-a2c5-3922deb.local;192.168.86.121;40633;"Stack=SP" "VERSION=1.0" "CPath=/zc/0"
+=;wlo1;IPv4;2c052379-e9dd-4d72-a969-1727e68;_spotify-connect._tcp;local;2c052379-e9dd-4d72-a969-1727e68.local;192.168.86.105;41572;"Stack=SP" "VERSION=1.0" "CPath=/zc/0"
+--------------- Avahi filtered output -------------------------
+=;wlo1;IPv6;000678612752Denon\032AVR-X2700H;_spotify-connect._tcp;local;Denon-AVR-X2700H.local;192.168.86.42;51433;"CPath=/zc" "VERSION=1.0" =;wlo1;IPv4;000678612752Denon\032AVR-X2700H;_spotify-connect._tcp;local;Denon-AVR-X2700H.local;192.168.86.42;51433;"CPath=/zc" "VERSION=1.0" =;wlo1;IPv4;7ccf1dbf7ef93e18;_spotify-connect._tcp;local;7ccf1dbf7ef93e18.local;192.168.86.103;38500;"Stack=SP" "VERSION=1.0" "CPath=/zc" =;wlo1;IPv4;36ee3ebf-a2db-40c0-a62e-76a66bb;_spotify-connect._tcp;local;36ee3ebf-a2db-40c0-a62e-76a66bb.local;192.168.86.116;43544;"Stack=SP" "VERSION=1.0" "CPath=/zc/0" =;wlo1;IPv4;c99d7135-6090-4f45-a2c5-3922deb;_spotify-connect._tcp;local;c99d7135-6090-4f45-a2c5-3922deb.local;192.168.86.121;40633;"Stack=SP" "VERSION=1.0" "CPath=/zc/0" =;wlo1;IPv4;2c052379-e9dd-4d72-a969-1727e68;_spotify-connect._tcp;local;2c052379-e9dd-4d72-a969-1727e68.local;192.168.86.105;41572;"Stack=SP" "VERSION=1.0" "CPath=/zc/0"
+--------------- Avahi filtered output with ip, port, zc path ---
+192.168.86.42 51433 "CPath=/zc" "VERSION=1.0"
+192.168.86.42 51433 "CPath=/zc" "VERSION=1.0"
+192.168.86.103 38500 "Stack=SP" "VERSION=1.0" "CPath=/zc"
+192.168.86.116 43544 "Stack=SP" "VERSION=1.0" "CPath=/zc/0"
+192.168.86.121 40633 "Stack=SP" "VERSION=1.0" "CPath=/zc/0"
+192.168.86.105 41572 "Stack=SP" "VERSION=1.0" "CPath=/zc/0"
+--------------- Curl spotify zc api ----------------------------
+Curl Result for http://192.168.86.42:51433/zc
+{
+  "status": 101,
+  "statusString": "OK",
+  "spotifyError": 0,
+  "version": "2.9.0",
+  "deviceID": "2c617229fd2f06e7e520e1e60dc45e9ed76821b6",
+  "remoteName": "Denon AVR-X2700H + Denon Home 150 3 + Denon Home 150 + Denon Ho",
+  "publicKey": "elcmH8rVmTaX5DQgYt2z4LGGqLujAXm8Nr4iBaisKdYDWqhaNRNRymDelIAvvEdhHnUmDuBjiz4Y8A9lSbD3e78RfVpGJXOK6hnP/bxLcV2ZaiRmV0Oq8T8FD4h7JzKw",
+  "deviceType": "AVR",
+  "libraryVersion": "3.202.330-g6a7c847b",
+  "brandDisplayName": "Denon",
+  "modelDisplayName": "Denon AVR-X2700H",
+  "resolverVersion": "0",
+  "groupStatus": "GROUP",
+  "tokenType": "accesstoken",
+  "clientID": "8f2c0cd9c29f44b39c868f9c7055662c",
+  "productID": 1038,
+  "scope": "streaming",
+  "availability": "",
+  "supported_capabilities": 3,
+  "supported_drm_media_formats": [
+    {
+      "drm": 1,
+      "formats": 70
+    },
+    {
+      "drm": 2,
+      "formats": 70
+    }
+  ],
+  "aliases": []
+}
+Denon AVR-X2700H + Denon Home 150 3 + Denon Home 150 + Denon Ho
+Denon AVR-X2700H
+null
+GROUP
+---------------------------------
+Curl Result for http://192.168.86.42:51433/zc
+{
+  "status": 101,
+  "statusString": "OK",
+  "spotifyError": 0,
+  "version": "2.9.0",
+  "deviceID": "2c617229fd2f06e7e520e1e60dc45e9ed76821b6",
+  "remoteName": "Denon AVR-X2700H + Denon Home 150 3 + Denon Home 150 + Denon Ho",
+  "publicKey": "elcmH8rVmTaX5DQgYt2z4LGGqLujAXm8Nr4iBaisKdYDWqhaNRNRymDelIAvvEdhHnUmDuBjiz4Y8A9lSbD3e78RfVpGJXOK6hnP/bxLcV2ZaiRmV0Oq8T8FD4h7JzKw",
+  "deviceType": "AVR",
+  "libraryVersion": "3.202.330-g6a7c847b",
+  "brandDisplayName": "Denon",
+  "modelDisplayName": "Denon AVR-X2700H",
+  "resolverVersion": "0",
+  "groupStatus": "GROUP",
+  "tokenType": "accesstoken",
+  "clientID": "8f2c0cd9c29f44b39c868f9c7055662c",
+  "productID": 1038,
+  "scope": "streaming",
+  "availability": "",
+  "supported_capabilities": 3,
+  "supported_drm_media_formats": [
+    {
+      "drm": 1,
+      "formats": 70
+    },
+    {
+      "drm": 2,
+      "formats": 70
+    }
+  ],
+  "aliases": []
+}
+Denon AVR-X2700H + Denon Home 150 3 + Denon Home 150 + Denon Ho
+Denon AVR-X2700H
+null
+GROUP
+---------------------------------
+Curl Result for http://192.168.86.103:38500/zc
+{
+  "status": 101,
+  "statusString": "OK",
+  "spotifyError": 0,
+  "version": "2.9.0",
+  "deviceID": "306e9765c3a040bca585c1604d66bf8362576f45",
+  "remoteName": "FireTVStick - Coulombel",
+  "publicKey": "I3vfdx49AdrlEcIlZGPGvE+jZfdUpAOD9mUNcg5M29LoaDFhL9C2/UG9j674oPpJDus/gD2lm7TaLq+yuvQCcersqhcH5Iw6P8FjLfZkcSiJpiDCO2B8wFCyMPjwl4lt",
+  "deviceType": "TV",
+  "libraryVersion": "3.203.233-g11721767",
+  "brandDisplayName": "Amazon",
+  "modelDisplayName": "AFTSSS",
+  "resolverVersion": "0",
+  "groupStatus": "NONE",
+  "tokenType": "default",
+  "clientID": "756a522d9f1648b89e76e80be654456a",
+  "productID": 1,
+  "scope": "umbrella-tv,streaming,client-authorization-universal",
+  "availability": "",
+  "supported_capabilities": 11,
+  "supported_drm_media_formats": [
+    {
+      "drm": 1,
+      "formats": 70
+    },
+    {
+      "drm": 2,
+      "formats": 70
+    }
+  ],
+  "aliases": []
+}
+FireTVStick - Coulombel
+AFTSSS
+null
+NONE
+---------------------------------
+Curl Result for http://192.168.86.116:43544/zc
+{
+  "status": 101,
+  "statusString": "OK",
+  "spotifyError": 0,
+  "version": "2.9.0",
+  "deviceID": "36ee3ebf-a2db-40c0-a62e-76a66bb9908b",
+  "remoteName": "",
+  "publicKey": "oK2sUmQbXuFOQnNNdWPiG1fqJUwvDAEaP4bZyreRJl6Iqfpcpu/QEoqMyjqMADS651MczLZQf7jQ5Lsd43/jQUatTjDrhA37q16ZWylnhdadSAeCmgKJmXff+IBVDFR9",
+  "deviceType": "SPEAKER",
+  "libraryVersion": "3.145.39-g6ca2b605",
+  "brandDisplayName": "Denon",
+  "modelDisplayName": "DENON-DWHS_60-150",
+  "resolverVersion": "0",
+  "groupStatus": "NONE",
+  "tokenType": "accesstoken",
+  "clientID": "8f2c0cd9c29f44b39c868f9c7055662c",
+  "productID": 34,
+  "scope": "streaming",
+  "availability": "",
+  "aliases": [
+    {
+      "name": "Denon Home 150",
+      "id": "1",
+      "isGroup": "false"
+    }
+  ]
+}
+
+DENON-DWHS_60-150
+Denon Home 150
+NONE
+---------------------------------
+Curl Result for http://192.168.86.121:40633/zc
+{
+  "status": 101,
+  "statusString": "OK",
+  "spotifyError": 0,
+  "version": "2.9.0",
+  "deviceID": "c99d7135-6090-4f45-a2c5-3922deb967c7",
+  "remoteName": "",
+  "publicKey": "JW8jttOB16RhVZCekE4qMXjeNzxVIidjqSOCRZkKG14S7qb1ieDjcTjWPXegs05SGyVafEXpoWPpa+KTyz4KE/hBYrnjz/ReEOs4Mtbc3VpiZgcd3/H+u5gT1Bb/06eq",
+  "deviceType": "SPEAKER",
+  "libraryVersion": "3.145.39-g6ca2b605",
+  "brandDisplayName": "Denon",
+  "modelDisplayName": "DENON-DWHS_60-150",
+  "resolverVersion": "0",
+  "groupStatus": "NONE",
+  "tokenType": "accesstoken",
+  "clientID": "8f2c0cd9c29f44b39c868f9c7055662c",
+  "productID": 34,
+  "scope": "streaming",
+  "availability": "",
+  "aliases": [
+    {
+      "name": "Denon Home 150 3",
+      "id": "1",
+      "isGroup": "false"
+    }
+  ]
+}
+
+DENON-DWHS_60-150
+Denon Home 150 3
+NONE
+---------------------------------
+Curl Result for http://192.168.86.105:41572/zc
+{
+  "status": 101,
+  "statusString": "OK",
+  "spotifyError": 0,
+  "version": "2.9.0",
+  "deviceID": "2c052379-e9dd-4d72-a969-1727e68bbb41",
+  "remoteName": "",
+  "publicKey": "6x/+t7gnPHz+aBP9SQLth03BHPjebnN5Odo0ODvakpUx4arSFWubXjcLp6mfm4Ro8NB3eIQSej/6TKn8vSA6D8uVI8IHJ27EGb66gG1l88owpJGXVYOxg4ueJSKW+nJC",
+  "deviceType": "SPEAKER",
+  "libraryVersion": "3.145.39-g6ca2b605",
+  "brandDisplayName": "Denon",
+  "modelDisplayName": "DENON-DWHS_60-150",
+  "resolverVersion": "0",
+  "groupStatus": "NONE",
+  "tokenType": "accesstoken",
+  "clientID": "8f2c0cd9c29f44b39c868f9c7055662c",
+  "productID": 34,
+  "scope": "streaming",
+  "availability": "",
+  "aliases": [
+    {
+      "name": "Denon Home 150 2",
+      "id": "1",
+      "isGroup": "false"
+    }
+  ]
+}
+
+DENON-DWHS_60-150
+Denon Home 150 2
+NONE
+---------------------------------
+scoulomb@scoulomb-Precision-3540:~/dev/home-assistant/sound-video/code$ 

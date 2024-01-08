@@ -17,6 +17,8 @@ It makes additional entities in HA.
 Note this cool stuff: https://community.hueessentials.com/t/how-to-set-up-power-on-behaviour-for-my-lights/720
 <!-- does not seem to fully work, manage microcoupure also -->
 
+A4B43C or A533EC used in storage area?
+
 ## Denon
 
 Magic intergation But some feature missing. Idea to call [API](#api-integration) 

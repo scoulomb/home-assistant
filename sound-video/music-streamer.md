@@ -12,7 +12,7 @@
 
 - https://www.fnac.com/Lecteur-reseau-Wi-Fi-Multiroom-TRIANGLE-AIO-C/a18528699/w-4
   - Had Ordered but AirPlay 2 not supported, licence cost.
-  - They use AirPlay 1 as their manafactures provdes it but do not say it on website (licence pay)
+  - They use AirPlay 1 as their manafactures provides it but do not say it on website (licence pay)
 
 - Wiim
   - AirPLay 2 supports OK
@@ -33,3 +33,5 @@
 - https://www.fnac.com/Lecteur-reseau-HiFi-Audio-Pro-Link-2-Gris-fonce/a17114671/w-4?Origin=leclaireur-nosconseils  - AirPLay 2 supports OK ++++
   - AudiPro link 2
 WiimPro seems best choice
+
+<!-- OK CCL -->

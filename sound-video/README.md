@@ -527,7 +527,7 @@ We can do multi-room music
 We can test with  
 - Denon AVR X-2700 H with 5.1 speaker
 - 2 denon-home 150
-- 1 HIFI player (Atoll MA100 amp +HD120 pre-amp)
+- 1 HIFI player (Atoll MA100 amp + HD120 pre-amp)
 
 Let's do this initial setup:
 
@@ -544,11 +544,14 @@ Laptop USB -> HD120      ->
 
 - This is working great for source (like vinyle) but weirdly when source is Heos music (for instance deezer via HEOS) we have desynchro (in particular in zone 2!!!!)
 
+Update: HEOS remote. Remove lip synchro delay fixed the issue: https://support.denon.com/app/answers/detail/a_id/14922/~/avrs-auto-lip-sync-feature
+
+In AVR app `audio > audio delay > 0ms`
 
 #### 2- Via HEOS (stereo pair) +  Zone 2 pre-out + Air Play (embeeded in AVR) + Home 150 AirPlay stereo pair
 
 
-Note when playing air play, in current implem it ungroup the Home 150 stereo pair from avr (with the main + zone 2), and it is seen as 2 AirPlay spearkers
+Note when playing air play, in current implem it ungroup the Home 150 stereo pair from the avr (with the main + zone 2), and it is seen as 2 "AirPlay 2" speakers
 It does not have functional impact
 
 
@@ -556,14 +559,14 @@ In the past it was even ungrouping the stereo pair: https://www.denon.com/ro-ro/
 > It is also worth mentioning that, due to technical reasons, as of this moment, Apple Airplay will be disabled in stereo configuration, but support for this streaming option is incoming – so hold tight, Apple fans.
 
 
-#### 3- Via HEOS (stereo pair) +  Zone 2 pre-out + Air Play (apple TV) + Home 150 AirPlay stereo pair
+#### 3- Via HEOS (stereo pair) +  Zone 2 pre-out + Air Play (apple TV as 8K AVR Source) + Home 150 AirPlay stereo pair
 
 We can use use AirPlay from Apple TV
-It is also working. I noticed less desynchro in this setup.
+It is also working. I noticed less desynchro in this setup compared to [1-](#1--via-heos-sync-avr-denon-home-stereo-pair--stereo-pair--zone-2-pre-out)
 
-#### 4- Via HEOS (stereo pair + group AVR/Home 150) +  Zone 2 pre-out + Air Play (apple TV)
+#### 4- Via HEOS (stereo pair + group AVR/Home 150) +  Zone 2 pre-out + Air Play (apple TV as 8K AVR source)
 
-Unlike when AirPLay of receiver is used, if we use AirPlay of apple TV, AVR-Home 150 stereo pair is working
+Unlike when AirPLay of receiver is used, if we use AirPlay of apple TV, `AVR-Home 150 stereo pair` is working
 
 #### 5- Same as 3 but we replace Zone 2 pre-out by AirPplay receiver plugeed to HD120 DAC 
 
@@ -572,7 +575,7 @@ It also works with 2 and 4. <!-- not tested the also work work with 2 and 4-->
 
 We can use as AirPlay receiver which supports AirPLay 2 (for multiroom suuport). See 3 versions of AirPlay: https://en.wikipedia.org/wiki/AirPlay
 - AirTunes
-- Airplay 1
+- Airplay 1 (no multiroom)
 - AirPlay 2
 
 This receiver can be plugged RCA plug, Digital Audio or Coaxial (Digital).
@@ -584,7 +587,7 @@ Alternative is to use laptop with
 - shairport sync: https://github.com/mikebrady/shairport-sync/blob/master/BUILD.md
 - where we have switch box active HD120 pre-amp.
 
-##### shairport seyp
+##### shairport sync
 
 I used 
 
@@ -623,36 +626,450 @@ Similar to **setup 4**.
 
 #### 6- Replace stereo pair by 2  Mono speaker
 
-We can in all setup above ungroup stereo pair and have 2 mono HEOS (1,4) or AirPlay speaker(2,3).
+We can in all setup above ungroup stereo pair and have 2 mono HEOS (1-,4-) or AirPlay speaker(2-,3-).
 
 <!-- not all tested setup 6 -->
 
 
-### Other alternative 
+### Other alternatives
+
+#### Heos pre-amp (or amp)
+
+We can replace zone 2 by heos pre-amp: https://www.denon.com/fr-fr/product/amplifiers/heos-link-hs2/HEOSLINK.html (then working as any home 150)
+
+- I added later an additional Heos 150 for bathroom (mono)
+    - as expected from [observation 2-](#2--via-heos-stereo-pair--zone-2-pre-out--air-play-embeeded-in-avr--home-150-airplay-stereo-pair) with AirPlay we have AVR, Stereo pair (recommendation to rename pair in heos app), and this additional speaker and laptop airplay.
+<!-- see "Misc complemets" comment at end of document -->
+
+#### Receivers
 
 - Receiverlike  AIO-C can embeed
-    - Spotify connect 
-    - Music provider directly.
-    - DLNA
+    - Spotify connect / Alexa voice service
+    - Music provider direct (API integration)
     - AirPLay
+    - DLNA
+    - Chromecast
 
-See [music streamer with AirPLay 2](./music-streamer.md)
 
-[here-------------------------]
-When using Deezer audio output we have 
+- Some devices diectly buys the software:  https://www.linkplay.com/
 
-- IPhone => Builtin speaker, or wire
-- AirPlay and Bluetooth -> AirPLay see above and Bluetooth Headset but also HD120 (blue ligth on HD120)
-- Google Cast => Google next or any receiver supporting chromecast
-- Deezer connect => Phone tablet can be receiver to HD120 (via win app or browser, tested) and some latency
+- Note some devices also integrates Alexa or Siri (Heos Home does both)
 
-Bluetooth on HD120
+- We can also play music services via Alexa Voice Service (AVS): https://developer.amazon.com/en-US/docs/alexa/alexa-voice-service/music-service-providers.html (Alexa Skills)
+
+LinkPlay can alsp integrate Alexa music service https://developer.amazon.com/en-US/docs/alexa/alexa-voice-service/get-started-with-alexa-voice-service.html
+
+
+
+- **Can replace laptop in Scenario [5-](#5--same-as-3-but-we-replace-zone-2-pre-out-by-airpplay-receiver-plugeed-to-hd120-dac)**
+
+
+- See [music streamer with AirPLay 2](./music-streamer.md).
+Note if we want to use AirPlay, carefully check if AirPLay 2 is supported for multiroom (not the case of Aio-C).
+
+From Triangle we can fix the AirPlay 1 issue by having 2 Aio-C receiver (1 in AVR and 1 Atoll)
+
+We could have even a full Triangle setup by putting a reciver in AUX input of HEOS 150,
+
+
+<!-- 3JAN23 - above ok -->
+
+AppleTV can be a streamer, same behavior as with IPhone <!-- consider ok -->
+
+### Music streaming service integration 
+
+<!-- do not do youtube, airplay was detailled above -->
+
+We did test with following initial setup.
+1 HEOS group with
+    - 2 denon home 150 as stereo pair (speaker labelled  3+1, pair is in order "speaker 3 + sepaker 1")
+    - 1 denon home 150 (speaker labelled 2)
+    - 1 denon avr with zone 2 activated
+
+<!-- see "Misc complements" comment at end of document -->
+
+#### Amazon music
+
+- We can play content **direct HEOS application** - Sound is in Ultra HD - HD (up to 24 bits / 96 kHz)
+- Via Alexa app (or Alexa command) can launch"Ma bande son" - Sound is not un UHD. It is using **AVS**
+- Via Amazon Music App
+    - Built-in speaker
+    - **AVS option**:It proposes AVR, CEOL (even if note i same network), Home 150 (even if not in same network), Alexa echo dot, Alexa echo show, 2 FireTV stick => It is actually using AVS
+        - With option to cast on all AVS device (but not a sub-group)
+        - When using FireTV similar [option 3](#3--via-heos-stereo-pair--zone-2-pre-out--air-play-apple-tv-as-8k-avr-source--home-150-airplay-stereo-pair) with AirPlay
+    - Chromecast (Google nest hub)
+    - AirPlay 
+        - Bluetooth (it is considered as AirPlay in Apple interface, but not really AirPlay techno)
+        - We see Denon avr, home 150 stereo pair, mono home 150 and laptop in AirPLay speaker, then working as explained in [multiroom](#multiroom)
+- Via Amazon music app on FireTV, AppleTV
+    - Same mechanism in [option 3](#3--via-heos-stereo-pair--zone-2-pre-out--air-play-apple-tv-as-8k-avr-source--home-150-airplay-stereo-pair) to stream in all room
+
+- Theory: Amazon music in Denon has
+    - **Direct HEOS integration** (Ultra HD)
+    - **AVS option** (used by Alexa and Amazon music application)
+
+- **If we form the 1 HEOS group and play music from Alexa or Amazon music app on any device (which is amazing) of the group it will play content on the full group**
+
+#### Deezer
+
+- We can play content **direct HEOS application** - Sound is in MP3 - 320kb/s. **Oh !!!**, in app we can access CD quality
+- Via Alexa app (or Alexa command) - Set Deezer as music provider. It is using **AVS** <!-- not retested stop -->
+- Via Deezer App
+    - Built-in speaker
+    - Chromecast (Google nest hub)
+    - AirPlay 
+        - Bluetooth (it is considered as AirPlay in Apple interface, but not really AirPlay techno)
+        - We see Denon avr, home 150 stereo pair, mono home 150 and laptop in AirPLay speaker, then working as explained in [multiroom](#multiroom)
+- Via Deezer music app on FireTV
+    - Same mechanism in [option 3](#3--via-heos-stereo-pair--zone-2-pre-out--air-play-apple-tv-as-8k-avr-source--home-150-airplay-stereo-pair) to stream in all room
+- Deezer connect => Phone tablet can be receiver (to HD120) (via win app or browser, tested) and some latency (only with Premium) apparently
+
+
+Similar analysis: https://www.laboutiquederic.com/content/275-comment-ecouter-deezer-sur-ma-chaine-hifi-enceintes
+
+ **If we form the 1 HEOS group and** 
+    - play music from Alexa -> Not possbile via Alexa App only via skill "Alexa, play deezer" on HEOS 150 will only play on given speaker (not working with stereo pair as Alexa disabled dor stereo pair)
+    - via Deezer app not possible 
+
+It clealy shows deezer is the least integrated and not the best music provider.
+
+
+<!-- 4jan23 stop here -->
+
+#### Spotify
+
+- We can not play content with **direct HEOS application** - We have to use spotify connect (own techno integrated in device (heos integrates spotify connect))
+- Via Alexa app (or Alexa command) - Set Spotify as music provider. It is using **AVS** (tested with Heos group below)
+- Via Spotify App
+    - Built-in speaker
+    - Chromecast (Google nest hub)
+    - Spotify connect 
+        - Denon AVR: but recongnized as AVR + Stereo pair + Home 150 mono 
+        - Home 150 speaker 2 
+        - Home 150 speaker 3 
+        - Home 150 sepaker 1
+        - FireTV (non 4k) 
+    - AVS (it is not really spotify connect here fore)
+        - echo show
+        - echo dot 
+    - AirPlay 
+        - Bluetooth (it is considered as AirPlay in Apple interface, but not really AirPlay techno)
+        - We see Denon avr, home 150 stereo pair, mono home 150 and laptop in AirPLay speaker, then working as explained in [multiroom](#multiroom)
+- Via spotify sur Apple TV, Apple TV
+    - Same mechanism in [option 3](#3--via-heos-stereo-pair--zone-2-pre-out--air-play-apple-tv-as-8k-avr-source--home-150-airplay-stereo-pair) to stream in all room
+- Spotify connect => Phone, laptop, tablet can be receiver (to HD120) (via win app or browser, tested) 
+
+
+
+- **If we form the 1 HEOS group and play music**
+    - From Alexa (if trouble to link spotify account to correct gmail in Safari settings, remove navigation content)
+        - play music from Alexa -> Not possbile via Alexa App, shows an error only via skill "Alexa, play Spotify" on HEOS 150 will only play on given speaker (not working with stereo pair as Alexa disabled dor stereo pair)
+    - or Spotify connect (via IPhone app) on any device of the group, will it play content on the full group as with Amazon, not the case
+        - If from app select speaker 2, ungroup spaker 2 and play on speaker 2
+        - If speaker 3, ungroup stereo pair and play only on speaker 3 while maintaining stereo pair
+        - If speaker 1, ungroup stereo pair and no sound at all  while maintaining stereo pair <!-- do not try with reverse speaker order -->
+        - If AVR it plays on the full group
+
+Similar analysis: https://www.laboutiquederic.com/content/275-comment-ecouter-deezer-sur-ma-chaine-hifi-enceintes
+
+- in Following alternative setup 
+    - Room 1: Denon AVR 
+    - Room 2: stereo pair (spkr 1,3)+ mono home 150 (spkr 2)
+    - From Spotify 
+        - Stream on spkr 1 : non sound 
+        - Stream on spkr 2: ungroup and play on 2 <!-- checked ok -->
+        - Stream on spkr 3: play on all the 3 speakers in the room
+
+- Denon AVR does not have virtual device for second zone in spotify connect
+
+
+#### Best music provider
+
+Clearly Amazon music and in partucylar UHD audio in Heos and integration
+
+#### How does service discovery work behind the scene?
+
+Let's start with Spotify connect and its zeroconf API (https://developer.spotify.com/documentation/commercial-hardware/implementation/guides/zeroconf)
+
+````
+cd home-assistant/sound-video/code
+./service-discovery.sh
+````
+
+See [output with full group](./code/output-with-full-group.json.txt)
+
+We can see following devices are recognized 
+
+
+````
+Denon AVR-X2700H + Denon Home 150 3 + Denon Home 150 + Denon Ho
+Denon AVR-X2700H
+null
+GROUP
+
+Denon AVR-X2700H + Denon Home 150 3 + Denon Home 150 + Denon Ho
+Denon AVR-X2700H
+null
+GROUP 
+
+
+FireTVStick - Coulombel
+AFTSSS
+null
+NONE
+
+DENON-DWHS_60-150
+Denon Home 150
+NONE
+
+DENON-DWHS_60-150
+Denon Home 150 3
+NONE
+
+DENON-DWHS_60-150
+Denon Home 150 2
+NONE
+
+````
+
+
+We can see the 3 Denon Home speakers, the firetv stick (non 4k) and the Denon AVR.
+We can see only the AVR is seen as a group.
+
+It matches the output on Spotify app.
+
+If we try  spotify [altenrative setup above with room with stereo pair + mono og home 150](#spotify). 
+No group is visible in API output.
+We deduce that group management is done by Heos entirely.
+
+When no group is created Denon AVR appears without a group. AVR appears twice as it is advertised in IPv4 and IPv6.
+
+Note in this setup Spotify does not use virtual device for zone 2.
+
+Alexa devices (echo dot and echo show) does not advertise Spotify connect service.
+
+
+We can see other services 
+
+````
+and confirm theory with  avahi-browse -k --all 
+avahi-browse -d local  _spotify-connect._tcp --resolve
+avahi-browse -d local  _heos-audio._tcp --resolve
+avahi-browse -d local _amzn-wplay._tcp --resolve
+avahi-browse -d local _http._tcp --resolve
+avahi-browse -d local _matter._tcp --resolve
+avahi-browse -d local _airplay._tcp --resolve # (airplay v1 and v2)
+avahi-browse -d local _raop._tcp --resolve # (old, airtunes)
+# https://openairplay.github.io/airplay-spec/service_discovery.html
+
+````
+
+For matter see [dedicated section](../homekit-alexa-ghome-matter-thread/README.md)
+
+Examples:
+
+- HEOS
+
+````
+$ avahi-browse -d local  _heos-audio._tcp --terminate
++   wlo1 IPv6 Denon Home 150                                _heos-audio._tcp     local
++   wlo1 IPv6 Denon Home 150 3                              _heos-audio._tcp     local
++   wlo1 IPv6 Denon Home 150 2                              _heos-audio._tcp     local
++   wlo1 IPv6 Denon AVR-X2700H                              _heos-audio._tcp     local
++   wlo1 IPv4 Denon Home 150                                _heos-audio._tcp     local
++   wlo1 IPv4 Denon Home 150 3                              _heos-audio._tcp     local
++   wlo1 IPv4 Denon Home 150 2                              _heos-audio._tcp     local
++   wlo1 IPv4 Denon AVR-X2700H                              _heos-audio._tcp     local
+````
+
+- Amazon fire tv
+
+````
+~/dev/home-assistant/sound-video/code$ avahi-browse -d local _amzn-wplay._tcp --terminate
++   wlo1 IPv4 amzn.dmgr:EECDD87687ECF1C7EB0778B3FDA4FEFC:IWtzu2uork:392639 Amazon Fire TV       local
++   wlo1 IPv4 amzn.dmgr:4D142413AFE320F8884CCE6DF24DEA04:IWtzu2uork:802025 Amazon Fire TV       local
+````
+
+Which also show FireTV 4k does not advertise Spotify connect but `amzn-wplay.
+
+- http
+
+From `avahi-browse -d local _http._tcp --resolve --terminate` we can disover configuration UI 
+
+
+- http://192.168.86.105/settings/
+- http://denon-home-150-2.local/settings/
+
+<!-- when retried did not see it osef -->
+
+- AirPlay
+
+````
+~/dev/home-assistant/sound-video/code$ avahi-browse -d local _airplay._tcp --terminate | grep IPv4
++   tap0 IPv4 Scoulomb-Precision-3540                       AirPlay Remote Video local
++ docker0 IPv4 Scoulomb-Precision-3540                       AirPlay Remote Video local
++     lo IPv4 Scoulomb-Precision-3540                       AirPlay Remote Video local
++   wlo1 IPv4 Denon AVR-X2700H                              AirPlay Remote Video local
++   wlo1 IPv4 Denon Home 150 2                              AirPlay Remote Video local
++   wlo1 IPv4 Denon Home 150 3 + Denon Home 150             AirPlay Remote Video local
++   wlo1 IPv4 Scoulomb-Precision-3540                       AirPlay Remote Video local
+````
+
+We can see AirPlay ignores any room setup in HEOS except the stereo pair. If unpair
+
+````
+coulomb@scoulomb-Precision-3540:~/dev/home-assistant/sound-video/code$ avahi-browse -d local _airplay._tcp --terminate | grep IPv4 | grep Denon
++   wlo1 IPv4 Denon Home 150 3                              AirPlay Remote Video local
++   wlo1 IPv4 Denon Home 150                                AirPlay Remote Video local
++   wlo1 IPv4 Denon AVR-X2700H                              AirPlay Remote Video local
++   wlo1 IPv4 Denon Home 150 2                              AirPlay Remote Video local
+````
+
+This is compliant with observation made in ["section 2-" above](#2--via-heos-stereo-pair--zone-2-pre-out--air-play-embeeded-in-avr--home-150-airplay-stereo-pair).
+
+
+Note if Airplay 1 or 2 is indicated. If video is supported or not too (for example AVR is AirPLay 2 (thus multiroom) but not supporting video).
+
+`raop` supported for bw compatibility.
+
+
+
+#### Note on Bluetooth
+
+Bluetooth device is Atoll HD120 and Bose speaker (it is seen as airplay in IPhone interface, but it is not the AirPLay techno)
+
+Bluetooth on HD120 (blue ligth)
 - I was impressed by sound quality here: Actually receiver support Apt-x HD AUDIO + AAC 
 - When used with iPhone it uses AAC code (to no confuse with AAC compression format). It is not loseless but gives good quality with iPhone
 - Not tried: AVR could stream bluetooth signal to HD120
 
-Spotify is the most complete
+See blueotooth stack details in this doc: https://gitlab.com/jiehong/notes/-/wikis/investigations/bluetooth
 
+
+
+####  Note on Built-in speaker
+
+We can have external DAC on phone or jack-plug
+
+FireTV 4k or not is working.
+
+All spotify connect or deezed connect, and tv app not fully tested -- OK
+
+#### Note on Alexa
+
+![](images/alexajpg)
+
+This shows that when pairing Heos 150 to Alexa (cf. > "via Alexa app") shows Alexa music source (AVS) is used when linking Alexa (Skills) to music sources.
+And not related to Heos account (or Spotiy connect as Spotify does not work directly with HEOS). It is using AVS.
+<!-- OK -->
+
+
+<!-- 8 jan 23- 11:10 PM music streaming svc ccl and above ccl, next section has link but OK -->
+
+----------------------- WE ARE HERE CLEARLY OK
+
+### Service discovery (UPNP SSDP) and stream (DLNA) alternative
+
+
+#### SSDP 
+
+- Intro to [UPNP SSDP](../appendices/UPNP.md#discovery)
+- Example of SSDP as an alternative [Avahi mDNS discovery above](#how-does-service-discovery-work-behind-the-scene): https://github.com/open-denon-heos/heospy/blob/main/heospy/ssdp.py
+
+#### DLNA
+
+DLNA relies on SSDP
+
+From 
+- https://www.sony.fr/electronics/support/articles/00106319
+- https://www.son-video.com/guide/dlna-mode-d-emploi(
+    
+    
+DLNA has: DMS, DMP, DMR, DMC
+
+From  https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-dlnhnd/d40517ad-2d0a-4397-a46b-db7ba281a837
+> A DMR differs from a DMP in that the DMR does not itself request a list of multimedia content from a DMS. Instead, the DMR receives the list from a DMC.
+
+See also
+- https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-dlnhnd/9651a9aa-12b3-4552-97c1-e0836a538b9d#gt_9ce114fc-1afe-48b0-a35f-4b1334d1b8c8
+- https://spirespark.com/dlna/guidelines
+
+
+
+#### DLNA DMR, DMP 
+
+All denon Appliance and Kodi.
+
+#### DNLA DMS. DMC
+
+#### Streaming service
+
+Spotify can use DLNA? (did not see it in iOS app, try with Kodi? ). (if visible in spotify app complete here)
+**Deezer does not support DLNA: https://en.deezercommunity.com/ideas/dlna-upnp-support-6742**
+
+#### Bubble UPNP
+
+#### QNAP NAS
+
+
+From NAS (and music station application) we can stream using DLNA (no multiroom except wired zone 2).
+When connecting to music station in IPhone using same mecahanism as [FileStation](../appendices/file-sharing/qnap-file-sharing.md#before-we-go-further-lets-check-qfilepro-in-ios)
+<!-- note we do not have DDNS in music station and wan IP in both, did the the check OK-->
+
+We can also use [webUI](../appendices/file-sharing/qnap-smart-url.md#smart-url)) 
+
+- File station (similar for Photo and Music station, and using same port as QTS desktop)
+    - https://music.qlink.to/scoulomb
+    - https://192.168.86.96:443/musicstation/
+    - http://192.168.86.96:8080/musicstation/
+    - https://scoulomb.myqnapcloud.com:443/musicstation/
+    - http://scoulomb.myqnapcloud.com:8082/musicstation/
+    - https://109.29.148.109:443/musicstation/
+    - http://109.29.148.109:8082/musicstation/
+
+or via QTS deskop and music app (DMS).
+
+Note that multiroom from QMUsic app/webUI is not working though it should be multiroom (and called multizine in app)
+https://www.son-video.com/rayonin/haute-fidelite/systemes-multiroom/systeme-hi-fi-multiroom (Sonos, DLNA, AirPlay + HEOS)
+Workaround is heos group + wired zone 2 (tested OK)
+
+#### Music assistant, roon
+
+See https://blog.jlpouffier.fr/chatgpt-powered-music-search-engine-on-a-local-voice-assistant/ with music assitant
+    - Lien linkedin
+
+
+#### Avahi in detail
+
+https://avahi.org/
+> Avahi is a system which facilitates service discovery on a local network via the mDNS/DNS-SD protocol suite. This enables you to plug your laptop or computer into a network and instantly be able to view other people who you can chat with, find printers to print to or find files being shared. Compatible technology is found in Apple MacOS X (branded "Bonjour" and sometimes "Zeroconf").
+
+
+http://igm.univ-mlv.fr/~dr/XPOSE2007/jbleuzenZeroConf_implementation_Bonjour/info_others.html
+https://developer.spotify.com/documentation/commercial-hardware/implementation/guides/zeroconf
+https://en.wikipedia.org/wiki/Zero-configuration_networking
+
+
+Nite that local link http://igm.univ-mlv.fr/~dr/XPOSE2007/jbleuzenZeroConf_implementation_Bonjour/serv_ipv4ll.html avoid DHCP server usafe
+https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol (DHCPREQUEST should be unicast as IP in  DHCPOFFER ) OK
+
+When Avahi is used: a DNS record from the  browser availale only for _http._tcp service in browser but all type use Avahi mDNS discover [above](#ssdp)
+
+zerofconf includes both avahi mdns discovery and ssdp?
+
+to not vonfuse zeroconf and spotify zeroconf api
+
+### Remote access
+
+When setup is done:
+- AVS 
+- Spotify connect 
+Can work even if not connect to LAN (did not try deezer connect)
+
+HEOS, AirPlay, UPNP requires LAN access
+Does it work through vpn?
+See [appendices for VPN setup](../appendices/VPN.md),
+Status: do not test as useless (and some VPN issue)
 
 
 
@@ -696,104 +1113,25 @@ I saw even 192 kHz.
 
 #### LAN Streaming tunnel
 
-- Bluetooth use code (to not confuse with sound format): DBC is the worst, AAC and Apt-x ok with apple device but not lossless and use psychoacoustic.
+- Bluetooth use codec (to not confuse with sound format): DBC is the worst, AAC and Apt-x ok with apple device but not lossless and use psychoacoustic.
 AAC is relying on AAC lossy codec (https://en.wikipedia.org/wiki/Advanced_Audio_Coding)  to not confuse wiht AAC sound format.
+
 - AirPlay over Wifi : it is limited to CD quality.
 See: https://discussions.apple.com/thread/254583373
 Which makes us understand the Kodi output in intro.
 
-- A lossless way is to use DLNA. See [DLNA streaming](#dlna-streaming)
+
+See also airplay truncation: https://help.roonlabs.com/portal/en/kb/articles/airplay-setup#Set-Up
+
+- This is considered as AirPlay in iPhone interfacem but real AirPlay is second bullet.
+It should not be confused with smart speaker ability to directly receve the audio stream from Internet/music provider.
+
+See [integration shown above](#music-streaming-service-integration)
+
+
+- A lossless way is to use DLNA. See [DLNA streaming](#upnp-service-discovery-ssdp-and-stream-dlna-alternative)
     - Not supported by Deezer
     - But Spotify supports it (seems Android only did not find on iPhone)
-
-
-#### Smart speaker
-
-Smart Speaker in the sense here that the reciver is directly receving the audio from Internet (NOT USING [Lan streaming tunnel](#lan-streaming-tunnel)
-
-- **HEOS Deeezer streaming on AVR is limited to 320kbs** whereas application gives access to CD quality
-    - Also see issue with [setup 1](#1--via-heos-sync-avr-denon-home-stereo-pair--stereo-pair--zone-2-pre-out)
-- Spotify offers more option (on top of bluetooth/airplay) when streaming with spotify connect on AVR, Heos 150 and Alexa devices (including FireTV
-    - Spotify thus offer its own multiroom techno in the end if speaker, receiver supports Spotify connect
-    - ANd we do similar setup as with AirPLay (but no tunnel)
-    - It is a proprietatary techno
-    - Spotfy connect is not integrated directly as Deezer in Heos, they have their own techno
-
-
-[ALL ABOVE OK -- we are here]
-
-
-last item is visible as we have an heos service with avahi
-alexa des not use spotyify connect (as using avahi)
-
-#### DLNA streaming A
-
-
-Spotify can use DLNA (did not see it in iOS version though). 
-**Deezer does not support DLNA: https://en.deezercommunity.com/ideas/dlna-upnp-support-6742**
-
-From NAS (and music station application) we can stream using DLNA (no multiroom except wired zone 2).
-When connecting to music station in IPhone using same mecahanism as [FileStation](../appendices/file-sharing/qnap-file-sharing.md#before-we-go-further-lets-check-qfilepro-in-ios)
-<!-- note we do not have DDNS in music station and wan IP in both, did the the check OK-->
-
-We can also use [webUI](../appendices/file-sharing/qnap-smart-url.md#smart-url)) 
-
-- File station (similar for Photo and Music station, and using same port as QTS desktop)
-    - https://music.qlink.to/scoulomb
-    - https://192.168.86.96:443/musicstation/
-    - http://192.168.86.96:8080/musicstation/
-    - https://scoulomb.myqnapcloud.com:443/musicstation/
-    - http://scoulomb.myqnapcloud.com:8082/musicstation/
-    - https://109.29.148.109:443/musicstation/
-    - http://109.29.148.109:8082/musicstation/
-
-or via QTS deskop and music app.
-
-Note that multiroom from QMUsic app/webUI is not working though it should be multiroom (and called multizine in app)
-https://www.son-video.com/rayonin/haute-fidelite/systemes-multiroom/systeme-hi-fi-multiroom (Sonos, DLNA, AirPlay + HEOS)
-Workaround is heos group + wired zone 2 (tested OK)
-
-
-https://github.com/open-denon-heos/heospy/blob/main/heospy/ssdp.py
-
-avahi-browse --all --resolve | grep -C 4 spotify
-~$ avahi-browse -d local _spotify-connect._tcp --resolve
-avahi-browse -d local _matter._tcp --resolve
-avahi-browse -d local _http._tcp --resolve
-http://192.168.86.105/settings/
-http://denon-home-150-2.local/settings/
-
-avahi-browse -k --all (to not resolve service type)
-
-avahi-browse -d local _airplay._tcp --resolve
-
-
-avahi-browse -d local _airplay._tcp --resolve (airplay v1 and v2)
-
-avahi-browse -d local _raop._tcp --resolve (old, airtunes)
-https://openairplay.github.io/airplay-spec/service_discovery.html
-
-
-If start shareport locally
-shairport-sync -v --statistics
-
-we can see it: avahi-browse -d local _raop._tcp --resolve
-avahi-browse -d local _airplay._tcp --resolve
-
-
-does it work through vpn??
-
-
-dlna servvice kodi not visible spotify
-avahi??
-
-
-
-#### Music assistant
-
-See https://blog.jlpouffier.fr/chatgpt-powered-music-search-engine-on-a-local-voice-assistant/ with music assitant
-    - Lien linkedin
-
 
 
 ## Remote control B
@@ -828,9 +1166,6 @@ We can use a replacement remote https://support.apple.com/fr-fr/HT208492
 
 <!-- we can stop here an ccl -->
 
-check dlna
-
-OK
 
 C-THAOMA SETUP
 
@@ -839,6 +1174,47 @@ dojo: dockig sation + teams + vpn
 curl --config: https://everything.curl.dev/cmdline/configfile
 
 
-airplay truncation: https://help.roonlabs.com/portal/en/kb/articles/airplay-setup#Set-Up
 
-https://www.linkplay.com/
+
+https://ma-mediatheque.mediatheques.fr/faq/7474
+dell tb16 bios configurw when used 
+ HDCP
+OK 
+
+<!--
+# Misc complemets -- OK CCL
+
+- Old laptop recycled 
+    - kept and formatted 128 gb Crucial SSD
+    - Ubuntu key -> Try Ubuntu -> Term -> `sudo fdisk -l`, `sudo shred -v /dev/sda` (and sdb)
+    - Source: https://askubuntu.com/questions/17640/how-can-i-securely-erase-a-hard-drive
+    - Can Use dell precision for https://github.com/scoulomb/misc-notes/blob/master/lab-env/README.md
+
+- Charging notes https://github.com/scoulomb/docking-station/blob/main/README.md?plain=1#L434 => OK
+    - Additional TB16 for room OK
+
+- Usb key gen:https://github.com/scoulomb/docking-station/blob/main/README.md?plain=1#L245
+    - 3keys: ubuntu,latitude,precision reco => Stop
+
+- Notice dans pochette bleu qui decrit rangement  => OK
+    - Meuble hifi (pied norstone, pied BW, epur), Notice pochettes, accessoire boite av (moved BW carton triangle to boite A OK DONE -> paper)
+    - Denon Home 150
+        - Achat 1 -> paire chambre R -> Carton boite triangle
+        - Achat 2 -> Salle eau (ancien L) -> accessible (anciennment carton triangle) (carton abime)
+        - Achat 3 -> paire chambre L -> Carton boite triangle (carton labbled 3)
+
+- montres (emballage au placard) => OK
+    - d4 -> range dans emballage
+    - Forerunner -> range dans emballage accesible
+    - Instinct -> in use
+    - Elmnt rival -> in use
+
+- Never setup Unbuntu on laitutde 510 expect same behavior as WIndows -> OSEF
+- Did https://github.com/scoulomb/docking-station#dell-5420
+    - Leisure mode
+        - Use first thunderbolt port on borrowed laptop when plugged to da310
+        - Procedure worked well (HDMI unplug anf turn off left screen) for Dell Precision OK - and only center screen
+
+-->
+
+OK STOP
