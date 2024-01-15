@@ -789,7 +789,9 @@ Clearly Amazon music and in partucylar UHD audio in Heos and integration
 
 #### How does service discovery work behind the scene?
 
-Let's start with Spotify connect and its zeroconf API (https://developer.spotify.com/documentation/commercial-hardware/implementation/guides/zeroconf)
+Let's start with Spotify connect and its zeroconf API (https://developer.spotify.com/documentation/commercial-hardware/implementation/guides/zeroconf).
+
+See also link to [dns-sd](./dns-sd.md#spotify-zeroconf)
 
 ````
 cd home-assistant/sound-video/code
@@ -894,13 +896,9 @@ Which also show FireTV 4k does not advertise Spotify connect but `amzn-wplay.
 
 - http
 
-From `avahi-browse -d local _http._tcp --resolve --terminate` we can disover configuration UI 
+From `avahi-browse -d local _http._tcp --resolve --terminate` we can disover configuration UI.
 
-
-- http://192.168.86.105/settings/
-- http://denon-home-150-2.local/settings/
-
-<!-- when retried did not see it osef -->
+Such as `Denon-AVR-X2700H.local` (see [dns-sd using mdns](./dns-sd.md#dns-sd-using-mdns))
 
 - AirPlay
 
@@ -933,6 +931,9 @@ Note if Airplay 1 or 2 is indicated. If video is supported or not too (for examp
 `raop` supported for bw compatibility.
 
 
+#### mDNS and service discovery in details 
+
+**Details are given at [dns-sd](./dns-sd.md#dns-sd-using-mdns)**
 
 #### Note on Bluetooth
 
@@ -945,7 +946,7 @@ Bluetooth on HD120 (blue ligth)
 
 See blueotooth stack details in this doc: https://gitlab.com/jiehong/notes/-/wikis/investigations/bluetooth
 
-
+Fun part is that we can control hifi player via bluetooth AVRCP for control (watch) while music output via AirPlay or AVS.
 
 ####  Note on Built-in speaker
 
@@ -966,9 +967,15 @@ And not related to Heos account (or Spotiy connect as Spotify does not work dire
 
 <!-- 8 jan 23- 11:10 PM music streaming svc ccl and above ccl, next section has link but OK -->
 
------------------------ WE ARE HERE CLEARLY OK
+
 
 ### Service discovery (UPNP SSDP) and stream (DLNA) alternative
+
+SSDP and DLNA are part of ZeroConf. 
+And equivalent to service disovery via multicast DNS as highlithed in ZeroConf service discovery in [dns-sd](./dns-sd.md#zeroconf-service-discovery) doc.
+
+
+<!-- 15 jan 23- 11:15 PM dns-sd concluded OK - here above OK-->
 
 
 #### SSDP 
@@ -1039,25 +1046,6 @@ See https://blog.jlpouffier.fr/chatgpt-powered-music-search-engine-on-a-local-vo
     - Lien linkedin
 
 
-#### Avahi in detail
-
-https://avahi.org/
-> Avahi is a system which facilitates service discovery on a local network via the mDNS/DNS-SD protocol suite. This enables you to plug your laptop or computer into a network and instantly be able to view other people who you can chat with, find printers to print to or find files being shared. Compatible technology is found in Apple MacOS X (branded "Bonjour" and sometimes "Zeroconf").
-
-
-http://igm.univ-mlv.fr/~dr/XPOSE2007/jbleuzenZeroConf_implementation_Bonjour/info_others.html
-https://developer.spotify.com/documentation/commercial-hardware/implementation/guides/zeroconf
-https://en.wikipedia.org/wiki/Zero-configuration_networking
-
-
-Nite that local link http://igm.univ-mlv.fr/~dr/XPOSE2007/jbleuzenZeroConf_implementation_Bonjour/serv_ipv4ll.html avoid DHCP server usafe
-https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol (DHCPREQUEST should be unicast as IP in  DHCPOFFER ) OK
-
-When Avahi is used: a DNS record from the  browser availale only for _http._tcp service in browser but all type use Avahi mDNS discover [above](#ssdp)
-
-zerofconf includes both avahi mdns discovery and ssdp?
-
-to not vonfuse zeroconf and spotify zeroconf api
 
 ### Remote access
 
@@ -1218,3 +1206,7 @@ OK
 -->
 
 OK STOP
+OK CLEAR STOP!!
+BGP...
+https://github.com/scoulomb/docker-under-the-hood/blob/main/what-is-docker.md (other nat linked from here OK)
+
