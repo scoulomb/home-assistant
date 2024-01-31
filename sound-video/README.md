@@ -972,20 +972,19 @@ And not related to Heos account (or Spotiy connect as Spotify does not work dire
 ### Service discovery (UPNP SSDP) and stream (DLNA) alternative
 
 SSDP and DLNA are part of ZeroConf. 
-And equivalent to service disovery via multicast DNS as highlithed in ZeroConf service discovery in [dns-sd](./dns-sd.md#zeroconf-service-discovery) doc.
+And fill same service disovery objective as with multicast DNS as highlithed in ZeroConf service discovery in [dns-sd](./dns-sd.md#zeroconf-service-discovery) doc.
 
 
-<!-- 15 jan 23- 11:15 PM dns-sd concluded OK - here above OK-->
+<!-- 15 jan 23- 11:15 PM dns-sd concluded OK - here above OK - https://github.com/scoulomb/home-assistant/commit/6d8149d606503cf9d75e97aee70c93f3eb496dd4-->
+<!-- 30 jan 23: re-ccl, note at bottom of doc,
+commit: re-ccl dns sd and new current pointer, dolby was ccl see line 490 of README.md-->
 
+Let's have a look to DLNA.
 
-#### SSDP 
+<!----------- HERE ----------------->
 
-- Intro to [UPNP SSDP](../appendices/UPNP.md#discovery)
-- Example of SSDP as an alternative [Avahi mDNS discovery above](#how-does-service-discovery-work-behind-the-scene): https://github.com/open-denon-heos/heospy/blob/main/heospy/ssdp.py
+Try with heos app discoveery (mdns or ssdp used?8)+ wireshark OK
 
-#### DLNA
-
-DLNA relies on SSDP
 
 From 
 - https://www.sony.fr/electronics/support/articles/00106319
@@ -1207,6 +1206,12 @@ OK
 
 OK STOP
 OK CLEAR STOP!!
-BGP...
+BGP routing...
 https://github.com/scoulomb/docker-under-the-hood/blob/main/what-is-docker.md (other nat linked from here OK)
+f12 boot device option and recofigure grubb post win update
+OK STOP HERE YES OK
 
+See Audio quality in TAN
+-?
+
+STOP OK YES OK

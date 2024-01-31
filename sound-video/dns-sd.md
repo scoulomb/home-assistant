@@ -56,6 +56,10 @@ https://en.wikipedia.org/wiki/Multicast_DNS
 
 > When an mDNS client needs to resolve a hostname, it sends an IP multicast query message that asks the host having that name to identify itself. That target machine then multicasts a message that includes its IP address. All machines in that subnet can then use that information to update their mDNS caches. Any host can relinquish its claim to a name by sending a response packet with a time to live (TTL) equal to zero.
 
+It's not necessary a A, AAAA record.
+For service disscovery we have a PTR, SRV, TXT record.
+See [DNS-SD key take away](#rfc-key-take-away) section.
+
 > By default, mDNS exclusively resolves hostnames ending with the .local top-level domain. This can cause problems if .local includes hosts that do not implement mDNS but that can be found via a conventional unicast DNS server. Resolving such conflicts requires network-configuration changes that mDNS was designed to avoid.
 
 Compliant with https://youtu.be/CPOpPTpMSiE?t=240
@@ -323,6 +327,8 @@ We can also have PTR subtype <subservice>._sub.<Service>.<Domain>
 - Like  `_http._tcp.<domain>` and `_printer._sub._http._tcp.<Domain>` to have granualarity of all webpages or printer configuration webpages only.
 
 DNS-SD work with conventional standard unicast DNS and mDNS.
+
+I asume we have a PTR record on each machine hosting the service.
 
 ### DNS-SD query using conventional unicast DNS
 
@@ -766,6 +772,7 @@ curl: (23) Failed writing body
 It also show mDNS can contain SRV, TXT and A record.
 
 And sometimes we can discover the service but there is no A record necessarily created behind, so it is not resolvable via a avahi-resolve, ping, curl. 
+<!-- juge ok, case with jm? osef OK -->
 
 Also A record can be shared by several service: HEOS, Spotify, AirPlay.
 
@@ -948,7 +955,7 @@ With zeroconf they use Link Local Adress: https://en.wikipedia.org/wiki/Link-loc
 
 Note it implies mDNS for resolution as there is no central authority (as explain in ZeroConf wikipoedia page)
 
-#### Name service dsicovery 
+#### ZeroConf Name service dsicovery 
 
 
 mDNS is used
@@ -958,7 +965,7 @@ From https://en.wikipedia.org/wiki/Zero-configuration_networking
 > In 2000, Bill Manning and Bill Woodcock described the Multicast Domain Name Service[7] which spawned the implementations by Apple and Microsoft. Both implementations are very similar. Apple's Multicast DNS (mDNS) is published as a standards track proposal RFC 6762, while Microsoft's Link-local Multicast Name Resolution (LLMNR) is published as informational RFC 4795. LLMNR is included in every Windows version from Windows Vista onwards[8] and acts as a side-by-side alternative for Microsoft's NetBIOS Name Service over IPv4 and as a replacement over IPv6, since NetBIOS is not available over IPv6. Apple's implementation is available as the Bonjour service since 2002 in Mac OS X v10.2. The Bonjour implementation (mDNSResponder) is available under the Apache 2 Open Source License[9] and is included in Android Jelly Bean and later[10] under the same license.
 
 
-#### Service discovery
+#### ZeroConf Service discovery
 
 From https://en.wikipedia.org/wiki/Zero-configuration_networking
 
@@ -970,8 +977,9 @@ We have
 - WS-Discovery
 - DNS-based service discovery with multicast as studied [above](#dns-sd-and-mulicast-dns)
 - UPnP: UPnP has some protocol components with the purpose of service discovery.
- - SSDP
- - DLNA service discovery is layered on top of SSDP.
+ - [SSDPdiscovery](../appendices/UPNP.md#discovery)
+ - DLNA service discovery is layered on top of UPnP SSDP. See https://en.wikipedia.org/wiki/DLNA.
+ - Note UPnP relies on DHCP (which is not ZeroConf, see [Zero Conf IP auto assignment](#zeroconf-ip-auto-assignment)). See [UPNP appendices](../appendices/UPNP.md#addressing)
 
 #### Major implementations
 
@@ -984,6 +992,7 @@ Bonjour from Apple, uses mDNS and DNS Service Discovery. Apple changed its prefe
 Apple's mDNSResponder has interfaces for C and Java[33] and is available on BSD, Apple Mac OS X, Linux, other POSIX based operating systems and MS Windows. The Windows downloads are available from Apple's website.[34]
 
 #### Avahi
+
 Avahi is a Zeroconf implementation for Linux and BSDs. It implements IPv4LL, mDNS and DNS-SD. It is part of most Linux distributions, and is installed by default on some. If run in conjunction with nss-mdns, it also offers host name resolution.[35]
 
 Avahi also implements binary compatibility libraries that emulate Bonjour and the historical mDNS implementation Howl, so software made to use those implementations can also utilize Avahi through the emulation interfaces.
@@ -1004,5 +1013,94 @@ On top of this they an API server on top of it.
 http://igm.univ-mlv.fr/~dr/XPOSE2007/jbleuzenZeroConf_implementation_Bonjour/info_others.html
 
 
+#### Side comments
+
+We say in this doc standard unicast DNS because we can do unicast query and response via multicast DNS.
 
 
+##### Unicast response
+
+See https://datatracker.ietf.org/doc/html/rfc6762#section-5.5
+
+https://en.wikipedia.org/wiki/Multicast_DNS
+In query (query is boradcast but it requests a unicast response)
+> The UNICAST-RESPONSE field is used to minimize unnecessary broadcasts on the network: if the bit is set, responders SHOULD send a directed-unicast response directly to the inquiring node rather than broadcasting the response to the entire network. 
+
+ 
+##### Unicast query
+
+See https://datatracker.ietf.org/doc/html/rfc6762#section-5.5
+
+https://book.hacktricks.xyz/network-services-pentesting/5353-udp-multicast-dns-mdns
+
+> Another important flag is the QU bit, which denotes whether or not the query is a unicast query. If the QU bit isn’t set, the packet is a multicast query (QM).
+
+I assume in that case we target direclty machine which we assume contain the record.
+
+
+See also http://wapiti.enic.fr/Commun/ens/peda/options/ST/RIO/pub/exposes/exposesrio2009/CUSINPANIT-DUTHILLEUL/glossaire.html
+
+
+##### Kind of queries
+
+http://wapiti.enic.fr/Commun/ens/peda/options/ST/RIO/pub/exposes/exposesrio2009/CUSINPANIT-DUTHILLEUL/protocole_part2.html
+
+
+https://datatracker.ietf.org/doc/html/rfc6762#section-5
+
+Avahi consider "One-shot queries, accumulating multiple responses" when terminate is used, and continous when not used.
+
+For Spotify I do not know
+
+See also that protocol can batch several queries (no check further with wireshark)
+https://datatracker.ietf.org/doc/html/rfc6762#section-5.3
+
+<!-- side comments ok ccl topic closed -->
+
+
+##### Type of routing in Internet (not in a LAN)
+
+See TAN p413.
+
+- Unicast
+- Broadcast
+- Multicast (MOSPF)
+- Anycast
+
+We have parallel with 
+- [Standard unicast DNS](#standard-unicast-dns): it actually uses Anycast routing !!
+- [Multicast DNS](#multicast-dns): Local multicast routing
+
+
+##### ARP
+
+See TAN p497
+
+Domain -- DNS --> IP @ -- ARP --> ETHernet @
+
+mDNS process similar to ARP.
+
+(Gratuitous) ARP gratuit est similaire  "Gratuitous Multicast DNS Response" (machine asks its own DNS for other to update their cache)/
+
+See http://wapiti.enic.fr/Commun/ens/peda/options/ST/RIO/pub/exposes/exposesrio2009/CUSINPANIT-DUTHILLEUL/protocole_types.html
+
+
+
+##### Muticast range
+
+Tan p 480
+
+Today we use CIDR routing (not per class, see p 477/478 including longest prefix rule). <!-- assume on top of BGP and out of scope here -->
+However we stull use D class for multicast 
+> On utilise toujues les addresses de classe D dans l'internet pur le mutlicast (voir figure 5.53 p 478)
+
+More exactly 
+
+- 224.0.0.1  ->  224.0.0.255 adresses multicast locales
+- 224.0.1.1  ->  239.255.255.254 adresses multicast publiques (routables sur Internet)
+
+See http://wapiti.enic.fr/Commun/ens/peda/options/ST/RIO/pub/exposes/exposesrio2009/CUSINPANIT-DUTHILLEUL/generalites.html
+
+<!-- enic sit stop here -->
+
+<!-- 31jan23 OK CCL only BGP could be linked larer in the last section, and link to DLNA -->
