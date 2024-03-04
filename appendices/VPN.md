@@ -227,3 +227,16 @@ So we have a workaround for netflix (no need to chnage the household) <!-- did n
 <!-- CCL :) -->
 
 <!-- could replace in config generated folder ip by qnap or home.coulombel.net DNS, in particular if IP is changing, but will not try this STOP-->
+
+### Alternative
+
+- Solving [VPN on end device](#vpn-on-end-device)
+    - Use netflix app on Windows PC. Similar setup to [Sound video](../sound-video/README.md#blue-ray-player-on-powerdvd-with-windows-precision-3540-via-hdmi) where we have Netflix windows app (from app center) instead of PowerDVD.
+
+- Alternative to QNAP VPN for netflix
+    - Have a VPN account with a fix IP
+    - All sharers uses same VPN account to have the same Facade IP
+    - See [intro](#into)reminding VPN usage
+
+
+    

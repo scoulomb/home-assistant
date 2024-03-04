@@ -175,6 +175,8 @@ https://support.denon.com/app/answers/detail/a_id/14872/related/1
 See https://github.com/scoulomb/docking-station#home-cinema-setup
 I removed TB16...because of it does not support HDCP (https://www.reddit.com/r/Dell/comments/8z19u6/hdcp_with_tb16_dock_4k_netflix/)
 
+(same setup would work with Netflix APP ([cf](../appendices/VPN.md#alternative)))
+
 #### Movie 1: Ad Astra
 
 ##### English 1 
