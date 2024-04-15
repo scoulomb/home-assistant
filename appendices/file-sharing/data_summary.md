@@ -45,18 +45,21 @@
 
 6oct23
 
-- Current sync : scoulomb-data (see details in [sync NAS to HDD/Cloud](./sync-nas-to-hdd-cloud.md))
-  - NAS to Pcloud via rClone
+- [**] Current sync : scoulomb-data (see details in [sync NAS to HDD/Cloud](./sync-nas-to-hdd-cloud.md)) (last sync 2 apr complete, could automate on rasp but better manaul to check)
+  - NAS to Pcloud via rClone (pcloud/scoulomb-data)
   - NAS to LaCie Orange via HBS
 
-- Iphone photo to iCloud
-- Iphone to scoulomd-data via [QFilePro](./qnap-file-sharing.md)
+- Iphone photo to iCloud (suspended and deleted from cloud as capa max reached in Settings > Profile > ICloud ) and will not pay extra storage to Apple
+- Iphone photo to scoulomb-data/iPhone-pic-sync (and not in scoulomb-data/Multimedia/Pictures/...) via [QFilePro](./qnap-file-sharing.md) --> Then [**] Current-sync
+- IPhone photo to pcloud/automatic upload folder (setup via pcloud setting > Upload settings): **this backup folder can be deleted if all fine as we have a copy in scoulomb-data/iPhone-pic-sync**
+
+- QobuzDonwloads -> new 2024 HDD
 
 - We also have 
   - git repo
   - manning book
   - onedrive 1a
-  - quobuzz (backup, except no zip for london)
+  - qobuz paid download (backup, except no zip for london) in scoulomb-data/multimedia/music
 
 - misc
   - Whatsapp sync to iCloud OK

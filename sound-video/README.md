@@ -323,6 +323,18 @@ Expect same for DVD in DD5.1
 
 Test were done with Videoprojector.
 
+Details -Note:
+- If source is Stereo 2.0 
+    - PCM decode by Power DVD:  then we can select DTS:NeuX or DSur (last settings)
+    - Non high  :then we can select DTS:NeuX or DSur
+    - High res decoded in power dvd: then we can select DTS:NeuX or DSur
+
+- If source is Stereo DTHD 5.1 / Atmos 
+    - PCM decode by Power DVD:  then we can select DTS:NeuX or DSur (last settings)
+    - Non high  :then we have DD
+    - High res decoded in power dvd: then we have DTHD /  atmos
+
+American snpter issue / try boite noir
 
 ### TV box
 
@@ -784,6 +796,13 @@ Similar analysis: https://www.laboutiquederic.com/content/275-comment-ecouter-de
 
 - Denon AVR does not have virtual device for second zone in spotify connect
 
+#### Tidal and Qobuz
+
+
+- Tidal Connect/Qobuz connect (equivalent to Spotify connect)
+- Direct integration in streamer (it is not done in [heos](#music-streaming-service-integration) in April 2024), but sreamer like Atoll MS120 does it
+
+We can also use DLNA. See [DLNA and streaming services](#dlna-and-bubble-upnp-android-mconnect-iphone)
 
 #### Best music provider
 
@@ -970,7 +989,6 @@ And not related to Heos account (or Spotiy connect as Spotify does not work dire
 <!-- 8 jan 23- 11:10 PM music streaming svc ccl and above ccl, next section has link but OK -->
 
 
-
 ### Service discovery (UPNP SSDP) and stream (DLNA) alternative
 
 SSDP and DLNA are part of ZeroConf. 
@@ -984,8 +1002,11 @@ commit: re-ccl dns sd and new current pointer, dolby was ccl see line 490 of REA
 Let's have a look to DLNA.
 
 <!----------- HERE ----------------->
+<!-- vpn update OK/VPN.md: Altenrative, check dolby in staging area, dns-sd file st seems clear only link to BGP/network chapter in TAN OK->  -->
 
-Try with heos app discoveery (mdns or ssdp used?8)+ wireshark OK
+
+
+#### DLNA DMR, DMS, DMC, DMP
 
 
 From 
@@ -1003,19 +1024,32 @@ See also
 - https://spirespark.com/dlna/guidelines
 
 
+Let's give some example
+- All denon Appliance, Atoll MS120 and Kodi are DMR
+- QNAP media station, Jellyfin and Music assistant, and heos built-in (usb) are DMS
+- Heos app, MS120 UI is a DMC
+- Jellyfin when file are played locally is a DMP
 
-#### DLNA DMR, DMP 
 
-All denon Appliance and Kodi.
+See [setup-your-own-media-server-and-music-player](#setup-your-own-media-server-and-music-player)
 
-#### DNLA DMS. DMC
+#### DLNA and Streaming service
 
-#### Streaming service
 
 Spotify can use DLNA? (did not see it in iOS app, try with Kodi? ). (if visible in spotify app complete here)
 **Deezer does not support DLNA: https://en.deezercommunity.com/ideas/dlna-upnp-support-6742**
 
-#### Bubble UPNP
+Spotify neither (belived it was): we can have bridge: https://github.com/rubenbe/docker-spotifyDLNA
+
+
+#### DLNA and Bubble UPNP (Android), mConnect (iPhone)
+
+It build on the phone a DMS for sportify+tidal, and offers a DMC to control it,
+Music assistant is doing something similar.
+
+So to access Tidal/Qobuz we can use Bubble UPNP/mConnect
+
+We can also download music (qodl) and store it in NAS, and use DLNA server
 
 #### QNAP NAS
 
@@ -1041,26 +1075,20 @@ Note that multiroom from QMUsic app/webUI is not working though it should be mul
 https://www.son-video.com/rayonin/haute-fidelite/systemes-multiroom/systeme-hi-fi-multiroom (Sonos, DLNA, AirPlay + HEOS)
 Workaround is heos group + wired zone 2 (tested OK)
 
-#### Music assistant, roon
 
-See https://blog.jlpouffier.fr/chatgpt-powered-music-search-engine-on-a-local-voice-assistant/ with music assitant
-    - Lien linkedin
+#### Setup your own media server and music player !!!!reprendre ici!!!!
 
 
-
-### Remote access
-
-When setup is done:
-- AVS 
-- Spotify connect 
-Can work even if not connect to LAN (did not try deezer connect)
-
-HEOS, AirPlay, UPNP requires LAN access
-Does it work through vpn?
-See [appendices for VPN setup](../appendices/VPN.md),
-Status: do not test as useless (and some VPN issue)
+See [document here](./setup-your-own-media-server-and-music-player/README.md)
 
 
+
+
+### Alternative setup 
+
+google diagram + apple notes
+
+also idea use hd120 to ms120 as AVR to use usb dac part
 
 ### Sound quality
 
@@ -1217,3 +1245,16 @@ See Audio quality in TAN
 -?
 
 STOP OK YES OK
+
+
+### Remote access
+
+
+HEOS, AirPlay, UPNP requires LAN access
+Does it work through vpn?
+See [appendices for VPN setup](../appendices/VPN.md),
+Status: do not test as useless (and some VPN issue)
+
+Try with heos app discoveery (mdns or ssdp used?8)+ wireshark OK
+
+airplay via vpn or apple hub

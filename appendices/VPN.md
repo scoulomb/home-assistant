@@ -239,4 +239,6 @@ So we have a workaround for netflix (no need to chnage the household) <!-- did n
     - See [intro](#into)reminding VPN usage
 
 
-    
+### Use tailscale VPN
+
+See [VPN-tailscale](./VPN-tailscale.md)

@@ -166,10 +166,10 @@ token = {"access_token":"Uvu7ZDnASECTOKEN","token_type":"bearer","expiry":"0001-
 We have an error when syncing with pcloud but not pc2: `Failed to create file system for "pcloud:nas-sync-direct-rclone": failed to configure Pcloud: invalid character 'U' looking for beginning of value`
 
 
-#### QTS tips Alternative ti setup QNAP is to copy Ubuntu config file to QNAP.
+#### QTS tips : Alternative to setup QNAP is to copy Ubuntu config file to QNAP.
 
 ````
-vim myconf.txt (open terminal from explorer, be careful this path is not the same in NAS)
+vim myconf.txt (open terminal from explorer, be careful this path is not the same in NAS) (or `ssh admin@scoulombel-nas` edit `//share/homes/admin/rclone-v1.64.0-linux-amd64/myconf.txt`)
 
 [pc]
 type = pcloud

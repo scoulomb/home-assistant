@@ -978,6 +978,7 @@ We have
 - DNS-based service discovery with multicast as studied [above](#dns-sd-and-mulicast-dns)
 - UPnP: UPnP has some protocol components with the purpose of service discovery.
  - [SSDPdiscovery](../appendices/UPNP.md#discovery)
+   - Example of SSDP as an alternative [Avahi mDNS discovery](README.md#how-does-service-discovery-work-behind-the-scene): https://github.com/open-denon-heos/heospy/blob/main/heospy/ssdp.py
  - DLNA service discovery is layered on top of UPnP SSDP. See https://en.wikipedia.org/wiki/DLNA.
  - Note UPnP relies on DHCP (which is not ZeroConf, see [Zero Conf IP auto assignment](#zeroconf-ip-auto-assignment)). See [UPNP appendices](../appendices/UPNP.md#addressing)
 

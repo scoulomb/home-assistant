@@ -365,7 +365,7 @@ Like `home.coulombel.net	A	1 hour	109.29.148.109`.
 To access my home assisant at `http://home.coulombel.net:8123` fom outside (and inside) with good NAT rule (even if we go out to go in).
 
 
-Actually SFR box container a Local Recursive dns, which forward DNS (DNS forwarder to SFR DNS recursive server).
+Actually SFR box contains a Local Recursive dns, which forward DNS (DNS forwarder to SFR DNS recursive server).
 
 See here what we mean by `Forwarding DNS`:  https://github.com/scoulomb/myDNS/blob/master/2-advanced-bind/3-bind-forwarders/dns-forwarding.md). 
 
@@ -573,7 +573,7 @@ But for `home.coulombel.net:443` we can add alternative domain to certificate
 
 It is managed in a different panel in QNAP
 
-- We should go to   `control panel` >> `SSL Certificate & Privtae Key` 
+- We should go to   `control panel` >> `Security` >> `SSL Certificate & Privtae Key` 
 - Then replace certificate, we have 3 options (import cert (for example the one we did for HA), get from let's encrypt or self signed), we choose get from let's encrypt.
 
 Here we see challenge could can use port 80 or 443
@@ -596,6 +596,7 @@ Then it worked with all `home.coulombel.net` domain.
 <!-- Weirdly when we use `https://scoulomb.myqnapcloud.com:9443` on non standard port (not the the case for `https://home.coulombel.net:9443/`) we no dot have Safe lockin firefox, had ro restrat browser, bug ok
 -->
 
+See doc https://docs.qnap.com/operating-system/qts/5.0.x/en-us/replacing-the-server-certificate-8E7C1926.html
 
 Now we can use this certificate in HA ! (so that we can benefit from renew, even more true if full QNAP cert)
 
@@ -649,3 +650,21 @@ Story for testing juge ok do not check more -->
 Note we patch a bit https://github.com/scoulomb/misc-notes/blob/master/lab-env/ but it is still valid <!-- do not read it, no xref ok -->
 
 Note in MyQNAPcloud this custom (with SAN) SSL certificate is recognized as active but it took some time and it mentions auto renew.
+
+--
+## Add certificates ALTERNATIVE: Use a reverse proxy
+
+See details in this git repository: https://github.com/scoulomb/myhaproxy
+
+See also usage for music server at [sound-video section](../sound-video/setup-your-own-media-server-and-music-player/README.md)
+
+
+## Secure connection via VPN
+
+See
+- https://github.com/scoulomb/myhaproxy/blob/main/README.md#we-have-seen-3-ways-to-access-internal-server-from-external
+- [sound-video section](../sound-video/setup-your-own-media-server-and-music-player/README.md#ways-to-acess-internal-server-from-external)
+- [VPN](./VPN.md) and [Tailscale VPN](VPN-tailscale.md)
+
+
+Note VPN also includes a certificates for himself. 
