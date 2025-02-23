@@ -183,6 +183,6 @@ Same with philips hue can NAT hue bridge or ue hue cloud services.
 and outbound link (IP) -> socket establishment is outbound
 and inbound/outbound IP same IP used to have socket establishment i/o 
 
-See https://github.com/scoulomb/private_script/ Links  mig README.md 
+See https://github.com/scoulomb/private_script/ Links  mig migration-snat-dnat.md 
 
 JUGE OK STOP, no link more-->

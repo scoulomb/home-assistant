@@ -815,7 +815,8 @@ Exporting wireshark JSON we can see mDNS reply of a given speaker
           "dns.count.auth_rr": "0",
           "dns.count.add_rr": "8",
           "Answers": {
-            "_heos-audio._tcp.local: type PTR, class IN, Denon Home 150._heos-audio._tcp.local": {
+            "_heos-audio.
+.local: type PTR, class IN, Denon Home 150._heos-audio._tcp.local": {
               "dns.resp.name": "_heos-audio._tcp.local",
               "dns.resp.type": "12",
               "dns.resp.class": "0x0001",

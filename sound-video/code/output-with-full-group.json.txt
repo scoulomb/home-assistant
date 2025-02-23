@@ -1,4 +1,7 @@
-scoulomb@scoulomb-Precision-3540:~/dev/home-assistant/sound-video/code$ ./service-discovery.sh 
+
+
+
+scoulomb@scoulomb-Precision-3540:~/dev/home-assistant/sound-video/code$ ./service-discovery.sh
 --------------- Avahi output ---------------------------------
 +;wlo1;IPv6;000678612752Denon\032AVR-X2700H;_spotify-connect._tcp;local
 +;wlo1;IPv4;000678612752Denon\032AVR-X2700H;_spotify-connect._tcp;local

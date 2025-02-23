@@ -4,10 +4,7 @@
 
 Magic integration 
 
-````
-gpg -c Hue-ref.md
-gpg  Hue-ref.md.gpg
-````
+See https://github.com/scoulomb/home-credentials/blob/main/Hue-ref.md
 
 <!-- use wsl from vs code, it requires ubuntu wsl started, or git bash -->
 
@@ -17,7 +14,6 @@ It makes additional entities in HA.
 Note this cool stuff: https://community.hueessentials.com/t/how-to-set-up-power-on-behaviour-for-my-lights/720
 <!-- does not seem to fully work, manage microcoupure also -->
 
-A4B43C or A533EC used in storage area?
 
 ## Denon
 
@@ -32,10 +28,7 @@ https://dev.netatmo.com/apidocumentation/weather#getstationsdata
 Use HomeKit.
 See code 
 
-````
-gpg -c Netatmo-hk-code.md
-gpg  Netatmo-hk-code.md.gpg
-````
+See https://github.com/scoulomb/home-credentials/blob/main/Netatmo-hk-code.md
 
 ## Android TV integration in HA (FireTV)
 

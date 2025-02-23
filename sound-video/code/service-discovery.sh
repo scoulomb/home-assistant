@@ -5,6 +5,8 @@ output=$(avahi-browse -d local  _spotify-connect._tcp --resolve --parsable --ter
 
 
 
+
+
 echo "--------------- Avahi output ---------------------------------"
 echo "$output"
  

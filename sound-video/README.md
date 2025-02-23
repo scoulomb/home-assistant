@@ -997,7 +997,7 @@ And fill same service disovery objective as with multicast DNS as highlithed in 
 
 <!-- 15 jan 23- 11:15 PM dns-sd concluded OK - here above OK - https://github.com/scoulomb/home-assistant/commit/6d8149d606503cf9d75e97aee70c93f3eb496dd4-->
 <!-- 30 jan 23: re-ccl, note at bottom of doc,
-commit: re-ccl dns sd and new current pointer, dolby was ccl see line 490 of README.md-->
+commit: re-ccl dns sd and new current pointer, dolby was ccl see line 490 of migration-snat-dnat.md-->
 
 Let's have a look to DLNA.
 
@@ -1240,7 +1240,7 @@ BGP routing...
 https://github.com/scoulomb/docker-under-the-hood/blob/main/what-is-docker.md (other nat linked from here OK)
 f12 boot device option and recofigure grubb post win update
 OK STOP HERE YES OK
-
+;
 See Audio quality in TAN
 -?
 

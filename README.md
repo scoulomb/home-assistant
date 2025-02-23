@@ -374,7 +374,7 @@ _________________________
 
 
 <!-- In this page concluded NAT with 
-Links-mig-auto-cloud/README.md#migration-and-snatdnat
+Links-mig-auto-cloud/migration-snat-dnat.md#migration-and-snatdnat
 https://github.com/scoulomb/docker-under-the-hood/blob/main/NAT-deep-dive-appendix/README.md#nat-deep-dive
 https://github.com/scoulomb/home-assistant/blob/main/README.md#note-on-network, review not required a link made with @home
 See https://github.com/scoulomb/home-assistant/commit/ef7ba4bd7ebdae1af27a0ab66b21bb4e4ff34650 (Work1A stuff should not impact but can update even if other commit in HA repo in btw)
