@@ -41,13 +41,16 @@
 
 - MyQNAPCloud -> tentative back-up OK via HBS rm
 
-# So in term of data
+## So in term of data
 
 6oct23
 
 - [**] Current sync : scoulomb-data (see details in [sync NAS to HDD/Cloud](./sync-nas-to-hdd-cloud.md)) (last sync 2 apr complete, could automate on rasp but better manaul to check)
   - NAS to Pcloud via rClone (pcloud/scoulomb-data)
   - NAS to LaCie Orange via HBS
+  - NAS to TR-002 via HBS. See [QNAP TR-002](./QNAP-TR002/hbs.md)
+
+- QobuzDownloads via HBS. See [QNAP TR-002](./QNAP-TR002/hbs.md) (reduce laency in multiromm setup for ms120 + heos, moode mutiplayer)
 
 - Iphone photo to iCloud (suspended and deleted from cloud as capa max reached in Settings > Profile > ICloud ) and will not pay extra storage to Apple
 - Iphone photo to scoulomb-data/iPhone-pic-sync (and not in scoulomb-data/Multimedia/Pictures/...) via [QFilePro](./qnap-file-sharing.md) --> Then [**] Current-sync

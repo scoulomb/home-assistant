@@ -76,12 +76,12 @@ The steps would be:
  - Launch Container Station and move to “Create”-section 
  - Search image  “homeassistant/home-assistant” with
    docker hub and click on “Install”
- - Choose "latest" version and click next
+ - Choose "stable" version and click next
  - Choose a container-name you want (e.g.
    “homeassistant”)
  - Click on “Advanced Settings”
  - Within “Shared Folders” click on "Volume from host" > "Add" and
-   choose either an existing folder or add a new folder. The “mount
+   choose either an existing folder or add a new folder (ex: `/home-assistant-docker`). The “mount
    point” has to be “/config”, so that Home Assistant will use it for
    the configs and logs.
  - Within “Network” and select Network Mode to “Host”
@@ -93,6 +93,10 @@ The steps would be:
  - Your Home Assistant within Docker should now run and will serve the web interface from port 8123 on your Docker host (this will be your Qnap NAS IP address - for example `http://192.168.1.10:8123`)
 
 Remark: to update your Home Assistant on your Docker within Qnap NAS, you just remove container and image and do steps again(Don't remove "config" folder)
+
+To update 
+> `Container station` > `Resources` > `images` > `pull` > `homeassistant/home-assistant` with tag `stable`
+> `Container station` > `Resources` > `container` > `image ha` > `stop` then `more` > `duplicate` (in advanced settings add `/config` folder)
 
 If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assistant on Qnap Docker, Fallow this step:
 
