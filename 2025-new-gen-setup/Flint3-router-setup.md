@@ -296,3 +296,5 @@ Do not think
 Next applications and co, ddns, ipv6 interface, http://192.168.8.1/#/wireless …
 Next zigbee: gw tuya and mrw3
 -->
+
+<!-- git config http.postBuffer 524288000 -- https://stackoverflow.com/questions/15240815/git-fatal-the-remote-end-hung-up-unexpectedly -->
