@@ -105,7 +105,7 @@ https://speed.cloudflare.com
 
 We can replace ISP SFR Box by using Open WRT
 
-This avoids full control and avoids setup of double NAT :) !
+This allows full control and avoids setup of double NAT :) !
 
 ```text
 Fiber — pon —> ONT — Fiber / ETH —>  Flint 3 WAN —> ETH SWITCH / Wifi —> client 
