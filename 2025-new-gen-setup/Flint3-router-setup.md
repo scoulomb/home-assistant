@@ -315,5 +315,6 @@ Link to [seamless migration](#seams-less-migration-)
     
 - MLO only available from wifi 7 (But can benefit wifi 7 without mlo)
 - Link between 802.11, wifi version and band at https://www.netgear.com/fr/hub/wifi/routers/levolution-du-wifi/
+  - [Ref here](./flint3-router-setup-media/evolution-wifi.md)
   - No direct link between band and wifi version
 <!-- CCL OK -->

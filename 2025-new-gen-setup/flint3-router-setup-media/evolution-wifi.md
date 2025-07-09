@@ -1,3 +1,5 @@
+# From https://www.netgear.com/fr/hub/wifi/routers/levolution-du-wifi/
+
 Le monde du WiFi a beaucoup évolué depuis qu’il a été présenté pour la première fois aux consommateurs en 1997 – que cela soit en termes de vitesse et de capacité, de dénomination et de positionnement. L’offre initiale de WiFi pour le grand public était basée sur la norme IEEE 802.11, et les versions suivantes étaient nommées en fonction de leurs mises à jour et des modifications apportées aux capacités, par exemple 802.11b ou 802.11g.
 Comme cela devenait de plus en plus déroutant pour les consommateurs, une décision a été prise en 2018 par la WiFi Alliance pour rendre la dénomination des normes WiFi plus facile à comprendre – et donc plus facile à adopter à mesure que les technologies évoluaient et se développaient en fonction des besoins changeants des consommateurs. Aujourd’hui, nous sommes à l’aube de la prochaine phase pour la connectivité sans fil via le WiFi 6E – mais comprendre comment nous en sommes arrivés là peut nous permettre d’apprécier tout ce que le WiFi 6E offre aujourd’hui.
  
