@@ -298,3 +298,22 @@ Next zigbee: gw tuya and mrw3
 -->
 
 <!-- git config http.postBuffer 524288000 -- https://stackoverflow.com/questions/15240815/git-fatal-the-remote-end-hung-up-unexpectedly -->
+
+## Wifi 2, 5 or 6 band
+
+Link to [seamless migration](#seams-less-migration-)
+
+
+- Should I name my 2.4GHz and 5GHz Wi-Fi the same SSID?: https://rockspaceworld.com/blogs/wifi-general/should-i-name-my-2-4ghz-and-5ghz-wifi-the-same-ssid?srsltid=AfmBOoqQ4k5i6MJ8ZvUl1_sYAenlmfSqT4sR1ogiX4GIDQn10v4mfYxx
+  - > In short, the best practice is to have separate SSIDs, with frequencies chosen to match the device and the task at your hand.
+  
+- https://support.apple.com/en-gb/102285
+  - > If you administer the Wi-Fi router, you can use its configuration webpage or app to edit the name of each band so that all bands have the same name. Your device can then rejoin the Wi-Fi 6E network with full compatibility. For more information about network names and other settings, consult the recommended settings for Wi-Fi routers and access points.
+    
+- See http://192.168.8.1/#/wireless
+  - > MLO wi-fi does what apples tries to do (all the band used by MLO unlike other band)
+    
+- MLO only available from wifi 7 (But can benefit wifi 7 without mlo)
+- Link between 802.11, wifi version and band at https://www.netgear.com/fr/hub/wifi/routers/levolution-du-wifi/
+  - No direct link between band and wifi version
+<!-- CCL OK -->
