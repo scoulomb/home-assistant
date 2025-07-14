@@ -1,5 +1,5 @@
 
-# Replace with your actual values
+# Replace with your actual values, see https://github.com/scoulomb/home-credentials/blob/main/local-tahoma-creds.txt
 pin=""
 cloud="ha101-1.overkiz.com"
 userId=""

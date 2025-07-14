@@ -25,6 +25,8 @@ gpg -c Tahoma/local-tahoma/creds.txt
 gpg Tahoma/local-tahoma/creds.txt.gpg
 ````
 
+Or store in private repo: https://github.com/scoulomb/home-credentials/blob/main/local-tahoma-creds.txt (updated to this option)
+
 ## Get local token
 
 
