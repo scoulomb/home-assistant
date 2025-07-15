@@ -102,7 +102,7 @@ Be careful as in order to ensure that  http://homeassistant.local:8123/config/sc
 <!-- we are here -->
 
 - [Learn IR code](./learnt-tuya-ir-code.md) 
-- [Generated scripts.yaml](./scripts.yaml)
+- [Generated scripts.yaml](./scripts.yaml) - volume issue
 - Configure input button: https://www.home-assistant.io/integrations/input_button/#automation-examples:~:text=The%20input_button%20entity%20is%20stateless,%20as%20in,%20it%20cannot%20have%20a%20state%20like
 
 ## 🧠 Tips & Troubleshooting
