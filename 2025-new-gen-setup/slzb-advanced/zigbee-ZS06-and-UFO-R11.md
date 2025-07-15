@@ -43,6 +43,8 @@ The learned IR code will appear, e.g.:
 
 BZ8N4wa6AUABAzIFugHgIwHgFy9AH0AD4BMBwB/AB+APAeALH0ATAuwBumABAf//gMdAD0AX4CMBQC9AN+APAUAfQAPgEwHAH8AHwAHgB1fgBx9AAQsyBboBugG6AboBugE=
 
+When moving new code toogle on/off learn ir mode.
+
 ## 🚀 Step 3: Test the IR Code
 
 Paste the learned code into the IR Send field.
@@ -68,17 +70,40 @@ http://homeassistant.local:8123/config/script/edit/zs06_duplicate
 
 Create a new script with the learned IR code.
 
+http://homeassistant.local:8123/config/script/dashboard
+> create new script > edit in yaml
+
 Example YAML:
 
 ````yaml
-data:
-  payload: >-
-    {"ir_code_to_send":
-    "BZQN9gasAUABA0cFrAFAAQLmAaxgAUAH4AMDwAHAE0AvwAvAB8ABQA9AH0ADQAtAAUAHQAPAAUALQB9AAUAHQA9AA0AB4AMHQAtAH0ABQAtAA0AB4AMTAf//4AnHwAHAL+AHAcAX4ANHwAFAG0ADQAFAH0ADwA9AAcALQAdAA8AfQAdAAUATwAPAAUAPQB9AB0ABQAdAAwtHBawBrAGsAawBrAE="} 
-  topic: zigbee2mqtt/0x70c59cfffef600c8/set
-action: mqtt.publish
+#Replace Device ID (Friendly name from Zigbee2MQTT) and IR Code
+alias: "HD120 Turn ON OFF" #Zigbee2MQTT Script
+sequence:
+  - service: mqtt.publish
+    data:
+      payload: >-  #Replace IR Code
+        {"ir_code_to_send": "BZkN8wa6AUABAx4FugHgCQEC6QG64AwBAekB4A0v4AEBQB8EHgXpAbrgEAEF6QEeBboB4AkBAukBuuAaAeADOwH//0DHgDcBHgWAB+AFAeALE4ABAx4FugHgEwECHgXpYAMAuuASAUAjALrgGAHgDSMLHgXpAboBugG6AboB"} 
+      topic: zigbee2mqtt/0x70c59cfffef600c8/set #Replace Device ID
 ````
 
+
+This id `0x70c59cfffef600c8` in topic is the friendly name, in zigbee2mqtt : http://homeassistant.local:8123/45df7312_zigbee2mqtt/ingress
+It is equal to the IEEE address by default. I reco to not change it here....: https://www.zigbee2mqtt.io/guide/usage/mqtt_topics_and_messages.html#zigbee2mqtt-friendly-name
+
+Pro Tips: we can install vs code add-ons and edit script in bulk:
+http://homeassistant.local:8123/a0d7b954_vscode/ingress => `scripts.yaml`
+So we can duplicate scripts via UI, or directly in yaml
+
+Be careful as in order to ensure that  http://homeassistant.local:8123/config/script/dashboard is updated after direct yaml update, you have to go to
+`developer tool`  > `script yaml` >  `reload`.
+
+## Next
+
+<!-- we are here -->
+
+- [Learn IR code](./learnt-tuya-ir-code.md) 
+- [Generated scripts.yaml](./scripts.yaml)
+- Configure input button: https://www.home-assistant.io/integrations/input_button/#automation-examples:~:text=The%20input_button%20entity%20is%20stateless,%20as%20in,%20it%20cannot%20have%20a%20state%20like
 
 ## 🧠 Tips & Troubleshooting
 

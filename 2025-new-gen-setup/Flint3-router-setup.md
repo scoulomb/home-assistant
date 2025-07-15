@@ -19,6 +19,7 @@ Nota
     - Has NB6-VAC as technical name
 
 ## Standard setup with SFR Box Plus Fibre 
+<!-- I have this model as per user guide -->
 
 ### ADSL
 
