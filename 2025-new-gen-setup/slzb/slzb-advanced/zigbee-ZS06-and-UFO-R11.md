@@ -111,6 +111,7 @@ Be careful as in order to ensure that  http://homeassistant.local:8123/config/sc
 
 See [Generated scripts.yaml](scripts.yaml) 
 
+# TODO - HERE: fix eventual and inputs button
 Configure input button: https://www.home-assistant.io/integrations/input_button/#automation-examples:~:text=The%20input_button%20entity%20is%20stateless,%20as%20in,%20it%20cannot%20have%20a%20state%20like
 
 
