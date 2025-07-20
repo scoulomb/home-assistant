@@ -1,5 +1,8 @@
 # Integrating Zigbee ZS06 and UFO-R11 IR Controller with Atoll HD 120 HiFi Receiver
 
+https://www.home-assistant.io/integrations/zha/ vs z2m: people seems to say z2m better but higer entry cost. Opting for z2m
+
+
 This guide explains how to integrate the Zigbee ZS06 IR controller to control the mute button of the Atoll HD 120 HiFi receiver.
 
 ## Useful Links
@@ -66,7 +69,7 @@ in Send (Irealised that sometime a retry did not work here, small bug unlike whe
 
 ## 🧾 Step 5: Create a Script in Home Assistant
 Go to:
-http://homeassistant.local:8123/config/script/edit/zs06_duplicate
+http://homeassistant.local:8123/config/script/
 
 Create a new script with the learned IR code.
 
@@ -97,25 +100,34 @@ So we can duplicate scripts via UI, or directly in yaml
 Be careful as in order to ensure that  http://homeassistant.local:8123/config/script/dashboard is updated after direct yaml update, you have to go to
 `developer tool`  > `script yaml` >  `reload`.
 
-## Next
 
-<!-- we are here -->
+## 🧾 Step 6: Industrialize the solution
 
-- [Learn IR code](./learnt-tuya-ir-code.md) 
-- [Generated scripts.yaml](./scripts.yaml) - volume issue
-- Configure input button: https://www.home-assistant.io/integrations/input_button/#automation-examples:~:text=The%20input_button%20entity%20is%20stateless,%20as%20in,%20it%20cannot%20have%20a%20state%20like
+- Learn: http://homeassistant.local:8123/45df7312_zigbee2mqtt/ingress - [See step 2](#-step-2-learn-ir-codes-from-the-atoll-remote)
+- Copy-paste script: http://homeassistant.local:8123/a0d7b954_vscode/ingress - [See step 5](#-step-5-create-a-script-in-home-assistant)
+- Reload config: http://homeassistant.local:8123/developer-tools/yaml - [See step 5](#-step-5-create-a-script-in-home-assistant)
+- Execute script: http://homeassistant.local:8123/config/script/dashboard
+<!-- also mentioned on top of yaml doc -->
+
+See [Generated scripts.yaml](scripts.yaml) 
+
+Configure input button: https://www.home-assistant.io/integrations/input_button/#automation-examples:~:text=The%20input_button%20entity%20is%20stateless,%20as%20in,%20it%20cannot%20have%20a%20state%20like
+
+
 
 ## 🧠 Tips & Troubleshooting
 
 
-If a code doesn’t work (happens when code very long):
-Ensure re-learning it with the Atoll remote.
-Power cycle the Atoll receiver before retrying.
+- If a code doesn’t work (happens when code very long):
+  - Ensure re-learning it with the Atoll remote.
+  - Power cycle the Atoll receiver before retrying.
 
-Tuya IR codes are not consistent across learning attempts.
-This is not due to rolling codes, as menitoned here:
-https://smarthomescene.com/reviews/tuya-zigbee-infrared-ir-remote-zs06-review/
-but Tuya’s own encoding format.
-https://www.reddit.com/r/homeassistant/comments/1di1zs7/ir_codes_formatting/
+- Tuya IR codes are not consistent across learning attempts.
+   - This is not due to rolling codes, as mentioned here: https://smarthomescene.com/reviews/tuya-zigbee-infrared-ir-remote-zs06-review/
+   - but Tuya’s own encoding format: https://www.reddit.com/r/homeassistant/comments/1di1zs7/ir_codes_formatting/
+
+- Note I learn code sent on UFO-R11 by UFO-R11 and ZS06 by ZS06 but should be switchable
+- On HD120 vol_less and vol_plus needs a long press >5 sec when learning IR code
+<!-- also mentioned in related section of yaml doc -->
 
 <!-- yaml done via xcode + copilot -->

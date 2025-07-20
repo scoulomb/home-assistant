@@ -106,5 +106,5 @@ https://zigbee.blakadder.com/index.html
 In Z2M interface do Permit join and connect devices: http://homeassistant.local:8123/45df7312_zigbee2mqtt/ingress
 Then integration on HA, and can use as trigger and dashboard (auto-gen)
 
-See [Zigbee ZS06 and UFO-R11 integration for advanced IR options](./slzb-advanced/zigbee-ZS06-and-UFO-R11.md)
+See [Zigbee ZS06 and UFO-R11 integration for advanced IR options](slzb-advanced/zigbee-ZS06-and-UFO-R11.md)
 <!-- above ccl OK -->
