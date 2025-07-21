@@ -98,10 +98,27 @@ Setup tiny proxy on glinet interface
 And the access on Luci: http://192.168.8.1:8080/cgi-bin/luci/admin/services/tinyproxy 
 -->
 
-Reminder on HA local port:
-- 80: NGINX proxy manager HTTP Port + cert validation (I recommend to have it opened as HTTP-01 challenge only on 80: https://letsencrypt.org/fr/docs/challenge-types/)
-- 443: NGINX proxy manager HTTPs Port + cert validation 
+### Reminder on HA port
+
+Reminder on HA (`192.168.8.101`) local port:
+- 80: NGINX proxy manager HTTP Port + cert validation (I recommend to have it always opened as `HTTP-01` challenge only on 80: https://letsencrypt.org/fr/docs/challenge-types/, even if the HTTP challenge can be done in 443 via `TLS-ALPN-01` (but it does not seem fully supported: https://github.com/NginxProxyManager/nginx-proxy-manager/issues/158 - will not do full test<!-- renew work osef -->). We could also use `DNS-01` validation as an alternative)
+- 443: NGINX proxy manager HTTPs Port + cert validation via `TLS-ALPN-01` when supported.
+- 81: NGINX admin interface
 - 8123 default HomeAssistant port (`http` in config)
+
+All those port accessible locally (proxy routing 80/443 based on header will fail <!--not try more-->)
+
+Thus
+- Natting to HA:80/443 (proxy) 
+- and proxy to backend
+  - HA:8123 (same for HA and proxy)
+  - [Jellyfin:8096](#access-to-jellyfin-) below
+  - and not exposing backend directly  + TLS
+
+See [cert details](./cert-terminology/README.md)
+
+We do not encrypt inside LAN (HA proxy to back-end <!-- unlike F5 to app, see parallel when cascading F5 and nginx here: private_script/ /Links-mig-auto-cloud/2025-consolidation 
+and link with [](./cert-terminology/README.md#self-signed-and-signed) OK -->)
 
 Note port can be configured here: http://homeassistant.local:8123/hassio/addon/a0d7b954_nginxproxymanager/config
 
@@ -167,19 +184,42 @@ See also doc here: https://forum.hacf.fr/t/acces-de-l-exterieur-en-https-avec-ng
 - Create a proxy host using this certificate 
 
 ````shell
+Details
+-------
+# Domain names
 homeassistant.coulombel.net 
-Scheme*; Forward Hostname / IP*; Forward Port *
+#Scheme*; Forward Hostname / IP*; Forward Port *
 http ;192.168.8.101 ; 8123
-Ensure `Websockets support` is activated otherwise you could see this error
+# `Websockets support` 
+is activated otherwise you could see error below
+#Access list
+publicly accessible
+
+SSL 
+-------
+# SSL certificate
+Select homeassistant.coulombel.net created previously
+# Force SSL
+Set to true to redirect 80 to 443
 ````
 
+When `Websockets` support not activated. You will have this error when performing a login attempt.
 
 ```shell
 2025-07-21 13:10:39.798 WARNING (MainThread) [homeassistant.components.http.ban] Login attempt or request with invalid authentication from 163.116.176.129 (163.116.176.129). Requested URL: '/auth/token'. (Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Safari/605.1.15)
-
 ```
+Note that to avoid to disable port 80 mapping on router, used for certificate DCV (see steps above), we ensure Force SSL is set to true.
+- When set to false: http://homeassistant.coulombel.net:80 => unsecure
+- When set to true: http://homeassistant.coulombel.net:80 => redirection to https://homeassistant.coulombel.net/ (tested OK)
+- This is equivalent to 
+  - Apache: https://stackoverflow.com/questions/16200501/how-can-i-automatically-redirect-http-to-https-on-apache-servers
+  - F5: https://my.f5.com/manage/s/article/K10090418: use iRule, if standard port can use system iRule `modify /ltm virtual <virtual server name> rule { _sys_https_redirect }`
+    - F5 AS3: `"class": "Service_HTTPS"` when using standard port: https://clouddocs.f5.com/training/community/automation/html/class03/module1/lab02.html
+<!-- link with /private_script/ /Links-mig-auto-cloud/2025-consolidation/README.md - Linking sufficient here -->
 
-See https://community.home-assistant.io/t/login-attempt-or-request-with-invalid-authentication-when-trying-to-access-remotely/373848/15
+The scheme HTTP is between proxy and target server <!-- similar f5-gw in private-script -->
+
+See related post: https://community.home-assistant.io/t/login-attempt-or-request-with-invalid-authentication-when-trying-to-access-remotely/373848/15
 
 
 
@@ -210,7 +250,8 @@ See certificate is on domain requested by client: https://stackoverflow.com/ques
 
 ## Access to Jellyfin 
 
-Here difference is that this Jellyifn server is not on PI 5/
+Here difference is that this Jellyifn server is not on PI 5.
+
 
 
 ```shell
@@ -225,6 +266,28 @@ Address: 78.116.176.161
 
 Then do same operation as home assistant and forward to `http://192.168.8.102:8096`.
 
+````shell
+Details
+-------
+# Domain names
+jellyfin.coulombel.net 
+#Scheme*; Forward Hostname / IP*; Forward Port *
+http ;192.168.8.102 ; 8096
+# `Websockets support` 
+is activated otherwise you could see error below
+#Access list
+publicly accessible
+
+SSL 
+-------
+# SSL certificate
+Select jellyfin.coulombel.net created previously
+# Force SSL
+Set to true to redirect 80 to 443
+````
+
+The local Jellyfin port can be defined at: http://192.168.8.102:8096/web/index.html#!/networking.html
+
 ## Option to not use HA proxy.
 
 As always we can directly NAT to end device (with a double NAT removed here).
@@ -233,3 +296,10 @@ Amd aborted tuto to configure [Jellyfin in TLS](../../sound-video/setup-your-own
 <!-- Link to private_script/tree/main/Links-mig-auto-cloud/2025-consolidation/README.md => Details on Inbound via Standard virtual server (with HA proxy or not) -->
 
 <!-- only remaining is tailscale optional CCL OK CLEAR 21 jul OK CCL, jellfin TLS comment above not do-->
+
+## VPN usage
+
+VPN can be used to fix issue, like access to `192.168.8.101:81` (homeassistant add-ons) to fix nginx issue. cf [HA port](#reminder-on-ha-port).
+
+<!-- link with private-script in inital d notes ok as implicit and documented, same with slzb dojo -->
+<-- external access is FULLY concluded OK - no need main readme as time of writing-->
