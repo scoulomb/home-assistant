@@ -111,10 +111,47 @@ Be careful as in order to ensure that  http://homeassistant.local:8123/config/sc
 
 See [Generated scripts.yaml](scripts.yaml) 
 
-# TODO - HERE: fix eventual and inputs button
+## Step 7: Generate a dashboard
+
 Configure input button: https://www.home-assistant.io/integrations/input_button/#automation-examples:~:text=The%20input_button%20entity%20is%20stateless,%20as%20in,%20it%20cannot%20have%20a%20state%20like
 
+Upload [script.yaml](./scripts.yaml) in AI.
+Use this prompt.
 
+```chatinput
+I have a list of Home Assistant scripts for devices like HD120, MS120, AVR, and Optoma. I want to create a YAML configuration for a dashboard that:
+
+Groups buttons into logical sections using vertical-stack cards.
+Each group should have a title using a markdown card (e.g., “HD120 Controls”, “MS120 Controls”, etc.).
+Inside each group, use a grid layout to display buttons for the scripts.
+Each button should include:
+show_name: true
+show_icon: true
+type: button
+tap_action: { action: toggle }
+Output the full YAML configuration.
+Example script names include:
+
+hd120_turn_on_off, hd120_mute, hd120_disp, ...
+ms120_turn_on_off, ms120_vol_plus, ...
+avr_on_off, avr_vol_plus, ...
+optoma_on, optoma_off
+Please generate a clean, readable YAML layout that I can paste into my Home Assistant dashboard configuration.
+```
+
+In `HA dashboard` > `add card` > `manual` (at bottom)
+
+```yaml
+type: vertical-stack
+cards:
+# <copy-paste AI generated output>
+```
+
+Here is out [card-hifi.yaml](./card-hifi.yaml)
+
+For update direct on [card-hifi.yaml](./card-hifi.yaml) or AI <!-- (no changelog here unlike dev-resume-2025) -->
+
+If we add AC we could add a dedicated card (but keep same scripts.yaml).
 
 ## 🧠 Tips & Troubleshooting
 
@@ -132,3 +169,4 @@ Configure input button: https://www.home-assistant.io/integrations/input_button/
 <!-- also mentioned in related section of yaml doc -->
 
 <!-- yaml done via xcode + copilot -->
+<!-- TODO FIX ONLY + AC => CCL -->
