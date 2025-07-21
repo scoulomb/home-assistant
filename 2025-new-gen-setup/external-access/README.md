@@ -103,6 +103,7 @@ Reminder on HA local port:
 - 443: NGINX proxy manager HTTPs Port + cert validation 
 - 8123 default HomeAssistant port (`http` in config)
 
+Note port can be configured here: http://homeassistant.local:8123/hassio/addon/a0d7b954_nginxproxymanager/config
 
 ### Tuto
 
@@ -227,7 +228,8 @@ Then do same operation as home assistant and forward to `http://192.168.8.102:80
 ## Option to not use HA proxy.
 
 As always we can directly NAT to end device (with a double NAT removed here).
+Amd aborted tuto to configure [Jellyfin in TLS](../../sound-video/setup-your-own-media-server-and-music-player/README.md)
 
 <!-- Link to private_script/tree/main/Links-mig-auto-cloud/2025-consolidation/README.md => Details on Inbound via Standard virtual server (with HA proxy or not) -->
 
-<!-- only remaining is tailscale optional CCL OK CLEAR 21 jul OK CCL-->
+<!-- only remaining is tailscale optional CCL OK CLEAR 21 jul OK CCL, jellfin TLS comment above not do-->
