@@ -103,6 +103,8 @@ Be careful as in order to ensure that  http://homeassistant.local:8123/config/sc
 
 ## 🧾 Step 6: Industrialize the solution
 
+<!-- initial yaml built via xcode + copilot -->
+- 
 - Learn: http://homeassistant.local:8123/45df7312_zigbee2mqtt/ingress - [See step 2](#-step-2-learn-ir-codes-from-the-atoll-remote)
 - Copy-paste script: http://homeassistant.local:8123/a0d7b954_vscode/ingress - [See step 5](#-step-5-create-a-script-in-home-assistant)
 - Reload config: http://homeassistant.local:8123/developer-tools/yaml - [See step 5](#-step-5-create-a-script-in-home-assistant)
@@ -110,6 +112,8 @@ Be careful as in order to ensure that  http://homeassistant.local:8123/config/sc
 <!-- also mentioned on top of yaml doc -->
 
 See [Generated scripts.yaml](scripts.yaml) 
+
+Note device id change between ZS06 and UFO-R11.
 
 ## Step 7: Generate a dashboard
 
@@ -167,6 +171,3 @@ If we add AC we could add a dedicated card (but keep same scripts.yaml).
 - Note I learn code sent on UFO-R11 by UFO-R11 and ZS06 by ZS06 but should be switchable
 - On HD120 vol_less and vol_plus needs a long press >5 sec when learning IR code
 <!-- also mentioned in related section of yaml doc -->
-
-<!-- yaml done via xcode + copilot -->
-<!-- TODO FIX ONLY + AC => CCL -->
