@@ -240,11 +240,11 @@ ms120_navigation_back:
 
 
 # DENON AVR via UFO-R11
-avr_on:
-  alias: avr on
+avr_on_off:
+  alias: avr on-off
   sequence:
     - data:
-        payload: '{"ir_code_to_send": ""} '
+        payload: '{"ir_code_to_send": "BS8NpQasAcABA/IErAFAAeAHB0ABwBNAAUALQAPgFwHAI8AHwAHAD8AH4BcB4Acn4AcPAf//4LrHAgGsAQ=="} '
         topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
       action: mqtt.publish
   description: ''
@@ -288,7 +288,7 @@ optoma_on:
   alias: optoma on
   sequence:
     - data:
-        payload: '{"ir_code_to_send": "BT0NowatAcABA/AErQFAAeAHB0ABwBNAAUALQAPgFwHAI8AHwAHAD8AH4BcB4Acn4AcPAf//4P3H4HzHAgGtAQ=="} '
+        payload: '{"ir_code_to_send": "BXsjoxFAAkABA5QGQALAAUALQAPAAcALQAdAA8ABQAtAA0ABwAfgCwHAG0AH4AsDDwiaeyPKCEAC//97I8oIQAI="} '
         topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
       action: mqtt.publish
   description: ''
