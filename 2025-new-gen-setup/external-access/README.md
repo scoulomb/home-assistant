@@ -303,3 +303,14 @@ VPN can be used to fix issue, like access to `192.168.8.101:81` (homeassistant a
 
 <!-- link with private-script in inital d notes ok as implicit and documented, same with slzb dojo -->
 <-- external access is FULLY concluded OK - no need main readme as time of writing-->
+
+## Other backend
+
+We can add Navidrome on port 4533 and other back-end later. <!-- do not prevent from ccl as obvious -->
+Why Navidrome? Jellyfin transcoding is blurry. We can set internet bitrate streaming only:
+- Globally: > administration > dashboard > server> playback : `/web/index.html#!/streamingsettings.html`
+- Per user: > administration > dashboard > server> user > select user 
+
+<!-- mydomain unliked duckdns not considered as new domain from corp -->
+
+<!-- fully ccl OK, mo need a README as conlusion slzb in readme too of that folder, clear OK with status OK-->
