@@ -6,7 +6,7 @@ Example of Jellyfin and Home Assistant
 
 It will remove double NATing
 
-As explained in [router setup](../Flint3-router-setup.md), we were able to plug directly to ONT to bypass provider box.
+As explained in [router setup](../flint3-router/Flint3-router-setup.md), we were able to plug directly to ONT to bypass provider box.
 Thus removing the double NAT in our TCP + TLS connection to Home Assistant.
 
 ```shell
@@ -302,7 +302,8 @@ Amd aborted tuto to configure [Jellyfin in TLS](../../sound-video/setup-your-own
 VPN can be used to fix issue, like access to `192.168.8.101:81` (homeassistant add-ons) to fix nginx issue. cf [HA port](#reminder-on-ha-port).
 
 <!-- link with private-script in inital d notes ok as implicit and documented, same with slzb dojo -->
-<-- external access is FULLY concluded OK - no need main readme as time of writing-->
+<-- external access above is FULLY concluded OK -->
+<!-- mydomain unliked duckdns not considered as new domain from corp -->
 
 ## Other backend
 
@@ -311,6 +312,8 @@ Why Navidrome? Jellyfin transcoding is blurry. We can set internet bitrate strea
 - Globally: > administration > dashboard > server> playback : `/web/index.html#!/streamingsettings.html`
 - Per user: > administration > dashboard > server> user > select user 
 
-<!-- mydomain unliked duckdns not considered as new domain from corp -->
+We can check in Mac OS with `Activity Monitor`, `> Network tab`, when a song start we have around ~30 mb of data received <!-- (not here message flow dir != from socket) , private_script: private_script/ /Links-story-notes/socketEstablishmentDirection.md -->
 
-<!-- fully ccl OK, mo need a README as conlusion slzb in readme too of that folder, clear OK with status OK-->
+<!-- fully ccl OK as other BE optional and mentioned in -->
+See [](./../README.md) 
+<!-- as such this file not in apple notes -->
