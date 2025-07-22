@@ -121,3 +121,19 @@ We can also sign a JWT with private key: https://github.com/scoulomb/misc-notes/
 <!-- but not found here as in case https://github.com/scoulomb/myDNS/blob/main/2-advanced-bind/5-real-own-dns-application/6-use-linux-nameserver-part-h.md#L738 -->
 
 <!-- priv script mtls etc stop -->
+
+## SAN, CN, SNI
+
+See here [differences between SAN (Subject Alternative Name), CN (Common Name), and SNI (Server Name Indication) in the context of SSL/TLS certificates](./ssl_certificate_differences.md)
+DCV work for CN and SAN. Some browser can ignore CN or require all domain defined in SAN even if in CN. (source copil)
+
+SNI is not in cert.
+
+What about our cert? (used chrome here as https://discussions.apple.com/thread/256041834?answerId=261330994022&sortBy=rank#261330994022)
+It has a Subject.CN equal to Extension.certificateSAN equal to `homeassistant.coulombel.net`
+
+Note we can use an IP in ssl cert: https://www.geocerts.com/support/ip-address-in-ssl-certificate - [back-up](./Using-an-IP-Address-in-an-SSL%20Certificate-GeoCerts.pdf). And work for SAN.<!-- no dive here-->
+
+<!-- link to tm f5-app where cert not updated back to ip -->
+
+
