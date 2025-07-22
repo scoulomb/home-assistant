@@ -131,9 +131,21 @@ SNI is not in cert.
 
 What about our cert? (used chrome here as https://discussions.apple.com/thread/256041834?answerId=261330994022&sortBy=rank#261330994022)
 It has a Subject.CN equal to Extension.certificateSAN equal to `homeassistant.coulombel.net`
+<!-- can be shaddowed in corp -->
 
 Note we can use an IP in ssl cert: https://www.geocerts.com/support/ip-address-in-ssl-certificate - [back-up](./Using-an-IP-Address-in-an-SSL%20Certificate-GeoCerts.pdf). And work for SAN.<!-- no dive here-->
 
+
+Sides notes: there’re cases where a given F5 virtual server can be configured to use multiple clientSSL which the profile used is chosen based on the Server Name Indication (SNI).
 <!-- link to tm f5-app where cert not updated back to ip -->
 
+Exactly one of the clientSSL (on F5 server, blu), see link to /private_script/ Links-mig-auto-cloud/2025-consolidation/README.md#tls-certificates) profile needs to be marked as “SNI default“.
+Evaluation order [source: https://my.f5.com/manage/s/article/K55504740]
+1. Server Name configured in the Client SSL profiles
+2. Subject Alternative Name of an SSL certificate used by the Client SSL profiles
+3. Common Name of an SSL certificate used by the Client SSL profiles
+<!-- link to complex vs Ok-->
 
+## Link to cert in private script
+
+See also link with /private_script/ Links-mig-auto-cloud/2025-consolidation/README.md#tls-certificates
