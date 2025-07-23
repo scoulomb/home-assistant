@@ -171,3 +171,4 @@ If we add AC we could add a dedicated card (but keep same scripts.yaml).
 - Note I learn code sent on UFO-R11 by UFO-R11 and ZS06 by ZS06 but should be switchable
 - On HD120 vol_less and vol_plus needs a long press >5 sec when learning IR code
 <!-- also mentioned in related section of yaml doc -->
+- Solved issue on UFO-R11 by removing batteries

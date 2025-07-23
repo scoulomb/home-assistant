@@ -43,7 +43,11 @@ And for example apply following
 192.168.8.101	homeassistant	
 192.168.8.102	scoulombel-nas	
 192.168.8.103	Slzb mr3
+----
+192.168.8.111	atollstreamer-ms120 # webcard page in HA to http://192.168.8.111/webclient (not in https webcard page will not work as http, though we could use proxy in front of ms120 with restricted source in nginx proxy, do not do)
 ```
+We need a new DHCP request therefore restart router or end device.
+For DHCP details see [here](../../sound-video/dns-sd.md#zeroconf-ip-auto-assignment)
 
 ## Method 1:Use a VPN
 
