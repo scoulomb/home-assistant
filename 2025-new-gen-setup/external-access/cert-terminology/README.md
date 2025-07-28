@@ -2,6 +2,9 @@
 
 See this documentation as entry point: https://github.com/scoulomb/misc-notes/blob/master/tls/tls-certificate.md#man-in-the-middle-attach-and-need-of-a-ca
 <!-- no xref OK -->
+<!-- 
+keep cert in https://github.com/scoulomb/misc-notes/blob/master/tls/tls-certificate.md#man-in-the-middle-attach-and-need-of-a-ca as is OK as reflect well history and no cross ref hit ok as independent and just did a fix 
+-->
 Note here on [private key](./private-keys.md)
  
 ## Simplified terminology 
