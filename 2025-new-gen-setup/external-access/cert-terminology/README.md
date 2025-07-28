@@ -192,3 +192,8 @@ Note github
 - If SSH, more complex SSL decryption as not a webtraffic HTTT <!-- stop there-->
 
 <!-- We can call this CA shaddow -->
+
+Also similar to
+- How to Setup Squid Proxy Server for Network Traffic Analysis | Linux Tutorials for Beginners: https://webhostinggeeks.com/howto/how-to-setup-squid-proxy-server-for-network-traffic-analysis/
+- PiHole and Wireguard (by default on flint 3)
+<!-- link proxy when lic osef -->
