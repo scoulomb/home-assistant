@@ -1,0 +1,35 @@
+esphome:
+  name: dht22
+  friendly_name: DHT22
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "xxxx"
+
+ota:
+  - platform: esphome
+    password: "xxxx"
+
+wifi:
+  ssid: <wifi ssid>
+  password: <wifi pwd>
+
+sensor:
+  - platform: dht            # This defines the type of sensor you're using.
+    pin: GPIO4               # The GPIO pin which the sensor is connected.
+    #model: DHT22            # The specific model of DHT sensor (DHT11 or DHT22).
+    model: AM2302            # Had to change to AM2302
+    temperature:
+      name: "Living Room Temperature"  # Sets the name for the temperature sensor data.
+    humidity:
+      name: "Living Room Humidity"     # Sets the name for the humidity sensor data.
+    update_interval: 10s

@@ -1,4 +1,4 @@
-# 🔐 Differences Between SAN, CN, and SNI in SSL/TLS Certificates
+# 🔐 Differences Between SAN, CN, and SNI in SSL/TLS Certificates (copilot)
 
 > Prompt: Differences between SAN (Subject Alternative Name), Common Name (CN), and SNI (Server Name Indication) in SSL/TLS certificates.
 

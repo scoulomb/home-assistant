@@ -1,5 +1,8 @@
 # Certificate and F5 terminology 
 
+See this documentation as entry point: https://github.com/scoulomb/misc-notes/blob/master/tls/tls-certificate.md#man-in-the-middle-attach-and-need-of-a-ca
+<!-- no xref OK -->
+Note here on [private key](./private-keys.md)
  
 ## Simplified terminology 
 
@@ -18,7 +21,9 @@ The primary purpose of certificate enrollment is to obtain a digital certificate
 The CA signs the certificate, establishing a trusted relationship between the public key and the entity’s identity. 
 This process ensures that the entity’s identity is validated and that the public key can be used securely for encryption, digital signing, or other cryptographic operations.
 
-The Comprehensive Lifecycle of Certificate Enrollment (IMO installation, use and renewal could be considered out of enrollment, procurement can be used as synonym of enrollment )
+The Comprehensive Lifecycle of Certificate Enrollment (IMO installation, use and renewal could be considered out of enrollment, procurement can be used as synonym of enrollment).
+We can also call this certificate issuance, even if in reality it is a sub-step.
+This is aligned with https://github.com/scoulomb/misc-notes/blob/master/tls/tls-certificate.md#man-in-the-middle-attach-and-need-of-a-ca
 
 ### Generating Certificate Signing Request (CSR)
 
@@ -93,7 +98,7 @@ And not to deploy cert on the F5
 - signature of CSR by user + signature of cert by CA
 - See https://github.com/scoulomb/misc-notes/blob/master/tls/tls-certificate.md#man-in-the-middle-attach-and-need-of-a-ca
 
-## self-signed and signed
+## self-signed and signed by CA
 
 Also in myDNS
 
@@ -116,6 +121,10 @@ Also in myDNS
     - From: https://medium.com/@talyitzhak/understanding-digital-certificates-and-self-signed-certificates-b1cdca759bbc
     - >   A self-signed certificate is a certificate that is signed by the same entity whose identity it certifies. Unlike certificates issued by a CA, self-signed certificates are not inherently trusted by other systems and require manual configuration to be trusted. They are often used in development and testing environments where setting up a CA is not necessary. “Self-signed” means that the public key embedded in the certificate validates the signature on the certificate.
     - So here is the key https://github.com/scoulomb/myDNS/blob/master/2-advanced-bind/5-real-own-dns-application/6-part-g-use-certificates/appa.prd.coulombel.it.key used for CSR and CA...
+- We can also generate a signed certificate by private CA 
+  - CA should be added to truststore: https://github.com/scoulomb/misc-notes/blob/master/tls/tls-certificate.md#man-in-the-middle-attach-and-need-of-a-ca. See here chain of certificate: https://github.com/scoulomb/misc-notes/blob/master/tls/tls-certificate.md#chain-certificate-and-certificate-verification
+  - Which explains why a private CA can be added to truststore <!--confirmed by copilot -->
+- See [Certificate Comparison: Self-Signed vs Private CA vs Public CA](./self-signed-vs-private-ca-vs-public-ca.md)
 
 We can also sign a JWT with private key: https://github.com/scoulomb/misc-notes/blob/af5d6dd89ad1f59af2f82883a3fdc5b3719ca41f/tls/oauth-appendix.md?plain=1#L11 
 <!-- but not found here as in case https://github.com/scoulomb/myDNS/blob/main/2-advanced-bind/5-real-own-dns-application/6-use-linux-nameserver-part-h.md#L738 -->
@@ -130,8 +139,9 @@ DCV work for CN and SAN. Some browser can ignore CN or require all domain define
 SNI is not in cert.
 
 What about our cert? (used chrome here as https://discussions.apple.com/thread/256041834?answerId=261330994022&sortBy=rank#261330994022)
-It has a Subject.CN equal to Extension.certificateSAN equal to `homeassistant.coulombel.net`
-<!-- can be shaddowed in corp -->
+It has on chrome `Subject.CN equal` to `Extension.certificateSAN` equal to `homeassistant.coulombel.net` <!-- check when decryption, see zscaler below... but ok as iphone renders the same, left on screen then ..., connection sec details -->
+It has on Iphone `SUBJECT Name.commonName` and `Subject Alternative Name.DNS name` equal to `homeassistant.coulombel.net`
+
 
 Note we can use an IP in ssl cert: https://www.geocerts.com/support/ip-address-in-ssl-certificate - [back-up](./Using-an-IP-Address-in-an-SSL%20Certificate-GeoCerts.pdf). And work for SAN.<!-- no dive here-->
 
@@ -149,3 +159,36 @@ Evaluation order [source: https://my.f5.com/manage/s/article/K55504740]
 ## Link to cert in private script
 
 See also link with /private_script/ Links-mig-auto-cloud/2025-consolidation/README.md#tls-certificates
+
+## About SSH 
+
+- Note we have documented here TLS/SSL: https://crypto.stackexchange.com/questions/60255/why-doesnt-ssh-use-tls
+  - Stack is HTTP / TLS xor SSL / TCP / IP / ARP / ethernet xor  wifi / optical (https://fr.wikipedia.org/wiki/Suite_des_protocoles_Internet#/media/Fichier:TCPIP_couche_ISO_modele_OSI.png)
+  - Note abusively we call HTTP over TLS: HTTPs 
+  - SSL vs TLS: https://aws.amazon.com/compare/the-difference-between-ssl-and-tls/#:~:text=SSL%20is%20technology%20your%20applications,that%20fixes%20existing%20SSL%20vulnerabilities.
+    - > Secure Sockets Layer (SSL) is a communication protocol, or set of rules, that creates a secure connection between two devices or applications on a network. It’s important to establish trust and authenticate the other party before you share credentials or data over the internet. SSL is technology your applications or browsers may have used to create a secure, encrypted communication channel over any network. However, SSL is an older technology that contains some security flaws. Transport Layer Security (TLS) is the upgraded version of SSL that fixes existing SSL vulnerabilities. TLS authenticates more efficiently and continues to support
+
+- Note SSH is not using TLS/SSL: https://crypto.stackexchange.com/questions/60255/why-doesnt-ssh-use-tls
+  - Stack is SSH/TLS xor SSL
+  - SSH certificates are described here:  https://github.com/scoulomb/misc-notes/blob/master/tls/tls-certificate.md#complements and https://github.com/scoulomb/misc-notes/blob/master/lab-env/README.md#ssh-summary
+  - OpenSSH can use CA, but less frequent, and they do not use X.509 standard but OpenSSH-specific format
+
+## Netskope, zscaler, cloudfare decryption 
+
+Interesting feature is SSL (it is TLS in reality) decryption <!--corp -->
+
+See
+- https://docs.netskope.com/en/ssl-decryption/
+- https://www.zscaler.com/fr/resources/security-terms-glossary/what-is-ssl-decryption
+- https://developers.cloudflare.com/cloudflare-one/policies/gateway/http-policies/tls-decryption/....
+
+> SSL decryption policies are applied right after traffic is steered to Netskope. By default, all traffic steered to Netskope will be decrypted, then further analyzed via Real-time Protection policies. In addition, all policies are disabled and you must enable them from the list view. 
+
+Note github
+- has SSH and TLS: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+- And https://git-scm.com/book/en/v2/Git-Internals-Packfiles
+
+- If SSH pub/priv key generated by `ssh-keygen`: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent in local
+- If SSH, more complex SSL decryption as not a webtraffic HTTT <!-- stop there-->
+
+<!-- We can call this CA shaddow -->
