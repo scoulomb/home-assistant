@@ -1,9 +1,11 @@
 # Certificate and F5 terminology 
 
 See this documentation as entry point: https://github.com/scoulomb/misc-notes/blob/master/tls/tls-certificate.md#man-in-the-middle-attach-and-need-of-a-ca
-<!-- no xref OK -->
+<!-- xref done: https://github.com/scoulomb/misc-notes/blob/master/tls/tls-certificate.md#complements -->
 <!-- 
-keep cert in https://github.com/scoulomb/misc-notes/blob/master/tls/tls-certificate.md#man-in-the-middle-attach-and-need-of-a-ca as is OK as reflect well history and no cross ref hit ok as independent and just did a fix 
+keep cert in https://github.com/scoulomb/misc-notes/blob/master/tls/tls-certificate.md#man-in-the-middle-attach-and-need-of-a-ca as is OK as reflect well history
+Fix done in https://github.com/scoulomb/misc-notes/commit/fd0eae038bf32323e34dc7c7c6c11a0b44089f6d is compliant with all details here
+Note the usage of public key in RSA handshake different in others (OK if refer to this consider RSA)
 -->
 Note here on [private key](./private-keys.md)
  
@@ -200,3 +202,13 @@ Also similar to
 - How to Setup Squid Proxy Server for Network Traffic Analysis | Linux Tutorials for Beginners: https://webhostinggeeks.com/howto/how-to-setup-squid-proxy-server-for-network-traffic-analysis/
 - PiHole and Wireguard (by default on flint 3)
 <!-- link proxy when lic osef -->
+
+<!-- also notes: /private_script/ /Links-mig-auto-cloud/2025-consolidation/README.md
+Matrix
+Outbound explicit SNAT (standard vs, same as F5 to app when re-encrypt)
+Outbound Transparent SNAT (Forward F5 VS)
+FW SNAT
+
+could do same role of proxy OK
+No need to xref in priv script OK
+-->
