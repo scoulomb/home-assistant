@@ -219,6 +219,7 @@ Note that to avoid to disable port 80 mapping on router, used for certificate DC
   - Apache: https://stackoverflow.com/questions/16200501/how-can-i-automatically-redirect-http-to-https-on-apache-servers
   - F5: https://my.f5.com/manage/s/article/K10090418: use iRule, if standard port can use system iRule `modify /ltm virtual <virtual server name> rule { _sys_https_redirect }`
     - F5 AS3: `"class": "Service_HTTPS"` when using standard port: https://clouddocs.f5.com/training/community/automation/html/class03/module1/lab02.html
+    - Can also use policy (not for case above with iRule we also have a dedicated vs, for as3 would need to check internals): https://github.com/scoulomb/private_script/blob/f10f59118f9bbb4e8e9d8b732461d9308274cbed/Links-mig-auto-cloud/2025-consolidation/Inbound/README.md#ip-move (BB)
 <!-- link with /private_script/ /Links-mig-auto-cloud/2025-consolidation/README.md - Linking sufficient here -->
 
 The scheme HTTP is between proxy and target server <!-- similar f5-gw in private-script -->
