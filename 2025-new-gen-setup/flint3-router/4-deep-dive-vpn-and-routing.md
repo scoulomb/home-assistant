@@ -415,8 +415,8 @@ This is consistent with
 - [@private-script](../../../notes-temp/Links-mig-auto-cloud/2025-consolidation/deep-dive-routing/README-item5-pfx-list-gwan-router.md)
   (all there was conclude, see stamped.md)
 - Which points to
-- Config elmt struct
-- [and command](../../../notes-temp/Links-mig-auto-cloud/2025-consolidation/multi{}-resiliency/README.md#comment-on-this-example)
+  - Config elmt struct
+  - [and command](../../../notes-temp/Links-mig-auto-cloud/2025-consolidation/multi{}-resiliency/README.md#comment-on-this-example)
 
 > ip route vrf prd <Prefix to advertise - ip@/prefix_le (/28 /32....) > F5_next_hop tag <number> name <name_of_route> 
 

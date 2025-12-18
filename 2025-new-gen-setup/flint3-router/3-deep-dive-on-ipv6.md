@@ -6,7 +6,7 @@ See [previous reference in this document](./2-Flint3-router-setup-BYTEL.md#deep-
 
 - The **Firewall** tab in LuCI manages network security between zones (e.g., LAN, WAN).
 - **Port Forward** is for DNAT (Destination NAT), forwarding external ports to internal devices.
-  - Note needed for IPv6 as each device has its own IP (prefix delegation like subnet in TAN:  /private_script /2025-consolidation/deep-dive-routing/README.md)
+  - Note needed for IPv6 as each device has its own IP (prefix delegation like subnet in TAN:  [@private-script](../../../notes-temp/Links-mig-auto-cloud/2025-consolidation/deep-dive-routing/Tanenbaum-ip-routing))
 - **NAT Rules** are for SNAT (Source NAT), 
   - mainly used for IPv4 to mask internal IPs when accessing the internet.
 - **Traffic Rules** define firewall rules for both inbound and outbound traffic.
