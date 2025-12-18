@@ -84,7 +84,7 @@ Temps de service
 
 https://speed.cloudflare.com
 
-![](flint3-router-setup-media/speed-test-fiber-sfrbox-nest-mac-mini.png)
+![](1-Flint3-router-setup-SFR-media/speed-test-fiber-sfrbox-nest-mac-mini.png)
 
 ## Flint 3 first time connection
 
@@ -158,11 +158,11 @@ Then `Network > Interfaces > wan > edit`
 
 Set as below for device eth0
 
-![](flint3-router-setup-media/luci-dhcp-vendor-class-1.png)
+![](1-Flint3-router-setup-SFR-media/luci-dhcp-vendor-class-1.png)
 
 Then advance settings, and fill “Vendor Class to send when requesting DHCP”
 
-![](flint3-router-setup-media/luci-dhcp-vendor-class-2.png)
+![](1-Flint3-router-setup-SFR-media/luci-dhcp-vendor-class-2.png)
 
 
 In advanced settings set Vendor id : `neufbox_NB6VAC-FXC-r2_NB6VAC-MAIN`
@@ -170,22 +170,22 @@ Alternatively for example set Vendor Id to `neufbox_NB6VAC-bypass-sylvain.coulom
 
 Then yo will see 
 
-![](flint3-router-setup-media/luci-dhcp-vendor-class-3.png)
+![](1-Flint3-router-setup-SFR-media/luci-dhcp-vendor-class-3.png)
 
 
 And do apply changes (you will see a diff, do not forget to apply change)
 
-![](flint3-router-setup-media/luci-dhcp-vendor-class-4.png)
+![](1-Flint3-router-setup-SFR-media/luci-dhcp-vendor-class-4.png)
 
 Click save and apply
 
 We should start receiving packets:
 
-![](flint3-router-setup-media/luci-dhcp-vendor-class-5.png)
+![](1-Flint3-router-setup-SFR-media/luci-dhcp-vendor-class-5.png)
 
 You can see internet is working + IPv4 assigned
 
-![](flint3-router-setup-media/luci-dhcp-vendor-class-6.png)
+![](1-Flint3-router-setup-SFR-media/luci-dhcp-vendor-class-6.png)
 
 ### Back-up setup or in case no ONT or if too hard to get box directly connected
 
@@ -202,11 +202,11 @@ When doing this think to re-start the SFR BOX (it works, tested with MAC MINI) a
 
 http://192.168.1.1/network
 
-![](flint3-router-setup-media/backup-1.png)
+![](1-Flint3-router-setup-SFR-media/backup-1.png)
 
 And Internet works 
 
-![](flint3-router-setup-media/backup-2.png)￼
+![](1-Flint3-router-setup-SFR-media/backup-2.png)￼
 
 Here we come back to setup in section [## Setup with SFR BOX Plus Fibre and WIFI router (google Nest / Flint)](#setup-with-sfr-box-plus-fibre-and-wifi-router-google-nest--flint)]. Where new Flint 3 is used. 
 
@@ -245,7 +245,7 @@ Note when
 - Access to interface on http://192.168.8.1/#/internet (if scoulomb network was known even from previous router you see you will be reconnected)
 - You can see client of previous router are already there:
 
-![](flint3-router-setup-media/router-clients.png)
+![](1-Flint3-router-setup-SFR-media/router-clients.png)
 
 - Later reconfigure what you want on 5G or 6G (optional) - See speed test above
 https://www.intel.com/content/www/us/en/products/docs/wireless/2-4-vs-5ghz.html#:~:text=The%20lower%202.4%20GHz%20band,congestion%20for%20better%20overall%20performance. 
@@ -258,14 +258,14 @@ https://www.intel.com/content/www/us/en/products/docs/wireless/2-4-vs-5ghz.html#
 https://speed.cloudflare.com
 
 - 2G
-![](flint3-router-setup-media/speed-test-fiber-flint3-direct-mac-mini-2g.png)
+![](1-Flint3-router-setup-SFR-media/speed-test-fiber-flint3-direct-mac-mini-2g.png)
 
 - 5G
-![](flint3-router-setup-media/speed-test-fiber-flint3-direct-mac-mini-5g.png)
+![](1-Flint3-router-setup-SFR-media/speed-test-fiber-flint3-direct-mac-mini-5g.png)
 
 - 6G
 
-![](flint3-router-setup-media/speed-test-fiber-flint3-direct-mac-mini-6g.png)
+![](1-Flint3-router-setup-SFR-media/speed-test-fiber-flint3-direct-mac-mini-6g.png)
 
 6G great for video streaming
 See the difference
@@ -279,7 +279,7 @@ What I did is [with nest router](#speed-test-fiber--sfr-box--nest-router--mac-mi
 - Flint 3 has 5x2.5G ETH, non POE: https://www.gl-inet.com/products/gl-be9300/
 
 - Netgear switch supports 10/100/1000 (GIGABIT etc, non POE): https://www.netgear.com/support/product/gs108tv1/
-  - ![Netgear manual](flint3-router-setup-media/netgear-switch.pdf)
+  - ![Netgear manual](1-Flint3-router-setup-SFR-media/netgear-switch.pdf)
 
 - NAS has only gigabyte ethernet when non extension card
   - TS-251D-4G-EU- https://mail.google.com/mail/u/0/#search/qnap+ts/WhctKKXPfjFrRPPmXTllBDNZCHkWNWVHhvSwQLwRWpcRsSgbvKmNnWVVHtWrdSjKMktDMGG 
@@ -316,6 +316,6 @@ Link to [seamless migration](#seams-less-migration-)
     
 - MLO only available from wifi 7 (But can benefit wifi 7 without mlo)
 - Link between 802.11, wifi version and band at https://www.netgear.com/fr/hub/wifi/routers/levolution-du-wifi/
-  - [Ref here](flint3-router-setup-media/evolution-wifi.md)
+  - [Ref here](1-Flint3-router-setup-SFR-media/evolution-wifi.md)
   - No direct link between band and wifi version
 <!-- CCL OK -->

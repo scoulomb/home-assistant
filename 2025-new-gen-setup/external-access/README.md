@@ -6,7 +6,7 @@ Example of Jellyfin and Home Assistant
 
 It will remove double NATing
 
-As explained in [router setup](../flint3-router/Flint3-router-setup.md), we were able to plug directly to ONT to bypass provider box.
+As explained in [router setup](../flint3-router/1-Flint3-router-setup-SFR), we were able to plug directly to ONT to bypass provider box.
 Thus removing the double NAT in our TCP + TLS connection to Home Assistant.
 
 ```shell
@@ -93,7 +93,7 @@ With double NATing removed we have full picture
 
 
 ````shell
-client -> WAN IP:443/80  ---BOX NAT --> Raspberry PI 5 IP :443/80 (Port NGINX proxy manager) --> Raspberry PI 5: 8123
+client -> WAN IP:443/80  ---BOX NAT --> Raspberry PI 5 IP :443/80 (Port NGINX proxy manager - HomeAssistant add-ons) --> Raspberry PI 5: 8123 (HomeAssistant)
 ````
 
 
@@ -226,7 +226,7 @@ The scheme HTTP is between proxy and target server <!-- similar f5-gw in private
 
 See related post: https://community.home-assistant.io/t/login-attempt-or-request-with-invalid-authentication-when-trying-to-access-remotely/373848/15
 
-
+See [how we can do equivalent with IPv6](../flint3-router/3-deep-dive-on-ipv6.md).
 
 ## DuckDNS add-ons to replace dynDNS glinet
 
