@@ -461,3 +461,10 @@ According to GPT
 <!-- ccl ok -->
 
 => All flint3 router and external access is CCL DONE, jsut xref to priv script -> done via priv script ci a77e729f755dab892988bae8bb0df882fa407081 oK CCL
+
+
+Did not explore
+- LACP for NAS aggregation: https://www.qnap.com/fr-fr/how-to/tutorial/article/configurez-lagrégation-de-ports-de-votre-nas-qnap-pour-augmenter-la-bande-passante-via-le-protocole-802-3ad,
+- LACP plugged to ONT to aggregate network bandwidth at home (2x2.5 instead of 10G)
+- VLAN for use-case [2](2-Flint3-router-setup-BYTEL.md#5-test-wifi-bbox-en-direct-et-xgs-pon-externe)
+All CCL OK DONE
