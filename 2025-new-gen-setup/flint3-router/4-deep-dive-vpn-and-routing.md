@@ -460,4 +460,4 @@ According to GPT
 
 <!-- ccl ok -->
 
-=> All flint3 router and external access is CCL DONE, jsut xref to priv script
+=> All flint3 router and external access is CCL DONE, jsut xref to priv script -> done via priv script ci a77e729f755dab892988bae8bb0df882fa407081 oK CCL
