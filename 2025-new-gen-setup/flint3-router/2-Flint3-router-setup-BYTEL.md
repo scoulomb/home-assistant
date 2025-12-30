@@ -232,11 +232,11 @@ Here it is about message flow not socket establishment direction.
     *   This is the main optical node in your area, where the ISP aggregates connections.
     *   Think of it as the local fiber hub for your neighborhood.
 
-2.  **PM (Point de Mutualisation)**
+2.  **PM (Point de Mutualisation)** (amoire dans la rue)
     *   Located in the street or building basement.
     *   It’s the distribution point where multiple subscribers’ fibers branch out from the main network.
 
-3.  **PBO (Point de Branchement Optique)**
+3.  **PBO (Point de Branchement Optique)** (armoire avec compteur (3M)...) <!--mine is labelled PTO but PBO -->
     *   Usually on a pole or in a small box near your home.
     *   It’s the last outdoor junction before the fiber enters your property.
 
@@ -244,7 +244,7 @@ Here it is about message flow not socket establishment direction.
     *   The fiber cable that runs from the PBO to your home.
     *   This is what the technician installs during your fiber activation.
 
-5.  **PTO (Point de Terminaison Optique)**
+5.  **PTO (Point de Terminaison Optique)** (maison)
     *   Inside your home, where the fiber ends and connects to your ONT or router.
 
 ## Note on setup 3 and 6 (in test)
@@ -316,3 +316,41 @@ See also: https://www.frandroid.com/produits-android/maison-connectee/routeur/25
 Tips: Disable 2.4 for HEOS to connect to 6g or do specific SSID
 
 <!-- ccl OK -->
+
+
+## Additional note on Ethernet wire
+
+In [case 6](#6test-wifi-flint3-wire-25g-flint-3-original-and-1g-port-of-bbox-to-bbox-to-xgs-pon-externe-via-10g-and-ugreen-cat8-ethernet-wire)
+
+I detailed the wire used to connect the various devices.
+
+- UGREEN Cat 8 Network Ethernet Cable RJ45 Super Speed 40Gbps 2000MHz Nylon
+- Flint 3 wire (pic router is proof https://store.gl-inet.com/products/flint-3-gl-be9300-tri-band-wi-fi-7-home-router ) which is cat 6 (confirmed)
+
+- All other test made with uGreen wire (and eventually flint3 wire).
+
+Here is table of Ethernet cable categories:
+
+Here is a table summarizing Ethernet cable categories and their maximum speeds:
+
+| Category   | Max Speed         | Max Bandwidth | Max Length (at max speed) | Shielding      | Typical Use Cases                |
+|------------|-------------------|---------------|---------------------------|----------------|----------------------------------|
+| Cat 5      | 100 Mbps (Fast)   | 100 MHz       | 100 m                     | UTP            | Legacy, basic networking         |
+| Cat 5e     | 1 Gbps (Gigabit)  | 100 MHz       | 100 m                     | UTP/STP        | Standard home/office networks    |
+| Cat 6      | 1 Gbps (up to 55m), 10 Gbps (up to 37m) | 250 MHz | 100 m (1 Gbps), 37 m (10 Gbps) | UTP/STP | High-speed LAN, short 10G links  |
+| Cat 6a     | 10 Gbps           | 500 MHz       | 100 m                     | UTP/STP        | Data centers, enterprise         |
+| Cat 7      | 10 Gbps           | 600 MHz       | 100 m                     | S/FTP          | Data centers, shielded networks  |
+| Cat 8      | 25/40 Gbps        | 2000 MHz      | 30 m                      | S/FTP          | Data centers, short 25/40G links |
+
+- UTP: Unshielded Twisted Pair
+- STP: Shielded Twisted Pair
+- S/FTP: Shielded/Foiled Twisted Pair
+
+Cat 8 is mainly for short, high-speed connections in data centers. For most home/office use, Cat 5e, Cat 6, or Cat 6a is sufficient.
+
+So cat 6 is ok, at it already has 10-gb/s support under 37m length.
+
+
+I will rewire potentially with cat 8.
+
+<!-- this addition is ccl OK-->

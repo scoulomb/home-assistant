@@ -230,4 +230,192 @@ In general (private_script, prezNewGen), I say exposed public IP, SNAT IP as syn
 including the DNAT/SNAT and co comparison -- Never come back here -17dec25 20:03
 OK-->
 
+<!-- comparison and plan very clear here, no dive more OK stop here  ok ccl -->
 
+
+## **IPv6 Address Types**
+
+### General
+
+IPv6 addresses are categorized into several types based on their scope and purpose. Here’s a quick overview:
+
+
+1.  **Link-Local**
+    *   Prefix: `FE80::/10`
+    *   Scope: Single link (used for communication between nodes on the same link)
+    *   Automatically assigned to every IPv6-enabled interface
+    *   Required for IPv6 operation (used for neighbor discovery)
+
+2.  **Global Unicast**
+    *   Prefix: `2000::/3`
+    *   Scope: Internet-wide (similar to public IPv4 addresses)
+    *   Routable across the Internet
+
+3.  **Unique Local**
+    *   Prefix: `FC00::/7`
+    *   Scope: Private networks (similar to IPv4 private addresses like 10.0.0.0/8)
+    *   Not routable on the Internet
+
+4.  **Multicast**
+    *   Prefix: `FF00::/8`
+    *   Scope: One-to-many communication (replaces IPv4 broadcast and multicast)
+
+5.  **Anycast**
+    *   No specific prefix (uses unicast addresses)
+    *   Scope: Delivered to the nearest node in a group (used for load balancing and redundancy)
+
+6.  **Loopback**
+    *   Address: `::1`
+    *   Scope: Local host (same as IPv4 `127.0.0.1`)
+
+***
+
+### **Comparison Table: IPv4 vs IPv6 Address Types**
+
+| **Feature**        | **IPv4**                                  | **IPv6**                        |
+| ------------------ | ----------------------------------------- | ------------------------------- |
+| **Address Length** | 32 bits                                   | 128 bits                        |
+| **Notation**       | Dotted decimal (e.g., 192.168.0.1)        | Hexadecimal (e.g., 2001:db8::1) |
+| **Private Range**  | 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 | Unique Local (FC00::/7)         |
+| **Link-Local**     | APIPA (169.254.0.0/16)                    | FE80::/10                       |
+| **Loopback**       | 127.0.0.1                                 | ::1                             |
+| **Broadcast**      | Yes (e.g., 255.255.255.255)               | No (replaced by multicast)      |
+| **Multicast**      | 224.0.0.0/4                               | FF00::/8                        |
+| **Anycast**        | Rarely used                               | Built-in feature                |
+| **Global Address** | Public IPv4                               | Global Unicast (2000::/3)       |
+| **Address Space**  | \~4.3 billion addresses                   | \~3.4 × 10^38 addresses         |
+
+Anycast mentioned at [section 4](./4-deep-dive-vpn-and-routing.md#openwrt-static-routes-and-rule)
+
+Note our RasPI had (as shown [above](#general)):
+- IPv6
+  - Link local IPv6: fe80::xxxx:xxxx:xxxx:xxxx
+  - Public IPv6: 2a01:e34:ec8a:xxxx:xxxx:xxxx:xxxx:xxxx
+  - Did not find ULA
+- IPv4 
+  - it has a private IP 
+  - No public IPv4 (as Flint3-router does NAT with its public IPv4) 
+- It is visible at http://192.168.8.1/#/clients
+
+Router 
+- IPv6
+  - Public: IPv6:  2001:861:44c0:eca0::1/60 (prefix is useless here) (expanded form: 2001:0861:44c0:eca0:0000:0000:0000:0001) - http://[2001:861:44c0:eca0::1]/#/login (also work with expanded from) - Visible at http://192.168.8.1:8080/cgi-bin/luci/admin/network/network => LAN
+  - Did not find link local and ULA (not shown in LuCI)
+- IPv4
+  - private IPv4: 192.168.8.1/24 - http://192.168.8.1/#/login -  Visible at http://192.168.8.1:8080/cgi-bin/luci/admin/network/network => LAN
+  - and public IPv4 WAN IP 176.143.200.212 -  Visible at http://192.168.8.1:8080/cgi-bin/luci/admin/network/network => WAN
+
+Note here http://192.168.8.1:8080/cgi-bin/luci/admin/status/overview:
+- We can find public WAN IPv4  176.143.200.212 and IPv6 prefix delegation 2001:861:44c0:eca0::/60
+- But also  gateway IP (which is public in IPv4 176.143.192.1 and link local in IPv6 fe80::1,
+this is another different IP address)
+
+
+Note public IPv4 and gateway IPv4 IPs can be found here: http://192.168.8.1/#/internet
+
+Note
+- Link-Local (fe80::/10): Works only on the same link, auto-assigned, not routable.
+- ULA (fdxx::/48): Private IPv6 for your LAN/site, routable **internally**, like IPv4 private ranges.
+
+<!-- do not screenshot and transition with all above OK --> 
+
+See link with [Do not migrate private IPs](../../../notes-temp/Links-mig-auto-cloud/2025-consolidation/deep-dive-routing/do-not-migrate-private-ip.md)
+: 
+- Private IPv4 are routable internally but not on the internet, 
+- and in practise we even prefer to use public IPv4 for internal routing with external partners/customers
+- and some IPs private routed internally but not accepted in POP
+<!-- stop here clear -->
+
+We can also see that IPv6 Prefix delegation is /60 as shown in http://192.168.8.1:8080/cgi-bin/luci/admin/network/network => WAN (and not LAN, and LAN one included here)
+
+IPv6-PD: 2001:861:44c0:eca0::/60, so expanded for is 2001:0861:44c0:eca0:0000:0000:0000:0000/60
+
+
+### Deep dive on IPv6 and CIDR notation
+
+
+#### Reminder on IPv4
+
+192.168.1.0/24
+
+IPv4 address: 192.168.1.0
+Each octet → 8 bits in binary:
+
+```text
+192 → 11000000
+168 → 10101000
+1   → 00000001
+0   → 00000000
+```
+
+
+
+#### In IPv6
+
+So  2001:0861:44c0:eca0:0000:0000:0000:0000/60
+
+```text
+2001 → 0010 0000 0000 0001
+0861 → 0000 1000 0110 0001
+44c0 → 0100 0100 1100 0000
+eca0 → 1110 1100 1010 0000 (60eme + 4 bits)
+0000 → 0000 0000 0000 0000
+0000 → 0000 0000 0000 0000
+0000 → 0000 0000 0000 0000
+0000 → 0000 0000 0000 0000
+```
+
+Here’s the detailed breakdown for 44c0:
+
+Hex block: 44c0
+Each hex digit → 4 bits:
+
+```text
+4 → 0100
+4 → 0100
+c → 1100 (c = 12 in decimal)
+0 → 0000
+```
+
+
+
+#### ✅ **IPv4 CIDR vs Subnet**
+
+*   **CIDR notation**: `/n` indicates how many bits are for the network.
+*   **Subnet mask**: Dotted decimal equivalent (e.g., `/24` → `255.255.255.0`).
+*   Example:
+    *   `192.168.1.0/24` → Network bits = 24, Host bits = 8 → 256 addresses.
+
+
+#### ✅ **IPv6 CIDR**
+
+*   IPv6 uses **CIDR only**, no dotted decimal masks.
+*   Example: `2001:861:44c0:eca0::/60`
+    *   Network bits = 60
+    *   Host bits = 128 − 60 = 68
+    *   Total addresses = 2^68 ≈ 2.95 × 10²⁰
+    *   This `/60` can be split into **16 subnets of /64** (because 64 − 60 = 4 bits → 2^4 = 16).
+
+***
+
+#### 🔍 **Comparison Table**
+
+| Feature         | IPv4 Example    | IPv6 Example             |
+| --------------- | --------------- | ------------------------ |
+| Address size    | 32 bits         | 128 bits                 |
+| CIDR notation   | `/24`           | `/60`                    |
+| Subnet mask     | `255.255.255.0` | Not used                 |
+| Network bits    | 24              | 60                       |
+| Host bits       | 8               | 68                       |
+| Total addresses | 256             | 2^68 (≈ 295 quintillion) |
+| Typical subnet  | /24 for LAN     | /64 for LAN              |
+
+***
+
+💡 **Key takeaway:**
+
+*   IPv4 uses both CIDR and subnet masks; IPv6 uses CIDR only.
+*   IPv6 subnets are huge, and `/64` is standard for end-user networks.
+
+
+<!-- so actually this addition on IPv6 address type is ccl OK, yes confirmed, no need to come back more actually, wanted but stop here STOP HERE -->

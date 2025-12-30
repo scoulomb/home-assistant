@@ -155,7 +155,7 @@ See the default general settings after a reset
 
 Here is a good explanation of forwarding zone: https://objnux.fr/index.php?post/2021/12/18/OpenWrt-Pare-feu and save [here](./4-deep-dive-vpn-and-routing-media/OpenWrt-Pare-feu-objectif-NUX.pdf)
 
-Note the forwarding not in color are deduced from general settings. <!-- no dive more -->
+**Note the forwarding not in color are deduced from general settings.** <!-- no dive more -->
 
 ## Revert to initial configuration
 
@@ -468,3 +468,11 @@ Did not explore
 - LACP plugged to ONT to aggregate network bandwidth at home (2x2.5 instead of 10G)
 - VLAN for use-case [2](2-Flint3-router-setup-BYTEL.md#5-test-wifi-bbox-en-direct-et-xgs-pon-externe)
 All CCL OK DONE
+
+<!-- how firewall zoning worked was clear no dive more -- ok ccl -->
+
+## Comment
+
+IPv6 only and ipv4 disabled ?
+If I disable ipv4 interface only all stops working….
+
