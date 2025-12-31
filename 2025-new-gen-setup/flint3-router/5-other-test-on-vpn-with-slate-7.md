@@ -510,3 +510,5 @@ Note: when disabled 2g network lost avr, fixed it by disconnecting for a while a
 <!-- same for frais resiliation et activation btel [](2-Flint3-router-setup-BYTEL.md#a-faire) --> 
 
 <!-- so all concluded done CONFIRMED OK - STAMPED  and RESTAMPED OK DONE-->
+
+<!-- comet indepdendent even if tailscale etc -->
