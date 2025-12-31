@@ -1258,3 +1258,101 @@ Status: do not test as useless (and some VPN issue)
 Try with heos app discoveery (mdns or ssdp used?8)+ wireshark OK
 
 airplay via vpn or apple hub
+
+
+## 31 dec 2025 addition with AI content
+
+
+### ✅ **Dolby Atmos Summary**
+
+*   **Dolby Digital Plus (DD+)**
+    *   Lossy codec for streaming.
+    *   Up to **7.1 channels** (channel-based).
+
+*   **Dolby TrueHD**
+    *   Lossless codec for Blu-ray.
+    *   Up to **7.1 channels** (channel-based).
+
+*   **Dolby Atmos**
+    *   **Not a codec**, but an **object-based audio layer** added on top of DD+ or TrueHD.
+    *   Adds **positional metadata** for up to **128 audio objects**.
+    *   These objects are **not fixed channels**; they are rendered dynamically by your AVR or soundbar based on your speaker layout.
+    *   **How AVR maps objects:**
+        *   The AVR reads Atmos metadata (position, movement, size).
+        *   It calculates how to distribute these objects across your available speakers (e.g., front, surround, height).
+        *   Example: A helicopter sound object → AVR sends it mostly to top speakers, partially to front channels for realism.
+        *   This dynamic rendering allows Atmos to scale from 5.1.2 to 9.1.6 and beyond without needing separate channel tracks.
+
+***
+
+### **Text Diagram**
+
+                    ┌───────────────────────────────┐
+                    │         Dolby Atmos           │
+                    │  Object-based audio layer     │
+                    │  + Metadata for 3D placement  │
+                    │  Up to 128 audio objects      │
+                    │  AVR maps objects dynamically │
+                    └──────────────▲───────────────┘
+                                   │
+            ┌──────────────────────┴──────────────────────┐
+            │                                             │
+    ┌─────────────────────────┐               ┌─────────────────────────┐
+    │   Dolby Digital Plus    │               │     Dolby TrueHD        │
+    │   (Lossy, Streaming)    │               │   (Lossless, Blu-ray)   │
+    │   Base channel bed       │               │   Base channel bed      │
+    │   Up to 7.1 channels     │               │   Up to 7.1 channels    │
+    └─────────────────────────┘               └─────────────────────────┘
+
+    **Why Atmos > 8 channels:**
+    - Traditional codecs = fixed channels (5.1 / 7.1).
+    - Atmos = audio objects + metadata → scalable to any speaker layout.
+    - AVR maps objects to speakers dynamically (e.g., 7.1.4, 9.1.6).
+
+***
+
+✅ **In short:** Atmos uses **object-based rendering**, so your AVR acts like a “sound placement engine,” mapping objects to your actual speakers for a true 3D sound field.
+
+***
+
+### Apple TV 
+***
+
+#### **1. Why Apple TV sends multichannel PCM for non-Atmos content**
+
+*   **Apple TV’s audio output behavior** depends on the selected setting:
+    *   If you choose **“Best Quality Available”** (default), Apple TV outputs **uncompressed LPCM** (Linear PCM) for all non-Atmos content.
+    *   This means if the source is 5.1 or 7.1, Apple TV decodes it internally and sends **multichannel PCM** to your AVR.
+*   **Reason:** Apple prefers PCM because:
+    *   It avoids lossy compression (Dolby Digital is lossy).
+    *   It ensures maximum fidelity and compatibility with AVRs.
+    *   It simplifies mixing system sounds and app audio.
+
+***
+
+#### **2. Why Apple TV sends Dolby Atmos when playing Atmos content**
+
+*   For Atmos titles, Apple TV uses **Dolby MAT (Metadata-enhanced Audio Transmission)**:
+    *   Dolby MAT is a PCM-based format that carries Atmos metadata.
+    *   So technically, it’s still PCM, but with Atmos object data embedded.
+*   **Why not PCM only?** Because Atmos requires object-based metadata, which MAT supports.
+
+***
+
+#### **3. Why Apple TV can re-encode to Dolby Digital (and why this disables Atmos)**
+
+*   If you enable **“Change Format” → Dolby Digital 5.1**, Apple TV **transcodes everything** to Dolby Digital 5.1:
+    *   This is for older AVRs or soundbars that don’t support PCM multichannel or Atmos.
+    *   Apple TV takes the original audio, compresses it into Dolby Digital 5.1, and sends it out.
+*   **Why Atmos is disabled:** Dolby Digital 5.1 is a legacy format and cannot carry Atmos metadata. Atmos requires Dolby MAT or Dolby Digital Plus with Atmos extensions, which Apple TV does not output in this mode.
+
+***
+
+#### **Summary Table**
+
+| Mode                   | Non-Atmos Output          | Atmos Output                                             |
+| ---------------------- | ------------------------- |----------------------------------------------------------|
+| Best Quality Available | Multichannel PCM          | Dolby MAT (PCM + Atmos)                                  |
+| Change Format → DD 5.1 | Dolby Digital 5.1 (lossy) | **Not supported**  fallback to Dolby Digital 5.1 (lossy) |
+
+See [bd-d8500](bd-d8500-setup.md)

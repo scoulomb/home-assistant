@@ -30,7 +30,35 @@ We are in case
 - Confirm VPN connection routes traffic through the home network.
 - Disconnect the VPN and verify the public IP and it reverts to the SFR IPv4 (`86.71.230.168`).
 
-### Use LuCI instead of glInet wiregaurd interface
+### OpenWRT luci 
+
+Above I used glInet wireguard client and server.
+As seen in [section](4-deep-dive-vpn-and-routing.md), OpenWRT router has a plugin to setup a wireguard client.
+
+Actually **`luci-proto-wireguard`** (the LuCI protocol plugin for WireGuard on OpenWrt) supports both **client** and **server** roles.
+
+Here’s how it works:
+
+*   **Client Mode**:  
+    You configure the WireGuard interface with a private key and set peers (usually the VPN server) with their public key and endpoint. This is the typical setup for connecting your router to a VPN provider.
+
+*   **Server Mode**:  
+    You can also configure your router as a WireGuard server by creating an interface with your private key and adding peers (clients) with their public keys and allowed IP ranges. You’ll need to handle port forwarding if the router is behind NAT.
+
+Essentially, WireGuard itself is peer-to-peer, so the distinction between client and server is mostly about who initiates the connection and who has a public endpoint. LuCI makes both configurations possible.
+
+See
+- https://openwrt.org/docs/guide-user/services/vpn/wireguard/client
+- https://openwrt.org/docs/guide-user/services/vpn/wireguard/server
+
+
+Note
+- luci-proto-wireguard adds LuCI web UI support for WireGuard.
+- When installed via opkg, it automatically pulls in wireguard-tools as a dependency.
+
+<!-- no check more -->
+
+### Use LuCI instead of glInet wiregaurd interface (client)
 
 Follow exact same procedure: https://protonvpn.com/support/openwrt-wireguard?srsltid=AfmBOoo6_PFiI6OyzvkPA9OfJvmYG7feitiYKw0HEhV21vYSIRLlR_rj
 
@@ -54,9 +82,11 @@ We are in case
 When we use mobile phone to connect to wireguard server (directly) same applies, and it leads to same results as if phone is connected to router which hosts the VPN client (could not test phone via router as phone is used for 4G connection here but easily extrapolated by this test [below](#testing-with-slate-7-as-a-repeater-of-flint-3-wifi-where-flint-3-connected-to-fiber-and-where-slate-7-is-running-a-wireguard-client-to-a-proton-vpn-wireguard-server).
 What we did [external access section](./../external-access/README.md#method-1use-a-vpn).
 
+It is very close to [VPN.md](./../../appendices/VPN.md#connect-to-vpn-via-phone), why both are in [case 4/4bis](#reminder-on-nomenclature)
 
 
 
+I will not do the server with LuCI OpenWRT.
 
 
 ## Comment on IPv6 and repeat mode without VPN 
@@ -106,6 +136,7 @@ I also connected iphone to slate 7 wifi repeater and checked public IP: We have 
 We are still in case  
 [`3. Public commercial VPN on home WireGuard router: Laptop → GL.iNet (client, home) WireGuard → Proton VPN server  → Internet`](#reminder-on-nomenclature)
 
+Same for case studied in [section 4](./4-deep-dive-vpn-and-routing.md)
 
 So VPN client also behind a NAT (in case we keep ISP box) would not be an issue.
 However VPN server we would have to DNAT/forward or DMZ mode (or bridge) if we plug flint3 behind ISP box (we have the VPN IP in wireguard server conf).
@@ -151,7 +182,7 @@ However, configuring it on a GL.iNet router offers additional benefits:
 
 [It would be case 2. Public commercial VPN on laptop: Laptop → ProtonVPN client → Proton VPN server  → Internet  ](#reminder-on-nomenclature)
 
-It could also help to have a VPN on TV stick in particular locked apple TV (fireTV easier but need a client on the stick, [case 2 in nomenclature](#reminder-on-nomenclature)) 
+It could also help to NOT have a VPN on TV stick in particular locked apple TV (fireTV allows it but need a client on the stick, [case 2 in nomenclature](#reminder-on-nomenclature)) 
 
 
 We also have proton CLI (still case 2) but note
@@ -208,6 +239,14 @@ and the second hop is elsewhere.
 
 If we use on top of case 3,4 a VPN on laptop 1 (corporate),2 (not tested) we enter in case 5.
 And even triple VPN if we consider [case 5](#a-crazy-case-that-could-work-too-but-did-not-manage-in-practise) <!-- not details more triple -->
+
+I would add case 4 bis when we do it via a [VPN server at home](../../appendices/VPN-tailscale.md#qnap-vpn-still-requires-to-nat-vpn-port-and-not-all-ports) 
+and [tailscale](../../appendices/VPN-tailscale.md#tailscale-is-an-alternative-vpn-to-access-local-network-it-completes).
+
+[Proton VPN with cli or gui](../../appendices/VPN-tailscale.md#example-of-vpn-not-related-to-local-access-and-free) is [config 2](#proton-vpn-software-) 
+and best is to be in [case 3 seen above](#testing-with-slate-7-as-a-repeater-of-flint-3-wifi-where-flint-3-connected-to-fiber-and-where-slate-7-is-running-a-wireguard-client-to-a-proton-vpn-wireguard-server)/[case 3/seen in section 4](4-deep-dive-vpn-and-routing.md)
+
+Therefore [Qobuz DL  script could be simplified to handle VPN on router](./../../sound-video/qobuz-dl/qobuz-dl.sh)
 
 ## Comment on VPN IP
 
@@ -283,8 +322,191 @@ See http://172.16.0.1/#/lanip
 On flint3 I used the first time the password printed on the router via https://docs.gl-inet.com/router/en/4/user_guide/gl-be9300/
 <!-- and mac kept it --> and then setup a new wifi. On slate 7 we have the screen. <!-- stop here -->
 
-<-- all above ccl and this doc is concluded OK DONE CCL -->
-<!-- all flint3 router and external access ccl DONE, reccl post xmas OK DONE CONFIRMED-->
+## Note on Apple TV and netflix
 
-<!-- qobuzDL details to document is independent and not mandatory, and link made,
-branchement router independent and will be done as planned-->
+On **Apple TV**, you **cannot install a VPN client app directly** because tvOS does not support VPN apps like iOS does. However, you can still use a VPN with Apple TV through these methods:
+
+### Options to use VPN on Apple TV:
+
+1.  **VPN on your router**
+    *   Configure WireGuard or OpenVPN on your home router (or GL.iNet router like Flint 3 / Slate 7).
+    *   All devices connected to that router, including Apple TV, will use the VPN.
+
+2.  **Smart DNS from your VPN provider**
+    *   Many VPN services (e.g., ProtonVPN, NordVPN) offer Smart DNS.
+    *   You set the DNS on Apple TV (Settings → Network → Wi-Fi → Configure DNS → Manual).
+    *   This works for geo-unblocking but does **not encrypt traffic**.
+
+3.  **VPN via Ethernet sharing (Mac/PC)**
+    *   Share a VPN connection from your Mac or PC to Apple TV via Ethernet or Wi-Fi.
+    *   Requires enabling Internet Sharing on macOS or Windows.
+
+
+### Netflix
+
+Netflix put restriction on home SNAT IP (home restriction).
+
+##### 1.  **VPN on your router**
+
+[Configuration 4](#reminder-on-nomenclature) is the perfect usage for removing this restriction with Netflix .
+
+In particular, sSee comment [above](#proton-vpn-software-)
+> It could also help to NOT have a VPN on TV stick in particular locked apple TV (fireTV allows it but need a client on the stick, [case 2 in nomenclature](#reminder-on-nomenclature)) 
+
+We could also use a public VPN (configuration 3) but Netflix will probably block known VPN IPs.
+
+However this setup is good if want access content from other country, in particular for Kodi. 
+
+(will not test<!--optional and no plan to do -->))
+
+We had done same equivalent setup without router here: [appendices/VPN.md](../../appendices/VPN.md#laptop-hotspot--phone-usb-with-4g)
+
+
+
+##### 2.  **Smart DNS from your VPN provider**
+
+- Smart DNS only changes the DNS resolution for certain domains (e.g., streaming services) so they resolve to IPs that bypass geo-blocking.
+- It does not tunnel traffic or alter the source IP of your packets. Your ISP and the destination server still see your real public IP.
+
+
+If we want to change your SNAT IP, you need a VPN (WireGuard/OpenVPN) or a proxy because those actually route traffic through another endpoint.
+
+So could get content from other location but does not bypass home restriction.
+
+Note I cloud private [relay](4-deep-dive-vpn-and-routing.md#vpn-on-machine-and-vpn-on-router-combination-double-vpn) enters in proxy category.
+
+##### 3.  **VPN via Ethernet sharing (Mac/PC)**
+
+We had done it here : [appendices/VPN.md](../../appendices/VPN.md#laptop-hotspot--phone-usb-with-4g)
+
+
+
+## Note on repeater and other options
+
+On a GL.iNet router, the options you see under **Internet** (like *Ethernet 1/2*, *Repeater*, *Tethering*, and *Cellular*) represent different WAN connection methods. Here’s what each means:
+
+
+### **1. Ethernet 1 / Ethernet 2**
+
+*   These are the **wired WAN ports** on the router.
+*   You can connect the router to your modem or another network using an Ethernet cable.
+*   **Ethernet 1 vs Ethernet 2**:
+    *   Some GL.iNet models have multiple Ethernet ports that can be configured as WAN or LAN.
+    *   Usually, **Ethernet 1** is the default WAN port, and **Ethernet 2** can be used as LAN or secondary WAN (for failover or load balancing).
+
+***
+
+### **2. Repeater**
+
+*   This mode connects the router to an **existing Wi-Fi network** and shares that connection.
+*   The router acts as a **Wi-Fi extender** or **bridge**, useful when you don’t have wired access.
+*   Example: You’re in a hotel with Wi-Fi only → use Repeater to connect and then share via your own secure SSID.
+
+***
+
+### **3. Tethering**
+
+*   This uses a **USB connection to a smartphone** for internet.
+*   Your phone acts as a modem, and the router uses its data connection.
+*   Common when traveling or when you want to share mobile data without using Wi-Fi hotspot mode.
+*   Requires enabling **USB tethering** on your phone.
+
+***
+
+### **4. Cellular**
+
+*   This uses a **4G/5G USB modem or built-in module** (on some models) to connect directly to mobile networks.
+*   Ideal for remote areas or backup internet.
+*   Needs a SIM card and proper APN configuration.
+
+***
+
+✅ **Key Differences**:
+
+*   **Ethernet** = Wired, stable, fastest.
+*   **Repeater** = Wireless bridge, depends on existing Wi-Fi quality.
+*   **Tethering** = Via phone USB, uses phone’s data plan. (could not make it work, my wire is charge only)
+*   **Cellular** = Direct mobile network via modem/SIM. (simPoYo)
+
+<!-- optional to explore those option and can extrapolate -->
+
+See http://192.168.8.1/#/internet and [failover](2-Flint3-router-setup-BYTEL.md#failover)
+
+
+[Cruise example](#a-crazy-case-that-could-work-too-but-did-not-manage-in-practise), I expect to replicate boat WiFi but tethering would work.
+<!-- do not read deep article -->
+
+
+## Repeater mode vs mesh vs same SSID
+
+### **1. Mesh Mode**
+
+*   **What it is:** A true mesh network where multiple nodes (routers) work together as one unified system.
+*   **Key features:**
+    *   Automatic routing and self-healing (if one node fails, traffic reroutes).
+    *   Seamless roaming: devices switch between nodes without dropping connection.
+    *   Centralized management.
+*   **Use case:** Large homes or offices needing consistent coverage and smooth handoff.
+
+See https://docs.gl-inet.com/router/en/3/setup/gl-b1300/mesh/
+***
+
+### **2. Repeater Mode**
+
+*   **What it is:** A single device extends the range of an existing Wi-Fi by rebroadcasting the signal.
+*   **Key features:**
+    *   Creates a second hop, which can reduce speed (due to retransmission).
+    *   No smart routing; it just repeats the main router’s signal.
+*   **Use case:** Boost coverage in dead zones without adding Ethernet backhaul.
+
+***
+
+### **3. Same SSID on Different Routers**
+
+*   **What it is:** Two or more routers configured with the same network name (SSID) and password.
+*   **Key features:**
+    *   Devices can connect to either router, but roaming is **not seamless** unless you enable 802.11r/k/v (fast roaming).
+    *   Each router acts independently; no dynamic path optimization.
+*   **Use case:** Simple way to mimic roaming without mesh hardware, but can cause sticky client issues (device stays on weak signal).
+
+***
+
+What I did when configuring also 2G, 5G and 6G with same SSID <!-- ideal here is same MLO --> or if changing router (same ssid/pwd to not reconfigure all devices).
+
+✅ **Summary Table**
+
+| Mode          | Seamless Roaming       | Smart Routing | Speed Impact | Setup Complexity |
+| ------------- | ---------------------- | ------------- | ------------ | ---------------- |
+| **Mesh**      | ✔ Yes                  | ✔ Yes         | Minimal      | Medium           |
+| **Repeater**  | ✖ No                   | ✖ No          | High         | Low              |
+| **Same SSID** | Partial (with 802.11r) | ✖ No          | Minimal      | Low              |
+
+
+
+<!--
+Will not explore
+- routing option on wiregusrd server
+-->
+
+
+## Set back access to Jellyfin 
+
+- [via Proxy](../external-access/README.md#method-3-use-ha-proxy-) -> https://jellyfin.coulombel.net (working without vpn and not home network)
+- [via Wiregaurd](../external-access/README.md#method-1use-a-vpn) (they recommend DDNS for VPN endpoint but not added in generated conf) then when connected remind, you can not use mDNS
+  - so do http://192.168.8.102:8096 (can use static IP for convenience) - this works with vpn connection and not on home network
+  - Be careful when modifying firewall rules above, ensure in Luci we allow `wgserver (glinet interface) => lan`
+  - However I lost access to router page, if an issue reset and and all conf via [glInet](#use-luci-instead-of-glinet-wiregaurd-interface-client)
+<!-- OK -->
+
+Note: when disabled 2g network lost avr, fixed it by disconnecting for a while and plug again, similar to [samsung db d 8500](../../sound-video/bd-d8500-setup.md)
+
+<-- all above ccl and this doc is concluded OK DONE CCL -->
+<!-- 30dec25: all flint3 router and external access ccl DONE, reccl post xmas OK DONE CONFIRMED (as was ccl before xmas)-->
+<!-- 31dec25: addition reconfirmed previous conclusion all flint3 router and external access ccl DONE -- All ccl done -->
+<!-- link tailscale and VPN.md done, HA repo on dell does not have more inputs -->
+<!-- qobuzDL details done -->
+
+<!-- branchement router, hifi (see bd-d8500-setup.md) independent and will be done as planned so OK and part of rangement so even not tracked in todo-->
+<!-- same for frais resiliation et activation btel [](2-Flint3-router-setup-BYTEL.md#a-faire) --> 
+
+<!-- so all concluded done CONFIRMED OK - STAMPED  and RESTAMPED OK DONE-->

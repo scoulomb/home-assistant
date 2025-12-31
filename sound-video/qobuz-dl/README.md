@@ -1,0 +1,1 @@
+See reference in [flint3-router/5-other-test-on-vpn-with-slate-7.md#reminder-on-nomenclature](../../2025-new-gen-setup/flint3-router/5-other-test-on-vpn-with-slate-7.md#reminder-on-nomenclature)

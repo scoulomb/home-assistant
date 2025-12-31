@@ -138,6 +138,7 @@ Idea is the following
 - 5. We connect firetv/apple tv/laptop (using dell laitude 5410 laptop for test) to Precsion wifi (connect using a security key, not pin)
 - 6. We expect to see Household (109.29....) IP address
 
+See equivalent setup with [slate 7](../2025-new-gen-setup/flint3-router/5-other-test-on-vpn-with-slate-7.md)
 
 #### Issue on step 3
 
