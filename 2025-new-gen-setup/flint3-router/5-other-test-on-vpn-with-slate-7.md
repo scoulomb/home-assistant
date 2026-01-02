@@ -350,14 +350,18 @@ Netflix put restriction on home SNAT IP (home restriction).
 
 [Configuration 4](#reminder-on-nomenclature) is the perfect usage for removing this restriction with Netflix .
 
-In particular, sSee comment [above](#proton-vpn-software-)
-> It could also help to NOT have a VPN on TV stick in particular locked apple TV (fireTV allows it but need a client on the stick, [case 2 in nomenclature](#reminder-on-nomenclature)) 
+In particular, see comment [above](#proton-vpn-software-)
+> It could also help to NOT have a VPN on TV stick in particular locked apple TV (fireTV/SFR TV allows it but need a client on the stick, [case 2 in nomenclature](#reminder-on-nomenclature)) 
 
 We could also use a public VPN (configuration 3) but Netflix will probably block known VPN IPs.
 
-However this setup is good if want access content from other country, in particular for Kodi. 
+However this setup is good if want access content from other country/and not being tack.
 
-(will not test<!--optional and no plan to do -->))
+Note the usage with Kodi (SFR TV, fireTV, chinese box....but not appleTV), this avoids VPN setup there.
+(will not test<!--optional and no plan to document more -->))
+
+<!-- also will not explore routing option to only route through VPN traffic from given device only,
+or based on target on the VPN server: http://192.168.8.1/#/wgserver / route rules tab (already mentioned will not do, osef where) -->
 
 We had done same equivalent setup without router here: [appendices/VPN.md](../../appendices/VPN.md#laptop-hotspot--phone-usb-with-4g)
 
@@ -473,6 +477,15 @@ See https://docs.gl-inet.com/router/en/3/setup/gl-b1300/mesh/
 
 What I did when configuring also 2G, 5G and 6G with same SSID <!-- ideal here is same MLO --> or if changing router (same ssid/pwd to not reconfigure all devices).
 
+Note: when disabled 2g network lost avr, fixed it by disconnecting for a while and plug again, similar to [samsung db d 8500](../../sound-video/bd-d8500-setup.md)
+
+For HEOS to not connect to 2G network I configured same SSID `scoulomb` for 5G and 6G network.
+And call 2.4G network `scoulomb-legacy-iot`, this enabled to play blue-ryay plug to AVR in multiroom without lag.
+See link between WiFi version and bands at [section 2](./2-Flint3-router-setup-BYTEL.md#summary-of-wifi-80211-standard-wi-fi-wifi-6e7-name-and-band-that-can-be-used)
+
+If AVR lost network unplug it 5min.(confirmed twice)
+
+
 ✅ **Summary Table**
 
 | Mode          | Seamless Roaming       | Smart Routing | Speed Impact | Setup Complexity |
@@ -498,7 +511,9 @@ Will not explore
   - However I lost access to router page, if an issue reset and and all conf via [glInet](#use-luci-instead-of-glinet-wiregaurd-interface-client)
 <!-- OK -->
 
-Note: when disabled 2g network lost avr, fixed it by disconnecting for a while and plug again, similar to [samsung db d 8500](../../sound-video/bd-d8500-setup.md)
+
+
+## Concluded 
 
 <-- all above ccl and this doc is concluded OK DONE CCL -->
 <!-- 30dec25: all flint3 router and external access ccl DONE, reccl post xmas OK DONE CONFIRMED (as was ccl before xmas)-->
@@ -506,9 +521,16 @@ Note: when disabled 2g network lost avr, fixed it by disconnecting for a while a
 <!-- link tailscale and VPN.md done, HA repo on dell does not have more inputs -->
 <!-- qobuzDL details done -->
 
+<!-- Slate 7 to Ethernet on flint 3 not tested OK -->
+
+<!-----why not----------->
+
+<!-- 2 dec 25 update all OK and re-ccl -->
+
 <!-- branchement router, hifi (see bd-d8500-setup.md) independent and will be done as planned so OK and part of rangement so even not tracked in todo-->
 <!-- same for frais resiliation et activation btel [](2-Flint3-router-setup-BYTEL.md#a-faire) --> 
+<!-- comet indepdendent even if tailscale etc, and no document -->
+<!-- kodi to not document and do not do it now, [bd-d8500-setup.md](..%2F..%2Fsound-video%2Fbd-d8500-setup.md) stop there, link wiring no -->
 
-<!-- so all concluded done CONFIRMED OK - STAMPED  and RESTAMPED OK DONE-->
+<!-- so all concluded done CONFIRMED OK - STAMPED  and RESTAMPED OK DONE and restamped 2jan26 OK DONE STAMPED and restamped OK-->
 
-<!-- comet indepdendent even if tailscale etc -->
