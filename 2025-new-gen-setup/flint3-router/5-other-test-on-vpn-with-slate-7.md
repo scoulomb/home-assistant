@@ -389,6 +389,7 @@ We had done it here : [appendices/VPN.md](../../appendices/VPN.md#laptop-hotspot
 
 On a GL.iNet router, the options you see under **Internet** (like *Ethernet 1/2*, *Repeater*, *Tethering*, and *Cellular*) represent different WAN connection methods. Here’s what each means:
 
+See As described in [section 6](./6-router-mode.md#part-1-internet-connection-options-how-router-gets-internet) 
 
 ### **1. Ethernet 1 / Ethernet 2**
 
@@ -442,6 +443,9 @@ See http://192.168.8.1/#/internet and [failover](2-Flint3-router-setup-BYTEL.md#
 
 
 ## Repeater mode vs mesh vs same SSID
+
+
+See [section 6](./6-router-mode.md#extender-mode)
 
 ### **1. Mesh Mode**
 

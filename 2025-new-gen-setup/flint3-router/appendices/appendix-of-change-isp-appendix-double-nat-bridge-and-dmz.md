@@ -54,3 +54,5 @@ Nothing to do with bridge in [appendix-TLS-decryption.md](../../../../notes-temp
 | Use Case       | Use own router            | Expose one device               | Accidental or legacy setup     |
 | Security       | Safer (if router is secure)| Risky (device exposed)          | Moderate (but complex)         |
 | Common Issues  | None                      | Vulnerable device               | Port forwarding, VPN issues    |
+
+See [section 6/4 on router mode](../6-router-mode.md#part-4-avoiding-double-nat---configuration-combinations)
