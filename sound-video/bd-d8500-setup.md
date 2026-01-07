@@ -1,7 +1,7 @@
 ## Blue-ray setup BD-D8500
 
 - https://fc.darty.com/notices/DOCUMENTATION/SAMSUNG/3439470/3439470_NOTCOMP.pdf 
-- https://github.com/scoulomb/hifi-manual/blob/main/bd-d8500-manual.pdf
+- https://github.com/scoulomb/home-audio-system/blob/main/Misc-manuals/bd-d8500-manual.pdf
 
 ### Hard reset
 
