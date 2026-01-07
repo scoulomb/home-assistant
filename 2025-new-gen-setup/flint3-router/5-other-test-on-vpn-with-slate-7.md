@@ -567,15 +567,16 @@ Will not explore
         6. User app on iphone
       - We can see we are not in sandwich here!
 
-- Stop wireguard client: http://192.168.8.1/#/wgclient
-- Delete wireguard server profile: http://192.168.8.1/#/wgserver and stop it, delete the client on the Iphone
+- Stop VPNs
+  - Stop wireguard client: http://192.168.8.1/#/wgclient
+  - Delete wireguard server profile: http://192.168.8.1/#/wgserver and stop it, delete the client on the Iphone
      
 
-- I notice that when I did **it breaks port forward forever** 
+- I notice that when I did the following operations, **it breaks port forward**: 
   - Keep Wireguard VPN server active, cut Iphone client
   - and disable Wireguard client to proton VPN, and enable when needed: http://192.168.8.1/#/wgclient
-  - I fixed it by doing as described in bullet above (found this trick after several full reset....)
-  - 
+  - I fixed it by doing as described in 2 bullets above (found this trick after several full reset....)
+  - then can re-activate with same steps described more above
 - Also note I had to do a reset initially because weird behavior when Natting rule redirect to router home page....
 
 
@@ -612,4 +613,4 @@ is re-ccl no need to dive more super clear done ss OK, stop theress-->
 
 <!-- so all concluded done CONFIRMED OK - STAMPED  and RESTAMPED OK DONE and restamped 2jan26 OK DONE STAMPED and restamped OK-->
 
-<!-- 7 jan 26: add notes on flint 3 resetup and there is ccl done, NAT broken and double VPN is OK -->
+<!-- 7 jan 26: add notes on flint 3 resetup and there is ccl done, NAT broken and double VPN is OK + reccl with small fix-->
