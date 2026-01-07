@@ -30,10 +30,14 @@ We are in case
 - Confirm VPN connection routes traffic through the home network.
 - Disconnect the VPN and verify the public IP and it reverts to the SFR IPv4 (`86.71.230.168`).
 
+**We could also use wireguard client on iPhone directly (or connect IPhone to slate 7 as depicted in bullet just above)** (would need 2 iphone as one used for hotspot or a simpoyo, see [router mode](./6-router-mode.md#part-1-internet-connection-options-how-router-gets-internet))
+
 ### OpenWRT luci 
 
-Above I used glInet wireguard client and server.
-As seen in [section](4-deep-dive-vpn-and-routing.md), OpenWRT router has a plugin to setup a wireguard client.
+
+In [section 4](4-deep-dive-vpn-and-routing.md#setup-vpn-client-on-glinet-to-proton-vpn-server), we see we could use for the client both 
+- OpenWRT (Setup VPN client on OpenWRT LuCI to Proton VPN server)
+- and GlInet
 
 Actually **`luci-proto-wireguard`** (the LuCI protocol plugin for WireGuard on OpenWrt) supports both **client** and **server** roles.
 
@@ -55,6 +59,15 @@ See
 Note
 - luci-proto-wireguard adds LuCI web UI support for WireGuard.
 - When installed via opkg, it automatically pulls in wireguard-tools as a dependency.
+
+
+So we could do server with both gLinet and OpenWRT. I only did with glInet.
+
+In  [this section](#set-up-a-wireguard-server-on-flint-3-connected-to-the-ont-at-home-on-bouygues-telecom-fiber-network)
+I used glInet wireguard client and server.
+When we have a wireguard server, a frequent use-case is to use wireguard client on iPhone.
+
+
 
 <!-- no check more -->
 
@@ -505,14 +518,75 @@ Will not explore
 - routing option on wiregusrd server
 -->
 
+## **Set back access to remote Jellyfin/Home Assistant and Final setup**
 
-## Set back access to Jellyfin 
+- Reset by pushing reset button for 5 seconds
+- Setup and connect to WiFI, see  [section 1](./1-Flint3-router-setup-SFR.md#flint-3-first-time-connection)
+- Bypass bbox, see [section 2](2-Flint3-router-setup-BYTEL.md#how-to-flint-3-connected-with-xgs-pon-and-thus-bypassing-the-bbox)
+- Setup DNAT rule to HA proxy [section 1](./../external-access/README.md#tuto) 
+  - Test: https://jellyfin.coulombel.net; https://homeassistant.coulombel.net; 
+  - From phone with 4G (without VPN) and mac on `scoulomb` wifi working
+  - Note here https://192.168.8.1:9443/#/security
+    - We can change port of the glInet admin panel and luci admin panel
+    - glInet admin panel has the port by default 80 and 443, what we use when you do http://192.168.1.1:80 and https://192.168.1.1:443 
+    - Assume you allow `https` remote access, and try to access in 4G via public IP: https://176.143.200.211:443
+    - It will not work because of the conflict with NAT rules on the WAN interface (LAN interface is not impacted), thus you would have to change de admin interface to 9443. and then this https://176.143.200.211:9443 would work
+    - I will not allow remote access via public Internet
+    - Also note we have new port forward rule in LUCI name `GL-`: https://192.168.8.1:8443/cgi-bin/luci/admin/network/firewall and no wan => lan in zone as port forward is sufficient
+    <!-- clear and ccl -->
+  - I said via glInet because we could use OpenWRT [see section](./4-deep-dive-vpn-and-routing.md#setup-vpn-client-on-glinet-to-proton-vpn-server)
+- Connect glInet VPN wireguard client (via GlInet) to Proton VPN wireguard server: [section 4](4-deep-dive-vpn-and-routing.md#setup-vpn-client-on-glinet-to-proton-vpn-server)
+  - Disable it after test
+  - Note we use glInet here
+  - Note it added rules here: https://192.168.8.1:8443/cgi-bin/luci/admin/network/firewall
+- Create  Wireguard VPN server (via GlInet too here) and access it from Wireguard client (via IPhone): [see above, and read whole section with comment on glInet vs OpenWRT](#wireguard-vpn-test-with-slate-7-and-flint-3)
+    - https://whatismyipaddress.com showing IP of home
+    - Access to local server (not via HA proxy. see [External access / topo](../external-access/README.md#topology))
+      - http://192.168.8.1:8080/cgi-bin/luci/admin/network/firewall, wgserver (glInet intrface), Edit, add allow forward to destination zone  => LAN (save and apply)
+      - http://102.168.8.101:8123 (Raspberry where HA is running, can use static Ip for convenience)
+      - http://102.168.8.102:8096 (NAS IP where Jellyfin is running)
+      - Confirmed working from Iphone client with 4g only
+      - However, I can not access to router page with wireguard
+      - (they recommend DDNS for VPN endpoint but not added in generated conf)
+      - Reminder: you can not use mDNS here
+- Fun part : if re-enable proton VPN, and phone on WG server, https://whatismyipaddress.com show proton VPN server IP :)
+  - It is a double VPN 
+  - In section  [Connect Slate 7 to WireGuard VPN server on flint 3 with iPhone hotspot](#connect-slate-7-to-wireguard-vpn-server-on-flint-3-with-iphone-hotspot), 
+    - we said 
+      - > **We could also use wireguard client on iPhone directly (or connect IPhone to slate 7 as depicted in bullet just above)**
+      - Here it is different we mix both 
+        - We connect IPhone to home VPN server directly (so case [4 with iPhone client direct here](https://github.com/scoulomb/private_script/blob/main/Links-mig-auto-cloud/2025-consolidation/Dojos/VPN-Dojo/VPN-dojo.md#plan-and-double-vpn-topology-analysis) but could be Iphone to slate 7 as mentioned [above](#connect-slate-7-to-wireguard-vpn-server-on-flint-3-with-iphone-hotspot))
+        - and home VPN server to proton VPN server (so case [3](https://github.com/scoulomb/private_script/blob/main/Links-mig-auto-cloud/2025-consolidation/Dojos/VPN-Dojo/VPN-dojo.md#plan-and-double-vpn-topology-analysis))
+        - here it is (3) then (4) and unlike case (5) we are not in sandwich. 
+      - So if we analyse 
+        1. Application server  - Application Server see proton VPN IP (whatismyipaddress.com)
+        2. Proton VPN wireguard server - VPN see home IP
+        3. VPN WireGuard server on flint3
+        4. iPhone acting as WireGuard client
+        5. iphone with wg client
+        6. User app on iphone
+      - We can see we are not in sandwich here!
 
-- [via Proxy](../external-access/README.md#method-3-use-ha-proxy-) -> https://jellyfin.coulombel.net (working without vpn and not home network)
-- [via Wiregaurd](../external-access/README.md#method-1use-a-vpn) (they recommend DDNS for VPN endpoint but not added in generated conf) then when connected remind, you can not use mDNS
-  - so do http://192.168.8.102:8096 (can use static IP for convenience) - this works with vpn connection and not on home network
-  - Be careful when modifying firewall rules above, ensure in Luci we allow `wgserver (glinet interface) => lan`
-  - However I lost access to router page, if an issue reset and and all conf via [glInet](#use-luci-instead-of-glinet-wiregaurd-interface-client)
+- Stop wireguard client: http://192.168.8.1/#/wgclient
+- Delete wireguard server profile: http://192.168.8.1/#/wgserver and stop it, delete the client on the Iphone
+     
+
+- I notice that when I did **it breaks port forward forever** 
+  - Keep Wireguard VPN server active, cut Iphone client
+  - and disable Wireguard client to proton VPN, and enable when needed: http://192.168.8.1/#/wgclient
+  - I fixed it by doing as described in bullet above (found this trick after several full reset....)
+  - 
+- Also note I had to do a reset initially because weird behavior when Natting rule redirect to router home page....
+
+
+<!-- notes
+No need to define a firewall in ipv4 unlike ipv6 https://github.com/scoulomb/home-assistant/blob/main/2025-new-gen-setup/flint3-router/3-deep-dive-on-ipv6.md#ipv4-without-ha-proxy  as we have a forwarding rule in ip v4 : https://github.com/scoulomb/home-assistant/blob/main/2025-new-gen-setup/flint3-router/3-deep-dive-on-ipv6.md#ipv6-without-ha-proxy
+Here had tried also DNAT in IPv6:: https://github.com/scoulomb/home-assistant/blob/main/2025-new-gen-setup/flint3-router/3-deep-dive-on-ipv6.md#in-theory-we-could-also-do-equivalent-of-dnat--port-forwarding-rule-we-did-in-ipv4-in-ipv6
+-->
+
+<!-- 7 jan 26 addition on **Set back access to remote Jellyfin/Home Assistant and Final setup** 
+is re-ccl no need to dive more super clear done ss OK, stop theress-->
+
 <!-- OK -->
 
 
@@ -538,3 +612,4 @@ Will not explore
 
 <!-- so all concluded done CONFIRMED OK - STAMPED  and RESTAMPED OK DONE and restamped 2jan26 OK DONE STAMPED and restamped OK-->
 
+<!-- 7 jan 26: add notes on flint 3 resetup and there is ccl done, NAT broken and double VPN is OK -->

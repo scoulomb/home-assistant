@@ -93,7 +93,7 @@ With double NATing removed we have full picture
 
 
 ````shell
-client -> WAN IP:443/80  ---BOX NAT --> Raspberry PI 5 IP :443/80 (Port NGINX proxy manager - HomeAssistant add-ons) --> Raspberry PI 5: 8123 (HomeAssistant)
+client -> WAN IP:443/80  ---BOX NAT --> Raspberry PI 5 IP :443/80 (Port NGINX proxy manager - HomeAssistant add-ons) --> Raspberry PI 5: 8123 (HomeAssistant) / NAS:8096 (Jellyfin)
 ````
 
 
@@ -152,7 +152,7 @@ TCP/UDP
 WAN
 80
 LAN
-192.168.8.101:80
+192.168.8.101:80 (static IP of HA device can be set in address reservation http://192.168.8.1/#/lanip )
 ---------
 2	
 TCP/UDP

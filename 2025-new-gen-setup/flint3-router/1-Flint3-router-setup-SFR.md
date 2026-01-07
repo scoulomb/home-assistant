@@ -89,18 +89,28 @@ https://speed.cloudflare.com
 ## Flint 3 first time connection
 
 
-- Connect to network via QR code
+- Connect to network via QR code at bottom of the device
 
 ![](flint3-router/flint3-router-setup-media/encrypted/BE9300-Wi-Fi%207-Router.jpeg)
 
-- Or via (Mac mini) personal Hotpost available (this not 5G or 6G but 2G network) - Can force to `192.168.8.1`
+- Or via (Mac mini) personal Hotpost available (this not 5G or 6G but 2G network available via `GL-BE-9300-XXX` ) - Can force to `192.168.8.1` (good news is that second the wifi after reset will be know by the client machine)
 
 - Set password admin user and
    - wifi (2G, 5G, 6G) SSID
+     - `scoulomb` for 5G and 6G
+     - `scoulomb-legacy-iot` for 2G network (cf. [section 5](./5-other-test-on-vpn-with-slate-7.md#3-same-ssid-on-different-routers)
    - pwd
 
 - Enable dynamic bandwidth
 
+- Connect to `scoulomb` network
+
+- You can then see all network QR code here: http://192.168.8.1/#/wirelessand join from there without entering password.
+
+- Note [slate 7](./5-other-test-on-vpn-with-slate-7.md) also display QR code on screen (and on the back), which is the first setup (QR code of one of the network, 2.4ghz)<!--no check more-->
+and then can display on screen equivalent of all network @http://192.168.8.1/#/wireless.
+
+<!-- made a similar comment somewhere else?, do not link -->
 
 ## Remove SFR BOX
 

@@ -39,7 +39,7 @@ Unlike in IPvy where gateway is `fe80::1` link-local address.
 
 See [2-Flint3-router-setup-BYTEL.md](./2-Flint3-router-setup-BYTEL.md#add-ipv6-support)
 
-## Setup VPN client on OpenWRT LuCI
+## Setup VPN client on OpenWRT LuCI to Proton VPN server
 
 
 Followed https://protonvpn.com/support/openwrt-wireguard
@@ -476,3 +476,10 @@ All CCL OK DONE
 IPv6 only and ipv4 disabled ?
 If I disable ipv4 interface only all stops working….
 
+## Setup VPN client on glInet to Proton VPN server
+
+This is much simpler than [Setup VPN client on OpenWRT LuCI to Proton VPN server](#setup-vpn-client-on-openwrt-luci-to-proton-vpn-server)
+
+- Download configuration from: https://account.protonvpn.com/downloads
+- Go to http://192.168.8.1/#/wgclient, and copy the conf, start the server
+- Confirm this is working as per: https://whatismyipaddress.com (in http://192.168.8.1:8080/cgi-bin/luci/admin/network/network, you see `wgclient1` interface with unsupported protocol)<!-- do not dive more -->

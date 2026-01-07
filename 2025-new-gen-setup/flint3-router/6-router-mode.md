@@ -22,7 +22,7 @@ These determine **your internet source**:
 - Useful when ethernet cable isn't available
 
 ### Tethering
-- Router gets internet from USB-connected smartphone
+- Router gets internet from USB-connected smartphone (like Simpoyo)
 - Uses your phone's mobile data connection
 - Good for temporary internet or travel situations
 

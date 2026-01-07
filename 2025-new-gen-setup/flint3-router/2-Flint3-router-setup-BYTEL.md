@@ -37,6 +37,7 @@ See [tuto here](2-Flint3-router-setup-BYTEL-media/tuto-la-fibre.md)
 
 How to this in OpenWrt router  Flint 3?
 
+Install LuCI: http://192.168.8.1/#/advanced
 
 Access `http://192.168.8.1:8080/cgi-bin/luci/admin/network/network`.  
 Go to `Network > Interface > Device`.  
@@ -45,7 +46,7 @@ Add a new device with the following settings:
 - Base device: `eth0`  
 - VLAN ID: `100`  (do not confuse VRF with VLAN ID: https://lafibre.info/remplacer-bbox/informations-de-connexion-ftth/72/
 - Name: `eth0.100` (do not change)  
-- Set MAC address to `D4:27:FF:....` (same as the Bbox)  
+- Set MAC address to `D4:27:FF:....` (same as the Bbox) -> [appendices with mac btel](./appendices/mac-btel.md)
 - Enable IPv6 automatic? disabled 
 
 ![](2-Flint3-router-setup-BYTEL-media/create-eth-0-vlan100-device.png)
