@@ -4,18 +4,37 @@ views:
     path: smart-plugs
     icon: mdi:power-plug
     cards:
-      - type: entities
-        title: Music virtual room
-        entities:
-          - light.hue_smart_plug_hi_fi_bedroom
-          - light.hue_smart_plug_hi_fi_living
-          - light.music_virtual_room
-      - type: entities
-        title: Turntable virtual room
-        entities:
-          - light.hue_smart_plug_phono_preamp
-          - light.hue_smart_plug_turntable
-          - light.turntable_virtual_room
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## HiFi System"
+          - type: entities
+            entities:
+              - entity: light.hue_smart_plug_hi_fi_bedroom
+                name: HiFi Bedroom
+                icon: mdi:speaker
+              - entity: light.hue_smart_plug_hi_fi_living
+                name: HiFi Living
+                icon: mdi:speaker
+              - entity: light.music_virtual_room
+                name: Music Virtual Room
+                icon: mdi:music
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Turntable"
+          - type: entities
+            entities:
+              - entity: light.hue_smart_plug_phono_preamp
+                name: Phono Preamp
+                icon: mdi:amplifier
+              - entity: light.hue_smart_plug_turntable
+                name: Turntable
+                icon: mdi:record-player
+              - entity: light.turntable_virtual_room
+                name: Turntable Virtual Room
+                icon: mdi:music-circle
 
   - title: Bedroom
     path: bedroom
