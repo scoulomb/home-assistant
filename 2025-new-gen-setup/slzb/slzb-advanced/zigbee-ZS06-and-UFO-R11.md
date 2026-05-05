@@ -1,9 +1,24 @@
 # Integrating Zigbee ZS06 and UFO-R11 IR Controller with Atoll HD 120 HiFi Receiver
 
-https://www.home-assistant.io/integrations/zha/ vs z2m: people seems to say z2m better but higer entry cost. Opting for z2m
 
 
-This guide explains how to integrate the Zigbee ZS06 IR controller to control the mute button of the Atoll HD 120 HiFi receiver.
+This guide explains how to integrate a Zigbee IR controller (ZS06 or UFO-R11) to control an IR HiFi system via Home Assistant scripts, using the Atoll MS120, HD120, and PR300 receivers as examples.
+
+We then build a full Home Assistant dashboard that includes:
+- IR remote controls (preamp, streamer, DAC)
+- HiFi smart plugs
+- Atoll Signature web UI (iframe)
+- Apple TV remote
+- HEOS devices
+- DLNA renderers
+- Lights and shutter (for cinema mode)
+
+
+## Screenshots
+
+![Dashboard preview 1](media/Screenshot%202026-05-05%20at%2016.10.53.png)
+![Dashboard preview 2](media/Screenshot%202026-05-05%20at%2016.11.16.png)
+![Dashboard preview 3](media/Screenshot%202026-05-05%20at%2016.11.30.png)
 
 ## Useful Links
 
@@ -14,9 +29,9 @@ This guide explains how to integrate the Zigbee ZS06 IR controller to control th
 
 ## 🧰 What You Need
 
-- ZS06 Zigbee IR Blaster (Tuya-based)
+- ZS06 or UFO-R11 Zigbee IR Blaster (Tuya-based)
 - Home Assistant with Zigbee2MQTT integration
-- Atoll HD120 remote control
+- Original Atoll remote control (not a universal remote)
 - A stable 5V/1A–2.4A USB power supply (e.g., Belkin USB charger)
 - Access to Home Assistant at http://homeassistant.local:8123
 
@@ -31,6 +46,8 @@ See more inputs on USB voltage: https://en.wikipedia.org/wiki/USB#Power
 Position the ZS06 in front of the Atoll HD120 receiver’s IR sensor. Avoid placing it behind the receiver (though it works in my case and initial issue were not caused by that).
 
 ## 📡 Step 2: Learn IR Codes from the Atoll Remote
+
+**Zigbee stack choice:** [ZHA](https://www.home-assistant.io/integrations/zha/) vs [Zigbee2MQTT](https://www.zigbee2mqtt.io/) — community consensus is that Z2M offers better device support and flexibility, though with a higher initial setup cost. This guide uses Zigbee2MQTT.
 
 ⚠️ Important: Use the original Atoll remote, not a universal remote like “One For All,” as the learning process may fail otherwise.
 
@@ -54,7 +71,7 @@ Paste the learned code into the IR Send field.
 Click outside the text box to trigger the IR signal.
 Confirm the Atoll receiver responds (e.g., mutes or powers on).
 
-## 🧪 Step 4: Use the HA Dashboard to Capture Codes as alternative of Zigbee2Mqtt to learn IR code (step 2) and test it (step 4)
+## 🧪 Step 4: Use the HA Dashboard as an Alternative to Learn & Test IR Codes
 
 On your Home Assistant dashboard:
 
@@ -65,7 +82,7 @@ Copy the code, e.g.:
 
 BZQN9gasAUABA0cFrAFAAQLmAaxgAUAH4AMDwAHAE0AvwAvAB8ABQA9AH0ADQAtAAUAHQAPAAUALQB9AAUAHQA9AA0AB4AMHQAtAH0ABQAtAA0AB4AMTAf//4AnHwAHAL+AHAcAX4ANHwAFAG0ADQAFAH0ADwA9AAcALQAdAA8AfQAdAAUATwAPAAUAPQB9AB0ABQAdAAwtHBawBrAGsAawBrAE=
 
-in Send (Irealised that sometime a retry did not work here, small bug unlike when using a script as in step 5)
+in Send. (Note: retrying from the dashboard sometimes fails — using a script as in Step 5 is more reliable.)
 
 ## 🧾 Step 5: Create a Script in Home Assistant
 Go to:
@@ -90,36 +107,37 @@ sequence:
 ````
 
 
-This id `0x70c59cfffef600c8` in topic is the friendly name, in zigbee2mqtt : http://homeassistant.local:8123/45df7312_zigbee2mqtt/ingress
-It is equal to the IEEE address by default. I reco to not change it here....: https://www.zigbee2mqtt.io/guide/usage/mqtt_topics_and_messages.html#zigbee2mqtt-friendly-name
+The `0x70c59cfffef600c8` in the topic is the device's friendly name in Zigbee2MQTT (http://homeassistant.local:8123/45df7312_zigbee2mqtt/ingress). By default it equals the IEEE address. Recommended: do not rename it. See: https://www.zigbee2mqtt.io/guide/usage/mqtt_topics_and_messages.html#zigbee2mqtt-friendly-name
 
-Pro Tips: we can install vs code add-ons and edit script in bulk:
-http://homeassistant.local:8123/a0d7b954_vscode/ingress => `scripts.yaml`
-So we can duplicate scripts via UI, or directly in yaml
-
-Be careful as in order to ensure that  http://homeassistant.local:8123/config/script/dashboard is updated after direct yaml update, you have to go to
-`developer tool`  > `script yaml` >  `reload`.
+**Pro Tips:**
+- Install the VS Code add-on to edit scripts in bulk: http://homeassistant.local:8123/a0d7b954_vscode/ingress → edit `scripts.yaml`
+- You can duplicate scripts via UI or directly in YAML.
+- After editing YAML directly, reload via: **Developer Tools** → **YAML** → **Scripts: Reload**.
 
 
-## 🧾 Step 6: Industrialize the solution
+## 🧾 Step 6: Industrialize the Solution
 
-<!-- initial yaml built via xcode + copilot -->
-- 
-- Learn: http://homeassistant.local:8123/45df7312_zigbee2mqtt/ingress - [See step 2](#-step-2-learn-ir-codes-from-the-atoll-remote)
-- Copy-paste script: http://homeassistant.local:8123/a0d7b954_vscode/ingress - [See step 5](#-step-5-create-a-script-in-home-assistant)
-- Reload config: http://homeassistant.local:8123/developer-tools/yaml - [See step 5](#-step-5-create-a-script-in-home-assistant)
-- Execute script: http://homeassistant.local:8123/config/script/dashboard
-<!-- also mentioned on top of yaml doc -->
+<!-- initial yaml built via VS Code + Copilot -->
 
-See [Generated scripts.yaml](scripts.yaml) 
+Workflow for adding new IR commands:
 
-Note device id change between ZS06 and UFO-R11.
+1. **Learn** the IR code: http://homeassistant.local:8123/45df7312_zigbee2mqtt/ingress — [See Step 2](#-step-2-learn-ir-codes-from-the-atoll-remote)
+2. **Copy-paste** the script YAML: http://homeassistant.local:8123/a0d7b954_vscode/ingress — [See Step 5](#-step-5-create-a-script-in-home-assistant)
+3. **Reload** the config: http://homeassistant.local:8123/developer-tools/yaml
+4. **Test** the script: http://homeassistant.local:8123/config/script/dashboard
+
+See [Generated scripts.yaml](scripts.yaml).
+
+**Notes:**
+- The device ID in the MQTT topic differs between ZS06 and UFO-R11.
+- IR codes learned on one device (UFO-R11 or ZS06) can be used across both.
+- In scripts.yaml, each script notes whether it was learned from the global or streamer Atoll remote.
 
 ## Step 7: Generate a dashboard
 
 Configure input button: https://www.home-assistant.io/integrations/input_button/#automation-examples:~:text=The%20input_button%20entity%20is%20stateless,%20as%20in,%20it%20cannot%20have%20a%20state%20like
 
-Upload [script.yaml](./scripts.yaml) in AI.
+Upload [script.yaml](./scripts.yaml) in AI (or use agentic mode).
 Use this prompt.
 
 ```chatinput
@@ -151,11 +169,8 @@ cards:
 # <copy-paste AI generated output>
 ```
 
-Here is out [card-hifi.yaml](./card-hifi.yaml)
+Rather than adding individual cards manually, generate the entire dashboard YAML. See [hifi-dashboard.yaml](./hifi-dashboard.yaml).
 
-For update direct on [card-hifi.yaml](./card-hifi.yaml) or AI <!-- (no changelog here unlike dev-resume-2025) -->
-
-If we add AC we could add a dedicated card (but keep same scripts.yaml).
 
 ## 🧠 Tips & Troubleshooting
 
@@ -168,7 +183,23 @@ If we add AC we could add a dedicated card (but keep same scripts.yaml).
    - This is not due to rolling codes, as mentioned here: https://smarthomescene.com/reviews/tuya-zigbee-infrared-ir-remote-zs06-review/
    - but Tuya’s own encoding format: https://www.reddit.com/r/homeassistant/comments/1di1zs7/ir_codes_formatting/
 
-- Note I learn code sent on UFO-R11 by UFO-R11 and ZS06 by ZS06 but should be switchable
+
 - On HD120 vol_less and vol_plus needs a long press >5 sec when learning IR code
+  - But on PR300 can cause high gap (to fix)
 <!-- also mentioned in related section of yaml doc -->
 - Solved issue on UFO-R11 by removing batteries
+- If a HEOS device disappears, unplug and reconnect/reset it.
+
+## Discovering Entities
+
+To build additional dashboard tabs (plugs, HEOS, Apple TV, DLNA, lights), you need to discover available entities:
+
+- Use [HA MCP](https://github.com/homeassistant-ai/ha-mcp) to discover entities via AI tooling (e.g., Claude/Copilot).
+- Alternatively, create an auto-generated dashboard in HA and take manual control of it to inspect all available entities.
+- To ensure entity IDs stay in sync with the Hue/Apple TV app names, remove and re-add the respective integration.
+
+See [hifi-dashboard.yaml](./hifi-dashboard.yaml) for the full result.
+
+## TODO
+
+- PR300 volume step improvements (long press causes large jumps)
