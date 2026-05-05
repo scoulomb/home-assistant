@@ -3,102 +3,237 @@
 # Reload config: http://homeassistant.local:8123/developer-tools/yaml
 # Execute script: http://homeassistant.local:8123/config/script/dashboard
 
-# HD120 via ZS06
-hd120_turn_on_off:
-  alias: HD120 Turn on-off
+# ============================================================================
+# Atoll preamp
+## Learn from streamer remote control
+atoll_preamp_turn_on_off_ufo_r11:
+  alias: Atoll preamp Turn on-off UFO-R11
+  sequence:
+  - data:
+      payload: '{"ir_code_to_send": "BZkN8wa6AUABAx4FugHgCQEC6QG64AwBAekB4A0v4AEBQB8EHgXpAbrgEAEF6QEeBboB4AkBAukBuuAaAeADOwH//0DHgDcBHgWAB+AFAeALE4ABAx4FugHgEwECHgXpYAMAuuASAUAjALrgGAHgDSMLHgXpAboBugG6AboB"} '
+      topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
+    action: mqtt.publish
+  description: ''
+atoll_preamp_turn_on_off_zs06:
+  alias: Atoll preamp Turn on-off ZS06
   sequence:
   - data:
       payload: '{"ir_code_to_send": "BZkN8wa6AUABAx4FugHgCQEC6QG64AwBAekB4A0v4AEBQB8EHgXpAbrgEAEF6QEeBboB4AkBAukBuuAaAeADOwH//0DHgDcBHgWAB+AFAeALE4ABAx4FugHgEwECHgXpYAMAuuASAUAjALrgGAHgDSMLHgXpAboBugG6AboB"} '
       topic: zigbee2mqtt/0x70c59cfffef600c8/set
     action: mqtt.publish
   description: ''
-hd120_mute:
+
+atoll_preamp_mute_ufo_r11:
+  alias: Atoll preamp Mute UFO-R11
+  sequence:
+  - data:
+      payload: '{"ir_code_to_send": "DcANtwbrAYsB6wH7BOsBQAfgHwPgFy9AH0AD4AtPQAFAF8AfwAdAE+ALA+ALHwv7BOsBiwHrAYsB6wE="} '
+      topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
+    action: mqtt.publish
+  description: ''
+atoll_preamp_mute_zs06:
+  alias: Atoll preamp Mute ZS06
   sequence:
   - data:
       payload: '{"ir_code_to_send": "DcANtwbrAYsB6wH7BOsBQAfgHwPgFy9AH0AD4AtPQAFAF8AfwAdAE+ALA+ALHwv7BOsBiwHrAYsB6wE="} '
       topic: zigbee2mqtt/0x70c59cfffef600c8/set
     action: mqtt.publish
-  alias: HD120 Mute
   description: ''
-hd120_disp:
+
+atoll_preamp_disp_ufo_r11:
+  alias: Atoll preamp disp UFO-R11
+  sequence:
+  - data:
+      payload: '{"ir_code_to_send": "BaMN/Qa3AUABBCMF6gG34AgB4AsTgAEDIwW3AeAHAeADLQIjBeogAwG3AeADAQLqAbfgBAHAHwIjBeogA4AHALfgCgECIwXqIAOABwC3oAELIwXqAbcBtwG3AbcB"} '
+      topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
+    action: mqtt.publish
+  description: ''
+atoll_preamp_disp_zs06:
+  alias: Atoll preamp disp ZS06
   sequence:
   - data:
       payload: '{"ir_code_to_send": "BaMN/Qa3AUABBCMF6gG34AgB4AsTgAEDIwW3AeAHAeADLQIjBeogAwG3AeADAQLqAbfgBAHAHwIjBeogA4AHALfgCgECIwXqIAOABwC3oAELIwXqAbcBtwG3AbcB"} '
       topic: zigbee2mqtt/0x70c59cfffef600c8/set
     action: mqtt.publish
-  alias: HD120 disp
   description: ''
-hd120_config:
+
+
+atoll_preamp_vol_less_ufo_r11:
+  alias: Atoll preamp vol less UFO-R11
   sequence:
   - data:
-      payload: '{"ir_code_to_send": "BpAN5QblAbYgAQMoBbYBwAGAEeAVAQEoBeAHJeAFD0AfQAMAtuAAAeADC4AB4AUfQAFAI0ADAbYB4AEbgA/gEAECAbYB"} '
-      topic: zigbee2mqtt/0x70c59cfffef600c8/set
+      payload: '{"ir_code_to_send": "BaQN6ga6AUABAyYFugHgIwEEJgXpAbrgEAEE6QEmBbpgA+ATAUAj4AsBBCYF6QG64BIBQB8DJgW6AcABAf//QMcC6QG6IAEBJgWAB+ANAeAJG+AVLwO6ASYFgAPgAQHgH0MB6QFAO+ATAQEmBeAFIwH//+Afx+AJAUBLALrgEgEBJgWAA+ATAUAj4AsBASYF4Atb4AETASYFQAPgAQ8B///gA8cBugHgIwHgDS/gAVsCJgXpIAMBugHgEwHgDx/gBRcC6QG64AYBQB9AA8ABAf//QMcBugFAAeADF+ARAeABU4AvQAVAA8ABA///ugHgBwHAH+ABO+ABAUATQB8LJgW6AekBugG6AboB"} '
+      topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
     action: mqtt.publish
-  alias: HD120 config
   description: ''
-hd120_bypass:
-  sequence:
-  - data:
-      payload: '{"ir_code_to_send": "BaQN+wa0AUABAzsFtAHgCQEC5AG0IAGABeAFAeALL+ADJ0AfQAPgEQEB5AFAHwLkAbRgAUALQAPgAwFAG0ADQAFAG0ADwAHgAwsB//+Ax0ArwBdAC0ADQAHAB0AB4AMLQAHAL0ABQBvgAwNAAUAfQAPAAeAHH0APQB9AB0ABQAtAA0ABwBNAAcALQBtAA8ABCzsFtAHkAbQBtAG0AQ=="} '
-      topic: zigbee2mqtt/0x70c59cfffef600c8/set
-    action: mqtt.publish
-  alias: HD120 bypass
-  description: ''
-# For vol_less and vol_plus on HD120, tip is to do a long press >5s when discovering IR code
-hd120_vol_less:
+atoll_preamp_vol_less_zs06:
+  alias: Atoll preamp vol less ZS06
   sequence:
   - data:
       payload: '{"ir_code_to_send": "BaQN6ga6AUABAyYFugHgIwEEJgXpAbrgEAEE6QEmBbpgA+ATAUAj4AsBBCYF6QG64BIBQB8DJgW6AcABAf//QMcC6QG6IAEBJgWAB+ANAeAJG+AVLwO6ASYFgAPgAQHgH0MB6QFAO+ATAQEmBeAFIwH//+Afx+AJAUBLALrgEgEBJgWAA+ATAUAj4AsBASYF4Atb4AETASYFQAPgAQ8B///gA8cBugHgIwHgDS/gAVsCJgXpIAMBugHgEwHgDx/gBRcC6QG64AYBQB9AA8ABAf//QMcBugFAAeADF+ARAeABU4AvQAVAA8ABA///ugHgBwHAH+ABO+ABAUATQB8LJgW6AekBugG6AboB"} '
       topic: zigbee2mqtt/0x70c59cfffef600c8/set
     action: mqtt.publish
-  alias: HD120 vol less
   description: ''
-hd120_vol_plus:
+
+atoll_preamp_vol_plus_ufo_r11:
+  alias: Atoll preamp vol plus UFO-R11
+  sequence:
+  - data:
+      payload: '{"ir_code_to_send": "Bb0N1ga8AUABAy0FvAHgBQEC7AG84BIB4Akv4AUBQB9AA+ATAcAfwAfAAeAbD+ADIwH//+Dbx+AVAeEDD+ALAUAfQAPgEwHAH8AHwAHgGw/gAyMB///hE4/gFQHgA0fgCwFAH0AD4BMBwB/AB8AB4BsP4AMjAf//4A3HQCNAA8ABAf//4AEn4A0BwC3AB8ABAf//4AE54Acb4BcB4BcvQB9AA+ATAcAfwAfAAeAbDwstBbwBvAG8AbwBvAE="} '
+      topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
+    action: mqtt.publish
+  description: ''
+atoll_preamp_vol_plus_zs06:
+  alias: Atoll preamp vol plus ZS06
   sequence:
   - data:
       payload: '{"ir_code_to_send": "Bb0N1ga8AUABAy0FvAHgBQEC7AG84BIB4Akv4AUBQB9AA+ATAcAfwAfAAeAbD+ADIwH//+Dbx+AVAeEDD+ALAUAfQAPgEwHAH8AHwAHgGw/gAyMB///hE4/gFQHgA0fgCwFAH0AD4BMBwB/AB8AB4BsP4AMjAf//4A3HQCNAA8ABAf//4AEn4A0BwC3AB8ABAf//4AE54Acb4BcB4BcvQB9AA+ATAcAfwAfAAeAbDwstBbwBvAG8AbwBvAE="} '
       topic: zigbee2mqtt/0x70c59cfffef600c8/set
     action: mqtt.publish
-  alias: HD120 vol plus
   description: ''
-hd120_sel_less:
+
+atoll_preamp_sel_less_ufo_r11:
+  alias: Atoll preamp sel less UFO-R11
+  sequence:
+  - data:
+      payload: '{"ir_code_to_send": "BrwN0wbpAbggAQM0BbgB4CMBATQFgDfgDwEBNAVAA+AZI+AHAUAzAzQFuAHgDwFAG8ADBLgB6QG4IAEB//9AxwG4AUANQBvgBwFAF+APAcAv4AkjgBFAH0AD4A8BQCXgBx/AE+AHF+ADAUAbwAMHuAG4AbgBuAE="} '
+      topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
+    action: mqtt.publish
+  description: ''
+atoll_preamp_sel_less_zs06:
+  alias: Atoll preamp sel less ZS06
   sequence:
   - data:
       payload: '{"ir_code_to_send": "BrwN0wbpAbggAQM0BbgB4CMBATQFgDfgDwEBNAVAA+AZI+AHAUAzAzQFuAHgDwFAG8ADBLgB6QG4IAEB//9AxwG4AUANQBvgBwFAF+APAcAv4AkjgBFAH0AD4A8BQCXgBx/AE+AHF+ADAUAbwAMHuAG4AbgBuAE="} '
       topic: zigbee2mqtt/0x70c59cfffef600c8/set
     action: mqtt.publish
-  alias: HD120 sel less
   description: ''
-hd120_sel_plus:
+
+atoll_preamp_sel_plus_ufo_r11:
+  alias: Atoll preamp sel plus UFO-R11
+  sequence:
+  - data:
+      payload: '{"ir_code_to_send": "BYYN8wa8AUABAxwFvAHgIwHgFy8CHAXwIAMBvAHgAQEC8AG84AYBwB+AB4AfQAsBHAWAC8ABAxwFvAHAAUALwAMHvAG8AbwB8AE="} '
+      topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
+    action: mqtt.publish
+  description: ''
+atoll_preamp_sel_plus_zs06:
+  alias: Atoll preamp sel plus ZS06
   sequence:
   - data:
       payload: '{"ir_code_to_send": "BYYN8wa8AUABAxwFvAHgIwHgFy8CHAXwIAMBvAHgAQEC8AG84AYBwB+AB4AfQAsBHAWAC8ABAxwFvAHAAUALwAMHvAG8AbwB8AE="} '
       topic: zigbee2mqtt/0x70c59cfffef600c8/set
     action: mqtt.publish
-  alias: HD120 sel plus
   description: ''
 
-# MS120 via UFO-R11
-
-ms120_turn_on_off:
-  alias: MS120 Turn on-off
+atoll_preamp_source_cd_ufo_r11:
+  alias: Atoll preamp source cd UFO-R11
   sequence:
   - data:
-      payload: '{"ir_code_to_send": "BXYKeQO/AUADwAEFeQN5A78BQAGAB8AFA3kDvwHgBQGAEYAFA78B///gPksCAb8B"} '
+      payload: '{"ir_code_to_send": "BbINzga5AUABCCEFuQG5AeMBueAMAeAJFwEhBeAJE4ABgBcBIQVAA4AL4AkBgBcDIQW5AUABQAdAA0ABwAfgAwFAE0ADQAHgBwcFuQHjAf//QMcC4wG5IAHAH4ABgBPgCQHgARfgBS/AAeAFH4AjQBNAA+AJAYAfAbkBQAdAA0ABgAfgBS9AE0ADQAHgBwcDuQG5AQ=="} '
+      topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
+    action: mqtt.publish
+  description: ''
+atoll_preamp_source_cd_zs06:
+  alias: Atoll preamp source cd ZS06
+  sequence:
+  - data:
+      payload: '{"ir_code_to_send": "BbINzga5AUABCCEFuQG5AeMBueAMAeAJFwEhBeAJE4ABgBcBIQVAA4AL4AkBgBcDIQW5AUABQAdAA0ABwAfgAwFAE0ADQAHgBwcFuQHjAf//QMcC4wG5IAHAH4ABgBPgCQHgARfgBS/AAeAFH4AjQBNAA+AJAYAfAbkBQAdAA0ABgAfgBS9AE0ADQAHgBwcDuQG5AQ=="} '
+      topic: zigbee2mqtt/0x70c59cfffef600c8/set
+    action: mqtt.publish
+  description: ''
+
+atoll_preamp_source_tuner_ufo_r11:
+  alias: Atoll preamp source tuner UFO-R11
+  sequence:
+  - data:
+      payload: '{"ir_code_to_send": "DZsNuwa8AbwB6QEgBbwB4CMB4BcvQB9AA+ATAeAHHwEgBeAVhwEgBYADQAFAC8ABAf//wMcBvAHgAxfgGwHgFy9AH0AD4BMB4AcfQA9AA+APAUAbQANAAQsgBbwBvAG8AbwBvAE="} '
+      topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
+    action: mqtt.publish
+  description: ''
+atoll_preamp_source_tuner_zs06:
+  alias: Atoll preamp source tuner ZS06
+  sequence:
+  - data:
+      payload: '{"ir_code_to_send": "DZsNuwa8AbwB6QEgBbwB4CMB4BcvQB9AA+ATAeAHHwEgBeAVhwEgBYADQAFAC8ABAf//wMcBvAHgAxfgGwHgFy9AH0AD4BMB4AcfQA9AA+APAUAbQANAAQsgBbwBvAG8AbwBvAE="} '
+      topic: zigbee2mqtt/0x70c59cfffef600c8/set
+    action: mqtt.publish
+  description: ''
+
+atoll_preamp_source_tape_ufo_r11:
+  alias: Atoll preamp source tape UFO-R11
+  sequence:
+  - data:
+      payload: '{"ir_code_to_send": "BUYNwAa8AUABAxoFvAHgAQEC6wG84BYB4AUv4AkBQB9AA+ATAcAf4AMHwAvgAwGAEwHrAUAHQANAAQsaBbwBvAG8AbwBvAE="} '
+      topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
+    action: mqtt.publish
+  description: ''
+atoll_preamp_source_tape_zs06:
+  alias: Atoll preamp source tape ZS06
+  sequence:
+  - data:
+      payload: '{"ir_code_to_send": "BUYNwAa8AUABAxoFvAHgAQEC6wG84BYB4AUv4AkBQB9AA+ATAcAf4AMHwAvgAwGAEwHrAUAHQANAAQsaBbwBvAG8AbwBvAE="} '
+      topic: zigbee2mqtt/0x70c59cfffef600c8/set
+    action: mqtt.publish
+  description: ''
+
+atoll_preamp_source_aux_ufo_r11:
+  alias: Atoll preamp source aux UFO-R11
+  sequence:
+  - data:
+      payload: '{"ir_code_to_send": "BZQN3ga6AUABAx4FugHgBQEC5AG64BIB4AUv4AkrAh4F5CADAboB4BMBBB4F5AG6oAEDHgW6AeATAeAHHwseBboBugG6AboBugE="} '
+      topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
+    action: mqtt.publish
+  description: ''
+atoll_preamp_source_aux_zs06:
+  alias: Atoll preamp source aux ZS06
+  sequence:
+  - data:
+      payload: '{"ir_code_to_send": "BZQN3ga6AUABAx4FugHgBQEC5AG64BIB4AUv4AkrAh4F5CADAboB4BMBBB4F5AG6oAEDHgW6AeATAeAHHwseBboBugG6AboBugE="} '
+      topic: zigbee2mqtt/0x70c59cfffef600c8/set
+    action: mqtt.publish
+  description: ''
+
+atoll_preamp_source_usb_ufo_r11:
+  alias: Atoll preamp source usb UFO-R11
+  sequence:
+  - data:
+      payload: '{"ir_code_to_send": "BaYN0Qa5AUABAx0FuQGAAQLjAbngDAHgBReAL+AFE+ADAUAfQAPgEQEB4wHAH8AHQAHgAwvAAeABE+ADMwLjAbmgAQH//+AHx+ABG+AFAeAJFwMdBbkB4AkBQCdAAwG5AUAfAR0FgAvgDwEDHQW5AUABwAdAAQEdBUAzQAPgAQGAE4ABAx0FuQFAAQsdBbkBuQG5AbkBuQE="} '
+      topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
+    action: mqtt.publish
+  description: ''
+atoll_preamp_source_usb_zs06:
+  alias: Atoll preamp source usb ZS06
+  sequence:
+  - data:
+      payload: '{"ir_code_to_send": "BaYN0Qa5AUABAx0FuQGAAQLjAbngDAHgBReAL+AFE+ADAUAfQAPgEQEB4wHAH8AHQAHgAwvAAeABE+ADMwLjAbmgAQH//+AHx+ABG+AFAeAJFwMdBbkB4AkBQCdAAwG5AUAfAR0FgAvgDwEDHQW5AUABwAdAAQEdBUAzQAPgAQGAE4ABAx0FuQFAAQsdBbkBuQG5AbkBuQE="} '
+      topic: zigbee2mqtt/0x70c59cfffef600c8/set
+    action: mqtt.publish
+  description: ''
+
+# ============================================================================
+# Streamer
+## Learn from streamer remote control
+streamer_turn_on_off_ufo_r11:
+  alias: Streamer Turn on-off UFO-R11
+  sequence:
+  - data:
+      payload: '{"ir_code_to_send": "BX0KdgO9AUADwAEFdgN2A70BQAGAB8AFA3YDvQHgBQGAEYAFA70B///gz0sB8wGA4wPzAf//4FvjA/MBvQGAccAFA3YDvQHgBQGAEYAFA70B///gW5dAAYBxwAUDdgO9AeABAeAHtwO9Af//4HuXQAGAqQd2A70BvQG9AQ=="} '
       topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
     action: mqtt.publish
   description: ''
 
-ms120_vol_plus:
-  alias: MS120 vol plus
+streamer_vol_plus_ufo_r11:
+  alias: Streamer vol plus UFO-R11
   sequence:
   - data:
       payload: '{"ir_code_to_send": "BWwKfQO/AUADgAEHMQUxBb8BvwGAEcAFBX0DvwG/AcAFA30DvwHgAQEB///gNkMCAb8B"} '
       topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
     action: mqtt.publish
   description: ''
-ms120_vol_less:
-  alias: MS120 vol less
+
+streamer_vol_less_ufo_r11:
+  alias: Streamer vol less UFO-R11
   sequence:
   - data:
       payload: '{"ir_code_to_send": "BV4KdgPCAUADwAEFdgN2A8IBQAGAB8AFBXYDwgHCAcAFA3YDwgGAAUAJAf//4DpHAgPCAQ=="} '
@@ -106,49 +241,53 @@ ms120_vol_less:
     action: mqtt.publish
   description: ''
 
-
-ms120_source_coax1:
-  alias: MS120 source coax1
+streamer_source_coax1_ufo_r11:
+  alias: Streamer source coax1 UFO-R11
   sequence:
   - data:
       payload: '{"ir_code_to_send": "BUsKewO+AUADgAEHOwU7Bb4BvgGAEcAFBXsDvgG+AYAF4AcBBXsD6wH//+AzRwnrAb4BvgF7A74B"} '
       topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
     action: mqtt.publish
   description: ''
-ms120_source_coax2:
-  alias: MS120 source coax2
+
+streamer_source_coax2_ufo_r11:
+  alias: Streamer source coax2 UFO-R11
   sequence:
   - data:
       payload: '{"ir_code_to_send": "BWAKeQPAAUADgAEHQQVBBcABwAGAEcAFQAEBwAGAAQV5A3kDwAGAAUAJAf//4DZDAgPAAQ=="} '
       topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
     action: mqtt.publish
   description: ''
-ms120_source_opt1:
-  alias: MS120 source opt1
+
+streamer_source_opt1_ufo_r11:
+  alias: Streamer source opt1 UFO-R11
   sequence:
   - data:
       payload: '{"ir_code_to_send": "BWMKeAO/AUADwAEJeAN4A78B6gG/AUAHAb8BwAVAAQO/Ab8BgAXAAYANAf//4A9HQAGAI8AFQAEDvwG/AYAFQGcJvwG/AXgDvwG/AQ=="} '
       topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
     action: mqtt.publish
   description: ''
-ms12_source_opt2:
-  alias: MS120 source opt2
+
+streamer_source_opt2_ufo_r11:
+  alias: Streamer source opt2 UFO-R11
   sequence:
   - data:
       payload: '{"ir_code_to_send": "BScKdgPCAUADgAEHOQU5BcIBwgGAEcAFDXYDwgHCAXYDdgPCAcIBgAVAAUAJAf//4DZDAgPCAQ=="} '
       topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
     action: mqtt.publish
   description: ''
-ms120_source_line1:
-  alias: MS120 source line1
+
+streamer_source_line1_ufo_r11:
+  alias: Streamer source line1 UFO-R11
   sequence:
   - data:
       payload: '{"ir_code_to_send": "BUIKdQPDAUADwAEFdQN1A8MBQAGAB8AFQAEFwwHDAXUDQAEBwwGAAQN1A///4DZDAgF1Aw=="} '
       topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
     action: mqtt.publish
   description: ''
-ms120_source_line2:
-  alias: MS120 source line2
+
+streamer_source_line2_ufo_r11:
+  alias: Streamer source line2 UFO-R11
   sequence:
   - data:
       payload: '{"ir_code_to_send": "BWAKegO/AUADgAEHRAVEBb8BvwGAEcAFgAEBvwHgBQEHegN6A78B///gNkMCA78B"} '
@@ -156,32 +295,35 @@ ms120_source_line2:
     action: mqtt.publish
   description: ''
 
-ms120_control_pause:
-  alias: MS120 control pause
+streamer_control_pause_ufo_r11:
+  alias: Streamer control pause UFO-R11
   sequence:
   - data:
       payload: '{"ir_code_to_send": "BWAKegO+AUADwAEFegN6A74BQAGABwN6A+kBQAUCegO+IAdAAQF6A0ABA74BvgGABQO+Af//4BtHB74BvgF6A3oDQE9AAQF6A0ABC74BvgF6A74BvgG+AQ=="} '
       topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
     action: mqtt.publish
   description: ''
-ms120_control_stop:
-  alias: MS120 control stop
+
+streamer_control_stop_ufo_r11:
+  alias: Streamer control stop UFO-R11
   sequence:
   - data:
       payload: '{"ir_code_to_send": "BYQKeAPAAUADgAEHMAUwBcABwAGAEcAFA3gDwAGAAYAJgAVAAQN4A///4DZDAgF4Aw=="} '
       topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
     action: mqtt.publish
   description: ''
-ms120_control_previous:
-  alias: MS120 control previous
+
+streamer_control_previous_ufo_r11:
+  alias: Streamer control previous UFO-R11
   sequence:
   - data:
       payload: '{"ir_code_to_send": "BVgKdwPAAUADgAEHPgU+BcABwAGAEcAFA3cDwAGAAQV3A3cDwAHgAQEDdwP//+A2QwIBdwM="} '
       topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
     action: mqtt.publish
   description: ''
-ms120_control_next:
-  alias: MS120 control next
+
+streamer_control_next_ufo_r11:
+  alias: Streamer control next UFO-R11
   sequence:
   - data:
       payload: '{"ir_code_to_send": "BVoKdAPBAUADgAEHOAU4BcEBwQGAEcAFA3QDwQGAAQV0A3QDwQHgBwEB///gOkcCAcEB"} '
@@ -189,56 +331,82 @@ ms120_control_next:
     action: mqtt.publish
   description: ''
 
-ms120_navigation_up:
-  alias: MS120 navigation up
+streamer_navigation_up_ufo_r11:
+  alias: Streamer navigation up UFO-R11
   sequence:
   - data:
       payload: '{"ir_code_to_send": "BX8KeAO/AUADwAEFeAN4A78BQAGAB8AFB3gDvwG/AXgDQAEDvwG/AYAFgAEB///gOkcCAb8B"} '
       topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
     action: mqtt.publish
   description: ''
-ms120_navigation_down:
-  alias: MS120 navigation down
+streamer_navigation_down_ufo_r11:
+  alias: Streamer navigation down UFO-R11
   sequence:
   - data:
       payload: '{"ir_code_to_send": "BW8KeAPBAUADgAEHNwU3BcEBwQGAEcAFB3gDwQHBAXgDQAEDwQHBAcAFAf//4DI/AgF4Aw=="} '
       topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
     action: mqtt.publish
   description: ''
-ms120_navigation_left:
-  alias: MS120 navigation left
+streamer_navigation_left_ufo_r11:
+  alias: Streamer navigation left UFO-R11
   sequence:
     - data:
         payload: '{"ir_code_to_send": "BUEKdwPBAUADgAEHNwU3BcEBwQGAEcAFB3cDwQHBAXcDQAEFwQHBAXcDQAEDwQH//+AyPwIDwQE="} '
         topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
       action: mqtt.publish
   description: ''
-ms120_navigation_right:
-  alias: MS120 navigation right
+streamer_navigation_right_ufo_r11:
+  alias: Streamer navigation right UFO-R11
   sequence:
     - data:
         payload: '{"ir_code_to_send": "BXMKeQPAAUADwAEFeQN5A8ABQAGAB8AFB3kDwAHAAXkDQAENwAHAAXkDeQPAAcAB///gNkMCAcAB"} '
         topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
       action: mqtt.publish
   description: ''
-ms120_navigation_ok:
-  alias: MS120 navigation ok
+streamer_navigation_ok_ufo_r11:
+  alias: Streamer navigation ok UFO-R11
   sequence:
     - data:
         payload: '{"ir_code_to_send": "BWoKewO/AUADwAEFewN7A78BQAGAB8AFB3sDvwG/AXsDQAEBvwGAAcAJAf//4DpHAgG/AQ=="} '
         topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
       action: mqtt.publish
   description: ''
-ms120_navigation_back:
-  alias: MS120 navigation back
+streamer_navigation_back_ufo_r11:
+  alias: Streamer navigation back UFO-R11
   sequence:
     - data:
         payload: '{"ir_code_to_send": "BW0KfQO+AUADgAEHOgU6Bb4BvgGAEcAFgAEBvgHgBQGAEQH//+A2QwIBvgE="} '
         topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
       action: mqtt.publish
   description: ''
-
-
+# ============================================================================
+# Atoll dac
+## Learn from streamer remote control
+atoll_dac_power_ufo_r11:
+  alias: Atoll dac power UFO-R11
+  sequence:
+  - data:
+      payload: '{"ir_code_to_send": "Bb0BHgW9AUABwAfAAQf//7AN1ga9AUAB4Acb4BcB4BcvwB/gDwfAAUAfQANAAUAH4AMDwAHgBxNAD+ADAQH//+C6xwIBvQE="} '
+      topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
+    action: mqtt.publish
+  description: ''
+atoll_dac_sel_less_ufo_r11:
+  alias: Atoll dac sel less UFO-R11
+  sequence:
+  - data:
+      payload: '{"ir_code_to_send": "BbINzwa6AUABAx8FugGAAQHkAYAD4BUBgC9AK+ALAQHkAYAfAboB4A8HwAEBHwXgASvAAQMfBboBwAEBHwWAHwUfBboBugHgAQuADwG6AUAHAf//4AvH4B0BQD/gEwHAH+APBwS6AeQBuiABQB8BHwWAC8ABBR8FugG6AYATQAsCHwXkIAMBugFAAQEfBYALBR8FugG6AYALAf//4AfHAuQBuuAMAeAJF4BH4AsBgCvAH+APB8ABQB9AA4AB4AU7QAFAG8ADQAGACwDkYAdAAUALAf//4AfHwAEC5AG64BYBBR8FugG6AUAnQAPgCQGAHwG6AeAJB+AFLwEfBYAD4AMBQBPAAUALwANAAcALQAdAAUAHAf//4A/HwAHgBXPgAwFAP+AFAeAFK4AfAeQBgAcGugEfBeQBuiABAx8FugHgAwFAD0ADAboBgB9AAYAPgAFAC8ADQAHACwsfBboBugG6AR8FugE="} '
+      topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
+    action: mqtt.publish
+  description: ''
+atoll_dac_sel_plus_ufo_r11:
+  alias: Atoll dac sel plus UFO-R11
+  sequence:
+  - data:
+      payload: '{"ir_code_to_send": "BbQN0Qa7AUABAx8FuwHgIQEB5QHgCS8C5QG74AIBwB/gAQeAHwMfBbsB4AMB4AcPQAHgAxPAC+ADB0ALQANAAUAHAf//4C/HAbsBQD/gEwHAH+APBwG7AeAH10APQAMBuwHAM0ABwAsBHwXgARsBHwWAA0ABQAsB///gE8eAN+APAUA/4BMBwB/gDQfgAVuAH0APQAOAAYATgAHAC+ADB0ALCx8FuwG7AbsBHwW7AQ=="} '
+      topic: zigbee2mqtt/0xfc4d6afffe2ea860/set
+    action: mqtt.publish
+  description: ''
+# ============================================================================
 # DENON AVR via UFO-R11
 avr_on_off:
   alias: avr on-off
@@ -282,7 +450,8 @@ avr_8k:
       action: mqtt.publish
   description: ''
 
-# Optoma via ufo
+# ============================================================================
+# Optoma via UFO-R11
 
 optoma_on:
   alias: optoma on
@@ -302,6 +471,7 @@ optoma_off:
   description: ''
 
 
+# ============================================================================
 # Daikin
 
 ## Issue here: full state of AC is sent.

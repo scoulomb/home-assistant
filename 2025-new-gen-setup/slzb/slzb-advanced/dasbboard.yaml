@@ -1,0 +1,530 @@
+title: SLZB Remote
+views:
+  - title: Bedroom
+    path: bedroom
+    icon: mdi:bed
+    cards:
+      - type: grid
+        title: Atoll Preamp
+        columns: 4
+        square: false
+        cards:
+          - type: button
+            name: Power
+            icon: mdi:power
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_turn_on_off_ufo_r11
+          - type: button
+            name: Mute
+            icon: mdi:volume-mute
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_mute_ufo_r11
+          - type: button
+            name: Display
+            icon: mdi:monitor
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_disp_ufo_r11
+          - type: button
+            name: USB
+            icon: mdi:usb
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_source_usb_ufo_r11
+          - type: button
+            name: Vol -
+            icon: mdi:volume-minus
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_vol_less_ufo_r11
+          - type: button
+            name: Vol +
+            icon: mdi:volume-plus
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_vol_plus_ufo_r11
+          - type: button
+            name: Sel -
+            icon: mdi:skip-previous
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_sel_less_ufo_r11
+          - type: button
+            name: Sel +
+            icon: mdi:skip-next
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_sel_plus_ufo_r11
+          - type: button
+            name: CD
+            icon: mdi:disc
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_source_cd_ufo_r11
+          - type: button
+            name: Tuner
+            icon: mdi:radio
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_source_tuner_ufo_r11
+          - type: button
+            name: Tape
+            icon: mdi:cassette
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_source_tape_ufo_r11
+          - type: button
+            name: AUX
+            icon: mdi:audio-input-stereo-minijack
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_source_aux_ufo_r11
+
+      - type: markdown
+        content: |
+          **PR300 input mapping** (remote label → actual source)
+          CD → MS120 streamer · Tuner → Heos Link streamer · Tape → Tape · AUX → AUX
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "### Streamer"
+
+          # Row 1: Power + Volume
+          - type: grid
+            columns: 3
+            square: false
+            cards:
+              - type: button
+                name: Power
+                icon: mdi:power
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_turn_on_off_ufo_r11
+              - type: button
+                name: Vol -
+                icon: mdi:volume-minus
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_vol_less_ufo_r11
+              - type: button
+                name: Vol +
+                icon: mdi:volume-plus
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_vol_plus_ufo_r11
+
+          # Row 2: Transport controls
+          - type: grid
+            columns: 4
+            square: false
+            cards:
+              - type: button
+                name: Prev
+                icon: mdi:skip-previous
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_control_previous_ufo_r11
+              - type: button
+                name: Pause
+                icon: mdi:pause
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_control_pause_ufo_r11
+              - type: button
+                name: Stop
+                icon: mdi:stop
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_control_stop_ufo_r11
+              - type: button
+                name: Next
+                icon: mdi:skip-next
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_control_next_ufo_r11
+
+          # D-pad: row with Back | Up | (empty)
+          - type: grid
+            columns: 3
+            square: true
+            cards:
+              - type: button
+                name: Back
+                icon: mdi:arrow-u-left-top
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_navigation_back_ufo_r11
+              - type: button
+                name: Up
+                icon: mdi:arrow-up-bold
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_navigation_up_ufo_r11
+              - type: button
+                name: ""
+                icon: ""
+                tap_action:
+                  action: none
+
+          # D-pad: Left | OK | Right
+          - type: grid
+            columns: 3
+            square: true
+            cards:
+              - type: button
+                name: Left
+                icon: mdi:arrow-left-bold
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_navigation_left_ufo_r11
+              - type: button
+                name: OK
+                icon: mdi:check-bold
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_navigation_ok_ufo_r11
+              - type: button
+                name: Right
+                icon: mdi:arrow-right-bold
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_navigation_right_ufo_r11
+
+          # D-pad: (empty) | Down | (empty)
+          - type: grid
+            columns: 3
+            square: true
+            cards:
+              - type: button
+                name: ""
+                icon: ""
+                tap_action:
+                  action: none
+              - type: button
+                name: Down
+                icon: mdi:arrow-down-bold
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_navigation_down_ufo_r11
+              - type: button
+                name: ""
+                icon: ""
+                tap_action:
+                  action: none
+
+          # Sources
+          - type: grid
+            columns: 3
+            square: false
+            cards:
+              - type: button
+                name: COAX1
+                icon: mdi:audio-input-rca
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_source_coax1_ufo_r11
+              - type: button
+                name: COAX2
+                icon: mdi:audio-input-rca
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_source_coax2_ufo_r11
+              - type: button
+                name: OPT1
+                icon: mdi:audio-video
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_source_opt1_ufo_r11
+              - type: button
+                name: OPT2
+                icon: mdi:audio-video
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_source_opt2_ufo_r11
+              - type: button
+                name: LINE1
+                icon: mdi:audio-input-stereo-minijack
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_source_line1_ufo_r11
+              - type: button
+                name: LINE2
+                icon: mdi:audio-input-stereo-minijack
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_source_line2_ufo_r11
+
+      - type: grid
+        title: Atoll DAC
+        columns: 3
+        square: false
+        cards:
+          - type: button
+            name: Power
+            icon: mdi:power
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_dac_power_ufo_r11
+          - type: button
+            name: Sel -
+            icon: mdi:skip-previous
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_dac_sel_less_ufo_r11
+          - type: button
+            name: Sel +
+            icon: mdi:skip-next
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_dac_sel_plus_ufo_r11
+
+      - type: grid
+        title: AVR + Optoma
+        columns: 4
+        square: false
+        cards:
+          - type: button
+            name: AVR Power
+            icon: mdi:power
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.avr_on_off
+          - type: button
+            name: AVR Vol -
+            icon: mdi:volume-minus
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.avr_vol_less
+          - type: button
+            name: AVR Vol +
+            icon: mdi:volume-plus
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.avr_vol_plus
+          - type: button
+            name: AVR Mute
+            icon: mdi:volume-mute
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.avr_mute
+          - type: button
+            name: AVR 8K
+            icon: mdi:video-4k-box
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.avr_8k
+          - type: button
+            name: Optoma On
+            icon: mdi:projector
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.optoma_on
+          - type: button
+            name: Optoma Off
+            icon: mdi:projector-off
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.optoma_off
+
+  - title: Living Room
+    path: living-room
+    icon: mdi:sofa
+    cards:
+      - type: grid
+        title: Atoll Preamp
+        columns: 4
+        square: false
+        cards:
+          - type: button
+            name: Power
+            icon: mdi:power
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_turn_on_off_zs06
+          - type: button
+            name: Mute
+            icon: mdi:volume-mute
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_mute_zs06
+          - type: button
+            name: Display
+            icon: mdi:monitor
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_disp_zs06
+          - type: button
+            name: USB
+            icon: mdi:usb
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_source_usb_zs06
+          - type: button
+            name: Vol -
+            icon: mdi:volume-minus
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_vol_less_zs06
+          - type: button
+            name: Vol +
+            icon: mdi:volume-plus
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_vol_plus_zs06
+          - type: button
+            name: Sel -
+            icon: mdi:skip-previous
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_sel_less_zs06
+          - type: button
+            name: Sel +
+            icon: mdi:skip-next
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_sel_plus_zs06
+          - type: button
+            name: CD
+            icon: mdi:disc
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_source_cd_zs06
+          - type: button
+            name: Tuner
+            icon: mdi:radio
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_source_tuner_zs06
+          - type: button
+            name: Tape
+            icon: mdi:cassette
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_source_tape_zs06
+          - type: button
+            name: AUX
+            icon: mdi:audio-input-stereo-minijack
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_source_aux_zs06
+
+      - type: markdown
+        content: |
+          **HD120 input mapping** (remote label → actual source)
+          CD → Line 1 (CD 6007) · Tuner → Line 2 · Tape → Optical (Heos Link) · AUX → Coaxial (MS120) · USB → USB
+
+# NOTE: CD / Tuner / Tape / AUX / USB are the physical labels on the Atoll remote.
+# Their actual mappings depend on the connected device:
+#   - HD120 (living room): CD → Line 1 (CD 6007), Tuner → Line 2, Tape → Optical (Heos Link streamer), AUX → Coaxial (MS120 streamer), USB → USB
+#   - PR300 (bedroom): CD → MS120 streamer, Tuner → Heos Link streamer, Tape → Tape, AUX → AUX 
+# No BT direct on global remote
+# I kept BT for bedroom preamp (UFO-R11) for consistency with living-room remote (ZS06), even though it's not used in practice.
