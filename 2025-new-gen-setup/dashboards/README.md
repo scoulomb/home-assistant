@@ -5,7 +5,7 @@
         - adjust pr3000 volume 
         - # To play Atoll MS120 (connected to HEOS Amp via Optical In 1) on a HEOS group... OK can document wiring
 
-- Other dashbaord?
+- Other GLOBAL dream dashbaord?
 
 ````
 Create a polished Home Assistant dashboard to control lights, smart plugs, shutters, and Sunilus — organized per room with individual entity granularity, plus global controls for all-at-once actions. This should be a dream dashboard (clean, intuitive, visually appealing).
