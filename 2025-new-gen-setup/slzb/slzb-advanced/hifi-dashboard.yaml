@@ -771,6 +771,79 @@ views:
       - type: media-control # This not HEOS integration but AVR integration, but it's convenient to have it here for plug off
         entity: media_player.denon_avr_x2700h_3
 
+      - type: vertical-stack
+        cards:
+          - type: heading
+            heading_style: title
+            heading: HEOS Grouping
+          - type: grid
+            columns: 1
+            square: false
+            cards:
+              - type: button
+                name: Group Bathroom+Bedroom+Dressing
+                icon: mdi:numeric-3-circle
+                tap_action:
+                  action: call-service
+                  service: media_player.join
+                  target:
+                    entity_id: media_player.denon_home_dressing
+                  data:
+                    group_members:
+                      - media_player.denon_home_bathroom
+                      - media_player.denon_home_bedroom
+              - type: button
+                name: Group Link+Bathroom+Bedroom+Dressing
+                icon: mdi:numeric-4-circle
+                tap_action:
+                  action: call-service
+                  service: media_player.join
+                  target:
+                    entity_id: media_player.denon_home_dressing
+                  data:
+                    group_members:
+                      - media_player.heos_link
+                      - media_player.denon_home_bathroom
+                      - media_player.denon_home_bedroom
+              - type: button
+                name: Group AVR+Link+Bathroom+Bedroom+Dressing
+                icon: mdi:numeric-5-circle
+                tap_action:
+                  action: call-service
+                  service: media_player.join
+                  target:
+                    entity_id: media_player.denon_home_dressing
+                  data:
+                    group_members:
+                      - media_player.denon_avr_x2700h
+                      - media_player.heos_link
+                      - media_player.denon_home_bathroom
+                      - media_player.denon_home_bedroom
+              - type: button
+                name: Ungroup All
+                icon: mdi:speaker-off
+                tap_action:
+                  action: call-service
+                  service: media_player.unjoin
+                  target:
+                    entity_id:
+                      - media_player.denon_home_bathroom
+                      - media_player.denon_home_bedroom
+                      - media_player.denon_home_dressing
+                      - media_player.heos_link
+                      - media_player.heos_amp
+                      - media_player.denon_avr_x2700h
+    # To play Atoll MS120 (connected to HEOS Amp via Optical In 1) on a HEOS group:
+    #   1. Ungroup all
+    #   2. Group desired speakers (with Dressing as leader)
+    #   3. Select source "HEOS Amp - Optical In" on the leader (done via the button above)
+    # Note: Could insert DAC 100 between MS120 and HEOS Amp, but that would prevent
+    #       reading HEOS Link plugged into DAC 100 from PR300.
+    # See https://github.com/scoulomb/home-audio-system (wiring docs WIP)
+    # In HEOS CLI API this translates to:
+    #   heos://browse/play_input?pid=<leader_pid>&spid=-727243330&input=inputs/optical_in_1
+    # For 3, In HA HEOS integration: media_player.select_source with source="HEOS Amp - Optical In" but could not MAKE IT work
+
   - title: Other Renderers
     path: other-renderers
     icon: mdi:dlna
