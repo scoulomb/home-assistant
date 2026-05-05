@@ -818,6 +818,78 @@ views:
           data:
             brightness_pct: 10
 
+  - title: App Shortcuts
+    path: app-shortcuts
+    icon: mdi:link-variant
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: heading
+            heading_style: title
+            heading: Music Services
+          - type: grid
+            columns: 3
+            square: false
+            cards:
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: url
+                  url_path: https://play.qobuz.com
+                icon: mdi:music-box
+                name: Qobuz
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: url
+                  url_path: https://music.apple.com
+                icon: mdi:apple
+                name: Apple Music
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: url
+                  url_path: https://open.spotify.com
+                icon: mdi:spotify
+                name: Spotify
+
+      - type: vertical-stack
+        cards:
+          - type: heading
+            heading_style: title
+            heading: Device Apps
+          - type: grid
+            columns: 3
+            square: false
+            cards:
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: url
+                  url_path: https://apps.apple.com/fr/app/heos/id843129434
+                icon: mdi:speaker-wireless
+                name: HEOS
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: url
+                  url_path: http://192.168.8.140/webclient
+                icon: mdi:web
+                name: Atoll MS120
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: url
+                  url_path: http://homeassistant.local:8123
+                icon: mdi:home-assistant
+                name: Home Assistant
+
 
 # NOTE: CD / Tuner / Tape / AUX / USB are the physical labels on the Atoll remote.
 # Their actual mappings depend on the connected device:
