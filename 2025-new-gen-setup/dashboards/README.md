@@ -26,3 +26,15 @@ To know which entities to integrate, here is a raw dashboard export (auto-genera
 Improvements:
 - Scenes
 - AC controlling
+
+<!-- move from http to ssh 
+
+git remote rm origin 
+git remote add origin git@github.com:scoulomb/home-assistant.git
+git push --set-upstream origin main
+
+
+[See also](../../../ACS-sre-manager/learn/git/README.md#note--why-gitgithubcom-may-still-work-by-accident) and 
+[and commit identity is gmail](../../../ACS-sre-manager/learn/git/README.md#5-set-git-identity-per-repo)
+
+-->
