@@ -24,8 +24,10 @@ To know which entities to integrate, here is a raw dashboard export (auto-genera
 ````
 
 Improvements:
-- Scenes
-- AC controlling
+- Refactor dashboard files structure
+- Document when to use: scripts vs automations vs scenes (Tahoma scenes vs HA scenes) vs blueprints vs direct dashboard actions (see HEOS group with inline dashboard action). Reference `configuration.yaml` and http://homeassistant.local:8123/config/script/dashboard
+- Add global scenes: "Leave Home", "Go to Bed", "Start Qobuz Music"
+- Add AC / climate control
 
 <!-- move from http to ssh 
 
