@@ -96,6 +96,7 @@ Voir [note on book](#note-on-books)
 Emplacement : `/Volumes/home/scoulomb-data/DATA/Books`
 
 - **`_Manning-multi-topic`** — Tous les livres Manning.
+  - LLM (jupyter:LLMs-from-scratch-main) also here: https://github.com/scoulomb/LLMs-from-scratch-main/tree/main
 - **`MAO`** — Livre MAO, aussi disponible sur [MAO repo](https://github.com/scoulomb/MAO/blob/main/PersoMAOAppleNotesExtract/Attachments/A2566FF2-82F6-409C-8EF4-94EE92171F0E.pdf).
 - **`network-books-from-private-books-git-main`** — Livres réseau, aussi sur [private-books](https://github.com/scoulomb/private-books).
 - **`Notices`** — Notices produits (sauf HIFI). Les notices HIFI sont sur [home-audio-system/Misc-manuals](https://github.com/scoulomb/home-audio-system/blob/main/Misc-manuals). Focusrite aussi sur le [MAO repo](https://github.com/scoulomb/MAO/blob/main/PersoMAOAppleNotesExtract/Attachments/A2566FF2-82F6-409C-8EF4-94EE92171F0E.pdf).
