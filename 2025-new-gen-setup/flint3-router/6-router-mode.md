@@ -22,13 +22,13 @@ These determine **your internet source**:
 - Useful when ethernet cable isn't available
 
 ### Tethering
-- Router gets internet from USB-connected smartphone (like Simpoyo)
+- Router gets internet from USB-connected smartphone (sounds like Simpoyo)
 - Uses your phone's mobile data connection
 - Good for temporary internet or travel situations
 
 ### vCellular
 - Router uses virtual cellular connection
-- Requires USB modem or built-in cellular module
+- Requires USB modem or built-in cellular module (Simpoyo)
 - Provides LTE/mobile data connectivity
 
 As described in [section 5](5-other-test-on-vpn-with-slate-7.md#note-on-repeater-and-other-options)
